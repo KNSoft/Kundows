@@ -1,0 +1,3 @@
+[submodule "ReactOS"]
+	path = Upstream/ReactOS/Source
+	url = https://github.com/reactos/reactos.git
