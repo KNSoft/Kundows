@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assembly Files">
+      <UniqueIdentifier>{F19B0DC8-49E1-53CA-84F3-2F4C4779D97C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{57DB3F37-2234-5E59-BC21-CEA51268357F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generation Inputs">
+      <UniqueIdentifier>{A3FD22B0-63F2-5734-B52B-7E71E192A7A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{AE33DCA0-20A4-582B-B66F-88667B942007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Migration">
+      <UniqueIdentifier>{FED96976-3318-5367-9581-774D2125A488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{A18860F6-2C81-5CE1-932C-EB3DA2CDB299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{14439483-426D-5AD4-BE9A-08A084F6A878}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\ntdll_stubs.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\dll\ntdll\dbg\dbgui.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\dll\ntdll\dispatch\dispatch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\dll\ntdll\ldr\ldrapi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\dll\ntdll\ldr\ldrinit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\dll\ntdll\ldr\ldrpe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\dll\ntdll\ldr\ldrutils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\dll\ntdll\ldr\verifier.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\Source\dll\ntdll\include\ntdll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\asm\dispatch_ntdll_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\asm\msys2_ntdll_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\ntdll.def">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\..\..\Source\dll\ntdll\CMakeLists.txt">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="..\..\..\Source\dll\ntdll\compat\amd64\msys2.S">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\Source\dll\ntdll\def\ntdll.spec">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="..\..\..\Source\dll\ntdll\dispatch\amd64\dispatch.S">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\Source\dll\ntdll\dispatch\i386\dispatch.S">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="Ntdll.Migration.json">
+      <Filter>Migration</Filter>
+    </None>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Rtl_Um\libsupp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Rtl_Um\uilist.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Rtl_Um\version.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <ResourceCompile Include="..\..\..\Source\dll\ntdll\def\ntdll.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

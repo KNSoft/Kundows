@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{3BB316C2-AC8C-53C5-85E4-613B14259B12}</ProjectGuid>
+    <ProjectName>acpica</ProjectName>
+    <RootNamespace>Acpica</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" Condition="'$(Platform)'!='ARM64'" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\marmasm.props" Condition="'$(Platform)'=='ARM64'" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\ReactOS.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>acpica</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <CreateHotpatchableImage>true</CreateHotpatchableImage>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>acpica</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <CreateHotpatchableImage>true</CreateHotpatchableImage>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>acpica</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;WIN64;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;WIN64;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;WIN64;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>acpica</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;WIN64;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;WIN64;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;WIN64;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <TargetName>acpica</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MARMASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(IncludePaths)</IncludePaths>
+      <ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName>
+    </MARMASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:ARM64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <TargetName>acpica</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MARMASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);ACPI_USE_LOCAL_CACHE;ACPI_USE_SYSTEM_INTTYPES;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(IncludePaths)</IncludePaths>
+      <ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName>
+    </MARMASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\include;$(ProjectDir)..\..\..\..\Source\drivers\bus\acpi\acpica\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:ARM64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dsargs.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dscontrol.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dsdebug.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dsfield.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dsinit.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dsmethod.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dsmthdat.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dsobject.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dsopcode.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dspkginit.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dsutils.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dswexec.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dswload.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dswload2.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dswscope.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\dispatcher\dswstate.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evevent.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evglock.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evgpe.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evgpeblk.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evgpeinit.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evgpeutil.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evhandler.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evmisc.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evregion.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evrgnini.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evsci.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evxface.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evxfevnt.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evxfgpe.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\events\evxfregn.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exconcat.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exconfig.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exconvrt.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\excreate.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exdebug.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exfield.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exfldio.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exmisc.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exmutex.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exnames.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exoparg1.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exoparg2.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exoparg3.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exoparg6.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exprep.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exregion.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exresnte.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exresolv.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exresop.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exserial.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exstore.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exstoren.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exstorob.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exsystem.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\extrace.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\executer\exutils.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwacpi.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwesleep.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwgpe.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwpci.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwregs.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwsleep.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwtimer.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwvalid.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwxface.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\hardware\hwxfsleep.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsaccess.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsalloc.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsarguments.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsconvert.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nseval.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsinit.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsload.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsnames.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsobject.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsparse.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nspredef.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsprepkg.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsrepair.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsrepair2.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nssearch.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsutils.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nswalk.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsxfeval.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsxfname.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\namespace\nsxfobj.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\psargs.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\psloop.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\psobject.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\psopcode.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\psopinfo.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\psparse.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\psscope.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\pstree.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\psutils.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\pswalk.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\parser\psxface.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rsaddr.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rscalc.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rscreate.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rsinfo.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rsio.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rsirq.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rslist.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rsmemory.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rsmisc.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rsserial.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rsutils.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\resources\rsxface.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\tables\tbdata.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\tables\tbfadt.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\tables\tbfind.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\tables\tbinstal.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\tables\tbprint.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\tables\tbutils.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\tables\tbxface.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\tables\tbxfload.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\tables\tbxfroot.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utaddress.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utalloc.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utascii.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utbuffer.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utcache.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utcksum.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utcopy.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utdecode.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utdelete.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\uterror.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\uteval.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utexcep.c">
+      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utglobal.c">
+      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\uthex.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utids.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utinit.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utlock.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utmath.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utmisc.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utmutex.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utnonansi.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utobject.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utosi.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utownerid.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utpredef.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utresrc.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utstate.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utstring.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utstrsuppt.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utstrtoul64.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\uttrack.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utxface.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utxferror.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utxfinit.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\bus\acpi\acpica\utilities\utxfmutex.c">
+      <ForcedIncludeFiles>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).c.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClInclude Include="..\..\..\..\Source\drivers\bus\acpi\acpica\include\acpi.h" />
+    <None Include="..\..\..\..\Source\drivers\bus\acpi\CMakeLists.txt" />
+    <None Include="Acpica.Migration.json" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\marmasm.targets" Condition="'$(Platform)'=='ARM64'" />
+  </ImportGroup>
+</Project>

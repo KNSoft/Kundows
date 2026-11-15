@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{57DB3F37-2234-5E59-BC21-CEA51268357F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generation Inputs">
+      <UniqueIdentifier>{A3FD22B0-63F2-5734-B52B-7E71E192A7A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Migration">
+      <UniqueIdentifier>{FED96976-3318-5367-9581-774D2125A488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{A18860F6-2C81-5CE1-932C-EB3DA2CDB299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{14439483-426D-5AD4-BE9A-08A084F6A878}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Source\dll\keyboard\kbdth0\kbdth0.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\keyboard\kbdth0.def">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\..\..\Source\dll\keyboard\CMakeLists.txt">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="..\..\..\Source\dll\keyboard\kbdth0\kbdth0.spec">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="Kbdth0.Migration.json">
+      <Filter>Migration</Filter>
+    </None>
+    <ResourceCompile Include="..\..\..\Source\dll\keyboard\kbdth0\kbdth0.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

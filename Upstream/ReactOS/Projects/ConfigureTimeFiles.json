@@ -1,0 +1,226 @@
+{
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Status": "NotMigrated",
+  "Configurations": {
+    "Debug|Win32": [
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/version.h.cmake"
+        },
+        "Output": "sdk/include/reactos/version.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/buildno.h.cmake"
+        },
+        "Output": "sdk/include/reactos/buildno.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/pc98bvid.rc",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/xboxbvid.rc",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/bootvid.rc",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/lfbbvid.rc",
+        "Options": []
+      }
+    ],
+    "Release|Win32": [
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/version.h.cmake"
+        },
+        "Output": "sdk/include/reactos/version.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/buildno.h.cmake"
+        },
+        "Output": "sdk/include/reactos/buildno.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/pc98bvid.rc",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/xboxbvid.rc",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/bootvid.rc",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/lfbbvid.rc",
+        "Options": []
+      }
+    ],
+    "Debug|x64": [
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/version.h.cmake"
+        },
+        "Output": "sdk/include/reactos/version.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/buildno.h.cmake"
+        },
+        "Output": "sdk/include/reactos/buildno.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/bootvid.rc",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/lfbbvid.rc",
+        "Options": []
+      }
+    ],
+    "Release|x64": [
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/version.h.cmake"
+        },
+        "Output": "sdk/include/reactos/version.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/buildno.h.cmake"
+        },
+        "Output": "sdk/include/reactos/buildno.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/bootvid.rc",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/lfbbvid.rc",
+        "Options": []
+      }
+    ],
+    "Debug|ARM64": [
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/version.h.cmake"
+        },
+        "Output": "sdk/include/reactos/version.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/buildno.h.cmake"
+        },
+        "Output": "sdk/include/reactos/buildno.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/lfbbvid.rc",
+        "Options": []
+      }
+    ],
+    "Release|ARM64": [
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/version.h.cmake"
+        },
+        "Output": "sdk/include/reactos/version.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "sdk/include/reactos/buildno.h.cmake"
+        },
+        "Output": "sdk/include/reactos/buildno.h",
+        "Options": []
+      },
+      {
+        "Input": {
+          "Kind": "Source",
+          "Path": "drivers/base/bootvid/bootvid.rc"
+        },
+        "Output": "drivers/base/bootvid/lfbbvid.rc",
+        "Options": []
+      }
+    ]
+  }
+}

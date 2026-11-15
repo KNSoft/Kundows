@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assembly Files">
+      <UniqueIdentifier>{F19B0DC8-49E1-53CA-84F3-2F4C4779D97C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{57DB3F37-2234-5E59-BC21-CEA51268357F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generation Inputs">
+      <UniqueIdentifier>{A3FD22B0-63F2-5734-B52B-7E71E192A7A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Migration">
+      <UniqueIdentifier>{FED96976-3318-5367-9581-774D2125A488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{14439483-426D-5AD4-BE9A-08A084F6A878}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\__acrt_initialize_stub.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\__report_gsfailure.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\__report_rangecheckfailure.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\__scrt_uninitialize_crt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\__security_init_cookie.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\__vcrt_init_stubs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\_fltused.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\_onexit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\atexit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\initializers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\isa_available.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\mainCRTStartup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\tlssup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\wmainCRTStartup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vcstartup\asm\__security_check_cookie_vcstartup_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <None Include="..\..\..\..\Source\sdk\lib\vcstartup\CMakeLists.txt">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\vcstartup\amd64\__security_check_cookie.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\vcstartup\i386\__security_check_cookie.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="Vcstartup.Migration.json">
+      <Filter>Migration</Filter>
+    </None>
+  </ItemGroup>
+</Project>

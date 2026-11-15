@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generation Inputs">
+      <UniqueIdentifier>{A3FD22B0-63F2-5734-B52B-7E71E192A7A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Migration">
+      <UniqueIdentifier>{FED96976-3318-5367-9581-774D2125A488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{14439483-426D-5AD4-BE9A-08A084F6A878}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\http\altcp_proxyconnect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\http\fs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\http\http_client.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\http\httpd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\lwiperf\lwiperf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\mdns\mdns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\mdns\mdns_domain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\mdns\mdns_out.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\mqtt\mqtt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\netbiosns\netbiosns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\smtp\smtp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_core.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_mib2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_mib2_icmp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_mib2_interfaces.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_mib2_ip.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_mib2_snmp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_mib2_system.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_mib2_tcp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_mib2_udp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_msg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_netconn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_pbuf_stream.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_raw.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_scalar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_snmpv2_framework.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_snmpv2_usm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_table.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_threadsync.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmp_traps.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\snmp\snmpv3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\sntp\sntp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\drivers\network\tcpip\lwip\src\apps\tftp\tftp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <None Include="..\..\..\..\Source\drivers\network\tcpip\CMakeLists.txt">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="Lwipallapps.Migration.json">
+      <Filter>Migration</Filter>
+    </None>
+  </ItemGroup>
+</Project>

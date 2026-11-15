@@ -1,0 +1,1432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{57DB3F37-2234-5E59-BC21-CEA51268357F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generation Inputs">
+      <UniqueIdentifier>{A3FD22B0-63F2-5734-B52B-7E71E192A7A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Migration">
+      <UniqueIdentifier>{FED96976-3318-5367-9581-774D2125A488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{14439483-426D-5AD4-BE9A-08A084F6A878}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase\ucrtbase_stubs.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\ucrtbase\printf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\ucrtbase\stubs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase\ucrtbase.def">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\ucrtbase\CMakeLists.txt">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\ucrtbase\ucrtbase.spec">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="Ucrtbase.Migration.json">
+      <Filter>Migration</Filter>
+    </None>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\CompareStringA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\CompareStringW.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\CreateProcessA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\GetLocaleInfoA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\GetModuleFileNameA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\GetStringTypeA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\GetStringTypeW.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\LCMapStringA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\LCMapStringW.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\LoadLibraryExA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\MultiByteToWideChar.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\OutputDebugStringA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\SetCurrentDirectoryA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\SetEnvironmentVariableA.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\WideCharToMultiByte.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_ctype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_filbuf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_file.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_flsbuf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_fptostr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_freebuf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_getbuf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_mbslen.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_memicmp_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_sftbuf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_strerr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_strnicm_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_wctype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\abort.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\abs.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\access.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\align.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\appcrt_dllmain.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\argv_data.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\argv_parsing.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\argv_wildcards.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\argv_winmain.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\asctime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\assert.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\atof.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\atoldbl.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\atox.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\bsearch.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\bsearch_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\byteswap.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\c16rtomb.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\c32rtomb.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\calloc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\calloc_base.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cenvarg.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cfout.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cgets.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cgetws.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\chdir.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\chmod.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\chsize.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\clearerr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\clock.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\clock_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\close.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\closeall.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\commit.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\common_utf8.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\console_input_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\console_output_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cprintf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cputs.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cputws.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\creat.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\crtmbox.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cscanf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ctime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ctype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cvt.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\days.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\difftime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\div.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\drive.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\drivemap.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\drivfree.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\dup.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\dup2.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\empty.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\environment_initialization.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\eof.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\errno.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\exception_filter.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\exit.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\expand.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fclose.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fcvt.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fdopen.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\feoferr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fflush.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fgetc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fgetpos.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fgets.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fgetwc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\filelength.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fileno.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\findfile.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fma3_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fmode_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fopen.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fp_flags.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fputc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fputs.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fputwc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fputws.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fread.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\free.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\free_base.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\freopen.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fseek.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fsetpos.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ftell.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ftime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fullpath.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fwrite.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\gcvt.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\get_environment_from_os.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\get_qualified_locale.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getch.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getcwd.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getenv.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getpath.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getpid.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getproc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getqloc_downlevel.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\gets.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\gettemppath.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getw.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getwch.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\glstatus.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\gmtime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\heap_handle.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\heapchk.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\heapmin.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\heapwalk.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\imaxabs.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\imaxdiv.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initcon.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initconin.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initctype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initialization.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initmon.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initnum.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initterm.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\inittime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\input.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\invalid_parameter.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ioinit.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\is_wctype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\isatty.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\isctype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbalnm.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbalph.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbbyte.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbdgt.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbgrph.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbknj.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismblgl.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismblwr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbprn.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbpunc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbsle.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbspc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbstr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbupr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\iswctype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\labs.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lcidtoname_downlevel.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lconv_unsigned_char_initialization.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ldiv.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lfind.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lfind_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\llabs.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lldiv.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\loaddll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locale_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locale_refcounting.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locale_update.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\localeconv.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\localtime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locking.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locks.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\loctotime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lsearch.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lsearch_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lseek.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\makepath.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\malloc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\malloc_base.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\matherr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbbtype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbccpy.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbccpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbccpy_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbclen.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbclevel.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbctype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mblen.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbrtoc16.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbrtoc32.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbrtowc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsbtype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscat_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscat_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbschr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscoll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscpy_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscspn.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsdec.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsicmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsicoll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsinc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbslen.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbslen_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbslwr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcat.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcat_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcat_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcnt.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcol.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcpy.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcpy_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbicm.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbico.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbset.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbset_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbset_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncat.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncat_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncat_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnccnt.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncoll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncpy.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncpy_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnextc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnicmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnicol.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsninc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnset.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnset_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnset_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbspbrk.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsrchr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsrev.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsset.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsset_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsset_s_l.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsspn.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsspnp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsstr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbstok.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbstok_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbstowcs.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsupr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtohira.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtokata.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtolwr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtoupr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtowc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\memccpy.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\memccpy_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\memcpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\memicmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mkdir.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mktemp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mktime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\msize.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\multibyte_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ncommode.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\new_handler.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\new_mode.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\nlsdata.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\onexit.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\open.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\openfile.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\osfinfo.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\output.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\peb_access.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\per_thread_data.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\perror.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\pipe.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\popen.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\printf_count_output.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putch.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putenv.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\puts.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putw.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putwch.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putws.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\qsort.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\qsort_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rand.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rand_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\read.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\realloc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\realloc_base.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\recalloc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rename.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\report_runtime_error.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\resetstk.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rewind.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rmdir.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rmtmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rotl.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rotr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\searchenv.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\set_error_mode.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setbuf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setenv.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\seterrm.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setlocale.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setmaxf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setmode.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setvbuf.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\shared_initialization.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\signal.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\slbeep.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\spawnl.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\spawnlp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\spawnv.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\spawnvp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\splitpath.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\sse2_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stat.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stdio_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcat.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcat_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcat_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcmp_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcoll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcspn.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcspn_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strdate.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strdup.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stream.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strerror.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strftime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stricmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stricoll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strlen_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strlwr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncat.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncat_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncat_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncmp_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncnt.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncoll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncpy.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncpy_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnicmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnicol.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnlen.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnset.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnset_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnset_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strpbrk.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strpbrk_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strrev.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strrev_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strset.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strset_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strset_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strspn.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strspn_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtod.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtok.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtok_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtox.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strupr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strxfrm.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\swab.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\syserr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\system.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\systime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tell.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\telli64.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tempnam.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\terminate.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\thread.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\time.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\timeset.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\timeset_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tmpfile.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tmpfile_initializer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tojisjms.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tolower_toupper.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tombbmbc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\towlower.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\towupper.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\txtmode.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tzset.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\umask.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ungetc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ungetwc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\unlink.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\utime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\waccess.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wait.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wchmod.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcrtomb.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscat.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscat_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscoll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscpy.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscspn.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsdup.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsftime.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsicmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsicoll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcslen_UCRT_STRING_ASM.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcslwr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncat.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncat_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncnt.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncoll.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncpy.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsnicmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsnicol.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsnset.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsnset_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcspbrk.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsrev.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsset.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsset_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsspn.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcstok.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcstok_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcstombs.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsupr.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsxfrm.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wctomb.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wctrans.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wctype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\win_policies.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\winapi_thunks.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wmemcpy_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wmemmove_s.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wmkdir.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wperror.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wrename.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\write.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wrmdir.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wsetlocale.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wunlink.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\xtoa.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+  </ItemGroup>
+</Project>

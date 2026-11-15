@@ -1,0 +1,3224 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Migration/">
+    <File Path="Upstream/ReactOS/Projects/Migration.json" />
+    <File Path="Upstream/ReactOS/Projects/Infrastructure.json" />
+    <File Path="Upstream/ReactOS/Projects/ConfigureTimeFiles.json" />
+    <File Path="Upstream/ReactOS/Projects/SettingsReview.json" />
+    <File Path="Upstream/ReactOS/Projects/BuildProjects.json" />
+    <File Path="Upstream/ReactOS/Projects/ReactOS.props" />
+  </Folder>
+  <Folder Name="/Prepare/">
+    <Project Path="Upstream/ReactOS/Projects/Prepare/ReactOSPrepare.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/" />
+  <Folder Name="/ReactOS/Base/" />
+  <Folder Name="/ReactOS/Base/Applications/" />
+  <Folder Name="/ReactOS/Base/Applications/Screensavers/" />
+  <Folder Name="/ReactOS/Base/Applications/Screensavers/3dtext/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Screensavers/3dtext/3dtext.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/" />
+  <Folder Name="/ReactOS/Drivers/Wdm/" />
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/" />
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Drivers/" />
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Drivers/Ac97/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Drivers/Ac97/Ac97.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/" />
+  <Folder Name="/ReactOS/Dll/Cpl/" />
+  <Folder Name="/ReactOS/Dll/Cpl/Access/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Access/Access.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Appcompat/" />
+  <Folder Name="/ReactOS/Dll/Appcompat/Shims/" />
+  <Folder Name="/ReactOS/Dll/Appcompat/Shims/Genral/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Appcompat/Shims/Genral/Acgenral.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Appcompat/Shims/Layer/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Appcompat/Shims/Layer/Aclayers.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/" />
+  <Folder Name="/ReactOS/Dll/Win32/Acledit/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Acledit/Acledit.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Aclui/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Aclui/Aclui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Bus/" />
+  <Folder Name="/ReactOS/Drivers/Bus/Acpi/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Bus/Acpi/Acpi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Bus/Acpi/Acpica.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/" />
+  <Folder Name="/ReactOS/Dll/Shellext/Acppage/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Acppage/Acppage.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Acppage/Libacppage.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Activeds/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Activeds/Activeds.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Activeds/Libactiveds.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Activeds.tlb/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Activeds.tlb/Activeds.tlb.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Actxprxy/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Actxprxy/Actxprxy.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/" />
+  <Folder Name="/ReactOS/Sdk/Lib/" />
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/" />
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Adns/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Adns/Adns.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Include/" />
+  <Folder Name="/ReactOS/Sdk/Include/Psdk/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Include/Psdk/Adsiid.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Include/Psdk/Mmc_Uuids.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Include/Psdk/Wuguid.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Include/Psdk/Xml_Uuids.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Advapi32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advapi32/Advapi32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advapi32/Libadvapi32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advapi32/Win32_Registry.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Advapi32_Vista/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advapi32_Vista/Advapi32_Vista.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advapi32_Vista/Libadvapi32_Vista.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Advpack/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advpack/Advpack.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advpack/Libadvpack.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/" />
+  <Folder Name="/ReactOS/Drivers/Network/Afd/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Afd/Afd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/" />
+  <Folder Name="/ReactOS/Dll/Directx/Wine/" />
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Amstream/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Amstream/Amstream.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Ansi_Sync_Hacks/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Ansi_Sync_Hacks/Ansi_Sync_Hacks.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Apisets/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Apisets/Apisets.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Appcompat/Apphelp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Appcompat/Apphelp/Apphelp.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Appcompat/Apphelp/Libapphelp.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Appcompat/Apphelp/Sdbread_Km.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Appwiz/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Appwiz/Appwiz.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/" />
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Arbiter/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Arbiter/Arbiter.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Arbiter/Arbiter_Hal.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/" />
+  <Folder Name="/ReactOS/Base/Applications/Network/Arp/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Arp/Arp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/" />
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/At/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/At/At.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Atactl/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Atactl/Atactl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Crt/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Atan2.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Chkstk.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Crtmath.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Dbgrpt.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Ftol2.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Getopt.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Libcntpr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Memcmp.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Msvcrtex.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Oldnames.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/Strtol.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crt/User32_Wsprintf.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/" />
+  <Folder Name="/ReactOS/Drivers/Storage/Ide/" />
+  <Folder Name="/ReactOS/Drivers/Storage/Ide/Atapi/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Ide/Atapi/Atapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Atl/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Atl/Atl.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Atl/Libatl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Atl100/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Atl100/Atl100.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Atl100/Libatl100.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Atl80/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Atl80/Atl80.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Atl80/Libatl80.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Attrib/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Attrib/Attrib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Sound/" />
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Sound/Shared/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Sound/Shared/Audio.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Backpln/" />
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Backpln/Audio_Test/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Backpln/Audio_Test/Audio_Test.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/" />
+  <Folder Name="/ReactOS/Base/Services/Audiosrv/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Audiosrv/Audiosrv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Authz/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Authz/Authz.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/" />
+  <Folder Name="/ReactOS/Base/System/Autochk/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Autochk/Autochk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Aux_Klib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Aux_Klib/Aux_Klib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Avicap32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Avicap32/Avicap32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Avicap32/Libavicap32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Avifil32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Avifil32/Avifil32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Avifil32/Libavifil32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Subsystems/" />
+  <Folder Name="/ReactOS/Subsystems/Win/" />
+  <Folder Name="/ReactOS/Subsystems/Win/Basesrv/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Win/Basesrv/Basesrv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Win/Basesrv/Libbasesrv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Batt/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Batt/Batt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Battery/" />
+  <Folder Name="/ReactOS/Drivers/Battery/Battc/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Battery/Battc/Battc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Battery/Battc/Libbattc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Bcrypt/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Bcrypt/Bcrypt.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Bcrypt/Libbcrypt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Multimedia/" />
+  <Folder Name="/ReactOS/Drivers/Multimedia/Bdasup/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Multimedia/Bdasup/Bdasup.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Multimedia/Bdasup/Libbdasup.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Base/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Kdcom.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Libkdcom.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Base/Beep/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Beep/Beep.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Beepmidi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Beepmidi/Beepmidi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Cmlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Cmlib/Blcmlib.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Cmlib/Cmlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Boot/" />
+  <Folder Name="/ReactOS/Boot/Rtl/">
+    <Project Path="Upstream/ReactOS/Projects/Boot/Rtl/Blrtl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Setup/" />
+  <Folder Name="/ReactOS/Drivers/Setup/Blue/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Setup/Blue/Blue.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Bluetoothapis/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Bluetoothapis/Bluetoothapis.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Bluetoothapis/Libbluetoothapis.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Libwin32k.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Win32k.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Win32ksys.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/" />
+  <Folder Name="/ReactOS/Win32ss/Drivers/Font/" />
+  <Folder Name="/ReactOS/Win32ss/Drivers/Font/Bmfd/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Font/Bmfd/Bmfd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Miniport/" />
+  <Folder Name="/ReactOS/Win32ss/Drivers/Miniport/Bochs/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Miniport/Bochs/Bochsmp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Bootok/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Bootok/Bootok.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Base/Bootvid/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Bootvid/Bootvid.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Bootvid/Lfbbvid.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Bootvid/Libbootvid.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Bootvid/Liblfbbvid.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Bootvid/Libpc98bvid.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Bootvid/Libxboxbvid.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Bootvid/Pc98bvid.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Bootvid/Xboxbvid.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Browser/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Browser/Browser.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Browser/Libbrowser.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Browseui/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Browseui/Browseui.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Browseui/Libbrowseui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Bthci/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Bthci/Bthci.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Bthprops/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Bthprops/Bthprops.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/" />
+  <Folder Name="/ReactOS/Drivers/Filesystems/Btrfs/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Btrfs/Btrfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Fslib/" />
+  <Folder Name="/ReactOS/Sdk/Lib/Fslib/Btrfslib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Fslib/Btrfslib/Btrfslib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Boot/Freeldr/" />
+  <Folder Name="/ReactOS/Boot/Freeldr/Bootsect/">
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Btrfsvbr.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Dosmbr.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Ext.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Extldr.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Fat.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Fat32.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Isoboot.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Isobtrt.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Isombr.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Ntfsvbr.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Port/" />
+  <Folder Name="/ReactOS/Drivers/Storage/Port/Buslogic/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Port/Buslogic/Buslogic.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Cabinet/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cabinet/Cabinet.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cabinet/Libcabinet.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Cabview/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Cabview/Cabview.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cacls/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cacls/Cacls.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Calc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Calc/Calc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Cardlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Cardlib/Cardlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Cards/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cards/Cards.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Cdfs/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Cdfs/Cdfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Fslib/Cdfslib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Fslib/Cdfslib/Cdfslib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Class/" />
+  <Folder Name="/ReactOS/Drivers/Storage/Class/Cdrom/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Class/Cdrom/Cdrom.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mscutils/" />
+  <Folder Name="/ReactOS/Base/Applications/Mscutils/Certmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mscutils/Certmgr/Certmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Certutil/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Certutil/Certutil.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Cfgmgr32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cfgmgr32/Cfgmgr32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Charmap/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Charmap/Charmap.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Chcp/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Chcp/Chcp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Chkdsk/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Chkdsk/Chkdsk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Ctf/" />
+  <Folder Name="/ReactOS/Base/Ctf/Cicero/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Ctf/Cicero/Cicero.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Class/Classpnp/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Class/Classpnp/Classpnp.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Class/Classpnp/Libclasspnp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Regedit/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Regedit/Regedit.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Regedit/Clb/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Regedit/Clb/Clb.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cleanmgr/" />
+  <Folder Name="/ReactOS/Base/Applications/Cleanmgr/Cleanmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cleanmgr/Cleanmgr/Cleanmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Clip/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Clip/Clip.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Clipbrd/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Clipbrd/Clipbrd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Clusapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Clusapi/Clusapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Acpi/" />
+  <Folder Name="/ReactOS/Drivers/Acpi/Cmbatt/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Acpi/Cmbatt/Cmbatt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Shell/" />
+  <Folder Name="/ReactOS/Base/Shell/Cmd/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Shell/Cmd/Cmd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Help/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Help/Cmd_Help.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Drivers/CMIDriver/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Drivers/CMIDriver/Cmipci.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Drivers/CMIDriver/Cmicontrol/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Drivers/CMIDriver/Cmicontrol/Cmicontrol.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Drivers/CMIDriver/Cpl/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Drivers/CMIDriver/Cpl/Cmicpl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Combase/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Combase/Combase.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Combase/Libcombase.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Comcat/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Comcat/Comcat.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Comctl32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Comctl32/Comctl32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Comctl32/Libcomctl32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Comdlg32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Comdlg32/Comdlg32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Comdlg32/Libcomdlg32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Coml2/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Coml2/Coml2.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Coml2/Libcoml2.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Comp/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Comp/Comp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Battery/Compbatt/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Battery/Compbatt/Compbatt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Compstui/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Compstui/Compstui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Comsupp/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Comsupp/Comsupp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/User/" />
+  <Folder Name="/ReactOS/Win32ss/User/Winsrv/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/Winsrv/Consrv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/Winsrv/Usersrv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/Winsrv/Winsrv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/User/Winsrv/Concfg/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/Winsrv/Concfg/Concfg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Base/Condrv/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Condrv/Condrv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Conime/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Conime/Conime.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Console/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Console/Console.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Control/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Control/Control.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Conutils/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Conutils/Conutils.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Copysup/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Copysup/Copysup.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Cportlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Cportlib/Cportlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Cpprt/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Cpprt/Cpprt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Credui/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Credui/Credui.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Credui/Libcredui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Crtdll/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Crtdll/Crtdll.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Crtdll/Libcrtdll.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Crtheap/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Crtheap/Crtheap.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Crypt32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Crypt32/Crypt32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Crypt32/Libcrypt32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Cryptdlg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cryptdlg/Cryptdlg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Cryptdll/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cryptdll/Cryptdll.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Cryptext/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Cryptext/Cryptext.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Cryptlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Cryptlib/Cryptlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Cryptnet/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cryptnet/Cryptnet.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cryptnet/Libcryptnet.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Cryptui/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cryptui/Cryptui.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Cryptui/Libcryptui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Cscript/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Cscript/Cscript.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Csq/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Csq/Csq.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Subsystems/Csr/" />
+  <Folder Name="/ReactOS/Subsystems/Csr/Csrlib/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Csr/Csrlib/Csrlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Subsystems/Csr/Csrsrv/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Csr/Csrsrv/Csrsrv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Csr/Csrsrv/Libcsrsrv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Subsystems/Csr/Csrss/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Csr/Csrss/Csrss.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Ctf/Ctfmon/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Ctf/Ctfmon/Ctfmon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3d8/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3d8/D3d8.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3d8/Libd3d8.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/D3d8thk/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/D3d8thk/D3d8thk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3d9/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3d9/D3d9.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3d9/Libd3d9.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_33/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_33/D3dcompiler_33.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_33/Libd3dcompiler_33.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_34/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_34/D3dcompiler_34.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_34/Libd3dcompiler_34.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_35/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_35/D3dcompiler_35.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_35/Libd3dcompiler_35.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_36/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_36/D3dcompiler_36.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_36/Libd3dcompiler_36.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_37/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_37/D3dcompiler_37.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_37/Libd3dcompiler_37.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_38/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_38/D3dcompiler_38.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_38/Libd3dcompiler_38.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_39/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_39/D3dcompiler_39.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_39/Libd3dcompiler_39.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_40/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_40/D3dcompiler_40.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_40/Libd3dcompiler_40.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_41/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_41/D3dcompiler_41.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_41/Libd3dcompiler_41.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_42/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_42/D3dcompiler_42.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_42/Libd3dcompiler_42.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_43/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_43/D3dcompiler_43.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_43/Libd3dcompiler_43.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_46/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_46/D3dcompiler_46.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_46/Libd3dcompiler_46.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dcompiler_47/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_47/D3dcompiler_47.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dcompiler_47/Libd3dcompiler_47.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3drm/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3drm/D3drm.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3drm/Libd3drm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Wined3d/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Wined3d/D3dwine.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Wined3d/Libd3dwine.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_24/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_24/D3dx9_24.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_24/Libd3dx9_24.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_25/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_25/D3dx9_25.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_25/Libd3dx9_25.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_26/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_26/D3dx9_26.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_26/Libd3dx9_26.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_27/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_27/D3dx9_27.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_27/Libd3dx9_27.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_28/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_28/D3dx9_28.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_28/Libd3dx9_28.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_29/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_29/D3dx9_29.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_29/Libd3dx9_29.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_30/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_30/D3dx9_30.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_30/Libd3dx9_30.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_31/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_31/D3dx9_31.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_31/Libd3dx9_31.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_32/D3dx9_32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_32/Libd3dx9_32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_33/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_33/D3dx9_33.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_33/Libd3dx9_33.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_34/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_34/D3dx9_34.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_34/Libd3dx9_34.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_35/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_35/D3dx9_35.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_35/Libd3dx9_35.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_36/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_36/D3dx9_36.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_36/Libd3dx9_36.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_37/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_37/D3dx9_37.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_37/Libd3dx9_37.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_38/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_38/D3dx9_38.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_38/Libd3dx9_38.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_39/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_39/D3dx9_39.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_39/Libd3dx9_39.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_40/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_40/D3dx9_40.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_40/Libd3dx9_40.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_41/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_41/D3dx9_41.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_41/Libd3dx9_41.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_42/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_42/D3dx9_42.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_42/Libd3dx9_42.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dx9_43/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_43/D3dx9_43.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dx9_43/Libd3dx9_43.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/D3dxof/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dxof/D3dxof.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/D3dxof/Libd3dxof.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Dbgeng/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Dbgeng/Dbgeng.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Dbghelp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Dbghelp/Dbghelp.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Dbghelp/Libdbghelp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Dbgprint/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Dbgprint/Dbgprint.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Dd/" />
+  <Folder Name="/ReactOS/Drivers/Network/Dd/Dc21x4/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Dd/Dc21x4/Dc21x4.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Dciman32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Dciman32/Dciman32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Dcomlaunch/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Dcomlaunch/Dcomlaunch.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Dcomlaunch/Libdcomlaunch.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Ddraw/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Ddraw/Ddraw.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Ddraw/Libddraw.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Ddrawex/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Ddrawex/Ddrawex.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Delayimp/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Delayimp/Delayimp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Desk/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Desk/Desk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Deskadp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Deskadp/Deskadp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Deskmon/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Deskmon/Deskmon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Devcpux/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Devcpux/Devcpux.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Devenum/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Devenum/Devenum.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mscutils/Devmgmt/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mscutils/Devmgmt/Devmgmt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Devmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Devmgr/Devmgr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Devmgr/Libdevmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Dhcpcsvc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Dhcpcsvc/Dhcpcsvc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Dhcpcsvc/Libdhcpcsvc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dinput/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dinput/Dinput.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dinput/Dinput_Data_Formats.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dinput/Libdinput.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dinput8/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dinput8/Dinput8.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dinput8/Libdinput8.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Class/Disk/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Class/Disk/Disk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Diskpart/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Diskpart/Diskpart.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Dllhost/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Dllhost/Dllhost.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dmband/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dmband/Dmband.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dmcompos/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dmcompos/Dmcompos.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Dmilib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Dmilib/Dmilib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dmime/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dmime/Dmime.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dmloader/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dmloader/Dmloader.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Dmoguids/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Dmoguids/Dmoguids.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dmscript/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dmscript/Dmscript.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dmstyle/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dmstyle/Dmstyle.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dmusic/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dmusic/Dmusic.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Dnsapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Dnsapi/Dnsapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Dnsapi/Libdnsapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Dnsrslvr/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Dnsrslvr/Dnsrslvr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Dnsrslvr/Libdnsrslvr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Doskey/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Doskey/Doskey.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dplayx/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dplayx/Dplayx.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dplayx/Libdplayx.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dpnaddr/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dpnaddr/Dpnaddr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dpnet/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dpnet/Dpnet.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dpnet/Libdpnet.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dpnhupnp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dpnhupnp/Dpnhupnp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dpnlobby/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dpnlobby/Dpnlobby.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dpvoice/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dpvoice/Dpvoice.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dpwsockx/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dpwsockx/Dpwsockx.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Drm/" />
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Drm/Drmk/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Drm/Drmk/Drmk.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Drm/Drmk/Libdrmk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Drwtsn32/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Drwtsn32/Drwtsn32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dsound/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dsound/Dsound.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dsound/Libdsound.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Dwnl/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Dwnl/Dwnl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Dxguid/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Dxguid/Dx10guid.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Dxguid/Dxguid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Reactx/" />
+  <Folder Name="/ReactOS/Win32ss/Reactx/Dxapi/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Reactx/Dxapi/Dxapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Dxdiag/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Dxdiag/Dxdiag.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Dxdiagn/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Dxdiagn/Dxdiagn.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Reactx/Dxg/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Reactx/Dxg/Dxg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Reactx/Dxgthk/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Reactx/Dxgthk/Dxgthk.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Reactx/Dxgthk/Libdxgthk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/3rdparty/" />
+  <Folder Name="/ReactOS/Dll/3rdparty/Dxtn/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Dxtn/Dxtn.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Dd/E1000/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Dd/E1000/E1000.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Epsapi/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Epsapi/Epsapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Esent/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Esent/Esent.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Ntdll/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Ntdll/Etwtrace.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Ntdll/Libntdll.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Ntdll/Ntdll.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Ntdll/Rtl_Um.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shell32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shell32/Libshell32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shell32/Shell32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shell32/Evalcmd/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shell32/Evalcmd/Evalcmd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Eventcreate/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Eventcreate/Eventcreate.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Eventlog/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Eventlog/Eventlog.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mscutils/Eventvwr/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mscutils/Eventvwr/Eventvwr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Evtlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Evtlib/Evtlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Expand/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Expand/Expand.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Shell/Explorer/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Shell/Explorer/Explorer.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Ext2/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Ext2/Ext2fs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Fslib/Ext2lib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Fslib/Ext2lib/Ext2lib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Extrac32/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Extrac32/Extrac32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Fast486/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Fast486/Fast486.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Fastfat/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Fastfat/Fastfat.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Faultrep/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Faultrep/Faultrep.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Faultrep/Libfaultrep.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Bluetooth/" />
+  <Folder Name="/ReactOS/Drivers/Bluetooth/Fbtusb/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Bluetooth/Fbtusb/Fbtusb.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Fc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Fc/Fc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Floppy/" />
+  <Folder Name="/ReactOS/Drivers/Storage/Floppy/Fdc/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Floppy/Fdc/Fdc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Boot/Freeldr/Fdebug/">
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Fdebug/Fdebug.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Feclient/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Feclient/Feclient.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Shell/Filebrowser/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Shell/Filebrowser/Filebrowser.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Find/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Find/Find.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Findstr/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Findstr/Findstr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Finger/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Finger/Finger.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Floppy/Floppy/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Floppy/Floppy/Floppy.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Fltlib/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Fltlib/Fltlib.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Fltlib/Libfltlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Fltmc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Fltmc/Fltmc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filters/" />
+  <Folder Name="/ReactOS/Drivers/Filters/Fltmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filters/Fltmgr/Fltmgr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filters/Fltmgr/Libfltmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Fmifs/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Fmifs/Fmifs.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Fmifs/Libfmifs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Fontext/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Fontext/Fontext.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Fontsub/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Fontsub/Fontsub.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Fontview/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Fontview/Fontview.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Format/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Format/Format.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Displays/" />
+  <Folder Name="/ReactOS/Win32ss/Drivers/Displays/Framebuf/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Displays/Framebuf/Framebuf.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Framedyn/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Framedyn/Framedyn.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Framedyn/Libframedyn.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Boot/Freeldr/Freeldr/">
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Freeldr/Freeldr.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Freeldr/Freeldr_Common.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Freeldr/Freeldr_Pe.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Freeldr/Frldr16.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Freeldr/Libfreeldr.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Freeldr/Rosload.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Freeldr/Uefifreeldr_Common.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Freeldr/Uefildr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Freetype/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Freetype/Freetype.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Fs_Rec/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Fs_Rec/Fs_Rec.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Fsutil/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Fsutil/Fsutil.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Font/Ftfd/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Font/Ftfd/Ftfd.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Font/Ftfd/Libftfd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Ftp/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Ftp/Ftp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Fusion/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Fusion/Fusion.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Fusion/Fusion_Common.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Fusion/Fusion_1_1/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Fusion/Fusion_1_1/Fusion_1_1.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Fusion/Fusion_2_0/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Fusion/Fusion_2_0/Fusion_2_0.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Gdi/" />
+  <Folder Name="/ReactOS/Win32ss/Gdi/Gdi32/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Gdi/Gdi32/Gdi32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Gdi/Gdi32/Libgdi32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Gdi/Gdi32_Vista/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Gdi/Gdi32_Vista/Gdi32_Vista.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Gdi/Gdi32_Vista/Gdi32_Vista_Static.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Gdi/Gdi32_Vista/Libgdi32_Vista.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Gdiplus/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Gdiplus/Gdiplus.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Gdiplus/Libgdiplus.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Include/Asm/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Include/Asm/Genincdata.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Getuname/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Getuname/Getuname.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Getuname/Libgetuname.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Opengl/" />
+  <Folder Name="/ReactOS/Dll/Opengl/Glu32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Opengl/Glu32/Glu32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Opengl/Glu32/Libglu32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Hal/" />
+  <Folder Name="/ReactOS/Hal/Halx86/">
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Hal.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Halaacpi.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Halacpi.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Halapic.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Halmacpi.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Halmp.vcxproj">
+      <Build Solution="Debug|x86" Project="false" />
+      <Build Solution="Release|x86" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Halpc98.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Halxbox.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Lib_Hal_Acpi.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Lib_Hal_Apic.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Lib_Hal_Generic.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Lib_Hal_Legacy.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Lib_Hal_Pc98.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Lib_Hal_Pic.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Lib_Hal_Smp.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Lib_Hal_Up.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Lib_Hal_Xbox.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Libhal.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Libhalaacpi.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Libhalacpi.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Libhalapic.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Libhalmacpi.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Libhalmp.vcxproj">
+      <Build Solution="Debug|x86" Project="false" />
+      <Build Solution="Release|x86" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Libhalpc98.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Libhalxbox.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Hdaudbus/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Hdaudbus/Hdaudbus.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Hdwwiz/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Hdwwiz/Hdwwiz.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Hh/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Hh/Hh.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Hhctrl.ocx/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Hhctrl.ocx/Hhctrl.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Hhctrl.ocx/Libhhctrl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Hid/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Hid/Hid.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Hid/Libhid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Hid/" />
+  <Folder Name="/ReactOS/Drivers/Hid/Hidclass/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Hid/Hidclass/Hidclass.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Hid/Hidclass/Libhidclass.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Hid/Hidparse/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Hid/Hidparse/Hidparse.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Hid/Hidparse/Libhidparse.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Hidparser/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Hidparser/Hidparser_Km.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Hidparser/Hidparser_Um.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Hid/Hidusb/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Hid/Hidusb/Hidusb.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Hlink/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Hlink/Hlink.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Hlink/Libhlink.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Hnetcfg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Hnetcfg/Hnetcfg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Hostname/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Hostname/Hostname.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Hotplug/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Hotplug/Hotplug.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Httpapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Httpapi/Httpapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Input/" />
+  <Folder Name="/ReactOS/Drivers/Input/I8042prt/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Input/I8042prt/I8042prt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Iccvid/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Iccvid/Iccvid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Icmp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Icmp/Icmp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Libwin-Iconv/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Libwin-Iconv/Iconv-Static.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ieframe/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ieframe/Ieframe.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ieframe/Libieframe.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ieproxy/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ieproxy/Ieproxy.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ieproxy/Libieproxy.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Iernonce/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Iernonce/Iernonce.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Iexplore/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Iexplore/Iexplore.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ifmon/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ifmon/Ifmon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Imaadp32.acm/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Imaadp32.acm/Imaadp32.acm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Imagehlp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Imagehlp/Imagehlp.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Imagehlp/Libimagehlp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/User/Imm32/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/Imm32/Imm32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/Imm32/Libimm32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Kbswitch/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Kbswitch/Kbswitch.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Kbswitch/Indicdll/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Kbswitch/Indicdll/Indicdll.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Inetcomm/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Inetcomm/Inetcomm.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Inetcomm/Libinetcomm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Inetcpl/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Inetcpl/Inetcpl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Inetmib1/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Inetmib1/Inetmib1.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Inflib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Inflib/Inflib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Initpki/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Initpki/Initpki.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Input/Inport/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Input/Inport/Inport.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Input/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Input/Input.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Inseng/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Inseng/Inseng.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Boot/Freeldr/Install/">
+    <Project Path="Upstream/ReactOS/Projects/Boot/Freeldr/Install/Installfreeldr.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Intl/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Intl/Intl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Ioevent/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Ioevent/Ioevent.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Iologmsg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Iologmsg/Iologmsg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Tcpip/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Tcpip/Lwipallapps.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Tcpip/Lwipcore.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Tcpip/Lwipmbedtls.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Tcpip/Tcpip.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Tcpip/Ip/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Tcpip/Ip/Ip.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Ipconfig/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Ipconfig/Ipconfig.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Iphlpapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Iphlpapi/Iphlpapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Iphlpapi/Libiphlpapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Bus/Isapnp/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Bus/Isapnp/Isapnp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Itircl/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Itircl/Itircl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Itss/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Itss/Itss.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Joy/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Joy/Joy.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Jscript/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Jscript/Jscript.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Jsproxy/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Jsproxy/Jsproxy.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Jsproxy/Libjsproxy.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Keyboard/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbd101.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbd101a.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbd101b.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbd103.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbd106.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbd106n.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbda1.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbda2.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbda3.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdal.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdarme.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdarmw.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdaze.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdazel.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdbe.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdbga.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdbgt.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdblr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdbr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdbu.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdbur.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdcan.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdcmk.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdcr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdcz.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdcz1.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdda.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbddv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdeo.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdest.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdfa.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdfar.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdfc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdfi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdfo.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdfr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdgeo.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdgerg.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdgneo.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdgr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdgr1.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdgre1.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdgrist.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdhe.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdheb.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdhu.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdic.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdinasa.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdinben.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdindev.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdinguj.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdinmal.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdir.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdit.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdjpn.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdkaz.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdkor.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdla.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdlt1.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdlv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdmac.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdne.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdnec.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdnec95.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdnecat.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdnecnt.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdno.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdpl.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdpl1.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdpo.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdro.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdrost.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdru.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdru1.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdsf.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdsg.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdsl.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdsl1.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdsp.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdsw.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdtat.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdth0.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdth1.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdth2.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdth3.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdtuf.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdtuq.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbduk.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdur.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdurs.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdus.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdusa.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdusl.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdusr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdusx.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbduzb.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdvntc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdycc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Keyboard/Kbdycl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Input/Kbdclass/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Input/Kbdclass/Kbdclass.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Hid/Kbdhid/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Hid/Kbdhid/Kbdhid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Base/Kdgdb/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Kdgdb/Kdgdb.vcxproj">
+      <Build Solution="Release|x86" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Base/Kdstub/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Kdstub/Kdstub.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Kdstub/Libkdstub.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Base/Kdvm/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Kdvm/Kdvbox.vcxproj">
+      <Build Solution="Release|x86" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Kernel32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Kernel32/Kernel32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Kernel32/Kernel32_Shared.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Kernel32/Libkernel32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Kernel32/Kernel32_Vista/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Kernel32/Kernel32_Vista/Kernel32_Vista.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Kernel32/Kernel32_Vista/Kernel32_Vista_Static.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Kernel32/Kernel32_Vista/Libkernel32_Vista.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Kernelbase/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Kernelbase/Kernelbase_Ros.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Kernelbase/Libkernelbase_Ros.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Kernelbase/Wine/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Kernelbase/Wine/Kernelbase_Static.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Filters/" />
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Filters/Kmixer/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Filters/Kmixer/Kmixer.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Ksfilter/" />
+  <Folder Name="/ReactOS/Drivers/Ksfilter/Ks/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Ksfilter/Ks/Ks.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Ksfilter/Ks/Libks.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Crypto/" />
+  <Folder Name="/ReactOS/Drivers/Crypto/Ksecdd/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Crypto/Ksecdd/Ksecdd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Ksuser/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Ksuser/Ksuser.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Ksuser/Libksuser.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/L3codeca.acm/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/L3codeca.acm/L3codeca.acm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Label/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Label/Label.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Media/" />
+  <Folder Name="/ReactOS/Media/Themes/" />
+  <Folder Name="/ReactOS/Media/Themes/Lautus/" />
+  <Folder Name="/ReactOS/Media/Themes/Lautus/Lautus.msstyles/">
+    <Project Path="Upstream/ReactOS/Projects/Media/Themes/Lautus/Lautus.msstyles/Lautus.msstyles.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Ide/Legide/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Ide/Legide/Legide.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Dll/3rdparty/Libjpeg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libjpeg/Libjpeg.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libjpeg/Liblibjpeg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/3rdparty/Libpng/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libpng/Liblibpng.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libpng/Libpng.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/3rdparty/Libtiff/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libtiff/Liblibtiff.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libtiff/Libtiff.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/3rdparty/Libtirpc/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libtirpc/Liblibtirpc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libtirpc/Libtirpc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/3rdparty/Libxslt/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libxslt/Liblibxslt.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Libxslt/Libxslt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Loadperf/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Loadperf/Libloadperf.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Loadperf/Loadperf.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Printing/" />
+  <Folder Name="/ReactOS/Win32ss/Printing/Monitors/" />
+  <Folder Name="/ReactOS/Win32ss/Printing/Monitors/Localmon/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Monitors/Localmon/Liblocalmon.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Monitors/Localmon/Localmon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Printing/Providers/" />
+  <Folder Name="/ReactOS/Win32ss/Printing/Providers/Localspl/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Providers/Localspl/Liblocalspl.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Providers/Localspl/Localspl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Lpk/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Lpk/Liblpk.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Lpk/Lpk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Lsasrv/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Lsasrv/Liblsasrv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Lsasrv/Lsasrv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Lz32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Lz32/Liblz32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Lz32/Lz32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/3rdparty/Mbedtls/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Mbedtls/Libmbedtls.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/3rdparty/Mbedtls/Mbedtls.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mlang/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mlang/Libmlang.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mlang/Mlang.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Libmpg123/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Libmpg123/Libmpg123.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mpr/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mpr/Libmpr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mpr/Mpr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msacm32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msacm32/Libmsacm32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msacm32/Msacm32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Ctf/Msctf/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Ctf/Msctf/Libmsctf.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Ctf/Msctf/Msctf.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Msdmo/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Msdmo/Libmsdmo.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Msdmo/Msdmo.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mshtml/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mshtml/Libmshtml.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mshtml/Mshtml.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msi/Libmsi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msi/Msi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msimg32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msimg32/Libmsimg32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msimg32/Msimg32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mspatcha/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mspatcha/Libmspatcha.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mspatcha/Mspatcha.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Ctf/Msutb/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Ctf/Msutb/Libmsutb.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Ctf/Msutb/Msutb.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msvcrt/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msvcrt/Libmsvcrt.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msvcrt/Msvcrt.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msvcrt/Msvcrt_Shared.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msvcrt/Msvcrt_Static.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msvfw32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msvfw32/Libmsvfw32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msvfw32/Msvfw32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mswsock/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mswsock/Libmswsock.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mswsock/Mswsock.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msxml3/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msxml3/Libmsxml3.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msxml3/Msxml3.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Ndis/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Ndis/Libndis.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Ndis/Ndis.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Netapi32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Netapi32/Libnetapi32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Netapi32/Netapi32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Netio/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Netio/Libnetio.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Netio/Netio.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Netlogon/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Netlogon/Libnetlogon.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Netlogon/Netlogon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Netsh/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Netsh/Libnetsh.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Netsh/Netsh.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Newdev/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Newdev/Libnewdev.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Newdev/Newdev.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Np/" />
+  <Folder Name="/ReactOS/Dll/Np/Nfs/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Np/Nfs/Libnfs41_Np.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Np/Nfs/Nfs41_Np.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Nls/" />
+  <Folder Name="/ReactOS/Dll/Nls/Normaliz/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Nls/Normaliz/Libnormaliz.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Nls/Normaliz/Normaliz.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Ntdll/Nt_0600/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Ntdll/Nt_0600/Libntdll_Vista.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Ntdll/Nt_0600/Ntdll_Vista.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Ntdll/Nt_0600/Ntdll_Vista_Static.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ntdsapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ntdsapi/Libntdsapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ntdsapi/Ntdsapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Ntoskrnl/">
+    <Project Path="Upstream/ReactOS/Projects/Ntoskrnl/Libntoskrnl.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Ntoskrnl/Ntdllsys.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Ntoskrnl/Ntdllsys_Nt6.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Ntoskrnl/Ntoskrnl.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Subsystems/Mvdm/" />
+  <Folder Name="/ReactOS/Subsystems/Mvdm/Ntvdm/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Mvdm/Ntvdm/Libntvdm.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Mvdm/Ntvdm/Ntvdm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Odbccp32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Odbccp32/Libodbccp32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Odbccp32/Odbccp32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ole32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ole32/Libole32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ole32/Ole32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Oleacc/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Oleacc/Liboleacc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Oleacc/Oleacc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Oleaut32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Oleaut32/Liboleaut32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Oleaut32/Oleaut32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Oledlg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Oledlg/Liboledlg.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Oledlg/Oledlg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Opengl/Opengl32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Opengl/Opengl32/Libopengl32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Opengl/Opengl32/Opengl32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Ide/Pciidex/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Ide/Pciidex/Libpciidex.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Ide/Pciidex/Pciidex.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Pdh/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Pdh/Libpdh.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Pdh/Pdh.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Backpln/Portcls/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Backpln/Portcls/Libportcls.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Backpln/Portcls/Portcls.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Powrprof/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Powrprof/Libpowrprof.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Powrprof/Powrprof.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Propsys/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Propsys/Libpropsys.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Propsys/Propsys.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Psapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Psapi/Libpsapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Psapi/Psapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Psapi/Psapi_Static.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Rasapi32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rasapi32/Librasapi32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rasapi32/Rasapi32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Riched20/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Riched20/Libriched20.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Riched20/Riched20.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Rpcrt4/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rpcrt4/Librpcrt4.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rpcrt4/Rpcrt4.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Rsaenh/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rsaenh/Librsaenh.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rsaenh/Rsaenh.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Shell/Rshell/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Shell/Rshell/Librshell.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Shell/Rshell/Rshell.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Samlib/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Samlib/Libsamlib.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Samlib/Samlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Libsamplerate/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Libsamplerate/Libsamplerate.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Samsrv/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Samsrv/Libsamsrv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Samsrv/Samsrv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Schedsvc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Schedsvc/Libschedsvc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Schedsvc/Schedsvc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Scrrun/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Scrrun/Libscrrun.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Scrrun/Scrrun.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Port/Scsiport/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Port/Scsiport/Libscsiport.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Port/Scsiport/Scsiport.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Seclogon/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Seclogon/Libseclogon.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Seclogon/Seclogon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Secur32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Secur32/Libsecur32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Secur32/Secur32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Sensapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sensapi/Libsensapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sensapi/Sensapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Setupapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Setupapi/Libsetupapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Setupapi/Setupapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Setup/" />
+  <Folder Name="/ReactOS/Base/Setup/Lib/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Setup/Lib/Libsetuplib.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Setup/Lib/Setuplib.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Setup/Lib/Setuplib_Static.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Sfc_Os/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sfc_Os/Libsfc_Os.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sfc_Os/Sfc_Os.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shcore/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shcore/Libshcore.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shcore/Shcore.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shdocvw/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shdocvw/Libshdocvw.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shdocvw/Shdocvw.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shdocvw/Shdocvw_Sublib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shlwapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shlwapi/Libshlwapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shlwapi/Shlwapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shlwapi/Shlwapi_Autocomp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Shsvcs/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Shsvcs/Libshsvcs.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Shsvcs/Shsvcs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Snmpapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Snmpapi/Libsnmpapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Snmpapi/Snmpapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Printing/Base/" />
+  <Folder Name="/ReactOS/Win32ss/Printing/Base/Spoolss/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Base/Spoolss/Libspoolss.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Base/Spoolss/Spoolss.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Printing/Base/Spoolsv/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Base/Spoolsv/Libspoolsv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Base/Spoolsv/Spoolsv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Srvsvc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Srvsvc/Libsrvsvc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Srvsvc/Srvsvc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Port/Storport/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Port/Storport/Libstorport.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Port/Storport/Storport.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Sxs/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sxs/Libsxs.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sxs/Sxs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ucrtbase/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ucrtbase/Libucrtbase.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ucrtbase/Ucrtbase.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Uiautomationcore/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Uiautomationcore/Libuiautomationcore.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Uiautomationcore/Uiautomationcore.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Umpnpmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Umpnpmgr/Libumpnpmgr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Umpnpmgr/Umpnpmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Urlmon/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Urlmon/Liburlmon.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Urlmon/Urlmon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/" />
+  <Folder Name="/ReactOS/Drivers/Usb/Usbd/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbd/Libusbd.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbd/Usbd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Usbport/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbport/Libusbport.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbport/Usbport.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/User/User32/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/User32/Libuser32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/User32/User32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/User/User32_Vista/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/User32_Vista/Libuser32_Vista.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/User32_Vista/User32_Optional_Vista.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/User32_Vista/User32_Vista.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/User/User32_Vista/User32_Vista_Static.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Userenv/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Userenv/Libuserenv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Userenv/Userenv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Usp10/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Usp10/Libusp10.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Usp10/Usp10.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Uxtheme/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Uxtheme/Libuxtheme.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Uxtheme/Uxtheme.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Version/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Version/Libversion.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Version/Version.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Videoprt/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Videoprt/Libvideoprt.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Videoprt/Videoprt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/W32time/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/W32time/Libw32time.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/W32time/W32time.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Wdf/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Wdf/Wdf01000.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Wdf/Wdfldr/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Wdf/Wdfldr/Libwdfldr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Wdf/Wdfldr/Wdfldr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Win32u/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Win32u/Libwin32u.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Win32u/Win32u.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Windowscodecs/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Windowscodecs/Libwindowscodecs.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Windowscodecs/Windowscodecs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Windowscodecsext/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Windowscodecsext/Libwindowscodecsext.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Windowscodecsext/Windowscodecsext.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Winhttp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Winhttp/Libwinhttp.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Winhttp/Winhttp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wininet/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wininet/Libwininet.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wininet/Wininet.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wininet/Wininet_Inflate.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Winmm/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Winmm/Libwinmm.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Winmm/Winmm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Printing/Processors/" />
+  <Folder Name="/ReactOS/Win32ss/Printing/Processors/Winprint/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Processors/Winprint/Libwinprint.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Processors/Winprint/Winprint.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Printing/Base/Winspool/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Base/Winspool/Libwinspool.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Base/Winspool/Winspool.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wintrust/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wintrust/Libwintrust.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wintrust/Wintrust.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Wkssvc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Wkssvc/Libwkssvc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Wkssvc/Wkssvc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wlanapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wlanapi/Libwlanapi.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wlanapi/Wlanapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wldap32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wldap32/Libwldap32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wldap32/Wldap32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wlnotify/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wlnotify/Libwlnotify.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wlnotify/Wlnotify.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wmi/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wmi/Libwmilib.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wmi/Wmilib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Wmisvc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Wmisvc/Libwmisvc.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Wmisvc/Wmisvc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wmvcore/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wmvcore/Libwmvcore.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wmvcore/Wmvcore.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ws2_32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ws2_32/Libws2_32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ws2_32/Ws2_32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ws2help/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ws2help/Libws2help.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ws2help/Ws2help.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ws2help/Ws2help_Static.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wtsapi32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wtsapi32/Libwtsapi32.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wtsapi32/Wtsapi32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Wuauserv/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Wuauserv/Libwuauserv.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Wuauserv/Wuauserv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Xinput1_3/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Xinput1_3/Libxinput1_3.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Xinput1_3/Xinput1_3.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Libxml2/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Libxml2/Libxml2.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Xmllite/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Xmllite/Libxmllite.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Xmllite/Xmllite.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Zipfldr/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Zipfldr/Libzipfldr.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Zipfldr/Zipfldr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Printing/Monitors/Localmon/Ui/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Monitors/Localmon/Ui/Localui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Lodctr/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Lodctr/Lodctr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Logoff/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Logoff/Logoff.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Screensavers/Logon/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Screensavers/Logon/Logon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Logonui/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Logonui/Logonui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Lsalib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Lsalib/Lsalib.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Lsalib/Ntlsalib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Lsass/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Lsass/Lsass.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Media/Themes/Lunar/" />
+  <Folder Name="/ReactOS/Media/Themes/Lunar/Lunar.msstyles/">
+    <Project Path="Upstream/ReactOS/Projects/Media/Themes/Lunar/Lunar.msstyles/Lunar.msstyles.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Magnify/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Magnify/Magnify.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Main/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Main/Main.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mapi32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mapi32/Mapi32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mciavi32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mciavi32/Mciavi32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mcicda/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mcicda/Mcicda.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mciqtz32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mciqtz32/Mciqtz32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mciseq/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mciseq/Mciseq.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mciwave/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mciwave/Mciwave.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Include/Dxsdk/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Include/Dxsdk/Mediaobj_Guid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Opengl/Mesa/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Opengl/Mesa/Mesa.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mgmtapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mgmtapi/Mgmtapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Winmm/Midimap/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Winmm/Midimap/Midimap.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Hal/Halx86/Minihal/">
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Minihal/Mini_Hal.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Zlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Zlib/Minizip.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Zlib/Zlib.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Zlib/Zlib_Solo.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Media/Themes/Mizu/" />
+  <Folder Name="/ReactOS/Media/Themes/Mizu/Mizu.msstyles/">
+    <Project Path="Upstream/ReactOS/Projects/Media/Themes/Mizu/Mizu.msstyles/Mizu.msstyles.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mmc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mmc/Mmc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mmc_New/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mmc_New/Mmc_New.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Mmcshext/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Mmcshext/Mmcshext.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mmdrv/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mmdrv/Mmdrv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Sound/Mmebuddy/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Sound/Mmebuddy/Mmebuddy.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Sound/Mment4/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Sound/Mment4/Mment4.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Sound/Mmixer/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Sound/Mmixer/Mmixer.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Mmsys/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Mmsys/Mmsys.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Mode/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Mode/Mode.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Modemui/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Modemui/Modemui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Media/Themes/Modern/" />
+  <Folder Name="/ReactOS/Media/Themes/Modern/Modern.msstyles/">
+    <Project Path="Upstream/ReactOS/Projects/Media/Themes/Modern/Modern.msstyles/Modern.msstyles.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Mofcomp/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Mofcomp/Mofcomp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/More/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/More/More.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Input/Mouclass/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Input/Mouclass/Mouclass.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Hid/Mouhid/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Hid/Mouhid/Mouhid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Mountmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Mountmgr/Mountmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mplay32/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mplay32/Mplay32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mprapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mprapi/Mprapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msacm32.drv/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msacm32.drv/Msacm32.drv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msadp32.acm/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msadp32.acm/Msadp32.acm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msafd/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msafd/Msafd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mscat32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mscat32/Mscat32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mscms/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mscms/Mscms.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Msconfig/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Msconfig/Msconfig.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mscoree/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mscoree/Mscoree.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Ctf/Msctfime/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Ctf/Msctfime/Msctfime.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Msfs/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Msfs/Msfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msftedit/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msftedit/Msftedit.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msg711.acm/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msg711.acm/Msg711.acm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msgina/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msgina/Msgina.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msgsm32.acm/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msgsm32.acm/Msgsm32.acm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mshta/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mshta/Mshta.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mshtml.tlb/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mshtml.tlb/Mshtml.tlb.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Msiexec/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Msiexec/Msiexec.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msimtf/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msimtf/Msimtf.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msisip/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msisip/Msisip.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msisys.ocx/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msisys.ocx/Msisys.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mspaint/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mspaint/Mspaint.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msports/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msports/Msports.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msrle32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msrle32/Msrle32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mssign32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mssign32/Mssign32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mssip32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mssip32/Mssip32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mstask/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mstask/Mstask.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mstsc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mstsc/Mstsc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msv1_0/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msv1_0/Msv1_0.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msvcrt20/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msvcrt20/Msvcrt20.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msvcrt40/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msvcrt40/Msvcrt40.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msvidc32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msvidc32/Msvidc32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msxml/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msxml/Msxml.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msxml2/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msxml2/Msxml2.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msxml3r/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msxml3r/Msxml3r.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msxml4/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msxml4/Msxml4.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Msxml6/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Msxml6/Msxml6.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Mup/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Mup/Mup.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Mycomput/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Mycomput/Mycomput.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Mydocs/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Mydocs/Mydocs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Ncpa/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Ncpa/Ncpa.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Nddeapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Nddeapi/Nddeapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Ndisuio/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Ndisuio/Ndisuio.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Dd/Ne2000/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Dd/Ne2000/Ne2000.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Net/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Net/Net.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Netcfgx/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Netcfgx/Netcfgx.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Netevent/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Netevent/Netevent.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Netid/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Netid/Netid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Dd/Netkvm/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Dd/Netkvm/Netkvm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Netmsg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Netmsg/Netmsg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Netplwiz/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Netplwiz/Netplwiz.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Netshell/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Netshell/Netshell.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Netstat/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Netstat/Netstat.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Netutils/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Netutils/Netutils.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Nfs/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Nfs/Nfs41_Driver.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Nfsd/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Nfsd/Nfsd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Base/Nmidebug/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Nmidebug/Nmidebug.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Notepad/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Notepad/Notepad.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Npfs/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Npfs/Npfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Npptools/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Npptools/Npptools.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Nslookup/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Nslookup/Nslookup.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Nt/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Nt/Nt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Ntfs/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Ntfs/Ntfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Fslib/Ntfslib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Fslib/Ntfslib/Ntfslib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Ntoskrnl/Ntkrnlmp/">
+    <Project Path="Upstream/ReactOS/Projects/Ntoskrnl/Ntkrnlmp/Ntkrnlmp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ntlanman/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ntlanman/Ntlanman.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ntmarta/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ntmarta/Ntmarta.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Ntobjshex/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Ntobjshex/Ntobjshex.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Ntoskrnl_Vista/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Ntoskrnl_Vista/Ntoskrnl_Vista.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Printing/Base/Ntprint/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Base/Ntprint/Ntprint.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Base/Null/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Base/Null/Null.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Dd/Nvnet/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Dd/Nvnet/Nvnet.vcxproj">
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Objsel/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Objsel/Objsel.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Odbc32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Odbc32/Odbc32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Odbccp32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Odbccp32/Odbccp32i.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Olecli32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Olecli32/Olecli32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Olepro32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Olepro32/Olepro32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Olesvr32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Olesvr32/Olesvr32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Olethk32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Olethk32/Olethk32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Openglcfg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Openglcfg/Openglcfg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Osk/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Osk/Osk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Parallel/" />
+  <Folder Name="/ReactOS/Drivers/Parallel/Parport/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Parallel/Parport/Parport.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Partmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Partmgr/Partmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Pathcch/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Pathcch/Pathcch.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Pathcch/Pathcch_Kernelbase.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Pathcch/Pathcch_Static.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Miniport/Pc98vid/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Miniport/Pc98vid/Pc98vid.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Bus/Pci/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Bus/Pci/Pci.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Ide/Pciide/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Ide/Pciide/Pciide.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Bus/Pcix/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Bus/Pcix/Pcix.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Bus/Pcmcia/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Bus/Pcmcia/Pcmcia.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Dd/Pcnet/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Dd/Pcnet/Pcnet.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Pidgen/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Pidgen/Pidgen.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Subsystems/Mvdm/Pifmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Mvdm/Pifmgr/Pifmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Ping/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Ping/Ping.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Poguid/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Poguid/Poguid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Powercfg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Powercfg/Powercfg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Printing/Base/Printui/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Printing/Base/Printui/Printui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Processor/" />
+  <Folder Name="/ReactOS/Drivers/Processor/Processr/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Processor/Processr/Processr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Profmap/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Profmap/Profmap.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Shell/Progman/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Shell/Progman/Progman.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Pseh/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Pseh/Pseh.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Pstorec/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Pstorec/Pstorec.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Qcap/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Qcap/Qcap.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Qedit/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Qedit/Qedit.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Qmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Qmgr/Qmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Qmgrprxy/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Qmgrprxy/Qmgrprxy.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Directx/Wine/Quartz/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Directx/Wine/Quartz/Quartz.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Query/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Query/Query.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Class/Ramdisk/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Class/Ramdisk/Ramdisk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Rapps/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Rapps/Rapps.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Rapps_Com/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Rapps_Com/Rapps.com.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Rasadhlp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rasadhlp/Rasadhlp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Rasdlg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rasdlg/Rasdlg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Rasman/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rasman/Rasman.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Rdbsslib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Rdbsslib/Rdbsslib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Setup/Reactos/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Setup/Reactos/Reactos.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shell32/Shellrecyclebin/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shell32/Shellrecyclebin/Recyclebin.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Reg/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Reg/Reg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Regapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Regapi/Regapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Regedt32/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Regedt32/Regedt32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Regsvr32/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Regsvr32/Regsvr32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Replace/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Replace/Replace.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Resutils/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Resutils/Resutils.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Riched32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Riched32/Riched32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Branding/" />
+  <Folder Name="/ReactOS/Dll/Branding/Rosbrand/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Branding/Rosbrand/Rosbrand.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Route/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Route/Route.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Rpcss/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Rpcss/Rpcss.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Rsabase/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Rsabase/Rsabase.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Rtl/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Rtl/Rtl.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Rtl/Rtl_Vista.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Dd/Rtl8139/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Dd/Rtl8139/Rtl8139.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Rtlver/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Rtlver/Rtlver.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Runas/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Runas/Runas.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Rundll32/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Rundll32/Rundll32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Runonce/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Runonce/Runonce.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Runtmchk/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Runtmchk/Runtmchk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Rxce/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Rxce/Rxce.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Sac/" />
+  <Folder Name="/ReactOS/Drivers/Sac/Driver/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Sac/Driver/Sacdrv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Sc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Sc/Sc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Sccbase/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sccbase/Sccbase.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Schannel/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Schannel/Schannel.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Schtasks/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Schtasks/Schtasks.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Scrnsave/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Scrnsave/Scrnsave.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Sdbinst/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Sdbinst/Sdbinst.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Security/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Security/Security.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Sendmail/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Sendmail/Sendmail.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Serial/" />
+  <Folder Name="/ReactOS/Drivers/Serial/Serenum/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Serial/Serenum/Serenum.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Serial/Serial/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Serial/Serial/Serial.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Serialui/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Serialui/Serialui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Input/Sermouse/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Input/Sermouse/Sermouse.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Services/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Services/Services.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Mscutils/Servman/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Mscutils/Servman/Servman.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Vcruntime/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Vcruntime/Setjmp.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Vcruntime/Vcruntime.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Setup/Setup/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Setup/Setup/Setup.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Setup16/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Setup16/Setup16.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Sfc/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sfc/Sfc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Sfcfiles/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sfcfiles/Sfcfiles.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shdoclc/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shdoclc/Shdoclc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Browseui/Shellbars/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Browseui/Shellbars/Shellbars.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Shellbtrfs/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Shellbtrfs/Shellbtrfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shell32/Shelldesktop/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shell32/Shelldesktop/Shelldesktop.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Browseui/Shellfind/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Browseui/Shellfind/Shellfind.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shell32/Shellmenu/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shell32/Shellmenu/Shellmenu.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shfolder/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shfolder/Shfolder.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Shimgvw/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Shimgvw/Shimgvw.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Appcompat/Shims/Shimlib/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Appcompat/Shims/Shimlib/Shimlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Shutdown/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Shutdown/Shutdown.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Skiplist/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Skiplist/Skiplist16.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Skiplist/Skiplist_Test.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Slbcsp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Slbcsp/Slbcsp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Smlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Smlib/Smlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Smss/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Smss/Smss.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Sndblst/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sndblst/Sndblst.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Sndrec32/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Sndrec32/Sndrec32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Sndvol32/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Sndvol32/Sndvol32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Softpub/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Softpub/Softpub.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Games/" />
+  <Folder Name="/ReactOS/Base/Applications/Games/Solitaire/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Games/Solitaire/Sol.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Sort/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Sort/Sort.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Games/Spider/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Games/Spider/Spider.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Sptilib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Sptilib/Sptilib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Srclient/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Srclient/Srclient.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Sspicli/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sspicli/Sspicli.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Stdole2.tlb/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Stdole2.tlb/Stdole2.tlb.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Stdole32.tlb/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Stdole32.tlb/Stdole32.tlb.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Sound/Stdunk/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Sound/Stdunk/Stdunk.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Sti/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Sti/Sti.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Stlport/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Stlport/Stlport.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Shellext/Stobject/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Shellext/Stobject/Stobject.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Port/Storahci/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Port/Storahci/Storahci.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Storprop/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Storprop/Storprop.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Streamci/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Streamci/Streamci.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Strmbase/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Strmbase/Strmbase.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Strmiids/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Strmiids/Strmiids.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Subst/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Subst/Subst.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Svchost/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Svchost/Svchost.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Ksfilter/Swenum/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Ksfilter/Swenum/Swenum.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Symcrypt/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Symcrypt/Symcrypt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Sysaudio/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Sysaudio/Sysaudio.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Sysdm/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Sysdm/Sysdm.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Syssetup/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Syssetup/Syssetup.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/T2embed/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/T2embed/T2embed.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Tapi32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Tapi32/Tapi32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Tapiui/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Tapiui/Tapiui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Taskkill/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Taskkill/Taskkill.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Tasklist/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Tasklist/Tasklist.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Taskmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Taskmgr/Taskmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Tcpsvcs/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Tcpsvcs/Tcpsvcs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Network/Tdi/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Network/Tdi/Tdi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Tdilib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Tdilib/Tdilib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Telephon/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Telephon/Telephon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Telnet/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Telnet/Telnet.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Telnetd/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Telnetd/Telnetd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Subsystems/Mvdm/Samples/" />
+  <Folder Name="/ReactOS/Subsystems/Mvdm/Samples/Testvdd/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Mvdm/Samples/Testvdd/Testvdd.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Tftpd/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Tftpd/Tftpd.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Themeui/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Themeui/Themeui.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Timedate/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Timedate/Timedate.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Timeout/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Timeout/Timeout.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Tracert/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Tracert/Tracert.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Traffic/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Traffic/Traffic.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Tree/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Tree/Tree.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Twain_32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Twain_32/Twain_32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Tzlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Tzlib/Tzlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Sound/Uartmidi/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Sound/Uartmidi/Uartmidi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ubtrfs/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ubtrfs/Ubtrfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ucdfs/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ucdfs/Ucdfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Ucrt/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Ucrt/Ucrt.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Ucx01000/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Ucx01000/Ucx01000.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Ucxstub/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Ucxstub/Ucxstub.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Udfs/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Udfs/Udfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Udmihelp/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Udmihelp/Udmihelp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Uext2/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Uext2/Uext2.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ufat/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ufat/Ufat.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Ufatx/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Ufatx/Ufatx.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Utilman/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Utilman/Utilman.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Utilman/Umandlg/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Utilman/Umandlg/Umandlg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Storage/Ide/Uniata/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Storage/Ide/Uniata/Uniata.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Untfs/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Untfs/Untfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Updspapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Updspapi/Updspapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Url/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Url/Url.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Usbccgp/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbccgp/Usbccgp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Usbdex/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Usbdex/Usbdex.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Usbehci/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbehci/Usbehci.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Usbhub/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbhub/Usbhub.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Usbhub3/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbhub3/Usbhub3.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Usbohci/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbohci/Usbohci.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Usbstor/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbstor/Usbstor.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Usbuhci/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbuhci/Usbuhci.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Usb/Usbxhci/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Usb/Usbxhci/Usbxhci.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Subsystems/Mvdm/Wow16/" />
+  <Folder Name="/ReactOS/Subsystems/Mvdm/Wow16/User/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Mvdm/Wow16/User/User.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Userinit/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Userinit/Userinit.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Setup/Usetup/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Setup/Usetup/Usetup.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Usrmgr/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Usrmgr/Usrmgr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Uuid/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Uuid/Uuid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Vbscript/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Vbscript/Vbscript.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Vcstartup/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Vcstartup/Vcstartup.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Subsystems/Mvdm/Vdmdbg/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Mvdm/Vdmdbg/Vdmdbg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Verifier/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Verifier/Verifier.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Filesystems/Vfatfs/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Filesystems/Vfatfs/Vfatfs.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Fslib/Vfatlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Fslib/Vfatlib/Vfatlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Fslib/Vfatxlib/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Fslib/Vfatxlib/Vfatxlib.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Miniport/Vga/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Miniport/Vga/Vga.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Displays/Vga/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Displays/Vga/Vgaddi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Miniport/Vbe/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Miniport/Vbe/Vgapnp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Virtio/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Virtio/Virtio.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Vkd3d/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Vkd3d/Vkd3d.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Miniport/Vmx_Svga/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Miniport/Vmx_Svga/Vmx_Svga.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Vssapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Vssapi/Vssapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Watchdog/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Watchdog/Watchdog.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wbemdisp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wbemdisp/Wbemdisp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wbemprox/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wbemprox/Wbemprox.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Drivers/Wdf/Wdfdriverentry/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Drivers/Wdf/Wdfdriverentry/Wdfdriverentry.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Legacy/" />
+  <Folder Name="/ReactOS/Drivers/Wdm/Audio/Legacy/Wdmaud/">
+    <Project Path="Upstream/ReactOS/Projects/Drivers/Wdm/Audio/Legacy/Wdmaud/Wdmaud.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wdmaud.drv/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wdmaud.drv/Wdmaud.drv.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Wdmguid/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Wdmguid/Wdmguid.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Setup/Welcome/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Setup/Welcome/Welcome.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Where/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Where/Where.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Whoami/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Whoami/Whoami.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Whois/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Whois/Whois.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/3rdparty/Libwine/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Libwine/Wine.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Libwine/Wine_Dll_Canunload.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Libwine/Wine_Dll_Register.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/3rdparty/Libwine/Wineldr.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Lib/Wine2ros/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Lib/Wine2ros/Wine2ros.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Cpl/Wined3dcfg/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Cpl/Wined3dcfg/Wined3dcfg.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Gdi/Gdi32/Wine/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Gdi/Gdi32/Wine/Winegdi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Winfax/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Winfax/Winfax.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wing32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wing32/Wing32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Winhlp32/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Winhlp32/Winhlp32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/System/Winlogon/">
+    <Project Path="Upstream/ReactOS/Projects/Base/System/Winlogon/Winlogon.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Games/Winmine/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Games/Winmine/Winmine.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Winscard/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Winscard/Winscard.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Winsta/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Winsta/Winsta.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Winusb/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Winusb/Winusb.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Winver/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Winver/Winver.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Network/Wlanconf/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Network/Wlanconf/Wlanconf.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Services/Wlansvc/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Services/Wlansvc/Wlansvc.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wmi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wmi/Wmi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Wmic/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Wmic/Wmic.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wmiutils/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wmiutils/Wmiutils.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Wordpad/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Wordpad/Wordpad.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Sdk/Tools/" />
+  <Folder Name="/ReactOS/Sdk/Tools/Wpp/">
+    <Project Path="Upstream/ReactOS/Projects/Sdk/Tools/Wpp/Wpp.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Write/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Write/Write.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Wscript/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Wscript/Wscript.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wshirda/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wshirda/Wshirda.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wshom.ocx/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wshom.ocx/Wshom.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wshtcpip/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wshtcpip/Wshtcpip.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wsock32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wsock32/Wsock32.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Wuapi/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Wuapi/Wuapi.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Wusa/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Wusa/Wusa.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Win32ss/Drivers/Miniport/Xboxvmp/">
+    <Project Path="Upstream/ReactOS/Projects/Win32ss/Drivers/Miniport/Xboxvmp/Xboxvmp.vcxproj">
+      <Build Solution="Debug|x64" Project="false" />
+      <Build Solution="Release|x64" Project="false" />
+      <Build Solution="Debug|ARM64" Project="false" />
+      <Build Solution="Release|ARM64" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/ReactOS/Base/Applications/Cmdutils/Xcopy/">
+    <Project Path="Upstream/ReactOS/Projects/Base/Applications/Cmdutils/Xcopy/Xcopy.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Xinput1_1/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Xinput1_1/Xinput1_1.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Xinput1_2/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Xinput1_2/Xinput1_2.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Xinput9_1_0/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Xinput9_1_0/Xinput9_1_0.vcxproj" />
+  </Folder>
+  <Folder Name="/ReactOS/Dll/Win32/Xolehlp/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Xolehlp/Xolehlp.vcxproj" />
+  </Folder>
+</Solution>

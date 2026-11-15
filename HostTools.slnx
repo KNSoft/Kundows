@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/HostTools/Hpp/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Hpp/Hpp.vcxproj" />
+  </Folder>
+</Solution>

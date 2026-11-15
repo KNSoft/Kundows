@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{18A4547C-ABBB-5DF4-958B-CADC02D9CB56}</ProjectGuid>
+    <ProjectName>uuid</ProjectName>
+    <RootNamespace>Uuid</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" Condition="'$(Platform)'!='ARM64'" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\marmasm.props" Condition="'$(Platform)'=='ARM64'" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\ReactOS.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>uuid</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <CreateHotpatchableImage>true</CreateHotpatchableImage>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>uuid</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <CreateHotpatchableImage>true</CreateHotpatchableImage>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>uuid</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>uuid</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <TargetName>uuid</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MARMASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(IncludePaths)</IncludePaths>
+      <ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName>
+    </MARMASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:ARM64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <TargetName>uuid</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MARMASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_MIDL_USE_GUIDDEF_;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(IncludePaths)</IncludePaths>
+      <ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName>
+    </MARMASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\lib\uuid;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:ARM64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\activdbg_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\activscp_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\asptlb_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\atliface_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\bdaiface_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\bits1_5_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\bits_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\comcat_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\commoncontrols_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\control_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\cor_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\cordebug_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\ctffunc_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\ctfutb_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\ctxtcall_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\dimm_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\dispex_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\docobj_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\docobjectservice_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\downloadmgr_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\emptyvc_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\exdisp_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\fusion_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\hlink_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\htiface_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\htiframe_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\httprequest_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\iads_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\imnact_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\imnxport_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\indexsrv_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\metahost_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\mimeinfo_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\mimeole_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\mlang_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\mscoree_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\msctf_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\msdadc_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\mshtmhst_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\mshtml_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\mstask_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\msxml_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\natupnp_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\netcon_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\netfw_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\oaidl_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\objidl_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\objidlbase_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\objsafe_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\ocidl_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\ocmm_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\oleacc_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\oledb_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\oleidl_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\optary_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\perhist_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\propidl_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\propsys_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\pstore_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\richole_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\sensevts_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\servprov_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\shdeprecated_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\shldisp_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\shobjidl_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\strmif_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\textstor_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\tlogstg_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\tom_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\tuner_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\unknwn_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\urlhist_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\urlmon_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\vmr9_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\wia_xp_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\wincodec_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\xmldom_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\xmldso_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\uuid\xmllite_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\cguid_i.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\cmdtreeiid.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\ctffunc_g.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\ieguids.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\msctf_g.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\netfwv6clsid.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\otherguids.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\shguids.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\undoc.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\uuid\wdmguids.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <None Include="..\..\..\..\Source\sdk\include\psdk\activdbg.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\activscp.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\asptlb.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\atliface.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\bdaiface.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\bits.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\bits1_5.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\comcat.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\commoncontrols.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\control.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\cor.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\cordebug.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\ctffunc.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\ctfutb.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\ctxtcall.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\dimm.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\dispex.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\docobj.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\docobjectservice.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\downloadmgr.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\emptyvc.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\exdisp.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\fusion.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\hlink.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\htiface.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\htiframe.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\httprequest.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\iads.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\imnact.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\imnxport.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\indexsrv.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\metahost.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\mimeinfo.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\mimeole.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\mlang.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\mscoree.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\msctf.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\msdadc.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\mshtmhst.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\mshtml.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\mstask.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\msxml.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\natupnp.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\netcon.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\netfw.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\oaidl.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\objidl.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\objidlbase.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\objsafe.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\ocidl.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\ocmm.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\oleacc.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\oledb.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\oleidl.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\optary.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\perhist.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\propidl.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\propsys.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\pstore.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\richole.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\sensevts.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\servprov.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\shdeprecated.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\shldisp.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\shobjidl.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\strmif.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\textstor.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\tlogstg.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\tom.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\tuner.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\unknwn.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\urlhist.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\urlmon.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\vmr9.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\wia_xp.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\wincodec.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\xmldom.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\xmldso.idl" />
+    <None Include="..\..\..\..\Source\sdk\include\psdk\xmllite.idl" />
+    <None Include="..\..\..\..\Source\sdk\lib\uuid\CMakeLists.txt" />
+    <None Include="Uuid.Migration.json" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\marmasm.targets" Condition="'$(Platform)'=='ARM64'" />
+  </ImportGroup>
+</Project>

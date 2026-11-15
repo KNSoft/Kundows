@@ -1,0 +1,32 @@
+{
+  "SchemaVersion": 1,
+  "Target": "ReactOSPrepare",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Status": "NativePreparationProject",
+  "HostToolsSolution": "HostTools.slnx",
+  "HostTools": [
+    "hpp"
+  ],
+  "CommonOutputs": [
+    "OutDir/Build/SDK/Common/Include/ddk/wdm.h",
+    "OutDir/Build/SDK/Common/Include/ddk/ntddk.h",
+    "OutDir/Build/SDK/Common/Include/ddk/ntifs.h",
+    "OutDir/Build/SDK/Common/Include/psdk/devioctl.h",
+    "OutDir/Build/SDK/Common/Include/psdk/ntdef.h",
+    "OutDir/Build/SDK/Common/Include/psdk/winnt.h",
+    "OutDir/Build/SDK/Common/Include/reactos/version.h"
+  ],
+  "PlatformOutputs": [
+    "OutDir/Build/SDK/<Platform>/Include/reactos/buildno.h"
+  ],
+  "Dependencies": [
+    "sdk/include/xdk/*.h",
+    "sdk/include/xdk/*.template.h",
+    "sdk/include/reactos/version.cmake",
+    "sdk/include/reactos/version.h.cmake",
+    "sdk/include/reactos/buildno.h.cmake"
+  ],
+  "Deferred": [
+    "Target-specific generated assembly and import library files remain separate module generation work."
+  ]
+}

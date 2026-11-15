@@ -1,0 +1,1091 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{A1FE131C-4CEF-5CCC-B396-EB563446933B}</ProjectGuid>
+    <ProjectName>crtmath</ProjectName>
+    <RootNamespace>Crtmath</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" Condition="'$(Platform)'!='ARM64'" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\marmasm.props" Condition="'$(Platform)'=='ARM64'" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\ReactOS.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>crtmath</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <CreateHotpatchableImage>true</CreateHotpatchableImage>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018;4146</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1 /wd4146</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>crtmath</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <CreateHotpatchableImage>true</CreateHotpatchableImage>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018;4146</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /wd4146</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>crtmath</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018;4146</DisableSpecificWarnings>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_CRTBLD;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_CRTBLD;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_CRTBLD;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1 /wd4146</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>crtmath</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018;4146</DisableSpecificWarnings>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_CRTBLD;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_CRTBLD;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_CRTBLD;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /wd4146</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <TargetName>crtmath</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018;4146</DisableSpecificWarnings>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MARMASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(IncludePaths)</IncludePaths>
+      <ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName>
+    </MARMASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:ARM64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <TargetName>crtmath</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018;4146</DisableSpecificWarnings>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MARMASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);USE_MSVCRT_PREFIX;__fma3_lib_init=__acrt_initialize_fma3;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_CRTBLD;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(IncludePaths)</IncludePaths>
+      <ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName>
+    </MARMASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\libm_sse2;$(ProjectDir)..\..\..\..\Source\sdk\lib\crt\include\internal\mingw-w64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:ARM64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\_controlfp_s.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\amd64\_clearfp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\amd64\_control87.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\amd64\_controlfp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\amd64\_fpreset.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\amd64\_statusfp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\amd64\machfpcw.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\chgsign.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\copysign.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\fpclass.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\i386\clearfp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\i386\cntrlfp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\i386\fpreset.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\i386\logb.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\i386\statfp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\float\scalb.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\__math_divzero.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\__math_invalid.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\__math_oflow.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\__math_uflow.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\__math_xflow.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\__rem_pio2.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\__rem_pio2_large.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\__tan.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_chgsignf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_copysignf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_dclass.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_dsign.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_dtest.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_fdclass.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_fdsign.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_fdtest.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_finite.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_finitef.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_hypotf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_invoke_matherr.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_isnan.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_isnanf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_logb.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\_logbf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\abs.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\acos.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\acosf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\adjust.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\amd64\_set_statfp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\asin.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\asinf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\atan.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\atan2f.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\atanf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\cabs.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\ceil.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\ceilf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\cosf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\cosh.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\coshf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\div.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\exp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\exp2.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\exp2f.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\exp_data.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\expf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\fabs.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\fabsf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\fdivbug.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\floor.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\floorf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\fmod.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\fmodf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\frexp.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\huge_val.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\hypot.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\i386\ci.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\i386\cicos.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\i386\cilog.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\i386\cipow.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\i386\cisin.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\i386\cisqrt.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\i386\ldexp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\i386\libm_sse2.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\ieee754\j0_y0.c">
+      <ObjectFileName>$(IntDir)math/ieee754/j0_y0.c.obj</ObjectFileName>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\ieee754\j1_y1.c">
+      <ObjectFileName>$(IntDir)math/ieee754/j1_y1.c.obj</ObjectFileName>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\ieee754\jn_yn.c">
+      <ObjectFileName>$(IntDir)math/ieee754/jn_yn.c.obj</ObjectFileName>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\ilogb.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\j0_y0.c">
+      <ObjectFileName>$(IntDir)math/j0_y0.c.obj</ObjectFileName>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\j1_y1.c">
+      <ObjectFileName>$(IntDir)math/j1_y1.c.obj</ObjectFileName>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\jn_yn.c">
+      <ObjectFileName>$(IntDir)math/jn_yn.c.obj</ObjectFileName>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\labs.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\ldexp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\ldiv.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\L2_by_pi_bits.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\Lsincos_array.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\Lsincosf_array.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\_handle_error.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\acos.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\acosf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\asin.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\asinf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\atan.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\atan2.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\atan2f.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\atanf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\ceil.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\ceilf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\cosh.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\coshf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\exp2.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\exp_special.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\floor.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\floorf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\fma3_available.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\hypot.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\hypotf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\ldexp.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\log10_128_lead_tail_table.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\log10_256_lead_tail_table.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\log_128_lead_tail_table.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\log_256_lead_tail_table.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\log_F_inv_dword_table.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\log_F_inv_qword_table.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\log_special.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\logb.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\logbf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\modf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\modff.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\pow_special.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\remainder_piby2.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\sincos_special.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\sinh.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\sinhf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\sqrt.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\sqrtf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\tan.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\tanf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\tanh.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\tanhf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\two_to_jby64_head_tail_table.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\two_to_jby64_table.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\log.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\log10.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\log10f.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\log_data.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\logb.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\logf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\modf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\modff.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\nextafter.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\nextafterf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\nexttowardf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\pow.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\pow_data.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\powf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\round.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\roundf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\s_modf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\scalbn.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\scalbnf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\sincos.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\sinf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\sinh.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\sinhf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\sqrt.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\sqrt_data.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\sqrtf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\stubs.c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\tan.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\tanf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\tanh.c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\tanhf.c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\trunc.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\truncf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\atan2_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\alldiv_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\alldvrm_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\allmul_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\allrem_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\allshl_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\allshr_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\atan2_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\atan_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\aulldiv_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\aulldvrm_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\aullrem_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\aullshr_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\ceil_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\ceilf_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\cos_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\exp_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\fabs_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\fabsf_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\floor_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\floorf_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\fmod_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\fmodf_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\ftol2_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\ftol_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\ftoul2_legacy_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\getsetfpcw_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\log10_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\log_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\pow_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\sin_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\sqrt_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\tan_asm_crtmath_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\cos.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\cosf.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\exp.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\expf.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\fmod.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\fmodf.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\log.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\log10.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\pow.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\remainder_piby2_forAsm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\remainder_piby2_forFMA3.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\remainder_piby2f_forAsm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\remainder_piby2f_forC.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\sin.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\sinf.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NO_RTL_INLINES;_NTSYSTEM_;_NTDLLBUILD_;_LIBCNT_;__CRT__NO_INLINE;CRTDLL</PreprocessorDefinitions>
+    </MASM>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\CMakeLists.txt" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\float\amd64\getsetfpcw.S" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\amd64\fabs.S" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\amd64\fabsf.S" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\arm64\atan2.s" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\alldiv_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\alldvrm_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\allmul_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\allrem_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\allshl_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\allshr_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\atan2_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\atan_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\aulldiv_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\aulldvrm_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\aullrem_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\aullshr_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\ceil_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\ceilf.S" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\cos_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\exp_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\floor_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\floorf.S" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\fmod_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\fmodf_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\ftol2_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\ftol_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\ftoul2_legacy_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\log10_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\log_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\pow_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\sin_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\sqrt_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\tan_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\libm_sse2\fm.inc" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <None Include="Crtmath.Migration.json" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\marmasm.targets" Condition="'$(Platform)'=='ARM64'" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,1138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{118F7B3F-256F-5C96-880D-E7AE22660C8B}</ProjectGuid>
+    <ProjectName>ucrtbase</ProjectName>
+    <RootNamespace>Ucrtbase</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" Condition="'$(Platform)'!='ARM64'" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\marmasm.props" Condition="'$(Platform)'=='ARM64'" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\ReactOS.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>ucrtbase</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /w14115 /EHs-c-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <CreateHotpatchableImage>true</CreateHotpatchableImage>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Debug";</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR=\"Debug\";</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Debug";</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Msvcrt_Shared\msvcrt_shared.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Crtmath\crtmath.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcruntime\vcruntime.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcstartup\vcstartup.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Chkstk\chkstk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Wine\wine.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Runtmchk\runtmchk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libkernel32\libkernel32.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libntdll\libntdll.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Pseh\pseh.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Ftol2\ftol2.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86 /IGNORE:4039</AdditionalOptions>
+      <CreateHotPatchableImage>X86Image</CreateHotPatchableImage>
+      <DataExecutionPrevention />
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol>__acrt_DllMain@12</EntryPointSymbol>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <LinkErrorReporting />
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/win32/ucrtbase/ucrtbase.def</ModuleDefinitionFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress />
+      <SetChecksum>true</SetChecksum>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>ucrtbase</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /w14115 /EHs-c-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <CreateHotpatchableImage>true</CreateHotpatchableImage>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Release";</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR=\"Release\";</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Release";</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Msvcrt_Shared\msvcrt_shared.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Crtmath\crtmath.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcruntime\vcruntime.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcstartup\vcstartup.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Chkstk\chkstk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Wine\wine.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Runtmchk\runtmchk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libkernel32\libkernel32.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libntdll\libntdll.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Pseh\pseh.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Ftol2\ftol2.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86 /IGNORE:4039</AdditionalOptions>
+      <CreateHotPatchableImage>X86Image</CreateHotPatchableImage>
+      <DataExecutionPrevention />
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol>__acrt_DllMain@12</EntryPointSymbol>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <LinkErrorReporting />
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/win32/ucrtbase/ucrtbase.def</ModuleDefinitionFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress />
+      <SetChecksum>true</SetChecksum>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>ucrtbase</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /d2FH4- /w14115 /EHs-c-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Debug";</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR=\"Debug\";</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Debug";</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Msvcrt_Shared\msvcrt_shared.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Crtmath\crtmath.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcruntime\vcruntime.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcstartup\vcstartup.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Chkstk\chkstk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Wine\wine.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Runtmchk\runtmchk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libkernel32\libkernel32.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libntdll\libntdll.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Pseh\pseh.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /d2:-FH4- /IGNORE:4039</AdditionalOptions>
+      <CreateHotPatchableImage>X64Image</CreateHotPatchableImage>
+      <DataExecutionPrevention />
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol>__acrt_DllMain</EntryPointSymbol>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <LinkErrorReporting />
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/win32/ucrtbase/ucrtbase.def</ModuleDefinitionFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress />
+      <SetChecksum>true</SetChecksum>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>ucrtbase</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /d2FH4- /w14115 /EHs-c-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Release";</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR=\"Release\";</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Release";</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(IncludePaths)</IncludePaths>
+      <AdditionalOptions>%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <PreserveIdentifierCase>1</PreserveIdentifierCase>
+      <WarningLevel>3</WarningLevel>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Msvcrt_Shared\msvcrt_shared.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Crtmath\crtmath.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcruntime\vcruntime.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcstartup\vcstartup.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Chkstk\chkstk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Wine\wine.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Runtmchk\runtmchk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libkernel32\libkernel32.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libntdll\libntdll.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Pseh\pseh.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /d2:-FH4- /IGNORE:4039</AdditionalOptions>
+      <CreateHotPatchableImage>X64Image</CreateHotPatchableImage>
+      <DataExecutionPrevention />
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol>__acrt_DllMain</EntryPointSymbol>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <LinkErrorReporting />
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/win32/ucrtbase/ucrtbase.def</ModuleDefinitionFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress />
+      <SetChecksum>true</SetChecksum>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <TargetName>ucrtbase</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115 /EHs-c-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <ExceptionHandling />
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <Optimization>Disabled</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Debug";</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR=\"Debug\";</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MARMASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Debug";</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(IncludePaths)</IncludePaths>
+      <ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName>
+    </MARMASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Msvcrt_Shared\msvcrt_shared.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Crtmath\crtmath.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcruntime\vcruntime.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcstartup\vcstartup.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Chkstk\chkstk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Wine\wine.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Runtmchk\runtmchk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libkernel32\libkernel32.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libntdll\libntdll.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Pseh\pseh.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:ARM64 /IGNORE:4039</AdditionalOptions>
+      <DataExecutionPrevention />
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol>__acrt_DllMain</EntryPointSymbol>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <LinkErrorReporting />
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/win32/ucrtbase/ucrtbase.def</ModuleDefinitionFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress />
+      <SetChecksum>true</SetChecksum>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <TargetName>ucrtbase</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115 /EHs-c-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention />
+      <DisableSpecificWarnings>4819;4244;4290;4800;4200;4214;4018</DisableSpecificWarnings>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling />
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel />
+      <ForceConformanceInForLoopScope />
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <RemoveUnreferencedCodeData />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode />
+      <TreatWChar_tAsBuiltInType />
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Release";</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat />
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR=\"Release\";</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MARMASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_UCRT;_CORECRT_BUILD;CRTDLL;CMAKE_INTDIR="Release";</PreprocessorDefinitions>
+      <IncludePaths>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(IncludePaths)</IncludePaths>
+      <ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName>
+    </MARMASM>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\dll\win32\ucrtbase;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\sdk\include\ucrt;$(ProjectDir)..\..\..\..\Source\sdk\lib\vcruntime\inc;$(ProjectDir)..\..\..\..\Source\sdk\lib\apisets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Msvcrt_Shared\msvcrt_shared.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Crtmath\crtmath.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcruntime\vcruntime.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Vcstartup\vcstartup.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Chkstk\chkstk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Wine\wine.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Runtmchk\runtmchk.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libkernel32\libkernel32.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Libntdll\libntdll.lib;$(ProjectDir)..\..\..\..\..\..\OutDir\$(Platform)\$(Configuration)\Pseh\pseh.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:ARM64 /IGNORE:4039</AdditionalOptions>
+      <DataExecutionPrevention />
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol>__acrt_DllMain</EntryPointSymbol>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <LinkErrorReporting />
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/win32/ucrtbase/ucrtbase.def</ModuleDefinitionFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress />
+      <SetChecksum>true</SetChecksum>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase\ucrtbase_stubs.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\ucrtbase\printf.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\ucrtbase\stubs.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\ucrtbase\ucrtbase.def" />
+    <None Include="..\..\..\..\Source\dll\win32\ucrtbase\CMakeLists.txt" />
+    <None Include="..\..\..\..\Source\dll\win32\ucrtbase\ucrtbase.spec" />
+    <None Include="Ucrtbase.Migration.json" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\CompareStringA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\CompareStringW.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\CreateProcessA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\GetLocaleInfoA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\GetModuleFileNameA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\GetStringTypeA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\GetStringTypeW.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\LCMapStringA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\LCMapStringW.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\LoadLibraryExA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\MultiByteToWideChar.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\OutputDebugStringA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\SetCurrentDirectoryA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\SetEnvironmentVariableA.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\WideCharToMultiByte.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_ctype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_filbuf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_file.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_flsbuf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_fptostr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_freebuf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_getbuf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_mbslen.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_memicmp_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_sftbuf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_strerr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_strnicm_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\_wctype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\abort.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\abs.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\access.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\align.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\appcrt_dllmain.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\argv_data.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\argv_parsing.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\argv_wildcards.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\argv_winmain.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\asctime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\assert.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\atof.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\atoldbl.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\atox.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\bsearch.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\bsearch_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\byteswap.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\c16rtomb.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\c32rtomb.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\calloc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\calloc_base.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cenvarg.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cfout.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cgets.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cgetws.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\chdir.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\chmod.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\chsize.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\clearerr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\clock.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\clock_initializer.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\close.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\closeall.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\commit.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\common_utf8.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\console_input_initializer.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\console_output_initializer.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cprintf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cputs.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cputws.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\creat.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\crtmbox.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cscanf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ctime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ctype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\cvt.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\days.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\difftime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\div.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\drive.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\drivemap.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\drivfree.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\dup.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\dup2.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\empty.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\environment_initialization.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\eof.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\errno.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\exception_filter.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\exit.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\expand.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fclose.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fcvt.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fdopen.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\feoferr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fflush.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fgetc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fgetpos.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fgets.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fgetwc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\filelength.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fileno.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\findfile.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fma3_initializer.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fmode_initializer.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fopen.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fp_flags.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fputc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fputs.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fputwc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fputws.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fread.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\free.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\free_base.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\freopen.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fseek.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fsetpos.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ftell.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ftime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fullpath.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\fwrite.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\gcvt.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\get_environment_from_os.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\get_qualified_locale.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getch.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getcwd.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getenv.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getpath.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getpid.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getproc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getqloc_downlevel.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\gets.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\gettemppath.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getw.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\getwch.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\glstatus.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\gmtime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\heap_handle.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\heapchk.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\heapmin.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\heapwalk.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\imaxabs.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\imaxdiv.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initcon.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initconin.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initctype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initialization.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initmon.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initnum.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\initterm.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\inittime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\input.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\invalid_parameter.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ioinit.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\is_wctype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\isatty.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\isctype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbalnm.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbalph.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbbyte.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbdgt.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbgrph.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbknj.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismblgl.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismblwr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbprn.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbpunc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbsle.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbspc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbstr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ismbupr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\iswctype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\labs.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lcidtoname_downlevel.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lconv_unsigned_char_initialization.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ldiv.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lfind.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lfind_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\llabs.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lldiv.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\loaddll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locale_initializer.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locale_refcounting.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locale_update.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\localeconv.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\localtime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locking.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\locks.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\loctotime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lsearch.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lsearch_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\lseek.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\makepath.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\malloc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\malloc_base.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\matherr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbbtype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbccpy.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbccpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbccpy_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbclen.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbclevel.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbctype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mblen.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbrtoc16.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbrtoc32.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbrtowc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsbtype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscat_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscat_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbschr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscoll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscpy_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbscspn.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsdec.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsicmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsicoll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsinc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbslen.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbslen_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbslwr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcat.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcat_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcat_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcnt.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcol.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcpy.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbcpy_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbicm.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbico.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbset.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbset_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnbset_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncat.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncat_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncat_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnccnt.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncoll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncpy.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsncpy_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnextc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnicmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnicol.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsninc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnset.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnset_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsnset_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbspbrk.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsrchr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsrev.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsset.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsset_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsset_s_l.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsspn.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsspnp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsstr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbstok.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbstok_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbstowcs.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbsupr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtohira.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtokata.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtolwr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtoupr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mbtowc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\memccpy.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\memccpy_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\memcpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\memicmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mkdir.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mktemp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\mktime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\msize.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\multibyte_initializer.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ncommode.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\new_handler.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\new_mode.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\nlsdata.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\onexit.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\open.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\openfile.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\osfinfo.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\output.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\peb_access.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\per_thread_data.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\perror.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\pipe.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\popen.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\printf_count_output.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putch.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putenv.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\puts.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putw.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putwch.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\putws.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\qsort.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\qsort_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rand.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rand_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\read.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\realloc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\realloc_base.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\recalloc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rename.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\report_runtime_error.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\resetstk.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rewind.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rmdir.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rmtmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rotl.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\rotr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\searchenv.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\set_error_mode.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setbuf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setenv.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\seterrm.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setlocale.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setmaxf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setmode.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\setvbuf.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\shared_initialization.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\signal.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\slbeep.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\spawnl.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\spawnlp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\spawnv.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\spawnvp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\splitpath.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\sse2_initializer.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stat.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stdio_initializer.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcat.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcat_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcat_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcmp.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcmp_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcoll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcspn.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strcspn_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strdate.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strdup.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stream.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strerror.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strftime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stricmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\stricoll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strlen_UCRT_STRING_ASM.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strlwr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncat.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncat_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncat_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncmp.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncmp_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncnt.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncoll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncpy.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncpy_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strncpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnicmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnicol.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnlen.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnset.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnset_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strnset_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strpbrk.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strpbrk_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strrev.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strrev_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strset.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strset_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strset_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strspn.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strspn_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtod.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtok.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtok_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strtox.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strupr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\strxfrm.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\swab.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\syserr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\system.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\systime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tell.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\telli64.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tempnam.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\terminate.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\thread.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\time.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\timeset.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\timeset_initializer.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tmpfile.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tmpfile_initializer.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tojisjms.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tolower_toupper.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tombbmbc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\towlower.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\towupper.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\txtmode.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\tzset.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\umask.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ungetc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\ungetwc.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\unlink.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\utime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\waccess.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wait.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wchmod.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcrtomb.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscat.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscat_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscoll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscpy.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcscspn.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsdup.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsftime.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsicmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsicoll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcslen_UCRT_STRING_ASM.obj" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcslwr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncat.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncat_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncnt.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncoll.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncpy.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsncpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsnicmp.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsnicol.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsnset.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsnset_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcspbrk.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsrev.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsset.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsset_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsspn.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcstok.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcstok_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcstombs.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsupr.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wcsxfrm.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wctomb.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wctrans.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wctype.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\win_policies.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\winapi_thunks.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wmemcpy_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wmemmove_s.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wmkdir.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wperror.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wrename.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\write.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wrmdir.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wsetlocale.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\wunlink.obj" />
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Ucrt\xtoa.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Sdk\Lib\Crt\Chkstk.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{406ACF17-6C6E-5E97-B42B-9DC318520328}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sdk\Lib\Crt\Crtmath.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{A1FE131C-4CEF-5CCC-B396-EB563446933B}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sdk\Lib\Crt\Ftol2.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'">
+      <Project>{5BE2CC43-70AD-5BDB-9F01-676A321702B5}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Kernel32\Libkernel32.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{E83401E4-0203-563A-B6C9-DBFFA9DCDF8C}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ntdll\Libntdll.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{A4824F3C-FE94-5192-BA70-D8451C94775E}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Msvcrt\Msvcrt_Shared.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{FBFA5D35-18FE-5CE6-A810-A18D30599CB1}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sdk\Lib\Pseh\Pseh.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{2DEBFCEA-5518-5BAE-8FB3-B62C0F9B0BDA}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sdk\Lib\Runtmchk\Runtmchk.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{F1C47B14-160C-5377-84D2-A846B4509821}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sdk\Lib\Ucrt\Ucrt.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{5EBCEEE8-0663-578C-A520-BC7E00203688}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sdk\Lib\Vcruntime\Vcruntime.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{71787CF5-E4E2-5998-869B-06B037F10734}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sdk\Lib\Vcstartup\Vcstartup.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{227CB969-40AE-5888-9E0B-985074EB8AF5}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sdk\Lib\3rdparty\Libwine\Wine.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'">
+      <Project>{AA55B970-404A-50B7-9778-30037843D388}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\marmasm.targets" Condition="'$(Platform)'=='ARM64'" />
+  </ImportGroup>
+</Project>

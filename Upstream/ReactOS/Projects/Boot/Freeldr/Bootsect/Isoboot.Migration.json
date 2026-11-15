@@ -1,0 +1,448 @@
+{
+  "SchemaVersion": 1,
+  "Target": "isoboot",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Project": "Upstream/ReactOS/Projects/Boot/Freeldr/Bootsect/Isoboot.vcxproj",
+  "Status": "NativeProjectSkeleton",
+  "Transferred": [
+    "Platform-specific source membership",
+    "Native compiler/resource/assembler properties",
+    "Module-specific defines and include paths",
+    "Linker/librarian options and library order",
+    "Existing project dependencies"
+  ],
+  "Adaptations": [
+    "Source references are relative to the native project",
+    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
+    "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
+    "Object-library inputs refer to their native intermediate directories"
+  ],
+  "Deferred": [
+    "Architecture-specific assembly preprocessing",
+    "Custom source/header/resource generation; recipes are recorded per configuration",
+    "Host tool implementations and invocation",
+    "Raw boot binary conversion; utility project has no native generation recipe yet"
+  ],
+  "Configurations": {
+    "Debug|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/bootsect",
+      "ModuleType": "",
+      "CMakeTargetType": "UTILITY",
+      "Output": "isoboot",
+      "RequiredHostTools": [
+        "obj2bin"
+      ],
+      "RequiredInfrastructure": [],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/bootsect/isoboot.S"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin.tmp"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x86\\cl.exe\" /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/crt -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -DWINVER=0x502 -D_WIN32_IE=0x603 -D_WIN32_WINNT=0x502 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/bootsect/isoboot.S > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.tmp"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin.obj"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "ml.exe /nologo /quiet /Cp /Fo$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.obj /c /Ta $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.tmp"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin"
+          ],
+          "HostTools": [
+            "obj2bin"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\obj2bin.exe $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.obj $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin 7000"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\CMakeFiles\\isoboot"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": ":cmEnd\nendlocal & call :cmErrorLevel %errorlevel% & goto :cmDone\n:cmErrorLevel\nexit /b %1\n:cmDone"
+        }
+      ],
+      "PerSourceProperties": [],
+      "TrialBuild": {
+        "Target": "isoboot",
+        "Status": "NoArtifact",
+        "Configuration": "Debug",
+        "Platform": "Win32",
+        "IndependentProjectBuild": true,
+        "ExitCode": 0,
+        "DurationSeconds": 0.37,
+        "TimestampUtc": "2026-11-13T00:46:44.4842680Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Bootsect\\Isoboot.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=Win32",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Isoboot.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Isoboot.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "obj2bin"
+        ],
+        "RequiredInfrastructure": [],
+        "PendingBuildInfrastructure": [
+          "Architecture-specific assembly preprocessing",
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Host tool implementations and invocation",
+          "Raw boot binary conversion; utility project has no native generation recipe yet"
+        ],
+        "ArtifactExists": false,
+        "Artifact": null,
+        "ProjectSHA256": "1609f4ae6ede50182004ba2465f51399ca757137604037631fd9399c3fb1b6f5",
+        "MatchesCurrentProject": true
+      },
+      "MigratedProperties": {
+        "General": {},
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\bootsect;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "host-tools"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/bootsect",
+      "ModuleType": "",
+      "CMakeTargetType": "UTILITY",
+      "Output": "isoboot",
+      "RequiredHostTools": [
+        "obj2bin"
+      ],
+      "RequiredInfrastructure": [],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/bootsect/isoboot.S"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin.tmp"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x86\\cl.exe\" /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/crt -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr -D__REACTOS__ -D_SBCS -DDBG=0 -DWINVER=0x502 -D_WIN32_IE=0x603 -D_WIN32_WINNT=0x502 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -DLANGUAGE_EN_US /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/bootsect/isoboot.S > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.tmp"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin.obj"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "ml.exe /nologo /quiet /Cp /Fo$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.obj /c /Ta $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.tmp"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin"
+          ],
+          "HostTools": [
+            "obj2bin"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\obj2bin.exe $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.obj $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin 7000"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\CMakeFiles\\isoboot"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": ":cmEnd\nendlocal & call :cmErrorLevel %errorlevel% & goto :cmDone\n:cmErrorLevel\nexit /b %1\n:cmDone"
+        }
+      ],
+      "PerSourceProperties": [],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {},
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\bootsect;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "host-tools"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/bootsect",
+      "ModuleType": "",
+      "CMakeTargetType": "UTILITY",
+      "Output": "isoboot",
+      "RequiredHostTools": [
+        "obj2bin"
+      ],
+      "RequiredInfrastructure": [],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/bootsect/isoboot.S"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin.tmp"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe\" /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/crt -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -DWINVER=0x502 -D_WIN32_IE=0x603 -D_WIN32_WINNT=0x502 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D__x86_64 /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/bootsect/isoboot.S > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.tmp"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin.obj"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "ml.exe /nologo /quiet /Cp /Fo$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.obj /c /Ta $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.tmp"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin"
+          ],
+          "HostTools": [
+            "obj2bin"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\obj2bin.exe $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.obj $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin 7000"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\CMakeFiles\\isoboot"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": ":cmEnd\nendlocal & call :cmErrorLevel %errorlevel% & goto :cmDone\n:cmErrorLevel\nexit /b %1\n:cmDone"
+        }
+      ],
+      "PerSourceProperties": [],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {},
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\bootsect;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "host-tools"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/bootsect",
+      "ModuleType": "",
+      "CMakeTargetType": "UTILITY",
+      "Output": "isoboot",
+      "RequiredHostTools": [
+        "obj2bin"
+      ],
+      "RequiredInfrastructure": [],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/bootsect/isoboot.S"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin.tmp"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe\" /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/crt -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr -D__REACTOS__ -D_SBCS -DDBG=0 -DWINVER=0x502 -D_WIN32_IE=0x603 -D_WIN32_WINNT=0x502 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -DLANGUAGE_EN_US -D__x86_64 /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/bootsect/isoboot.S > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.tmp"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin.obj"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "ml.exe /nologo /quiet /Cp /Fo$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.obj /c /Ta $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.tmp"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\isoboot.bin"
+          ],
+          "HostTools": [
+            "obj2bin"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\obj2bin.exe $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin.obj $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/bootsect/isoboot.bin 7000"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect\\CMakeFiles\\isoboot"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": ":cmEnd\nendlocal & call :cmErrorLevel %errorlevel% & goto :cmDone\n:cmErrorLevel\nexit /b %1\n:cmDone"
+        }
+      ],
+      "PerSourceProperties": [],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {},
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\bootsect;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\bootsect;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "host-tools"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|ARM64": {
+      "AvailableInBaseline": false,
+      "TrialBuild": "NotApplicable"
+    },
+    "Release|ARM64": {
+      "AvailableInBaseline": false,
+      "TrialBuild": "NotApplicable"
+    }
+  },
+  "TrialBuild": {
+    "Target": "isoboot",
+    "Status": "NoArtifact",
+    "Configuration": "Debug",
+    "Platform": "Win32",
+    "IndependentProjectBuild": true,
+    "ExitCode": 0,
+    "DurationSeconds": 0.37,
+    "TimestampUtc": "2026-11-13T00:46:44.4842680Z",
+    "MSBuildVersion": "18.11.1.51303",
+    "Arguments": [
+      "Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Bootsect\\Isoboot.vcxproj",
+      "/t:Build",
+      "/m:1",
+      "/nologo",
+      "/verbosity:quiet",
+      "/p:Configuration=Debug",
+      "/p:Platform=Win32",
+      "/p:BuildProjectReferences=false",
+      "/p:CL_MPCount=1",
+      "/p:PreferredUILang=en-US",
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Isoboot.log;Encoding=UTF-8;Verbosity=normal"
+    ],
+    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Isoboot.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
+    "RequiredHostTools": [
+      "obj2bin"
+    ],
+    "RequiredInfrastructure": [],
+    "PendingBuildInfrastructure": [
+      "Architecture-specific assembly preprocessing",
+      "Custom source/header/resource generation; recipes are recorded per configuration",
+      "Host tool implementations and invocation",
+      "Raw boot binary conversion; utility project has no native generation recipe yet"
+    ],
+    "ArtifactExists": false,
+    "Artifact": null,
+    "ProjectSHA256": "1609f4ae6ede50182004ba2465f51399ca757137604037631fd9399c3fb1b6f5",
+    "MatchesCurrentProject": true
+  },
+  "ProjectSHA256": "1609f4ae6ede50182004ba2465f51399ca757137604037631fd9399c3fb1b6f5",
+  "SettingsReview": {
+    "CompilerAndLinkerProperties": "PreservedInNativeFieldsAndAdditionalOptions",
+    "Dependencies": "ComparedAgainstOriginalNativeProjects",
+    "SourceOverrides": "Compared; explicit PCH exclusions preserved"
+  }
+}

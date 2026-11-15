@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assembly Files">
+      <UniqueIdentifier>{F19B0DC8-49E1-53CA-84F3-2F4C4779D97C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{57DB3F37-2234-5E59-BC21-CEA51268357F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generation Inputs">
+      <UniqueIdentifier>{A3FD22B0-63F2-5734-B52B-7E71E192A7A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Migration">
+      <UniqueIdentifier>{FED96976-3318-5367-9581-774D2125A488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{14439483-426D-5AD4-BE9A-08A084F6A878}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\concurrency.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\console.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\cpp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\ctype.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\dir.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\environ.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\errno.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\except.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\except_arm64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\except_i386.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\except_x86_64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\exit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\file.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\handler4.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\heap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\locale.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\lock.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\math.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\mbcs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\process.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\reactos\misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\reactos\system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\scanf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\sincos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\thread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\time.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\undname.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\dll\win32\msvcrt\wcs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msvcrt\asm\__wine_RtlUnwind_msvcrt_shared_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msvcrt\asm\cpp_alias_msvcrt_shared_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msvcrt\asm\cpp_vtables_msvcrt_shared_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msvcrt\asm\except_i386_asm_msvcrt_shared_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msvcrt\asm\except_x86_64_msvcrt_shared_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msvcrt\asm\exception_ptr_msvcrt_shared_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msvcrt\asm\inout_msvcrt_shared_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\CMakeLists.txt">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\amd64\cpp_alias.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\amd64\cpp_vtables.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\amd64\except_x86_64.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\i386\__wine_RtlUnwind.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\i386\cpp_alias.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\i386\cpp_vtables.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\i386\except_i386_asm.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\i386\exception_ptr.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\dll\win32\msvcrt\i386\inout.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="Msvcrt_Static.Migration.json">
+      <Filter>Migration</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assembly Files">
+      <UniqueIdentifier>{F19B0DC8-49E1-53CA-84F3-2F4C4779D97C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{57DB3F37-2234-5E59-BC21-CEA51268357F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generation Inputs">
+      <UniqueIdentifier>{A3FD22B0-63F2-5734-B52B-7E71E192A7A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Migration">
+      <UniqueIdentifier>{FED96976-3318-5367-9581-774D2125A488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{14439483-426D-5AD4-BE9A-08A084F6A878}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\except\i386\CxxHandleV8Frame.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\math\sincos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\misc\dbgrpt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\misc\fltused.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\misc\isblank.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\misc\iswblank.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\misc\ofmt_stub.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\recalloc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\_matherr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\_newmode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\atonexit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\charmax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\cinitexe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\crt0_c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\crt0_w.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\crt_handler.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\crtdll.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\crtexe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\dll_argv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\dllargv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\dllentry.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\dllmain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\gs_support.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\mingw_helpers.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\mscmain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\natstart.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\pesect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\reactos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\threadSafeInit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\tlsmcrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\tlsmthread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\tlssup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\tlsthrd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\wcrtexe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\wdllargv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\startup\wildcard.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\stdio\acrt_iob_func.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\stdlib\_invalid_parameter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\stdlib\rand_s.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\string\strnlen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\string\wcsnlen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\strtok_s.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\wcscpy_s.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\wstring\mbrtowc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\sdk\lib\crt\wstring\wcrtomb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\__CxxFrameHandler3_msvcrtex_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\alldiv_asm_msvcrtex_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\aulldiv_asm_msvcrtex_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\chkstk_asm_msvcrtex_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\chkstk_ms_msvcrtex_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\ftol2_asm_msvcrtex_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\crt\asm\ftoul2_legacy_asm_msvcrtex_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MASM>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\CMakeLists.txt">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\except\amd64\__CxxFrameHandler3.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\except\amd64\chkstk_ms.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\except\i386\__CxxFrameHandler3.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\except\i386\chkstk_asm.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\except\i386\chkstk_ms.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\alldiv_asm.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\aulldiv_asm.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\ftol2_asm.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\crt\math\i386\ftoul2_legacy_asm.s">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="Msvcrtex.Migration.json">
+      <Filter>Migration</Filter>
+    </None>
+  </ItemGroup>
+</Project>

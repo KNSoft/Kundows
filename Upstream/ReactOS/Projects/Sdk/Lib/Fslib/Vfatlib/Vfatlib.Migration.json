@@ -1,0 +1,1046 @@
+{
+  "SchemaVersion": 1,
+  "Target": "vfatlib",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Project": "Upstream/ReactOS/Projects/Sdk/Lib/Fslib/Vfatlib/Vfatlib.vcxproj",
+  "Status": "NativeProjectSkeleton",
+  "Transferred": [
+    "Platform-specific source membership",
+    "Native compiler/resource/assembler properties",
+    "Module-specific defines and include paths",
+    "Linker/librarian options and library order",
+    "Existing project dependencies",
+    "Native PCH using original headers"
+  ],
+  "Adaptations": [
+    "Source references are relative to the native project",
+    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
+    "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
+    "Object-library inputs refer to their native intermediate directories"
+  ],
+  "Deferred": [
+    "Host tool implementations and invocation",
+    "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+  ],
+  "Configurations": {
+    "Debug|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "sdk/lib/fslib/vfatlib",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "vfatlib.lib",
+      "RequiredHostTools": [
+        "hpp"
+      ],
+      "RequiredInfrastructure": [
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Create",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\boot.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\check.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\fat.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\file.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\io.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\lfn.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat12.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat16.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat32.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)check/common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\common.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\common.c"
+          ]
+        }
+      ],
+      "TrialBuild": {
+        "Target": "vfatlib",
+        "Status": "Failed",
+        "Configuration": "Debug",
+        "Platform": "Win32",
+        "IndependentProjectBuild": true,
+        "ExitCode": 1,
+        "DurationSeconds": 0.6,
+        "TimestampUtc": "2026-11-13T00:48:07.3531192Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Sdk\\Lib\\Fslib\\Vfatlib\\Vfatlib.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=Win32",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Vfatlib.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Vfatlib.log",
+        "ErrorCodes": [
+          "C1083"
+        ],
+        "UniqueErrorCount": 1,
+        "ErrorSummary": [
+          "Upstream\\ReactOS\\Source\\sdk\\include\\psdk\\minwindef.h(171,10): error C1083: Cannot open include file: 'winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Sdk\\Lib\\Fslib\\Vfatlib\\Vfatlib.vcxproj]"
+        ],
+        "ObservedMissingFiles": [
+          "winnt.h"
+        ],
+        "RequiredHostTools": [
+          "hpp"
+        ],
+        "RequiredInfrastructure": [
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": false,
+        "Artifact": null,
+        "ProjectSHA256": "094ab2d0cb36a18f3ac32e691b598962889986d16f2f32aded40a7ba80c1ca50",
+        "MatchesCurrentProject": true
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "vfatlib",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "CreateHotpatchableImage": "true",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR=\"Debug\"",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR=\\\"Debug\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR=\"Debug\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "sdk/lib/fslib/vfatlib",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "vfatlib.lib",
+      "RequiredHostTools": [
+        "hpp"
+      ],
+      "RequiredInfrastructure": [
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Create",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\boot.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\check.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\fat.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\file.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\io.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\lfn.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat12.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat16.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat32.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)check/common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\common.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\common.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "vfatlib",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "CreateHotpatchableImage": "true",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR=\"Release\"",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR=\\\"Release\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR=\"Release\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "sdk/lib/fslib/vfatlib",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "vfatlib.lib",
+      "RequiredHostTools": [
+        "hpp"
+      ],
+      "RequiredInfrastructure": [
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Create",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\boot.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\check.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\fat.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\file.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\io.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\lfn.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat12.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat16.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat32.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)check/common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\common.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\common.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "vfatlib",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;CMAKE_INTDIR=\"Debug\"",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;CMAKE_INTDIR=\\\"Debug\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;CMAKE_INTDIR=\"Debug\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "sdk/lib/fslib/vfatlib",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "vfatlib.lib",
+      "RequiredHostTools": [
+        "hpp"
+      ],
+      "RequiredInfrastructure": [
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Create",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\boot.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\check.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\fat.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\file.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\io.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\lfn.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat12.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat16.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat32.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)check/common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\common.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\common.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "vfatlib",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;CMAKE_INTDIR=\"Release\"",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;CMAKE_INTDIR=\\\"Release\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;CMAKE_INTDIR=\"Release\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "sdk/lib/fslib/vfatlib",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "vfatlib.lib",
+      "RequiredHostTools": [
+        "hpp"
+      ],
+      "RequiredInfrastructure": [
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Create",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\boot.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\check.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\fat.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\file.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\io.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\lfn.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat12.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat16.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat32.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)check/common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\common.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\common.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR=\"Debug\"",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1",
+        "GenerateDebugInformation": "true",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "vfatlib",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR=\"Debug\"",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR=\\\"Debug\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;CMAKE_INTDIR=\"Debug\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "sdk/lib/fslib/vfatlib",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "vfatlib.lib",
+      "RequiredHostTools": [
+        "hpp"
+      ],
+      "RequiredInfrastructure": [
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Create",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\boot.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\check.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\fat.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\file.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\io.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\lfn.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat12.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat16.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\fat32.c",
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)check/common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\check\\common.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ForcedIncludeFiles": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h;%(ForcedIncludeFiles)",
+            "ObjectFileName": "$(IntDir)common.c.obj",
+            "PrecompiledHeader": "Use",
+            "PrecompiledHeaderFile": "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\vfatlib.h",
+            "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
+          },
+          "Files": [
+            "..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib\\common.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR=\"Release\"",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115",
+        "GenerateDebugInformation": "false",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "vfatlib",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR=\"Release\"",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR=\\\"Release\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;CMAKE_INTDIR=\"Release\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\fslib\\vfatlib;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    }
+  },
+  "TrialBuild": {
+    "Target": "vfatlib",
+    "Status": "Failed",
+    "Configuration": "Debug",
+    "Platform": "Win32",
+    "IndependentProjectBuild": true,
+    "ExitCode": 1,
+    "DurationSeconds": 0.6,
+    "TimestampUtc": "2026-11-13T00:48:07.3531192Z",
+    "MSBuildVersion": "18.11.1.51303",
+    "Arguments": [
+      "Upstream\\ReactOS\\Projects\\Sdk\\Lib\\Fslib\\Vfatlib\\Vfatlib.vcxproj",
+      "/t:Build",
+      "/m:1",
+      "/nologo",
+      "/verbosity:quiet",
+      "/p:Configuration=Debug",
+      "/p:Platform=Win32",
+      "/p:BuildProjectReferences=false",
+      "/p:CL_MPCount=1",
+      "/p:PreferredUILang=en-US",
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Vfatlib.log;Encoding=UTF-8;Verbosity=normal"
+    ],
+    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Vfatlib.log",
+    "ErrorCodes": [
+      "C1083"
+    ],
+    "UniqueErrorCount": 1,
+    "ErrorSummary": [
+      "Upstream\\ReactOS\\Source\\sdk\\include\\psdk\\minwindef.h(171,10): error C1083: Cannot open include file: 'winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Sdk\\Lib\\Fslib\\Vfatlib\\Vfatlib.vcxproj]"
+    ],
+    "ObservedMissingFiles": [
+      "winnt.h"
+    ],
+    "RequiredHostTools": [
+      "hpp"
+    ],
+    "RequiredInfrastructure": [
+      "xdk"
+    ],
+    "PendingBuildInfrastructure": [
+      "Host tool implementations and invocation",
+      "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+    ],
+    "ArtifactExists": false,
+    "Artifact": null,
+    "ProjectSHA256": "094ab2d0cb36a18f3ac32e691b598962889986d16f2f32aded40a7ba80c1ca50",
+    "MatchesCurrentProject": true
+  },
+  "ProjectSHA256": "094ab2d0cb36a18f3ac32e691b598962889986d16f2f32aded40a7ba80c1ca50",
+  "SettingsReview": {
+    "CompilerAndLinkerProperties": "PreservedInNativeFieldsAndAdditionalOptions",
+    "Dependencies": "ComparedAgainstOriginalNativeProjects",
+    "SourceOverrides": "Compared; explicit PCH exclusions preserved"
+  }
+}

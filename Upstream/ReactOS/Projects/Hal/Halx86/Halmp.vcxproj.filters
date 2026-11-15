@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{57DB3F37-2234-5E59-BC21-CEA51268357F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generation Inputs">
+      <UniqueIdentifier>{A3FD22B0-63F2-5734-B52B-7E71E192A7A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Migration">
+      <UniqueIdentifier>{FED96976-3318-5367-9581-774D2125A488}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\hal.def">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\..\..\Source\hal\hal.spec">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="..\..\..\Source\hal\halx86\CMakeLists.txt">
+      <Filter>Generation Inputs</Filter>
+    </None>
+    <None Include="Halmp.Migration.json">
+      <Filter>Migration</Filter>
+    </None>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Acpi\busemul.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Acpi\halacpi.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Acpi\halpnpdd.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Acpi\madt.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Acpi\pcibus.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Apic\apic.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Apic\apictimer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Apic\apictrap_lib_hal_apic_asm.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Apic\halinit.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Apic\processor.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Apic\rtctimer.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Apic\tsc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Apic\tsccal_lib_hal_apic_asm.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\beep.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\cmos.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\display.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\dma.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\drive.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\halinit.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\kdpci.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\memory.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\misc.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\nmi.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\pic.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\reboot.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\sysinfo.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\usage.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Generic\x86bios.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Smp\apentry_lib_hal_smp_asm.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Smp\apicsmp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Smp\buildtype.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Smp\ipi.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Smp\smp.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Smp\spinlock.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Intermediate\$(Platform)\$(Configuration)\Lib_Hal_Smp\spinup.obj">
+      <Filter>Generated Files</Filter>
+    </Object>
+  </ItemGroup>
+</Project>

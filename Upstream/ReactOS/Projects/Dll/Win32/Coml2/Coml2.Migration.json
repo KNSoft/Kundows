@@ -1,0 +1,1258 @@
+{
+  "SchemaVersion": 1,
+  "Target": "coml2",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Project": "Upstream/ReactOS/Projects/Dll/Win32/Coml2/Coml2.vcxproj",
+  "Status": "NativeProjectSkeleton",
+  "Transferred": [
+    "Platform-specific source membership",
+    "Native compiler/resource/assembler properties",
+    "Module-specific defines and include paths",
+    "Linker/librarian options and library order",
+    "Existing project dependencies"
+  ],
+  "Adaptations": [
+    "Source references are relative to the native project",
+    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
+    "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
+    "Object-library inputs refer to their native intermediate directories",
+    "Native import-library output uses $(OutDir)$(TargetName).lib instead of the CMake dummy output"
+  ],
+  "Deferred": [
+    "Custom source/header/resource generation; recipes are recorded per configuration",
+    "Export/import-library or IDL generation",
+    "Host tool implementations and invocation",
+    "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+  ],
+  "Configurations": {
+    "Debug|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/coml2",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "coml2.dll",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/coml2/coml2.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=coml2.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/coml2/coml2.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\memlockbytes.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\stg_prop.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\storage32.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ]
+        }
+      ],
+      "TrialBuild": {
+        "Target": "coml2",
+        "Status": "Failed",
+        "Configuration": "Debug",
+        "Platform": "Win32",
+        "IndependentProjectBuild": true,
+        "ExitCode": 1,
+        "DurationSeconds": 1.15,
+        "TimestampUtc": "2026-11-13T00:46:15.4805941Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Coml2\\Coml2.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=Win32",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Coml2.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Coml2.log",
+        "ErrorCodes": [
+          "C1083"
+        ],
+        "UniqueErrorCount": 2,
+        "ErrorSummary": [
+          "OutDir\\Generated\\Win32\\Debug\\dll\\win32\\coml2\\coml2_stubs.c(1,1): error C1083: Cannot open source file: 'Upstream\\ReactOS\\Projects\\Dll\\Win32\\Coml2\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\Win32\\Debug\\dll\\win32\\coml2\\coml2_stubs.c': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Coml2\\Coml2.vcxproj]",
+          "Upstream\\ReactOS\\Source\\sdk\\include\\wine\\winnt.h(4,10): error C1083: Cannot open include file: 'psdk/winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Coml2\\Coml2.vcxproj]"
+        ],
+        "ObservedMissingFiles": [
+          "OutDir/Generated/Win32/Debug/dll/win32/coml2/coml2_stubs.c",
+          "psdk/winnt.h"
+        ],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": false,
+        "Artifact": null,
+        "ProjectSHA256": "bf036d4e9156d42b6e35da9a03ec157bb9bccb969f96448f943c2b3cbf49b9b6",
+        "MatchesCurrentProject": true
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "coml2",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "CreateHotpatchableImage": "true",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4312",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Debug\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1 /wd4090 /wd4312",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Wine\\wine.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uuid\\uuid.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Pseh\\pseh.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libadvapi32\\libadvapi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libole32\\libole32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Liboleaut32\\liboleaut32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libuser32\\libuser32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libgdi32\\libgdi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Librpcrt4\\librpcrt4.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libntdll\\libntdll.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Ftol2\\ftol2.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86 /IGNORE:4039",
+          "BaseAddress": "0x79b90000",
+          "CreateHotPatchableImage": "X86Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "DllMainCRTStartup@12",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "ftol2",
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "runtmchk",
+        "uuid",
+        "wine"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "ftol2",
+        "host-tools",
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "runtmchk",
+        "uuid",
+        "wine"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/coml2",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "coml2.dll",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/coml2/coml2.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=coml2.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/coml2/coml2.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\memlockbytes.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\stg_prop.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\storage32.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "coml2",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "CreateHotpatchableImage": "true",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4312",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Release\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /wd4090 /wd4312",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Wine\\wine.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uuid\\uuid.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Pseh\\pseh.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libadvapi32\\libadvapi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libole32\\libole32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Liboleaut32\\liboleaut32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libuser32\\libuser32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libgdi32\\libgdi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Librpcrt4\\librpcrt4.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libntdll\\libntdll.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Ftol2\\ftol2.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86 /IGNORE:4039",
+          "BaseAddress": "0x79b90000",
+          "CreateHotPatchableImage": "X86Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "DllMainCRTStartup@12",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "ftol2",
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "uuid",
+        "wine"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "ftol2",
+        "host-tools",
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "uuid",
+        "wine"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/coml2",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "coml2.dll",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/coml2/coml2.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=coml2.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/coml2/coml2.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\memlockbytes.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\stg_prop.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\storage32.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "coml2",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /d2FH4- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4312",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Debug\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1 /wd4090 /wd4312",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Wine\\wine.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uuid\\uuid.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Pseh\\pseh.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libadvapi32\\libadvapi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libole32\\libole32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Liboleaut32\\liboleaut32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libuser32\\libuser32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libgdi32\\libgdi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Librpcrt4\\librpcrt4.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libntdll\\libntdll.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64 /d2:-FH4- /IGNORE:4039",
+          "BaseAddress": "0x7ff50000000",
+          "CreateHotPatchableImage": "X64Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "DllMainCRTStartup",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "runtmchk",
+        "uuid",
+        "wine"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "host-tools",
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "runtmchk",
+        "uuid",
+        "wine"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/coml2",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "coml2.dll",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/coml2/coml2.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=coml2.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/coml2/coml2.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\memlockbytes.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\stg_prop.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\storage32.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "coml2",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /d2FH4- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4312",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Release\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /wd4090 /wd4312",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Wine\\wine.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uuid\\uuid.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Pseh\\pseh.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libadvapi32\\libadvapi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libole32\\libole32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Liboleaut32\\liboleaut32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libuser32\\libuser32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libgdi32\\libgdi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Librpcrt4\\librpcrt4.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libntdll\\libntdll.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64 /d2:-FH4- /IGNORE:4039",
+          "BaseAddress": "0x7ff50000000",
+          "CreateHotPatchableImage": "X64Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "DllMainCRTStartup",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "uuid",
+        "wine"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "host-tools",
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "uuid",
+        "wine"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/coml2",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "coml2.dll",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/coml2/coml2.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=coml2.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/coml2/coml2.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\memlockbytes.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\stg_prop.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\storage32.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1 /wd4090 /wd4312",
+        "GenerateDebugInformation": "true",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "coml2",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4312",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Debug\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Wine\\wine.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uuid\\uuid.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Pseh\\pseh.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libadvapi32\\libadvapi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libole32\\libole32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Liboleaut32\\liboleaut32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libuser32\\libuser32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libgdi32\\libgdi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Librpcrt4\\librpcrt4.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libntdll\\libntdll.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64 /IGNORE:4039",
+          "BaseAddress": "0x7ff50000000",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "DllMainCRTStartup",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "runtmchk",
+        "uuid",
+        "wine"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "host-tools",
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "runtmchk",
+        "uuid",
+        "wine"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/coml2",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "coml2.dll",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/coml2/coml2.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=coml2.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/coml2/coml2.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\memlockbytes.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\stg_prop.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\coml2\\storage32.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2\\coml2_stubs.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /wd4090 /wd4312",
+        "GenerateDebugInformation": "false",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "coml2",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4312",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Release\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\coml2;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Wine\\wine.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uuid\\uuid.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Pseh\\pseh.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libadvapi32\\libadvapi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libole32\\libole32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Liboleaut32\\liboleaut32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libuser32\\libuser32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libgdi32\\libgdi32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Librpcrt4\\librpcrt4.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libntdll\\libntdll.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libmsvcrt\\libmsvcrt.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Msvcrtex\\msvcrtex.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libkernel32\\libkernel32.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64 /IGNORE:4039",
+          "BaseAddress": "0x7ff50000000",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "DllMainCRTStartup",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/coml2/coml2.def",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "uuid",
+        "wine"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "host-tools",
+        "libadvapi32",
+        "libgdi32",
+        "libkernel32",
+        "libmsvcrt",
+        "libntdll",
+        "libole32",
+        "liboleaut32",
+        "librpcrt4",
+        "libuser32",
+        "msvcrtex",
+        "pseh",
+        "uuid",
+        "wine"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    }
+  },
+  "TrialBuild": {
+    "Target": "coml2",
+    "Status": "Failed",
+    "Configuration": "Debug",
+    "Platform": "Win32",
+    "IndependentProjectBuild": true,
+    "ExitCode": 1,
+    "DurationSeconds": 1.15,
+    "TimestampUtc": "2026-11-13T00:46:15.4805941Z",
+    "MSBuildVersion": "18.11.1.51303",
+    "Arguments": [
+      "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Coml2\\Coml2.vcxproj",
+      "/t:Build",
+      "/m:1",
+      "/nologo",
+      "/verbosity:quiet",
+      "/p:Configuration=Debug",
+      "/p:Platform=Win32",
+      "/p:BuildProjectReferences=false",
+      "/p:CL_MPCount=1",
+      "/p:PreferredUILang=en-US",
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Coml2.log;Encoding=UTF-8;Verbosity=normal"
+    ],
+    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Coml2.log",
+    "ErrorCodes": [
+      "C1083"
+    ],
+    "UniqueErrorCount": 2,
+    "ErrorSummary": [
+      "OutDir\\Generated\\Win32\\Debug\\dll\\win32\\coml2\\coml2_stubs.c(1,1): error C1083: Cannot open source file: 'Upstream\\ReactOS\\Projects\\Dll\\Win32\\Coml2\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\Win32\\Debug\\dll\\win32\\coml2\\coml2_stubs.c': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Coml2\\Coml2.vcxproj]",
+      "Upstream\\ReactOS\\Source\\sdk\\include\\wine\\winnt.h(4,10): error C1083: Cannot open include file: 'psdk/winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Coml2\\Coml2.vcxproj]"
+    ],
+    "ObservedMissingFiles": [
+      "OutDir/Generated/Win32/Debug/dll/win32/coml2/coml2_stubs.c",
+      "psdk/winnt.h"
+    ],
+    "RequiredHostTools": [
+      "geninc",
+      "hpp",
+      "spec2def",
+      "utf16le",
+      "widl"
+    ],
+    "RequiredInfrastructure": [
+      "asm",
+      "bugcodes",
+      "psdk",
+      "xdk"
+    ],
+    "PendingBuildInfrastructure": [
+      "Custom source/header/resource generation; recipes are recorded per configuration",
+      "Export/import-library or IDL generation",
+      "Host tool implementations and invocation",
+      "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+    ],
+    "ArtifactExists": false,
+    "Artifact": null,
+    "ProjectSHA256": "bf036d4e9156d42b6e35da9a03ec157bb9bccb969f96448f943c2b3cbf49b9b6",
+    "MatchesCurrentProject": true
+  },
+  "ProjectSHA256": "bf036d4e9156d42b6e35da9a03ec157bb9bccb969f96448f943c2b3cbf49b9b6",
+  "SettingsReview": {
+    "CompilerAndLinkerProperties": "PreservedInNativeFieldsAndAdditionalOptions",
+    "Dependencies": "ComparedAgainstOriginalNativeProjects",
+    "SourceOverrides": "Compared; explicit PCH exclusions preserved"
+  }
+}

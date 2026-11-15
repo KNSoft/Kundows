@@ -1,0 +1,827 @@
+{
+  "SchemaVersion": 1,
+  "Target": "mycomput",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Project": "Upstream/ReactOS/Projects/Dll/Win32/Mycomput/Mycomput.vcxproj",
+  "Status": "NativeProjectSkeleton",
+  "Transferred": [
+    "Platform-specific source membership",
+    "Native compiler/resource/assembler properties",
+    "Module-specific defines and include paths",
+    "Linker/librarian options and library order",
+    "Existing project dependencies"
+  ],
+  "Adaptations": [
+    "Source references are relative to the native project",
+    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
+    "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
+    "Object-library inputs refer to their native intermediate directories",
+    "Native import-library output uses $(OutDir)$(TargetName).lib instead of the CMake dummy output"
+  ],
+  "Deferred": [
+    "Export/import-library or IDL generation",
+    "Host tool implementations and invocation",
+    "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json",
+    "Configure-time template substitution; see PendingConfigureTimeFiles and ConfigureTimeFiles.json"
+  ],
+  "Configurations": {
+    "Debug|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/mycomput",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "mycomput.dll",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [],
+      "TrialBuild": {
+        "Target": "mycomput",
+        "Status": "Failed",
+        "Configuration": "Debug",
+        "Platform": "Win32",
+        "IndependentProjectBuild": true,
+        "ExitCode": 1,
+        "DurationSeconds": 0.62,
+        "TimestampUtc": "2026-11-13T00:47:32.7967890Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Mycomput\\Mycomput.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=Win32",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Mycomput.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Mycomput.log",
+        "ErrorCodes": [
+          "RC1015"
+        ],
+        "UniqueErrorCount": 1,
+        "ErrorSummary": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Mycomput\\..\\..\\..\\..\\Source\\sdk\\include\\reactos/version.rc(15): fatal error RC1015: cannot open include file 'version.h'. [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Mycomput\\Mycomput.vcxproj]"
+        ],
+        "ObservedMissingFiles": [
+          "version.h"
+        ],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json",
+          "Configure-time template substitution; see PendingConfigureTimeFiles and ConfigureTimeFiles.json"
+        ],
+        "ArtifactExists": false,
+        "Artifact": null,
+        "ProjectSHA256": "3034989250315082068a74e7012faebd1efcac1b327d0bbd2d195e5072996094",
+        "MatchesCurrentProject": true
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "mycomput",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "",
+          "CallingConvention": "",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "MinimalRebuild": "",
+          "Optimization": "",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;CMAKE_INTDIR=\\\"Debug\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86 /IGNORE:4039",
+          "BaseAddress": "0x75b40000",
+          "CreateHotPatchableImage": "X86Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "NoEntryPoint": "true",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "runtmchk"
+      ],
+      "PendingConfigureTimeFiles": [
+        {
+          "Input": {
+            "Kind": "Source",
+            "Path": "sdk/include/reactos/version.h.cmake"
+          },
+          "Output": "sdk/include/reactos/version.h",
+          "Options": []
+        }
+      ],
+      "OriginalProjectDependencies": [
+        "psdk",
+        "runtmchk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/mycomput",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "mycomput.dll",
+      "RequiredHostTools": [
+        "hpp",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "mycomput",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "",
+          "CallingConvention": "",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "MinimalRebuild": "",
+          "Optimization": "",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;CMAKE_INTDIR=\\\"Release\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86 /IGNORE:4039",
+          "BaseAddress": "0x75b40000",
+          "CreateHotPatchableImage": "X86Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "NoEntryPoint": "true",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "psdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/mycomput",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "mycomput.dll",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "mycomput",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "",
+          "CallingConvention": "",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "MinimalRebuild": "",
+          "Optimization": "",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;CMAKE_INTDIR=\\\"Debug\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64 /d2:-FH4- /IGNORE:4039",
+          "BaseAddress": "0x7fea1000000",
+          "CreateHotPatchableImage": "X64Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "NoEntryPoint": "true",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "runtmchk"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "psdk",
+        "runtmchk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/mycomput",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "mycomput.dll",
+      "RequiredHostTools": [
+        "hpp",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "mycomput",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "",
+          "CallingConvention": "",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "MinimalRebuild": "",
+          "Optimization": "",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;CMAKE_INTDIR=\\\"Release\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64 /d2:-FH4- /IGNORE:4039",
+          "BaseAddress": "0x7fea1000000",
+          "CreateHotPatchableImage": "X64Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "NoEntryPoint": "true",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "psdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/mycomput",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "mycomput.dll",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1",
+        "GenerateDebugInformation": "true",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "mycomput",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "",
+          "CallingConvention": "",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "MinimalRebuild": "",
+          "Optimization": "",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;CMAKE_INTDIR=\\\"Debug\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64 /IGNORE:4039",
+          "BaseAddress": "0x7fea1000000",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "NoEntryPoint": "true",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "runtmchk"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "psdk",
+        "runtmchk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/mycomput",
+      "ModuleType": "win32dll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "mycomput.dll",
+      "RequiredHostTools": [
+        "hpp",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115",
+        "GenerateDebugInformation": "false",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "mycomput",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "",
+          "CallingConvention": "",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "MinimalRebuild": "",
+          "Optimization": "",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;CMAKE_INTDIR=\\\"Release\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\mycomput;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64 /IGNORE:4039",
+          "BaseAddress": "0x7fea1000000",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkDLL": "true",
+          "LinkErrorReporting": "",
+          "NoEntryPoint": "true",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SubSystem": "Console",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "psdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    }
+  },
+  "TrialBuild": {
+    "Target": "mycomput",
+    "Status": "Failed",
+    "Configuration": "Debug",
+    "Platform": "Win32",
+    "IndependentProjectBuild": true,
+    "ExitCode": 1,
+    "DurationSeconds": 0.62,
+    "TimestampUtc": "2026-11-13T00:47:32.7967890Z",
+    "MSBuildVersion": "18.11.1.51303",
+    "Arguments": [
+      "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Mycomput\\Mycomput.vcxproj",
+      "/t:Build",
+      "/m:1",
+      "/nologo",
+      "/verbosity:quiet",
+      "/p:Configuration=Debug",
+      "/p:Platform=Win32",
+      "/p:BuildProjectReferences=false",
+      "/p:CL_MPCount=1",
+      "/p:PreferredUILang=en-US",
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Mycomput.log;Encoding=UTF-8;Verbosity=normal"
+    ],
+    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Mycomput.log",
+    "ErrorCodes": [
+      "RC1015"
+    ],
+    "UniqueErrorCount": 1,
+    "ErrorSummary": [
+      "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Mycomput\\..\\..\\..\\..\\Source\\sdk\\include\\reactos/version.rc(15): fatal error RC1015: cannot open include file 'version.h'. [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Mycomput\\Mycomput.vcxproj]"
+    ],
+    "ObservedMissingFiles": [
+      "version.h"
+    ],
+    "RequiredHostTools": [
+      "geninc",
+      "hpp",
+      "utf16le",
+      "widl"
+    ],
+    "RequiredInfrastructure": [
+      "asm",
+      "bugcodes",
+      "psdk",
+      "xdk"
+    ],
+    "PendingBuildInfrastructure": [
+      "Export/import-library or IDL generation",
+      "Host tool implementations and invocation",
+      "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json",
+      "Configure-time template substitution; see PendingConfigureTimeFiles and ConfigureTimeFiles.json"
+    ],
+    "ArtifactExists": false,
+    "Artifact": null,
+    "ProjectSHA256": "3034989250315082068a74e7012faebd1efcac1b327d0bbd2d195e5072996094",
+    "MatchesCurrentProject": true
+  },
+  "ProjectSHA256": "3034989250315082068a74e7012faebd1efcac1b327d0bbd2d195e5072996094",
+  "SettingsReview": {
+    "CompilerAndLinkerProperties": "PreservedInNativeFieldsAndAdditionalOptions",
+    "Dependencies": "ComparedAgainstOriginalNativeProjects",
+    "SourceOverrides": "Compared; explicit PCH exclusions preserved"
+  }
+}

@@ -1,0 +1,1344 @@
+{
+  "SchemaVersion": 1,
+  "Target": "msvcrt_static",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Project": "Upstream/ReactOS/Projects/Dll/Win32/Msvcrt/Msvcrt_Static.vcxproj",
+  "Status": "NativeProjectSkeleton",
+  "Transferred": [
+    "Platform-specific source membership",
+    "Native compiler/resource/assembler properties",
+    "Module-specific defines and include paths",
+    "Linker/librarian options and library order",
+    "Existing project dependencies"
+  ],
+  "Adaptations": [
+    "Source references are relative to the native project",
+    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
+    "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
+    "Object-library inputs refer to their native intermediate directories"
+  ],
+  "Deferred": [
+    "Architecture-specific assembly preprocessing",
+    "Custom source/header/resource generation; recipes are recorded per configuration",
+    "Export/import-library or IDL generation",
+    "Host tool implementations and invocation",
+    "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+  ],
+  "Configurations": {
+    "Debug|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/msvcrt",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "msvcrt_static.lib",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/__wine_RtlUnwind.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\__wine_RtlUnwind_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/__wine_RtlUnwind.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/__wine_RtlUnwind_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/exception_ptr.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\exception_ptr_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/exception_ptr.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/exception_ptr_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/inout.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\inout_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/inout.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/inout_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/cpp_alias.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\cpp_alias_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/cpp_alias.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/cpp_alias_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/cpp_vtables.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\cpp_vtables_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/cpp_vtables.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/cpp_vtables_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/except_i386_asm.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\except_i386_asm_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/except_i386_asm.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/except_i386_asm_msvcrt_shared_asm.asm"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\cpp.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\handler4.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\undname.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except_i386.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\system.cpp",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\concurrency.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\console.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\ctype.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\data.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\dir.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\environ.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\errno.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\exit.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\file.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\heap.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\locale.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\lock.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\main.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\math.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\mbcs.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\process.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\scanf.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\sincos.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\string.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\thread.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\time.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\wcs.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)reactos/misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\misc.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\misc.c"
+          ]
+        }
+      ],
+      "TrialBuild": {
+        "Target": "msvcrt_static",
+        "Status": "Failed",
+        "Configuration": "Debug",
+        "Platform": "Win32",
+        "IndependentProjectBuild": true,
+        "ExitCode": 1,
+        "DurationSeconds": 0.68,
+        "TimestampUtc": "2026-11-13T00:47:31.4271831Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Msvcrt\\Msvcrt_Static.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=Win32",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Msvcrt_Static.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Msvcrt_Static.log",
+        "ErrorCodes": [
+          "A1000",
+          "MSB3721"
+        ],
+        "UniqueErrorCount": 2,
+        "ErrorSummary": [
+          "MASM : fatal error A1000: cannot open file : Upstream\\ReactOS\\Projects\\Dll\\Win32\\Msvcrt\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\Win32\\Debug\\dll\\win32\\msvcrt\\asm\\__wine_RtlUnwind_msvcrt_shared_asm.asm [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Msvcrt\\Msvcrt_Static.vcxproj]",
+          "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Microsoft\\VC\\v180\\BuildCustomizations\\masm.targets(70,5): error MSB3721: 命令“ml.exe /c /nologo /Zi /Fo\"Upstream\\ReactOS\\Projects\\..\\..\\..\\OutDir\\Intermediate\\Win32\\Debug\\Msvcrt_Static\\__wine_RtlUnwind_msvcrt_shared_asm.obj\" /D\"_MSVCR_VER=0\" /D\"__REACTOS__\" /D\"__RELFILE__=__FILE__\" /D\"_SBCS\" /D\"DBG=1\" /D\"_SEH_ENABLE_TRACE\" /D\"_WIN32_IE=0x603\" /D\"_WIN32_WINDOWS=0x502\" /D\"_SETUPAPI_VER=0x502\" /D\"MINGW_HAS_SECURE_API=1\" /D\"D3D_UMD_INTERFACE_VERSION=0x000C\" /D\"DXGKDDI_INTERFACE_VERSION=0x1052\" /D\"DLL_EXPORT_VERSION=0x502\" /D\"_M_IX86\" /D\"_X86_\" /D\"__i386__\" /D\"i386\" /D\"_NEW_DELETE_OPERATORS_\" /D\"USE_COMPILER_EXCEPTIONS\" /D\"_USE_32BIT_TIME_T\" /D\"WIN32\" /D\"_WINDOWS\" /D\"__STDC__=1\" /D\"__RUNTIME_CHECKS__\" /D\"LANGUAGE_EN_US\" /D\"_WIN32_WINNT=0x601\" /D\"WINVER=0x601\" /D\"_CRTIMP=\" /D\"ARRAY_SIZE=_countof\" /D\"I64_MIN=_I64_MIN\" /D\"I64_MAX=_I64_MAX\" /D\"UI64_MAX=_UI64_MAX\" /D\"x87_asin=asin\" /D\"math_error=_invoke_matherr\" /D\"asm_sqrt=sqrt\" /D\"asm_sqrtf=sqrtf\" /D\"__ASM_USE_THISCALL_WRAPPER\" /D\"RtlUnwind=__wine_RtlUnwind\" /D\"CMAKE_INTDIR=\"Debug\"\" /I \"Upstream\\ReactOS\\Projects\\Dll\\Win32\\Msvcrt\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\Win32\\Debug\\dll\\w [see full log]"
+        ],
+        "ObservedMissingFiles": [
+          "OutDir/Generated/Win32/Debug/dll/win32/msvcrt/asm/__wine_RtlUnwind_msvcrt_shared_asm.asm"
+        ],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Architecture-specific assembly preprocessing",
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": false,
+        "Artifact": null,
+        "ProjectSHA256": "863f74e165e9b5b4554bb4c069fd8d008036e45bf7831214a09f84103f9d1fc0",
+        "MatchesCurrentProject": true
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "msvcrt_static",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "CreateHotpatchableImage": "true",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4146;4164;4267;4723",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;__ASM_USE_THISCALL_WRAPPER;RtlUnwind=__wine_RtlUnwind;CMAKE_INTDIR=\"Debug\"",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;__ASM_USE_THISCALL_WRAPPER;RtlUnwind=__wine_RtlUnwind;CMAKE_INTDIR=\\\"Debug\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;__ASM_USE_THISCALL_WRAPPER;RtlUnwind=__wine_RtlUnwind;CMAKE_INTDIR=\"Debug\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1 /wd4090 /wd4146 /wd4164 /wd4267 /wd4723",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "asm",
+        "psdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "asm",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/msvcrt",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "msvcrt_static.lib",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/__wine_RtlUnwind.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\__wine_RtlUnwind_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=0 -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/__wine_RtlUnwind.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/__wine_RtlUnwind_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/exception_ptr.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\exception_ptr_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=0 -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/exception_ptr.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/exception_ptr_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/inout.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\inout_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=0 -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/inout.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/inout_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/cpp_alias.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\cpp_alias_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=0 -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/cpp_alias.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/cpp_alias_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/cpp_vtables.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\cpp_vtables_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=0 -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/cpp_vtables.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/cpp_vtables_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/i386/except_i386_asm.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\except_i386_asm_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=0 -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -DLANGUAGE_EN_US -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf -D__ASM_USE_THISCALL_WRAPPER -DRtlUnwind=__wine_RtlUnwind /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/i386/except_i386_asm.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/except_i386_asm_msvcrt_shared_asm.asm"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\cpp.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\handler4.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\undname.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except_i386.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\system.cpp",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\concurrency.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\console.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\ctype.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\data.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\dir.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\environ.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\errno.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\exit.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\file.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\heap.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\locale.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\lock.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\main.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\math.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\mbcs.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\process.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\scanf.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\sincos.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\string.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\thread.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\time.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\wcs.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)reactos/misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\misc.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\misc.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "msvcrt_static",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "CreateHotpatchableImage": "true",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4146;4164;4267;4723",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;__ASM_USE_THISCALL_WRAPPER;RtlUnwind=__wine_RtlUnwind;CMAKE_INTDIR=\"Release\"",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;__ASM_USE_THISCALL_WRAPPER;RtlUnwind=__wine_RtlUnwind;CMAKE_INTDIR=\\\"Release\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;__ASM_USE_THISCALL_WRAPPER;RtlUnwind=__wine_RtlUnwind;CMAKE_INTDIR=\"Release\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /wd4090 /wd4146 /wd4164 /wd4267 /wd4723",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "asm",
+        "psdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "asm",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/msvcrt",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "msvcrt_static.lib",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/amd64/cpp_alias.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\cpp_alias_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D__x86_64 -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/amd64/cpp_alias.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/cpp_alias_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/amd64/cpp_vtables.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\cpp_vtables_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D__x86_64 -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/amd64/cpp_vtables.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/cpp_vtables_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/amd64/except_x86_64.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\except_x86_64_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D__x86_64 -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/amd64/except_x86_64.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/except_x86_64_msvcrt_shared_asm.asm"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\cpp.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\handler4.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\undname.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except_x86_64.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\system.cpp",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\concurrency.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\console.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\ctype.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\data.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\dir.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\environ.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\errno.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\exit.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\file.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\heap.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\locale.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\lock.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\main.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\math.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\mbcs.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\process.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\scanf.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\sincos.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\string.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\thread.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\time.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\wcs.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)reactos/misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\misc.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\misc.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "msvcrt_static",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /d2FH4- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4146;4164;4267;4723;4334",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Debug\"",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\\\"Debug\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Debug\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1 /wd4090 /wd4146 /wd4164 /wd4267 /wd4723 /wd4334",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "asm",
+        "psdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "asm",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/msvcrt",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "msvcrt_static.lib",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/amd64/cpp_alias.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\cpp_alias_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=0 -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -DLANGUAGE_EN_US -D__x86_64 -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/amd64/cpp_alias.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/cpp_alias_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/amd64/cpp_vtables.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\cpp_vtables_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=0 -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -DLANGUAGE_EN_US -D__x86_64 -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/amd64/cpp_vtables.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/cpp_vtables_msvcrt_shared_asm.asm"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "dll/win32/msvcrt/amd64/except_x86_64.s"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt\\asm\\except_x86_64_msvcrt_shared_asm.asm"
+          ],
+          "HostTools": [],
+          "ReferenceCommand": "cl /nologo /X /I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/asm /I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/asm -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/wine -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/ndk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/reactos/libs -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/vcruntime -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/winrt -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/psdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/ddk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos -I$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/sdk/include/reactos/mc -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/include/dxsdk -I$(ProjectDir)..\\..\\..\\..\\Source/sdk/lib/pseh/include -I$(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/include -D__REACTOS__ -D_SBCS -DDBG=0 -D_WIN32_IE=0x603 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -DLANGUAGE_EN_US -D__x86_64 -D_WIN32_WINNT=0x601 -DWINVER=0x601 -D_CRTIMP= -DARRAY_SIZE=_countof -DI64_MIN=_I64_MIN -DI64_MAX=_I64_MAX -DUI64_MAX=_UI64_MAX -Dx87_asin=asin -Dmath_error=_invoke_matherr -Dasm_sqrt=sqrt -Dasm_sqrtf=sqrtf /D__ASM__ /D_USE_ML /EP /c $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/msvcrt/amd64/except_x86_64.s > $(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/msvcrt/asm/except_x86_64_msvcrt_shared_asm.asm"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\cpp.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\handler4.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\undname.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except_x86_64.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\system.cpp",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\concurrency.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\console.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\ctype.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\data.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\dir.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\environ.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\errno.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\exit.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\file.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\heap.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\locale.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\lock.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\main.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\math.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\mbcs.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\process.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\scanf.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\sincos.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\string.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\thread.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\time.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\wcs.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)reactos/misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\misc.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\misc.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "msvcrt_static",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /d2FH4- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4146;4164;4267;4723;4334",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Release\"",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\\\"Release\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Release\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /wd4090 /wd4146 /wd4164 /wd4267 /wd4723 /wd4334",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "asm",
+        "psdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "asm",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/msvcrt",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "msvcrt_static.lib",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\cpp.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\handler4.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\undname.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except_arm64.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\system.cpp",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\concurrency.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\console.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\ctype.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\data.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\dir.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\environ.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\errno.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\exit.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\file.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\heap.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\locale.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\lock.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\main.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\math.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\mbcs.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\process.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\scanf.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\sincos.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\string.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\thread.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\time.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\wcs.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)reactos/misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\misc.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\misc.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Debug\"",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1 /wd4090 /wd4146 /wd4164 /wd4267 /wd4723",
+        "GenerateDebugInformation": "true",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "msvcrt_static",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4146;4164;4267;4723",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Debug\"",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\\\"Debug\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Debug\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "asm",
+        "psdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "asm",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "dll/win32/msvcrt",
+      "ModuleType": "",
+      "CMakeTargetType": "STATIC_LIBRARY",
+      "Output": "msvcrt_static.lib",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\cpp.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\handler4.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\undname.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\except_arm64.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\system.cpp",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\concurrency.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\console.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\ctype.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\data.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\dir.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\environ.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\errno.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\exit.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\file.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\heap.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\locale.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\lock.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\main.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\math.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\mbcs.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\process.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\scanf.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\sincos.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\string.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\thread.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\time.c",
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\wcs.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)reactos/misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\reactos\\misc.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)misc.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\misc.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Release\"",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /wd4090 /wd4146 /wd4164 /wd4267 /wd4723",
+        "GenerateDebugInformation": "false",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "msvcrt_static",
+          "TargetExt": ".lib"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115 /EHs-c-",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018;4090;4146;4164;4267;4723",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "RuntimeTypeInfo": "false",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Release\"",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\\\"Release\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_MSVCR_VER=0;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;_WIN32_IE=0x603;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_WIN32_WINNT=0x601;WINVER=0x601;_CRTIMP=;ARRAY_SIZE=_countof;I64_MIN=_I64_MIN;I64_MAX=_I64_MAX;UI64_MAX=_UI64_MAX;x87_asin=asin;math_error=_invoke_matherr;asm_sqrt=sqrt;asm_sqrtf=sqrtf;CMAKE_INTDIR=\"Release\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\wine;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\msvcrt\\include;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Lib": {
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64"
+        }
+      },
+      "ProjectDependencies": [],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "asm",
+        "psdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "asm",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    }
+  },
+  "TrialBuild": {
+    "Target": "msvcrt_static",
+    "Status": "Failed",
+    "Configuration": "Debug",
+    "Platform": "Win32",
+    "IndependentProjectBuild": true,
+    "ExitCode": 1,
+    "DurationSeconds": 0.68,
+    "TimestampUtc": "2026-11-13T00:47:31.4271831Z",
+    "MSBuildVersion": "18.11.1.51303",
+    "Arguments": [
+      "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Msvcrt\\Msvcrt_Static.vcxproj",
+      "/t:Build",
+      "/m:1",
+      "/nologo",
+      "/verbosity:quiet",
+      "/p:Configuration=Debug",
+      "/p:Platform=Win32",
+      "/p:BuildProjectReferences=false",
+      "/p:CL_MPCount=1",
+      "/p:PreferredUILang=en-US",
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Msvcrt_Static.log;Encoding=UTF-8;Verbosity=normal"
+    ],
+    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Msvcrt_Static.log",
+    "ErrorCodes": [
+      "A1000",
+      "MSB3721"
+    ],
+    "UniqueErrorCount": 2,
+    "ErrorSummary": [
+      "MASM : fatal error A1000: cannot open file : Upstream\\ReactOS\\Projects\\Dll\\Win32\\Msvcrt\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\Win32\\Debug\\dll\\win32\\msvcrt\\asm\\__wine_RtlUnwind_msvcrt_shared_asm.asm [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Msvcrt\\Msvcrt_Static.vcxproj]",
+      "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Microsoft\\VC\\v180\\BuildCustomizations\\masm.targets(70,5): error MSB3721: 命令“ml.exe /c /nologo /Zi /Fo\"Upstream\\ReactOS\\Projects\\..\\..\\..\\OutDir\\Intermediate\\Win32\\Debug\\Msvcrt_Static\\__wine_RtlUnwind_msvcrt_shared_asm.obj\" /D\"_MSVCR_VER=0\" /D\"__REACTOS__\" /D\"__RELFILE__=__FILE__\" /D\"_SBCS\" /D\"DBG=1\" /D\"_SEH_ENABLE_TRACE\" /D\"_WIN32_IE=0x603\" /D\"_WIN32_WINDOWS=0x502\" /D\"_SETUPAPI_VER=0x502\" /D\"MINGW_HAS_SECURE_API=1\" /D\"D3D_UMD_INTERFACE_VERSION=0x000C\" /D\"DXGKDDI_INTERFACE_VERSION=0x1052\" /D\"DLL_EXPORT_VERSION=0x502\" /D\"_M_IX86\" /D\"_X86_\" /D\"__i386__\" /D\"i386\" /D\"_NEW_DELETE_OPERATORS_\" /D\"USE_COMPILER_EXCEPTIONS\" /D\"_USE_32BIT_TIME_T\" /D\"WIN32\" /D\"_WINDOWS\" /D\"__STDC__=1\" /D\"__RUNTIME_CHECKS__\" /D\"LANGUAGE_EN_US\" /D\"_WIN32_WINNT=0x601\" /D\"WINVER=0x601\" /D\"_CRTIMP=\" /D\"ARRAY_SIZE=_countof\" /D\"I64_MIN=_I64_MIN\" /D\"I64_MAX=_I64_MAX\" /D\"UI64_MAX=_UI64_MAX\" /D\"x87_asin=asin\" /D\"math_error=_invoke_matherr\" /D\"asm_sqrt=sqrt\" /D\"asm_sqrtf=sqrtf\" /D\"__ASM_USE_THISCALL_WRAPPER\" /D\"RtlUnwind=__wine_RtlUnwind\" /D\"CMAKE_INTDIR=\"Debug\"\" /I \"Upstream\\ReactOS\\Projects\\Dll\\Win32\\Msvcrt\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\Win32\\Debug\\dll\\w [see full log]"
+    ],
+    "ObservedMissingFiles": [
+      "OutDir/Generated/Win32/Debug/dll/win32/msvcrt/asm/__wine_RtlUnwind_msvcrt_shared_asm.asm"
+    ],
+    "RequiredHostTools": [
+      "geninc",
+      "hpp",
+      "utf16le",
+      "widl"
+    ],
+    "RequiredInfrastructure": [
+      "asm",
+      "bugcodes",
+      "psdk",
+      "xdk"
+    ],
+    "PendingBuildInfrastructure": [
+      "Architecture-specific assembly preprocessing",
+      "Custom source/header/resource generation; recipes are recorded per configuration",
+      "Export/import-library or IDL generation",
+      "Host tool implementations and invocation",
+      "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+    ],
+    "ArtifactExists": false,
+    "Artifact": null,
+    "ProjectSHA256": "863f74e165e9b5b4554bb4c069fd8d008036e45bf7831214a09f84103f9d1fc0",
+    "MatchesCurrentProject": true
+  },
+  "ProjectSHA256": "863f74e165e9b5b4554bb4c069fd8d008036e45bf7831214a09f84103f9d1fc0",
+  "SettingsReview": {
+    "CompilerAndLinkerProperties": "PreservedInNativeFieldsAndAdditionalOptions",
+    "Dependencies": "ComparedAgainstOriginalNativeProjects",
+    "SourceOverrides": "Compared; explicit PCH exclusions preserved"
+  }
+}

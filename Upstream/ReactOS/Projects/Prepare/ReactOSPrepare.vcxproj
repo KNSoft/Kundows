@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32"><Configuration>Debug</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64"><Configuration>Debug</Configuration><Platform>ARM64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64"><Configuration>Release</Configuration><Platform>ARM64</Platform></ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{8D4D7C42-2B0E-4CF5-9F9C-FB06A7AFD3A5}</ProjectGuid>
+    <ProjectName>ReactOSPrepare</ProjectName>
+    <RootNamespace>ReactOSPrepare</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\..\..\</KundowsRoot>
+    <ReactOSSourceDirectory>$(KundowsRoot)Upstream\ReactOS\Source</ReactOSSourceDirectory>
+    <ReactOSSourceRoot>$(ReactOSSourceDirectory)\</ReactOSSourceRoot>
+    <CommonIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\Common\Include</CommonIncludeDirectory>
+    <PlatformIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include</PlatformIncludeDirectory>
+    <ModuleGeneratedDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\ReactOSPrepare</ModuleGeneratedDirectory>
+    <HppTool>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\hpp.exe</HppTool>
+    <XdkDirectory>$(ReactOSSourceDirectory)\sdk\include\xdk</XdkDirectory>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration"><ConfigurationType>Utility</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries>true</UseDebugLibraries></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration"><ConfigurationType>Utility</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries>false</UseDebugLibraries></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration"><ConfigurationType>Utility</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries>true</UseDebugLibraries></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration"><ConfigurationType>Utility</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries>false</UseDebugLibraries></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration"><ConfigurationType>Utility</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries>true</UseDebugLibraries></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration"><ConfigurationType>Utility</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries>false</UseDebugLibraries></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\ReactOS.props" />
+  </ImportGroup>
+  <PropertyGroup>
+    <IntDir>$(KundowsRoot)IntDir\$(Platform)\$(Configuration)\ReactOSPrepare\</IntDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <XdkHeader Include="$(ReactOSSourceRoot)sdk\include\xdk\*.h" />
+    <None Include="$(ReactOSSourceRoot)sdk\include\xdk\*.template.h" />
+    <None Include="$(KundowsRoot)Build\GenerateReactOSVersionHeaders.ps1" />
+    <None Include="$(ReactOSSourceRoot)sdk\include\reactos\version.h.cmake" />
+    <None Include="$(ReactOSSourceRoot)sdk\include\reactos\buildno.h.cmake" />
+  </ItemGroup>
+  <Target Name="VerifyReactOSPrepareHostTool">
+    <Error Condition="!Exists('$(HppTool)')" Text="HostTools.slnx must be built first for $(Platform)|$(Configuration): $(HppTool)" />
+  </Target>
+  <Target Name="GenerateReactOSPrepareXdkHeaders"
+          DependsOnTargets="VerifyReactOSPrepareHostTool"
+          BeforeTargets="Build"
+          Inputs="@(XdkHeader);$(HppTool)"
+          Outputs="$(CommonIncludeDirectory)\ddk\wdm.h;$(CommonIncludeDirectory)\ddk\ntddk.h;$(CommonIncludeDirectory)\ddk\ntifs.h;$(CommonIncludeDirectory)\psdk\devioctl.h;$(CommonIncludeDirectory)\psdk\ntdef.h;$(CommonIncludeDirectory)\psdk\winnt.h">
+    <MakeDir Directories="$(CommonIncludeDirectory)\ddk;$(CommonIncludeDirectory)\psdk" />
+    <Exec WorkingDirectory="$(XdkDirectory)" Command="&quot;$(HppTool)&quot; &quot;wdm.template.h&quot; &quot;$(CommonIncludeDirectory)\ddk\wdm.h&quot;" />
+    <Exec WorkingDirectory="$(XdkDirectory)" Command="&quot;$(HppTool)&quot; &quot;ntddk.template.h&quot; &quot;$(CommonIncludeDirectory)\ddk\ntddk.h&quot;" />
+    <Exec WorkingDirectory="$(XdkDirectory)" Command="&quot;$(HppTool)&quot; &quot;ntifs.template.h&quot; &quot;$(CommonIncludeDirectory)\ddk\ntifs.h&quot;" />
+    <Exec WorkingDirectory="$(XdkDirectory)" Command="&quot;$(HppTool)&quot; &quot;devioctl.template.h&quot; &quot;$(CommonIncludeDirectory)\psdk\devioctl.h&quot;" />
+    <Exec WorkingDirectory="$(XdkDirectory)" Command="&quot;$(HppTool)&quot; &quot;ntdef.template.h&quot; &quot;$(CommonIncludeDirectory)\psdk\ntdef.h&quot;" />
+    <Exec WorkingDirectory="$(XdkDirectory)" Command="&quot;$(HppTool)&quot; &quot;winnt.template.h&quot; &quot;$(CommonIncludeDirectory)\psdk\winnt.h&quot;" />
+  </Target>
+  <Target Name="GenerateReactOSPrepareVersionHeaders"
+          DependsOnTargets="VerifyReactOSPrepareHostTool"
+          BeforeTargets="Build"
+          Inputs="$(KundowsRoot)Build\GenerateReactOSVersionHeaders.ps1;$(ReactOSSourceRoot)sdk\include\reactos\version.cmake;$(ReactOSSourceRoot)sdk\include\reactos\version.h.cmake;$(ReactOSSourceRoot)sdk\include\reactos\buildno.h.cmake"
+          Outputs="$(CommonIncludeDirectory)\reactos\version.h;$(PlatformIncludeDirectory)\reactos\buildno.h">
+    <MakeDir Directories="$(CommonIncludeDirectory)\reactos;$(PlatformIncludeDirectory)\reactos;$(ModuleGeneratedDirectory)" />
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(KundowsRoot)Build\GenerateReactOSVersionHeaders.ps1&quot; -SourceRoot &quot;$(ReactOSSourceDirectory)&quot; -CommonIncludeDirectory &quot;$(CommonIncludeDirectory)&quot; -PlatformIncludeDirectory &quot;$(PlatformIncludeDirectory)&quot; -Platform &quot;$(Platform)&quot; -Configuration &quot;$(Configuration)&quot;" />
+  </Target>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

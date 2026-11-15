@@ -1,0 +1,1310 @@
+{
+  "SchemaVersion": 1,
+  "Target": "uefildr",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Project": "Upstream/ReactOS/Projects/Boot/Freeldr/Freeldr/Uefildr.vcxproj",
+  "Status": "NativeProjectSkeleton",
+  "Transferred": [
+    "Platform-specific source membership",
+    "Native compiler/resource/assembler properties",
+    "Module-specific defines and include paths",
+    "Linker/librarian options and library order",
+    "Existing project dependencies"
+  ],
+  "Adaptations": [
+    "Source references are relative to the native project",
+    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
+    "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
+    "Object-library inputs refer to their native intermediate directories",
+    "Native import-library output uses $(OutDir)$(TargetName).lib instead of the CMake dummy output"
+  ],
+  "Deferred": [
+    "Custom source/header/resource generation; recipes are recorded per configuration",
+    "Export/import-library or IDL generation",
+    "Host tool implementations and invocation",
+    "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+  ],
+  "Configurations": {
+    "Debug|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/freeldr",
+      "ModuleType": "",
+      "CMakeTargetType": "EXECUTABLE",
+      "Output": "uefildr.efi",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/freeldr/freeldr.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\freeldr.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\freeldr_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=freeldr.sys -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/freeldr.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/freeldr_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/freeldr/freeldr.spec"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/freeldr/freeldr.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\uefildr.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\uefildr_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=uefildr.exe -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/uefildr.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/uefildr_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/freeldr/freeldr.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\arch\\uefi\\uefildr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\bootmgr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\freeldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\ntldropts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\lib\\rtl\\libsupp.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\config\\cmboot.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\ke\\config.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\advopts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\conversion.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\headless.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\inffile.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\registry.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\setupldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlmemory.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlregistry.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)ntldr/winldr.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\winldr.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)ntldr/arch/i386/winldr.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\arch\\i386\\winldr.c"
+          ]
+        }
+      ],
+      "TrialBuild": {
+        "Target": "uefildr",
+        "Status": "Failed",
+        "Configuration": "Debug",
+        "Platform": "Win32",
+        "IndependentProjectBuild": true,
+        "ExitCode": 1,
+        "DurationSeconds": 1.06,
+        "TimestampUtc": "2026-11-13T00:48:02.3857151Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Freeldr\\Uefildr.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=Win32",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Uefildr.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Uefildr.log",
+        "ErrorCodes": [
+          "C1083"
+        ],
+        "UniqueErrorCount": 2,
+        "ErrorSummary": [
+          "Upstream\\ReactOS\\Source\\boot\\freeldr\\freeldr\\include\\freeldr.h(45,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Freeldr\\Uefildr.vcxproj]",
+          "Upstream\\ReactOS\\Source\\boot\\freeldr\\freeldr\\include\\ntoskrnl.h(9,10): error C1083: Cannot open include file: 'ntdef.h': No such file or directory [Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Freeldr\\Uefildr.vcxproj]"
+        ],
+        "ObservedMissingFiles": [
+          "ntddk.h",
+          "ntdef.h"
+        ],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": false,
+        "Artifact": null,
+        "ProjectSHA256": "f8de7afd7d157f22107ddf129232f21605f3c1afff018fcf6c242a4ee082402d",
+        "MatchesCurrentProject": true
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "uefildr",
+          "TargetExt": ".efi",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Debug\"",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\\\"Debug\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Debug\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uefifreeldr_Common\\uefifreeldr_common.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Cportlib\\cportlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blcmlib\\blcmlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blrtl\\blrtl.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libcntpr\\libcntpr.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Mini_Hal\\mini_hal.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "SubSystem": "EFI Application",
+          "MinimumRequiredVersion": "5.01",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86 /IGNORE:4039 /ignore:4078 /ignore:4254 /DRIVER",
+          "CreateHotPatchableImage": "X86Image",
+          "DataExecutionPrevention": "false",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "EfiEntry",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkErrorReporting": "",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "false",
+          "SetChecksum": "true"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "libcntpr",
+        "mini_hal",
+        "runtmchk",
+        "uefifreeldr_common"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "host-tools",
+        "libcntpr",
+        "mini_hal",
+        "runtmchk",
+        "uefifreeldr_common",
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/freeldr",
+      "ModuleType": "",
+      "CMakeTargetType": "EXECUTABLE",
+      "Output": "uefildr.efi",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/freeldr/freeldr.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\freeldr.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\freeldr_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=freeldr.sys -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/freeldr.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/freeldr_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/freeldr/freeldr.spec"
+        },
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/freeldr/freeldr.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\uefildr.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\uefildr_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=uefildr.exe -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/uefildr.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/uefildr_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/freeldr/freeldr.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\arch\\uefi\\uefildr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\bootmgr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\freeldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\ntldropts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\lib\\rtl\\libsupp.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\config\\cmboot.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\ke\\config.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\advopts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\conversion.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\headless.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\inffile.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\registry.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\setupldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlmemory.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlregistry.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)ntldr/winldr.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\winldr.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)ntldr/arch/i386/winldr.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\arch\\i386\\winldr.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "uefildr",
+          "TargetExt": ".efi",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Release\"",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\\\"Release\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Release\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uefifreeldr_Common\\uefifreeldr_common.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Cportlib\\cportlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blcmlib\\blcmlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blrtl\\blrtl.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libcntpr\\libcntpr.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Mini_Hal\\mini_hal.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "SubSystem": "EFI Application",
+          "MinimumRequiredVersion": "5.01",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86 /IGNORE:4039 /ignore:4078 /ignore:4254 /DRIVER",
+          "CreateHotPatchableImage": "X86Image",
+          "DataExecutionPrevention": "false",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "EfiEntry",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkErrorReporting": "",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "false",
+          "SetChecksum": "true"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "libcntpr",
+        "mini_hal",
+        "uefifreeldr_common"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "host-tools",
+        "libcntpr",
+        "mini_hal",
+        "uefifreeldr_common",
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/freeldr",
+      "ModuleType": "",
+      "CMakeTargetType": "EXECUTABLE",
+      "Output": "uefildr.efi",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/freeldr/freeldr.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\freeldr.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\freeldr_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=freeldr.sys -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/freeldr.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/freeldr_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/freeldr/freeldr.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\arch\\uefi\\uefildr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\bootmgr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\freeldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\ntldropts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\lib\\rtl\\libsupp.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\config\\cmboot.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\ke\\config.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\advopts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\conversion.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\headless.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\inffile.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\registry.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\setupldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlmemory.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlregistry.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)ntldr/winldr.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\winldr.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)ntldr/arch/amd64/winldr.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\arch\\amd64\\winldr.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "uefildr",
+          "TargetExt": ".efi",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Debug\"",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\\\"Debug\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Debug\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uefifreeldr_Common\\uefifreeldr_common.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Cportlib\\cportlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blcmlib\\blcmlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blrtl\\blrtl.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libcntpr\\libcntpr.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "SubSystem": "EFI Application",
+          "MinimumRequiredVersion": "5.02",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64 /d2:-FH4- /IGNORE:4039 /ignore:4078 /ignore:4254 /DRIVER",
+          "BaseAddress": "0x10000",
+          "CreateHotPatchableImage": "X64Image",
+          "DataExecutionPrevention": "false",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "EfiEntry",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkErrorReporting": "",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "false",
+          "SetChecksum": "true"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "libcntpr",
+        "runtmchk",
+        "uefifreeldr_common"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "host-tools",
+        "libcntpr",
+        "runtmchk",
+        "uefifreeldr_common",
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|x64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/freeldr",
+      "ModuleType": "",
+      "CMakeTargetType": "EXECUTABLE",
+      "Output": "uefildr.efi",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "boot/freeldr/freeldr/freeldr.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\freeldr.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr\\freeldr_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=freeldr.sys -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/freeldr.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/boot/freeldr/freeldr/freeldr_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/boot/freeldr/freeldr/freeldr.spec"
+        }
+      ],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\arch\\uefi\\uefildr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\bootmgr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\freeldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\ntldropts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\lib\\rtl\\libsupp.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\config\\cmboot.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\ke\\config.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\advopts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\conversion.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\headless.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\inffile.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\registry.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\setupldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlmemory.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlregistry.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)ntldr/winldr.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\winldr.c"
+          ]
+        },
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "ObjectFileName": "$(IntDir)ntldr/arch/amd64/winldr.c.obj",
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\arch\\amd64\\winldr.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "uefildr",
+          "TargetExt": ".efi",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Release\"",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\\\"Release\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Release\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uefifreeldr_Common\\uefifreeldr_common.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Cportlib\\cportlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blcmlib\\blcmlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blrtl\\blrtl.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libcntpr\\libcntpr.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "SubSystem": "EFI Application",
+          "MinimumRequiredVersion": "5.02",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:x64 /d2:-FH4- /IGNORE:4039 /ignore:4078 /ignore:4254 /DRIVER",
+          "BaseAddress": "0x10000",
+          "CreateHotPatchableImage": "X64Image",
+          "DataExecutionPrevention": "false",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "EfiEntry",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkErrorReporting": "",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "false",
+          "SetChecksum": "true"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "libcntpr",
+        "uefifreeldr_common"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "host-tools",
+        "libcntpr",
+        "uefifreeldr_common",
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/freeldr",
+      "ModuleType": "",
+      "CMakeTargetType": "EXECUTABLE",
+      "Output": "uefildr.efi",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\arch\\uefi\\uefildr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\bootmgr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\freeldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\ntldropts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\lib\\rtl\\libsupp.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\config\\cmboot.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\ke\\config.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\advopts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\conversion.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\headless.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\inffile.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\registry.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\setupldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\winldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlmemory.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlregistry.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Debug\"",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1",
+        "GenerateDebugInformation": "true",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "uefildr",
+          "TargetExt": ".efi",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Debug\"",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\\\"Debug\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Debug\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uefifreeldr_Common\\uefifreeldr_common.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Cportlib\\cportlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blcmlib\\blcmlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blrtl\\blrtl.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libcntpr\\libcntpr.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "SubSystem": "EFI Application",
+          "MinimumRequiredVersion": "6.02",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64 /IGNORE:4039 /ignore:4078 /ignore:4254 /DRIVER",
+          "DataExecutionPrevention": "false",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "EfiEntry",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkErrorReporting": "",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "false",
+          "SetChecksum": "true"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "libcntpr",
+        "runtmchk",
+        "uefifreeldr_common"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "libcntpr",
+        "runtmchk",
+        "uefifreeldr_common",
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|ARM64": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "boot/freeldr/freeldr",
+      "ModuleType": "",
+      "CMakeTargetType": "EXECUTABLE",
+      "Output": "uefildr.efi",
+      "RequiredHostTools": [
+        "geninc",
+        "hpp",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [],
+      "PerSourceProperties": [
+        {
+          "ItemType": "ClCompile",
+          "Properties": {
+            "PrecompiledHeader": "NotUsing"
+          },
+          "Files": [
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\arch\\uefi\\uefildr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\bootmgr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\freeldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\ntldropts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\lib\\rtl\\libsupp.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\config\\cmboot.c",
+            "..\\..\\..\\..\\Source\\ntoskrnl\\ke\\config.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\advopts.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\conversion.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\headless.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\inffile.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\registry.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\setupldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\winldr.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlmemory.c",
+            "..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\ntldr\\wlregistry.c"
+          ]
+        }
+      ],
+      "TrialBuild": "NotAttempted",
+      "OriginalArm64AssemblerSettings": {
+        "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Release\"",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+        "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115",
+        "GenerateDebugInformation": "false",
+        "WarningLevel": "3"
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "uefildr",
+          "TargetExt": ".efi",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Release\"",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\\\"Release\\\"",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)"
+        },
+        "MARMASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);_FRLDRLIB_;UEFIBOOT;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHAL_;_BLDR_;_NTSYSTEM_;CMAKE_INTDIR=\"Release\"",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+          "ObjectFileName": "$(IntDir)%(Filename).obj"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include\\arch\\uefi;$(ProjectDir)..\\..\\..\\..\\Source\\boot\\freeldr\\freeldr\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\edk2;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Uefifreeldr_Common\\uefifreeldr_common.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Cportlib\\cportlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blcmlib\\blcmlib.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Blrtl\\blrtl.lib;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libcntpr\\libcntpr.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "SubSystem": "EFI Application",
+          "MinimumRequiredVersion": "6.02",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:ARM64 /IGNORE:4039 /ignore:4078 /ignore:4254 /DRIVER",
+          "DataExecutionPrevention": "false",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "EfiEntry",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkErrorReporting": "",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "false",
+          "SetChecksum": "true"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "libcntpr",
+        "uefifreeldr_common"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "blcmlib",
+        "blrtl",
+        "cportlib",
+        "libcntpr",
+        "uefifreeldr_common",
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    }
+  },
+  "TrialBuild": {
+    "Target": "uefildr",
+    "Status": "Failed",
+    "Configuration": "Debug",
+    "Platform": "Win32",
+    "IndependentProjectBuild": true,
+    "ExitCode": 1,
+    "DurationSeconds": 1.06,
+    "TimestampUtc": "2026-11-13T00:48:02.3857151Z",
+    "MSBuildVersion": "18.11.1.51303",
+    "Arguments": [
+      "Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Freeldr\\Uefildr.vcxproj",
+      "/t:Build",
+      "/m:1",
+      "/nologo",
+      "/verbosity:quiet",
+      "/p:Configuration=Debug",
+      "/p:Platform=Win32",
+      "/p:BuildProjectReferences=false",
+      "/p:CL_MPCount=1",
+      "/p:PreferredUILang=en-US",
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Uefildr.log;Encoding=UTF-8;Verbosity=normal"
+    ],
+    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Uefildr.log",
+    "ErrorCodes": [
+      "C1083"
+    ],
+    "UniqueErrorCount": 2,
+    "ErrorSummary": [
+      "Upstream\\ReactOS\\Source\\boot\\freeldr\\freeldr\\include\\freeldr.h(45,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Freeldr\\Uefildr.vcxproj]",
+      "Upstream\\ReactOS\\Source\\boot\\freeldr\\freeldr\\include\\ntoskrnl.h(9,10): error C1083: Cannot open include file: 'ntdef.h': No such file or directory [Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Freeldr\\Uefildr.vcxproj]"
+    ],
+    "ObservedMissingFiles": [
+      "ntddk.h",
+      "ntdef.h"
+    ],
+    "RequiredHostTools": [
+      "geninc",
+      "hpp",
+      "spec2def",
+      "utf16le",
+      "widl"
+    ],
+    "RequiredInfrastructure": [
+      "asm",
+      "bugcodes",
+      "psdk",
+      "xdk"
+    ],
+    "PendingBuildInfrastructure": [
+      "Custom source/header/resource generation; recipes are recorded per configuration",
+      "Export/import-library or IDL generation",
+      "Host tool implementations and invocation",
+      "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+    ],
+    "ArtifactExists": false,
+    "Artifact": null,
+    "ProjectSHA256": "f8de7afd7d157f22107ddf129232f21605f3c1afff018fcf6c242a4ee082402d",
+    "MatchesCurrentProject": true
+  },
+  "ProjectSHA256": "f8de7afd7d157f22107ddf129232f21605f3c1afff018fcf6c242a4ee082402d",
+  "SettingsReview": {
+    "CompilerAndLinkerProperties": "PreservedInNativeFieldsAndAdditionalOptions",
+    "Dependencies": "ComparedAgainstOriginalNativeProjects",
+    "SourceOverrides": "Compared; explicit PCH exclusions preserved"
+  }
+}

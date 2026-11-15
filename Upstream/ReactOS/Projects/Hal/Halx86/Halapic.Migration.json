@@ -1,0 +1,569 @@
+{
+  "SchemaVersion": 1,
+  "Target": "halapic",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Project": "Upstream/ReactOS/Projects/Hal/Halx86/Halapic.vcxproj",
+  "Status": "NativeProjectSkeleton",
+  "Transferred": [
+    "Platform-specific source membership",
+    "Native compiler/resource/assembler properties",
+    "Module-specific defines and include paths",
+    "Kernel entry point, subsystem, image and section options",
+    "Linker/librarian options and library order",
+    "Existing project dependencies"
+  ],
+  "Adaptations": [
+    "Source references are relative to the native project",
+    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
+    "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
+    "Object-library inputs refer to their native intermediate directories",
+    "Native import-library output uses $(OutDir)$(TargetName).lib instead of the CMake dummy output"
+  ],
+  "Deferred": [
+    "Custom source/header/resource generation; recipes are recorded per configuration",
+    "Export/import-library or IDL generation",
+    "Host tool implementations and invocation",
+    "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json",
+    "Configure-time template substitution; see PendingConfigureTimeFiles and ConfigureTimeFiles.json"
+  ],
+  "Configurations": {
+    "Debug|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "hal/halx86",
+      "ModuleType": "kerneldll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "halapic.dll",
+      "RequiredHostTools": [
+        "bin2c",
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "hal/hal.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
+        }
+      ],
+      "PerSourceProperties": [],
+      "TrialBuild": {
+        "Target": "halapic",
+        "Status": "Failed",
+        "Configuration": "Debug",
+        "Platform": "Win32",
+        "IndependentProjectBuild": true,
+        "ExitCode": 1,
+        "DurationSeconds": 0.95,
+        "TimestampUtc": "2026-11-13T00:46:39.3912094Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Hal\\Halx86\\Halapic.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=Win32",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Halapic.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Halapic.log",
+        "ErrorCodes": [
+          "RC1015"
+        ],
+        "UniqueErrorCount": 1,
+        "ErrorSummary": [
+          "Upstream\\ReactOS\\Projects\\Hal\\Halx86\\..\\..\\..\\Source\\sdk\\include\\reactos/version.rc(15): fatal error RC1015: cannot open include file 'version.h'. [Upstream\\ReactOS\\Projects\\Hal\\Halx86\\Halapic.vcxproj]"
+        ],
+        "ObservedMissingFiles": [
+          "version.h"
+        ],
+        "RequiredHostTools": [
+          "bin2c",
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json",
+          "Configure-time template substitution; see PendingConfigureTimeFiles and ConfigureTimeFiles.json"
+        ],
+        "ArtifactExists": false,
+        "Artifact": null,
+        "ProjectSHA256": "c280bfa786baab145f8aacb556b80b50a37ac54272a9c81ec634c300cd222c5a",
+        "MatchesCurrentProject": true
+      },
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "halapic",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86\\include;$(ProjectDir)..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\Source\\drivers\\bus\\acpi\\acpica\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\drivers\\arbiter;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "EnableFastChecks",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "CreateHotpatchableImage": "true",
+          "DebugInformationFormat": "ProgramDatabase",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "ExceptionHandling": "",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "Disabled",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "Optimization": "Disabled",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHALDLL_;_NTHAL_;CMAKE_INTDIR=\"Debug\";",
+          "ObjectFileName": "$(IntDir)",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHALDLL_;_NTHAL_;CMAKE_INTDIR=\\\"Debug\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86\\include;$(ProjectDir)..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\Source\\drivers\\bus\\acpi\\acpica\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\drivers\\arbiter;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;_NTHALDLL_;_NTHAL_;CMAKE_INTDIR=\"Debug\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86\\include;$(ProjectDir)..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\Source\\drivers\\bus\\acpi\\acpica\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\drivers\\arbiter;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1",
+          "GenerateDebugInformation": "true",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86\\include;$(ProjectDir)..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\Source\\drivers\\bus\\acpi\\acpica\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\drivers\\arbiter;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Arbiter_Hal\\arbiter_hal.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libcntpr\\libcntpr.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Setjmp\\setjmp.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Pseh\\pseh.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libntoskrnl\\libntoskrnl.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Runtmchk\\runtmchk.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Fast486\\fast486.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "SubSystem": "Native",
+          "MinimumRequiredVersion": "5.01",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86 /IGNORE:4039  /ignore:4216",
+          "BaseAddress": "0x00010000",
+          "CreateHotPatchableImage": "X86Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "HalInitSystem@8",
+          "GenerateDebugInformation": "true",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkErrorReporting": "",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SpecifySectionAttributes": "INIT,ERWD",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "arbiter_hal",
+        "fast486",
+        "lib_hal_apic",
+        "lib_hal_generic",
+        "lib_hal_legacy",
+        "lib_hal_up",
+        "libcntpr",
+        "libntoskrnl",
+        "pseh",
+        "runtmchk",
+        "setjmp"
+      ],
+      "PendingConfigureTimeFiles": [
+        {
+          "Input": {
+            "Kind": "Source",
+            "Path": "sdk/include/reactos/version.h.cmake"
+          },
+          "Output": "sdk/include/reactos/version.h",
+          "Options": []
+        }
+      ],
+      "OriginalProjectDependencies": [
+        "arbiter_hal",
+        "asm",
+        "bugcodes",
+        "fast486",
+        "host-tools",
+        "lib_hal_apic",
+        "lib_hal_generic",
+        "lib_hal_legacy",
+        "lib_hal_up",
+        "libcntpr",
+        "libntoskrnl",
+        "psdk",
+        "pseh",
+        "runtmchk",
+        "setjmp",
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "asm",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "bugcodes",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Release|Win32": {
+      "AvailableInBaseline": true,
+      "SourceDirectory": "hal/halx86",
+      "ModuleType": "kerneldll",
+      "CMakeTargetType": "MODULE_LIBRARY",
+      "Output": "halapic.dll",
+      "RequiredHostTools": [
+        "bin2c",
+        "geninc",
+        "hpp",
+        "spec2def",
+        "utf16le",
+        "widl"
+      ],
+      "RequiredInfrastructure": [
+        "asm",
+        "bugcodes",
+        "psdk",
+        "xdk"
+      ],
+      "PendingGenerationSteps": [
+        {
+          "Status": "NotMigrated",
+          "Inputs": [
+            "hal/hal.spec"
+          ],
+          "Outputs": [
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal_stubs.c"
+          ],
+          "HostTools": [
+            "spec2def"
+          ],
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
+        }
+      ],
+      "PerSourceProperties": [],
+      "TrialBuild": "NotAttempted",
+      "MigratedProperties": {
+        "General": {
+          "TargetName": "halapic",
+          "TargetExt": ".dll",
+          "LinkIncremental": "false",
+          "GenerateManifest": "false"
+        },
+        "ClCompile": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86\\include;$(ProjectDir)..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\Source\\drivers\\bus\\acpi\\acpica\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\drivers\\arbiter;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "AdditionalOptions": "%(AdditionalOptions) /Zc:threadSafeInit- /w14115",
+          "AssemblerListingLocation": "$(IntDir)",
+          "BasicRuntimeChecks": "Default",
+          "BufferSecurityCheck": "false",
+          "CallingConvention": "",
+          "CreateHotpatchableImage": "true",
+          "DisableSpecificWarnings": "4819;4244;4290;4800;4200;4214;4018",
+          "EnableEnhancedInstructionSet": "NoExtensions",
+          "EnableFiberSafeOptimizations": "true",
+          "ExceptionHandling": "",
+          "FavorSizeOrSpeed": "Speed",
+          "FloatingPointModel": "",
+          "ForceConformanceInForLoopScope": "",
+          "FunctionLevelLinking": "true",
+          "IgnoreStandardIncludePath": "true",
+          "InlineFunctionExpansion": "AnySuitable",
+          "MinimalRebuild": "",
+          "MultiProcessorCompilation": "true",
+          "OmitDefaultLibName": "true",
+          "OmitFramePointers": "true",
+          "Optimization": "Full",
+          "RemoveUnreferencedCodeData": "",
+          "RuntimeLibrary": "MultiThreaded",
+          "StringPooling": "true",
+          "SupportJustMyCode": "",
+          "TreatWChar_tAsBuiltInType": "",
+          "UseFullPaths": "false",
+          "WarningLevel": "Level3",
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHALDLL_;_NTHAL_;CMAKE_INTDIR=\"Release\";",
+          "ObjectFileName": "$(IntDir)",
+          "DebugInformationFormat": "",
+          "ScanSourceForModuleDependencies": "false",
+          "PrecompiledHeader": "NotUsing"
+        },
+        "ResourceCompile": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHALDLL_;_NTHAL_;CMAKE_INTDIR=\\\"Release\\\";",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86\\include;$(ProjectDir)..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\Source\\drivers\\bus\\acpi\\acpica\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\drivers\\arbiter;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)"
+        },
+        "MASM": {
+          "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;_NTHALDLL_;_NTHAL_;CMAKE_INTDIR=\"Release\";",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86\\include;$(ProjectDir)..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\Source\\drivers\\bus\\acpi\\acpica\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\drivers\\arbiter;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\cmlib;%(IncludePaths)",
+          "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch",
+          "GenerateDebugInformation": "false",
+          "PreserveIdentifierCase": "1",
+          "WarningLevel": "3"
+        },
+        "Midl": {
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86;$(ProjectDir)..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\Source\\hal\\halx86\\include;$(ProjectDir)..\\..\\..\\Source\\ntoskrnl\\include;$(ProjectDir)..\\..\\..\\Source\\drivers\\bus\\acpi\\acpica\\include;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\drivers\\arbiter;$(ProjectDir)..\\..\\..\\Source\\sdk\\lib\\cmlib;%(AdditionalIncludeDirectories)",
+          "OutputDirectory": "$(IntDir)",
+          "HeaderFileName": "%(Filename).h",
+          "TypeLibraryName": "%(Filename).tlb",
+          "InterfaceIdentifierFileName": "%(Filename)_i.c",
+          "ProxyFileName": "%(Filename)_p.c"
+        },
+        "Link": {
+          "AdditionalDependencies": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Arbiter_Hal\\arbiter_hal.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libcntpr\\libcntpr.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Setjmp\\setjmp.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Pseh\\pseh.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Libntoskrnl\\libntoskrnl.lib;$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\$(Platform)\\$(Configuration)\\Fast486\\fast486.lib",
+          "AdditionalLibraryDirectories": "%(AdditionalLibraryDirectories)",
+          "SubSystem": "Native",
+          "MinimumRequiredVersion": "5.01",
+          "AdditionalOptions": "%(AdditionalOptions) /machine:X86 /IGNORE:4039  /ignore:4216",
+          "BaseAddress": "0x00010000",
+          "CreateHotPatchableImage": "X86Image",
+          "DataExecutionPrevention": "",
+          "EnableCOMDATFolding": "true",
+          "EntryPointSymbol": "HalInitSystem@8",
+          "GenerateDebugInformation": "false",
+          "IgnoreAllDefaultLibraries": "true",
+          "IgnoreSpecificDefaultLibraries": "%(IgnoreSpecificDefaultLibraries)",
+          "ImageHasSafeExceptionHandlers": "false",
+          "ImportLibrary": "$(OutDir)$(TargetName).lib",
+          "LinkErrorReporting": "",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def",
+          "OptimizeReferences": "true",
+          "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
+          "RandomizedBaseAddress": "",
+          "SetChecksum": "true",
+          "SpecifySectionAttributes": "INIT,ERWD",
+          "Version": "5.01"
+        },
+        "ProjectReference": {
+          "LinkLibraryDependencies": "false"
+        }
+      },
+      "ProjectDependencies": [
+        "arbiter_hal",
+        "fast486",
+        "lib_hal_apic",
+        "lib_hal_generic",
+        "lib_hal_legacy",
+        "lib_hal_up",
+        "libcntpr",
+        "libntoskrnl",
+        "pseh",
+        "setjmp"
+      ],
+      "PendingConfigureTimeFiles": [],
+      "OriginalProjectDependencies": [
+        "arbiter_hal",
+        "asm",
+        "bugcodes",
+        "fast486",
+        "host-tools",
+        "lib_hal_apic",
+        "lib_hal_generic",
+        "lib_hal_legacy",
+        "lib_hal_up",
+        "libcntpr",
+        "libntoskrnl",
+        "psdk",
+        "pseh",
+        "setjmp",
+        "xdk"
+      ],
+      "DeferredProjectDependencies": [
+        {
+          "Target": "asm",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "bugcodes",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "host-tools",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "psdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        },
+        {
+          "Target": "xdk",
+          "Type": "UTILITY",
+          "Status": "NotMigrated",
+          "Reason": "Host tooling or shared generation infrastructure"
+        }
+      ],
+      "PendingBuildEvents": []
+    },
+    "Debug|x64": {
+      "AvailableInBaseline": false,
+      "TrialBuild": "NotApplicable"
+    },
+    "Release|x64": {
+      "AvailableInBaseline": false,
+      "TrialBuild": "NotApplicable"
+    },
+    "Debug|ARM64": {
+      "AvailableInBaseline": false,
+      "TrialBuild": "NotApplicable"
+    },
+    "Release|ARM64": {
+      "AvailableInBaseline": false,
+      "TrialBuild": "NotApplicable"
+    }
+  },
+  "TrialBuild": {
+    "Target": "halapic",
+    "Status": "Failed",
+    "Configuration": "Debug",
+    "Platform": "Win32",
+    "IndependentProjectBuild": true,
+    "ExitCode": 1,
+    "DurationSeconds": 0.95,
+    "TimestampUtc": "2026-11-13T00:46:39.3912094Z",
+    "MSBuildVersion": "18.11.1.51303",
+    "Arguments": [
+      "Upstream\\ReactOS\\Projects\\Hal\\Halx86\\Halapic.vcxproj",
+      "/t:Build",
+      "/m:1",
+      "/nologo",
+      "/verbosity:quiet",
+      "/p:Configuration=Debug",
+      "/p:Platform=Win32",
+      "/p:BuildProjectReferences=false",
+      "/p:CL_MPCount=1",
+      "/p:PreferredUILang=en-US",
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Halapic.log;Encoding=UTF-8;Verbosity=normal"
+    ],
+    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Halapic.log",
+    "ErrorCodes": [
+      "RC1015"
+    ],
+    "UniqueErrorCount": 1,
+    "ErrorSummary": [
+      "Upstream\\ReactOS\\Projects\\Hal\\Halx86\\..\\..\\..\\Source\\sdk\\include\\reactos/version.rc(15): fatal error RC1015: cannot open include file 'version.h'. [Upstream\\ReactOS\\Projects\\Hal\\Halx86\\Halapic.vcxproj]"
+    ],
+    "ObservedMissingFiles": [
+      "version.h"
+    ],
+    "RequiredHostTools": [
+      "bin2c",
+      "geninc",
+      "hpp",
+      "spec2def",
+      "utf16le",
+      "widl"
+    ],
+    "RequiredInfrastructure": [
+      "asm",
+      "bugcodes",
+      "psdk",
+      "xdk"
+    ],
+    "PendingBuildInfrastructure": [
+      "Custom source/header/resource generation; recipes are recorded per configuration",
+      "Export/import-library or IDL generation",
+      "Host tool implementations and invocation",
+      "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json",
+      "Configure-time template substitution; see PendingConfigureTimeFiles and ConfigureTimeFiles.json"
+    ],
+    "ArtifactExists": false,
+    "Artifact": null,
+    "ProjectSHA256": "c280bfa786baab145f8aacb556b80b50a37ac54272a9c81ec634c300cd222c5a",
+    "MatchesCurrentProject": true
+  },
+  "ProjectSHA256": "c280bfa786baab145f8aacb556b80b50a37ac54272a9c81ec634c300cd222c5a",
+  "SettingsReview": {
+    "CompilerAndLinkerProperties": "PreservedInNativeFieldsAndAdditionalOptions",
+    "Dependencies": "ComparedAgainstOriginalNativeProjects",
+    "SourceOverrides": "Compared; explicit PCH exclusions preserved"
+  }
+}

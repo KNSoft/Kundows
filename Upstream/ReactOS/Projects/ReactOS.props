@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\..\</KundowsRoot>
+    <OutDir>$(KundowsRoot)OutDir\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</OutDir>
+    <IntDir>$(KundowsRoot)IntDir\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+    <MASM>
+      <IncludePaths>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(IncludePaths)</IncludePaths>
+    </MASM>
+    <MARMASM>
+      <IncludePaths>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(IncludePaths)</IncludePaths>
+    </MARMASM>
+  </ItemDefinitionGroup>
+</Project>
