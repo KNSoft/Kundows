@@ -11,6 +11,6 @@
     <None Include="$(ReactOSSourceRoot)sdk\include\reactos\version.h.cmake"><Filter>Version Generation</Filter></None>
     <None Include="$(ReactOSSourceRoot)sdk\include\reactos\buildno.h.cmake"><Filter>Version Generation</Filter></None>
     <None Include="$(ReactOSMessageHeaderScript)"><Filter>Message Generation</Filter></None>
-    <None Include="$(ReactOSBugcodesSource)"><Filter>Message Generation</Filter></None>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\*.mc"><Filter>Message Generation</Filter></ReactOSMessageSource>
   </ItemGroup>
 </Project>

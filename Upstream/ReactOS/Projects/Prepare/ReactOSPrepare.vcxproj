@@ -24,8 +24,7 @@
     <HppTool>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\hpp.exe</HppTool>
     <XdkDirectory>$(ReactOSSourceDirectory)\sdk\include\xdk</XdkDirectory>
     <ReactOSMessageHeaderScript>$(KundowsRoot)Build\GenerateReactOSMessageHeaders.ps1</ReactOSMessageHeaderScript>
-    <ReactOSBugcodesSource>$(ReactOSSourceRoot)sdk\include\reactos\mc\bugcodes.mc</ReactOSBugcodesSource>
-    <ReactOSBugcodesHeader>$(CommonIncludeDirectory)\reactos\mc\bugcodes.h</ReactOSBugcodesHeader>
+    <ReactOSMessageOutputDirectory>$(CommonIncludeDirectory)\reactos\mc</ReactOSMessageOutputDirectory>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration"><ConfigurationType>Utility</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries>true</UseDebugLibraries></PropertyGroup>
@@ -49,7 +48,58 @@
     <None Include="$(ReactOSMessageHeaderScript)" />
     <None Include="$(ReactOSSourceRoot)sdk\include\reactos\version.h.cmake" />
     <None Include="$(ReactOSSourceRoot)sdk\include\reactos\buildno.h.cmake" />
-    <None Include="$(ReactOSBugcodesSource)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\bugcodes.mc">
+      <MessageMode>ANSI</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\bugcodes.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\bugcodes.rc</MessageResource>
+    </ReactOSMessageSource>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\errcodes.mc">
+      <MessageMode>UNICODE</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\errcodes.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\errcodes.rc</MessageResource>
+    </ReactOSMessageSource>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\net_msg.mc">
+      <MessageMode>UNICODE</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\net_msg.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\net_msg.rc</MessageResource>
+    </ReactOSMessageSource>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\neteventmsg.mc">
+      <MessageMode>UNICODE</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\neteventmsg.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\neteventmsg.rc</MessageResource>
+    </ReactOSMessageSource>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\netmsgmsg.mc">
+      <MessageMode>UNICODE</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\netmsgmsg.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\netmsgmsg.rc</MessageResource>
+    </ReactOSMessageSource>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\ntiologc.mc">
+      <MessageMode>UNICODE</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\ntiologc.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\ntiologc.rc</MessageResource>
+    </ReactOSMessageSource>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\ntstatus.mc">
+      <MessageMode>UNICODE</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\ntstatus.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\ntstatus.rc</MessageResource>
+    </ReactOSMessageSource>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\pciclass.mc">
+      <MessageMode>UNICODE</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\pciclass.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\pciclass.rc</MessageResource>
+    </ReactOSMessageSource>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\bootmsg.mc">
+      <MessageMode>UNICODE</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\bootmsg.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\bootmsg.rc</MessageResource>
+    </ReactOSMessageSource>
+    <ReactOSMessageSource Include="$(ReactOSSourceRoot)sdk\include\reactos\mc\sacmsg.mc">
+      <MessageMode>UNICODE</MessageMode>
+      <MessageHeader>$(ReactOSMessageOutputDirectory)\sacmsg.h</MessageHeader>
+      <MessageResource>$(ReactOSMessageOutputDirectory)\sacmsg.rc</MessageResource>
+    </ReactOSMessageSource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HostTools\Hpp\Hpp.vcxproj">
@@ -83,12 +133,11 @@
     <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(KundowsRoot)Build\GenerateReactOSVersionHeaders.ps1&quot; -SourceRoot &quot;$(ReactOSSourceDirectory)&quot; -CommonIncludeDirectory &quot;$(CommonIncludeDirectory)&quot; -PlatformIncludeDirectory &quot;$(PlatformIncludeDirectory)&quot; -Platform &quot;$(Platform)&quot; -Configuration &quot;$(Configuration)&quot;" />
   </Target>
   <Target Name="GenerateReactOSPrepareMessageHeaders"
-          DependsOnTargets="VerifyReactOSPrepareHostTool"
           BeforeTargets="Build"
-          Inputs="$(ReactOSMessageHeaderScript);$(ReactOSBugcodesSource)"
-          Outputs="$(ReactOSBugcodesHeader)">
-    <MakeDir Directories="$(CommonIncludeDirectory)\reactos\mc" />
-    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSMessageHeaderScript)&quot; -WindowsSdkDir &quot;$(WindowsSdkDir).&quot; -SourceFile &quot;$(ReactOSBugcodesSource)&quot; -OutputDirectory &quot;$(CommonIncludeDirectory)\reactos\mc&quot;" />
+          Inputs="$(MSBuildProjectFullPath);$(ReactOSMessageHeaderScript);@(ReactOSMessageSource)"
+          Outputs="@(ReactOSMessageSource->'%(MessageHeader)');@(ReactOSMessageSource->'%(MessageResource)')">
+    <MakeDir Directories="$(ReactOSMessageOutputDirectory)" />
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSMessageHeaderScript)&quot; -WindowsSdkDir &quot;$(WindowsSdkDir).&quot; -Mode &quot;%(ReactOSMessageSource.MessageMode)&quot; -SourceFile &quot;%(ReactOSMessageSource.Identity)&quot; -OutputDirectory &quot;$(ReactOSMessageOutputDirectory)&quot;" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
