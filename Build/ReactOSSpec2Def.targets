@@ -1,0 +1,22 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReactOSSpec2DefEnabled Condition="'$(ReactOSSpec2DefEnabled)' == ''">true</ReactOSSpec2DefEnabled>
+    <ReactOSSpec2DefTool Condition="'$(ReactOSSpec2DefTool)' == ''">$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\spec2def.exe</ReactOSSpec2DefTool>
+    <ReactOSSpec2DefArchitecture Condition="'$(ReactOSSpec2DefArchitecture)' == '' and '$(Platform)' == 'Win32'">i386</ReactOSSpec2DefArchitecture>
+    <ReactOSSpec2DefArchitecture Condition="'$(ReactOSSpec2DefArchitecture)' == '' and '$(Platform)' == 'x64'">x86_64</ReactOSSpec2DefArchitecture>
+    <ReactOSSpec2DefArchitecture Condition="'$(ReactOSSpec2DefArchitecture)' == '' and '$(Platform)' == 'ARM64'">arm64</ReactOSSpec2DefArchitecture>
+    <ReactOSSpec2DefVersion Condition="'$(ReactOSSpec2DefVersion)' == ''">0x502</ReactOSSpec2DefVersion>
+    <ReactOSSpec2DefOutputDirectory Condition="'$(ReactOSSpec2DefOutputDirectory)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName)</ReactOSSpec2DefOutputDirectory>
+    <ReactOSSpec2DefDefFile>$(ReactOSSpec2DefOutputDirectory)\$(ReactOSSpec2DefDefName)</ReactOSSpec2DefDefFile>
+    <ReactOSSpec2DefStubFile>$(ReactOSSpec2DefOutputDirectory)\$(ReactOSSpec2DefStubName)</ReactOSSpec2DefStubFile>
+  </PropertyGroup>
+  <Target Name="GenerateReactOSSpec2Def"
+          Condition="'$(ReactOSSpec2DefEnabled)' == 'true'"
+          BeforeTargets="PrepareForBuild"
+          Inputs="$(ReactOSSpec2DefSpecFile);$(ReactOSSpec2DefTool)"
+          Outputs="$(ReactOSSpec2DefDefFile);$(ReactOSSpec2DefStubFile)">
+    <Error Condition="!Exists('$(ReactOSSpec2DefTool)')" Text="HostTools.slnx must be built first for $(Platform)|$(Configuration): $(ReactOSSpec2DefTool)" />
+    <MakeDir Directories="$(ReactOSSpec2DefOutputDirectory)" />
+    <Exec Command="&quot;$(ReactOSSpec2DefTool)&quot; --ms -a=$(ReactOSSpec2DefArchitecture) -n=$(ReactOSSpec2DefDllName) -d=&quot;$(ReactOSSpec2DefDefFile)&quot; -s=&quot;$(ReactOSSpec2DefStubFile)&quot; --version=$(ReactOSSpec2DefVersion) --dbg &quot;$(ReactOSSpec2DefSpecFile)&quot;" />
+  </Target>
+</Project>

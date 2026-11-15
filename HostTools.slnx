@@ -9,4 +9,7 @@
   <Folder Name="/HostTools/Hpp/">
     <Project Path="Upstream/ReactOS/Projects/HostTools/Hpp/Hpp.vcxproj" />
   </Folder>
+  <Folder Name="/HostTools/Spec2Def/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Spec2Def/Spec2Def.vcxproj" />
+  </Folder>
 </Solution>

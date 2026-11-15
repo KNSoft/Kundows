@@ -14,7 +14,7 @@
   ],
   "Adaptations": [
     "Source references are relative to the native project",
-    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "Generated inputs are relocated to OutDir/Build/Generated/<Platform>/<Configuration>",
     "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
     "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
     "Object-library inputs refer to their native intermediate directories",
@@ -66,13 +66,13 @@
             "dll/ntdll/def/ntdll.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
         }
       ],
       "PerSourceProperties": [
@@ -83,7 +83,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ]
         },
         {
@@ -254,7 +254,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def",
           "NoEntryPoint": "true",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
@@ -362,13 +362,13 @@
             "dll/ntdll/def/ntdll.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
         }
       ],
       "PerSourceProperties": [
@@ -379,7 +379,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ]
         },
         {
@@ -492,7 +492,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def",
           "NoEntryPoint": "true",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
@@ -609,13 +609,13 @@
             "dll/ntdll/def/ntdll.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
         }
       ],
       "PerSourceProperties": [
@@ -626,7 +626,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ]
         },
         {
@@ -734,7 +734,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def",
           "NoEntryPoint": "true",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
@@ -853,13 +853,13 @@
             "dll/ntdll/def/ntdll.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
         }
       ],
       "PerSourceProperties": [
@@ -870,7 +870,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ]
         },
         {
@@ -981,7 +981,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def",
           "NoEntryPoint": "true",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
@@ -1076,13 +1076,13 @@
             "dll/ntdll/def/ntdll.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
         }
       ],
       "PerSourceProperties": [
@@ -1093,7 +1093,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ]
         },
         {
@@ -1205,7 +1205,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def",
           "NoEntryPoint": "true",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
@@ -1302,13 +1302,13 @@
             "dll/ntdll/def/ntdll.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=ntdll.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/dll/ntdll/def/ntdll.spec"
         }
       ],
       "PerSourceProperties": [
@@ -1319,7 +1319,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
           ]
         },
         {
@@ -1434,7 +1434,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/ntdll/ntdll.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Ntdll/ntdll.def",
           "NoEntryPoint": "true",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
@@ -1572,22 +1572,22 @@
       "Reason": "File API lists PCH headers even for sources explicitly marked NotUsing; original per-file overrides take precedence",
       "Configurations": {
         "Debug|Win32": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
         ],
         "Release|Win32": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
         ],
         "Debug|x64": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
         ],
         "Release|x64": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
         ],
         "Debug|ARM64": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
         ],
         "Release|ARM64": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\ntdll\\ntdll_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Ntdll\\ntdll_stubs.c"
         ]
       },
       "Resolution": "Preserve NotUsing and original forced includes; choose another original source as native PCH creator"

@@ -24,7 +24,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\ntdll_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\dll\ntdll\dbg\dbgui.c">
@@ -57,7 +57,7 @@
     <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\asm\msys2_ntdll_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\ntdll.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\Source\dll\ntdll\CMakeLists.txt">

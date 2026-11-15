@@ -14,7 +14,7 @@
   ],
   "Adaptations": [
     "Source references are relative to the native project",
-    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "Generated inputs are relocated to OutDir/Build/Generated/<Platform>/<Configuration>",
     "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
     "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
     "Object-library inputs refer to their native intermediate directories",
@@ -55,13 +55,13 @@
             "hal/hal.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Hal\\hal.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Hal\\hal_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -202,7 +202,7 @@
           "ImageHasSafeExceptionHandlers": "false",
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -316,13 +316,13 @@
             "hal/hal.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Hal\\hal.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Hal\\hal_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -407,7 +407,7 @@
           "ImageHasSafeExceptionHandlers": "false",
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -509,13 +509,13 @@
             "hal/hal.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Hal\\hal.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Hal\\hal_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -595,7 +595,7 @@
           "ImageHasSafeExceptionHandlers": "false",
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -699,13 +699,13 @@
             "hal/hal.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\hal\\halx86\\hal_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Hal\\hal.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Hal\\hal_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
+          "ReferenceCommand": "..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=hal.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal.def -s=$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\Source/hal/halx86/../hal.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -788,7 +788,7 @@
           "ImageHasSafeExceptionHandlers": "false",
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/hal/halx86/hal.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Hal/hal.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",

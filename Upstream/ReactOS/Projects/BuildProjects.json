@@ -7,6 +7,11 @@
       "Record": "Upstream/ReactOS/Projects/HostTools/Hpp/Hpp.Migration.json"
     },
     {
+      "Target": "spec2def",
+      "Project": "Upstream/ReactOS/Projects/HostTools/Spec2Def/Spec2Def.vcxproj",
+      "Record": "Upstream/ReactOS/Projects/HostTools/Spec2Def/Spec2Def.Migration.json"
+    },
+    {
       "Target": "ReactOSPrepare",
       "Project": "Upstream/ReactOS/Projects/Prepare/ReactOSPrepare.vcxproj",
       "Record": "Upstream/ReactOS/Projects/Prepare/ReactOSPrepare.Migration.json"

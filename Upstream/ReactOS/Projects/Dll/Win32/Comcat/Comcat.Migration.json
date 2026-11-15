@@ -13,7 +13,7 @@
   ],
   "Adaptations": [
     "Source references are relative to the native project",
-    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "Generated inputs are relocated to OutDir/Build/Generated/<Platform>/<Configuration>",
     "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
     "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
     "Object-library inputs refer to their native intermediate directories",
@@ -52,13 +52,13 @@
             "dll/win32/comcat/comcat.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -197,7 +197,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -265,13 +265,13 @@
             "dll/win32/comcat/comcat.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -356,7 +356,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -422,13 +422,13 @@
             "dll/win32/comcat/comcat.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -508,7 +508,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -576,13 +576,13 @@
             "dll/win32/comcat/comcat.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -665,7 +665,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -731,13 +731,13 @@
             "dll/win32/comcat/comcat.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -820,7 +820,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -888,13 +888,13 @@
             "dll/win32/comcat/comcat.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\comcat\\comcat_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\Comcat\\comcat_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=comcat.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/comcat/comcat.spec"
         }
       ],
       "PerSourceProperties": [],
@@ -980,7 +980,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/comcat/comcat.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/Comcat/comcat.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",

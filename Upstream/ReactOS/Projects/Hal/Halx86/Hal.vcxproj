@@ -78,6 +78,14 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\ReactOS.props" />
   </ImportGroup>
+  <PropertyGroup>
+    <ReactOSSpec2DefEnabled Condition="'$(Platform)'=='ARM64'">false</ReactOSSpec2DefEnabled>
+    <ReactOSSpec2DefDllName>hal.dll</ReactOSSpec2DefDllName>
+    <ReactOSSpec2DefSpecFile>$(KundowsRoot)Upstream\ReactOS\Source\hal\hal.spec</ReactOSSpec2DefSpecFile>
+    <ReactOSSpec2DefDefName>hal.def</ReactOSSpec2DefDefName>
+    <ReactOSSpec2DefStubName>hal_stubs.c</ReactOSSpec2DefStubName>
+    <ReactOSSpec2DefOutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Hal</ReactOSSpec2DefOutputDirectory>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>hal</TargetName>
     <TargetExt>.dll</TargetExt>
@@ -155,7 +163,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/hal/halx86/hal.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Hal/hal.def</ModuleDefinitionFile>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress />
@@ -247,7 +255,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/hal/halx86/hal.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Hal/hal.def</ModuleDefinitionFile>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress />
@@ -334,7 +342,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/hal/halx86/hal.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Hal/hal.def</ModuleDefinitionFile>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress />
@@ -424,7 +432,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/hal/halx86/hal.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Hal/hal.def</ModuleDefinitionFile>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress />
@@ -437,7 +445,7 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\hal.def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\Hal\hal.def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
     <None Include="..\..\..\Source\hal\hal.spec" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
     <None Include="..\..\..\Source\hal\halx86\CMakeLists.txt" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
     <None Include="Hal.Migration.json" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
@@ -578,4 +586,5 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="$(KundowsRoot)Build\ReactOSSpec2Def.targets" />
 </Project>

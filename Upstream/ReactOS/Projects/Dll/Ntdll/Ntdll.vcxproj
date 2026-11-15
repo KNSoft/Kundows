@@ -80,6 +80,13 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\ReactOS.props" />
   </ImportGroup>
+  <PropertyGroup>
+    <ReactOSSpec2DefDllName>ntdll.dll</ReactOSSpec2DefDllName>
+    <ReactOSSpec2DefSpecFile>$(KundowsRoot)Upstream\ReactOS\Source\dll\ntdll\def\ntdll.spec</ReactOSSpec2DefSpecFile>
+    <ReactOSSpec2DefDefName>ntdll.def</ReactOSSpec2DefDefName>
+    <ReactOSSpec2DefStubName>ntdll_stubs.c</ReactOSSpec2DefStubName>
+    <ReactOSSpec2DefOutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll</ReactOSSpec2DefOutputDirectory>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>ntdll</TargetName>
     <TargetExt>.dll</TargetExt>
@@ -157,7 +164,7 @@
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkDLL>true</LinkDLL>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/ntdll/ntdll.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Ntdll/ntdll.def</ModuleDefinitionFile>
       <NoEntryPoint>true</NoEntryPoint>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
@@ -249,7 +256,7 @@
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkDLL>true</LinkDLL>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/ntdll/ntdll.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Ntdll/ntdll.def</ModuleDefinitionFile>
       <NoEntryPoint>true</NoEntryPoint>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
@@ -336,7 +343,7 @@
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkDLL>true</LinkDLL>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/ntdll/ntdll.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Ntdll/ntdll.def</ModuleDefinitionFile>
       <NoEntryPoint>true</NoEntryPoint>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
@@ -426,7 +433,7 @@
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkDLL>true</LinkDLL>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/ntdll/ntdll.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Ntdll/ntdll.def</ModuleDefinitionFile>
       <NoEntryPoint>true</NoEntryPoint>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
@@ -509,7 +516,7 @@
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkDLL>true</LinkDLL>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/ntdll/ntdll.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Ntdll/ntdll.def</ModuleDefinitionFile>
       <NoEntryPoint>true</NoEntryPoint>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
@@ -595,7 +602,7 @@
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <LinkDLL>true</LinkDLL>
       <LinkErrorReporting />
-      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)/dll/ntdll/ntdll.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)/Ntdll/ntdll.def</ModuleDefinitionFile>
       <NoEntryPoint>true</NoEntryPoint>
       <OptimizeReferences>true</OptimizeReferences>
       <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
@@ -608,7 +615,7 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\ntdll_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c">
       <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -657,7 +664,7 @@
     <ClInclude Include="..\..\..\Source\dll\ntdll\include\ntdll.h" />
     <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\asm\dispatch_ntdll_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
     <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\asm\msys2_ntdll_asm.asm" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
-    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\ntdll.def" />
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def" />
     <None Include="..\..\..\Source\dll\ntdll\CMakeLists.txt" />
     <None Include="..\..\..\Source\dll\ntdll\compat\amd64\msys2.S" Condition="'$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
     <None Include="..\..\..\Source\dll\ntdll\def\ntdll.spec" />
@@ -753,4 +760,5 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="$(KundowsRoot)Build\ReactOSSpec2Def.targets" />
 </Project>
