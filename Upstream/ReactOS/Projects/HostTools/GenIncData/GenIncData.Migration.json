@@ -1,0 +1,11 @@
+{
+  "SchemaVersion": 1,
+  "Target": "genincdata",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Status": "NativeTargetSupportProject",
+  "Solution": "HostTools.slnx",
+  "Source": "sdk/include/asm/genincdata.c",
+  "HostPlatformRule": "Builds the target-architecture data module for the selected solution Platform",
+  "Configurations": ["Debug|Win32", "Release|Win32", "Debug|x64", "Release|x64", "Debug|ARM64", "Release|ARM64"],
+  "Deferred": []
+}

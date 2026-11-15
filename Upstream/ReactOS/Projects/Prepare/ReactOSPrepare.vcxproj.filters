@@ -3,11 +3,14 @@
   <ItemGroup>
     <Filter Include="XDK Templates"><UniqueIdentifier>{B5D8718F-EE02-4BB8-BA64-4B18B8D7A7A4}</UniqueIdentifier></Filter>
     <Filter Include="Version Generation"><UniqueIdentifier>{B800C0BC-85CB-4F80-BE72-F0C7F7E9F8C8}</UniqueIdentifier></Filter>
+    <Filter Include="Message Generation"><UniqueIdentifier>{4A2DCA9B-7B69-4AA8-9E90-8D6B5E96A6ED}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ReactOSSourceRoot)sdk\include\xdk\*.template.h"><Filter>XDK Templates</Filter></None>
     <None Include="$(KundowsRoot)Build\GenerateReactOSVersionHeaders.ps1"><Filter>Version Generation</Filter></None>
     <None Include="$(ReactOSSourceRoot)sdk\include\reactos\version.h.cmake"><Filter>Version Generation</Filter></None>
     <None Include="$(ReactOSSourceRoot)sdk\include\reactos\buildno.h.cmake"><Filter>Version Generation</Filter></None>
+    <None Include="$(ReactOSMessageHeaderScript)"><Filter>Message Generation</Filter></None>
+    <None Include="$(ReactOSBugcodesSource)"><Filter>Message Generation</Filter></None>
   </ItemGroup>
 </Project>

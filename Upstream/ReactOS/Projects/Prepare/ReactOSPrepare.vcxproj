@@ -23,6 +23,9 @@
     <ModuleGeneratedDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\ReactOSPrepare</ModuleGeneratedDirectory>
     <HppTool>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\hpp.exe</HppTool>
     <XdkDirectory>$(ReactOSSourceDirectory)\sdk\include\xdk</XdkDirectory>
+    <ReactOSMessageHeaderScript>$(KundowsRoot)Build\GenerateReactOSMessageHeaders.ps1</ReactOSMessageHeaderScript>
+    <ReactOSBugcodesSource>$(ReactOSSourceRoot)sdk\include\reactos\mc\bugcodes.mc</ReactOSBugcodesSource>
+    <ReactOSBugcodesHeader>$(CommonIncludeDirectory)\reactos\mc\bugcodes.h</ReactOSBugcodesHeader>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration"><ConfigurationType>Utility</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries>true</UseDebugLibraries></PropertyGroup>
@@ -43,8 +46,17 @@
     <XdkHeader Include="$(ReactOSSourceRoot)sdk\include\xdk\*.h" />
     <None Include="$(ReactOSSourceRoot)sdk\include\xdk\*.template.h" />
     <None Include="$(KundowsRoot)Build\GenerateReactOSVersionHeaders.ps1" />
+    <None Include="$(ReactOSMessageHeaderScript)" />
     <None Include="$(ReactOSSourceRoot)sdk\include\reactos\version.h.cmake" />
     <None Include="$(ReactOSSourceRoot)sdk\include\reactos\buildno.h.cmake" />
+    <None Include="$(ReactOSBugcodesSource)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HostTools\Hpp\Hpp.vcxproj">
+      <Project>{5CDE3E84-C42D-4B9F-B3D2-DB7598B48D09}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemGroup>
   <Target Name="VerifyReactOSPrepareHostTool">
     <Error Condition="!Exists('$(HppTool)')" Text="HostTools.slnx must be built first for $(Platform)|$(Configuration): $(HppTool)" />
@@ -69,6 +81,14 @@
           Outputs="$(CommonIncludeDirectory)\reactos\version.h;$(PlatformIncludeDirectory)\reactos\buildno.h">
     <MakeDir Directories="$(CommonIncludeDirectory)\reactos;$(PlatformIncludeDirectory)\reactos;$(ModuleGeneratedDirectory)" />
     <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(KundowsRoot)Build\GenerateReactOSVersionHeaders.ps1&quot; -SourceRoot &quot;$(ReactOSSourceDirectory)&quot; -CommonIncludeDirectory &quot;$(CommonIncludeDirectory)&quot; -PlatformIncludeDirectory &quot;$(PlatformIncludeDirectory)&quot; -Platform &quot;$(Platform)&quot; -Configuration &quot;$(Configuration)&quot;" />
+  </Target>
+  <Target Name="GenerateReactOSPrepareMessageHeaders"
+          DependsOnTargets="VerifyReactOSPrepareHostTool"
+          BeforeTargets="Build"
+          Inputs="$(ReactOSMessageHeaderScript);$(ReactOSBugcodesSource)"
+          Outputs="$(ReactOSBugcodesHeader)">
+    <MakeDir Directories="$(CommonIncludeDirectory)\reactos\mc" />
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSMessageHeaderScript)&quot; -WindowsSdkDir &quot;$(WindowsSdkDir).&quot; -SourceFile &quot;$(ReactOSBugcodesSource)&quot; -OutputDirectory &quot;$(CommonIncludeDirectory)\reactos\mc&quot;" />
   </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>

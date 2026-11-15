@@ -51,10 +51,10 @@
     <ClInclude Include="..\..\..\Source\dll\ntdll\include\ntdll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\asm\dispatch_ntdll_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\asm\dispatch_ntdll_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\ntdll\asm\msys2_ntdll_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\asm\msys2_ntdll_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def">

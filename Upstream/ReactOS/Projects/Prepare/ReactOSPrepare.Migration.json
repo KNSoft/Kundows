@@ -14,6 +14,7 @@
     "OutDir/Build/SDK/Common/Include/psdk/devioctl.h",
     "OutDir/Build/SDK/Common/Include/psdk/ntdef.h",
     "OutDir/Build/SDK/Common/Include/psdk/winnt.h",
+    "OutDir/Build/SDK/Common/Include/reactos/mc/bugcodes.h",
     "OutDir/Build/SDK/Common/Include/reactos/version.h"
   ],
   "PlatformOutputs": [
@@ -24,7 +25,9 @@
     "sdk/include/xdk/*.template.h",
     "sdk/include/reactos/version.cmake",
     "sdk/include/reactos/version.h.cmake",
-    "sdk/include/reactos/buildno.h.cmake"
+    "sdk/include/reactos/buildno.h.cmake",
+    "sdk/include/reactos/mc/bugcodes.mc",
+    "Build/GenerateReactOSMessageHeaders.ps1"
   ],
   "Deferred": [
     "Target-specific generated assembly and import library files remain separate module generation work."

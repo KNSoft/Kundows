@@ -1,0 +1,23 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReactOSAssemblyCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITECTURE)' == 'AMD64'">x64</ReactOSAssemblyCompilerHostArchitecture>
+    <ReactOSAssemblyCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITEW6432)' == 'AMD64'">x64</ReactOSAssemblyCompilerHostArchitecture>
+    <ReactOSAssemblyCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITECTURE)' == 'x86'">x86</ReactOSAssemblyCompilerHostArchitecture>
+    <ReactOSAssemblyCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITECTURE)' == 'ARM64'">arm64</ReactOSAssemblyCompilerHostArchitecture>
+    <ReactOSAssemblyCompilerHostArchitecture Condition="'$(ReactOSAssemblyCompilerHostArchitecture)' == ''">x64</ReactOSAssemblyCompilerHostArchitecture>
+    <ReactOSAssemblyCompilerArchitecture Condition="'$(Platform)' == 'Win32'">x86</ReactOSAssemblyCompilerArchitecture>
+    <ReactOSAssemblyCompilerArchitecture Condition="'$(Platform)' == 'x64'">x64</ReactOSAssemblyCompilerArchitecture>
+    <ReactOSAssemblyCompilerArchitecture Condition="'$(Platform)' == 'ARM64'">arm64</ReactOSAssemblyCompilerArchitecture>
+    <ReactOSAssemblyCompiler>$(VCToolsInstallDir)bin\Host$(ReactOSAssemblyCompilerHostArchitecture)\$(ReactOSAssemblyCompilerArchitecture)\cl.exe</ReactOSAssemblyCompiler>
+  </PropertyGroup>
+  <Target Name="GenerateReactOSAssembly"
+          Condition="'@(ReactOSAssemblySource)' != ''"
+          DependsOnTargets="GenerateReactOSGenInc"
+          BeforeTargets="PrepareForBuild"
+          Inputs="@(ReactOSAssemblySource);$(ReactOSGenIncOutputFile)"
+          Outputs="@(ReactOSAssemblySource->'%(AsmOutput)')">
+    <Error Condition="!Exists('$(ReactOSAssemblyCompiler)')" Text="MSVC compiler was not found for $(Platform): $(ReactOSAssemblyCompiler)" />
+    <MakeDir Directories="@(ReactOSAssemblySource->'%(AsmOutputDirectory)')" />
+    <Exec Command="&quot;$(ReactOSAssemblyCompiler)&quot; /nologo /X @(ReactOSAssemblyIncludeDirectory->'/I&quot;%(Identity)&quot;', ' ') @(ReactOSAssemblyDefinition->'/D%(Identity)', ' ') /EP /c &quot;%(ReactOSAssemblySource.Identity)&quot; &gt; &quot;%(ReactOSAssemblySource.AsmOutput)&quot;" />
+  </Target>
+</Project>

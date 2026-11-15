@@ -12,6 +12,16 @@
       "Record": "Upstream/ReactOS/Projects/HostTools/Spec2Def/Spec2Def.Migration.json"
     },
     {
+      "Target": "geninc",
+      "Project": "Upstream/ReactOS/Projects/HostTools/GenInc/GenInc.vcxproj",
+      "Record": "Upstream/ReactOS/Projects/HostTools/GenInc/GenInc.Migration.json"
+    },
+    {
+      "Target": "genincdata",
+      "Project": "Upstream/ReactOS/Projects/HostTools/GenIncData/GenIncData.vcxproj",
+      "Record": "Upstream/ReactOS/Projects/HostTools/GenIncData/GenIncData.Migration.json"
+    },
+    {
       "Target": "ReactOSPrepare",
       "Project": "Upstream/ReactOS/Projects/Prepare/ReactOSPrepare.vcxproj",
       "Record": "Upstream/ReactOS/Projects/Prepare/ReactOSPrepare.Migration.json"
