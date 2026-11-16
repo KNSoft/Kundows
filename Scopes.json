@@ -1,0 +1,28 @@
+[
+  {
+    "scope": "DOCS",
+    "description": "Documentation",
+    "sub-scopes": []
+  },
+  {
+    "scope": "BUILD",
+    "description": "Native build",
+    "sub-scopes": [
+      "HOSTTOOLS",
+      "PREPARE"
+    ]
+  },
+  {
+    "scope": "UPSTREAM",
+    "description": "ReactOS upstream and patches",
+    "sub-scopes": []
+  },
+  {
+    "scope": "NTDLL",
+    "description": "ntdll",
+    "sub-scopes": [
+      "LDR",
+      "RTL"
+    ]
+  }
+]
