@@ -34,11 +34,12 @@
     <IntDir>$(KundowsRoot)IntDir\$(Platform)\$(Configuration)\GenIncData\</IntDir>
     <TargetName>genincdata</TargetName>
     <LinkIncremental>false</LinkIncremental>
+    <ReactOSGenIncEnabled>false</ReactOSGenIncEnabled>
     <ReactOSPrepareProject>$(KundowsRoot)Upstream\ReactOS\Projects\Prepare\ReactOSPrepare.vcxproj</ReactOSPrepareProject>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\crt;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ddk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ndk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\psdk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos\libs;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\vcruntime;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\winrt;$(KundowsRoot)Upstream\ReactOS\Source\ntoskrnl\include;$(KundowsRoot)Upstream\ReactOS\Source\sdk\lib\pseh\include;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(KundowsRoot)Upstream\ReactOS\Source\sdk\include;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\crt;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ddk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ndk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\psdk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos\libs;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\vcruntime;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\winrt;$(KundowsRoot)Upstream\ReactOS\Source\ntoskrnl\include;$(KundowsRoot)Upstream\ReactOS\Source\sdk\lib\pseh\include;$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__REACTOS__;_WIN32_WINNT=0x502;WINVER=0x502;DBG=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>

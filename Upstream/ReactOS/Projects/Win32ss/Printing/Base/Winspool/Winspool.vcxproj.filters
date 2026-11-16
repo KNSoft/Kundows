@@ -21,10 +21,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\winspool\winspool_c.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\winspool\winspool_c.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\winspool\winspool_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\winspool\winspool_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Source\win32ss\printing\base\marshalling.c">
@@ -72,7 +72,7 @@
     <ClInclude Include="..\..\..\..\..\Source\win32ss\printing\base\winspool\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\winspool\winspool.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\winspool\winspool.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\sdk\include\reactos\idl\winspool.idl">

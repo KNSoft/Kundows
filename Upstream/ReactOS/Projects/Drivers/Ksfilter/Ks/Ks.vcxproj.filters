@@ -93,13 +93,13 @@
     <ClInclude Include="..\..\..\..\Source\drivers\ksfilter\ks\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\ksfilter\ks\asm\msvc_ks_asm.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\ksfilter\ks\asm\msvc_ks_asm.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\ksfilter\ks\asm\msvc_ks_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\ksfilter\ks\asm\msvc_ks_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\ksfilter\ks\ks.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\ksfilter\ks\ks.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\ksfilter\ks\CMakeLists.txt">

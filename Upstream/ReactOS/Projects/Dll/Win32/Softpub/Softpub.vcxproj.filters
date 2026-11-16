@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\softpub\softpub.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\softpub\softpub.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\softpub\CMakeLists.txt">

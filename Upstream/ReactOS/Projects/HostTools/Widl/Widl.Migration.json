@@ -1,0 +1,39 @@
+{
+  "SchemaVersion": 1,
+  "Target": "widl",
+  "SourceCommit": "1103f43a0c0eae4906828b708a8726587888ef5f",
+  "Status": "NativeHostToolProject",
+  "Solution": "HostTools.slnx",
+  "Sources": [
+    "sdk/tools/widl",
+    "sdk/tools/port/getopt.c",
+    "sdk/tools/port/getopt1.c",
+    "sdk/tools/port/mkstemps.c"
+  ],
+  "Dependencies": [
+    "wpphost",
+    "ReactOSPrepare"
+  ],
+  "ParserGeneration": {
+    "Inputs": [
+      "sdk/tools/widl/parser.y",
+      "sdk/tools/widl/parser.l"
+    ],
+    "Outputs": [
+      "OutDir/Build/Generated/<Platform>/<Configuration>/Widl/parser.tab.c",
+      "OutDir/Build/Generated/<Platform>/<Configuration>/Widl/parser.tab.h",
+      "OutDir/Build/Generated/<Platform>/<Configuration>/Widl/parser.yy.c"
+    ],
+    "Mode": "CheckedInFlexBisonSnapshot",
+    "Reason": "The native MSBuild chain does not depend on RosBE, CMake, or Ninja."
+  },
+  "Configurations": [
+    "Debug|Win32",
+    "Release|Win32",
+    "Debug|x64",
+    "Release|x64",
+    "Debug|ARM64",
+    "Release|ARM64"
+  ],
+  "Deferred": []
+}

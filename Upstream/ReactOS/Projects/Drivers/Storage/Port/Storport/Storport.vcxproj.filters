@@ -54,7 +54,7 @@
     <ClInclude Include="..\..\..\..\..\Source\drivers\storage\port\storport\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\storage\port\storport\storport.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\storage\port\storport\storport.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\drivers\storage\port\storport\CMakeLists.txt">

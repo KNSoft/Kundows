@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\drivers\battery\battc\battc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\battery\battc\battc.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\battery\battc\battc.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\battery\battc\CMakeLists.txt">

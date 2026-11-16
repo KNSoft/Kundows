@@ -24,7 +24,7 @@
     <ClCompile Include="..\..\..\..\Source\sdk\lib\runtmchk\rtcuserapi.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\runtmchk\asm\_RTC_CheckEsp_runtmchk_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\runtmchk\asm\_RTC_CheckEsp_runtmchk_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\sdk\lib\runtmchk\CMakeLists.txt">

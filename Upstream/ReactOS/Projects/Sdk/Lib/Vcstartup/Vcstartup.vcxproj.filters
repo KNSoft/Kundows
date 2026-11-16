@@ -60,7 +60,7 @@
     <ClCompile Include="..\..\..\..\Source\sdk\lib\vcstartup\wmainCRTStartup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vcstartup\asm\__security_check_cookie_vcstartup_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vcstartup\asm\__security_check_cookie_vcstartup_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\sdk\lib\vcstartup\CMakeLists.txt">

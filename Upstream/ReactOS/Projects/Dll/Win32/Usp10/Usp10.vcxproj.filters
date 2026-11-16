@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\usp10\usp10_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\usp10\usp10_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\dll\win32\usp10\bidi.c">
@@ -60,7 +60,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\win32\usp10\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\usp10\usp10.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\usp10\usp10.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\usp10\CMakeLists.txt">

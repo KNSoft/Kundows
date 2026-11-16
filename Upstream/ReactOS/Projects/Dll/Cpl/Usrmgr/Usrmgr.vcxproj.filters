@@ -45,7 +45,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\cpl\usrmgr\usrmgr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\cpl\usrmgr\usrmgr.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\cpl\usrmgr\usrmgr.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\cpl\usrmgr\CMakeLists.txt">

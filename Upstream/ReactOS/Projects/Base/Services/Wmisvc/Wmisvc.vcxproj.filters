@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\base\services\wmisvc\wmisvc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\wmisvc\wmisvc.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\wmisvc\wmisvc.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\base\services\wmisvc\CMakeLists.txt">

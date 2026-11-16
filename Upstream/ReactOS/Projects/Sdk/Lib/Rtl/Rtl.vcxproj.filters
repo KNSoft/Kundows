@@ -255,28 +255,31 @@
     <ClInclude Include="..\..\..\..\Source\sdk\lib\rtl\rtl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\debug_asm_rtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\debug_asm_rtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\except_asm_rtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\except_asm_rtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\interlck_rtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\interlck_rtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\res_asm_rtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\res_asm_rtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\rtlmem_rtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\rtlmem_rtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\rtlswap_rtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\rtlswap_rtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\slist_rtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\slist_rtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\unwind-asm_rtl_asm.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\interlocked_rtl_asm.asm">
+      <Filter>Generated Files</Filter>
+    </MARMASM>
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\rtl\asm\unwind-asm_rtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\sdk\lib\rtl\CMakeLists.txt">
@@ -289,6 +292,9 @@
       <Filter>Assembly Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\sdk\lib\rtl\amd64\slist.S">
+      <Filter>Assembly Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\sdk\lib\rtl\arm64\interlocked.S">
       <Filter>Assembly Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\sdk\lib\rtl\amd64\unwind-asm.s">

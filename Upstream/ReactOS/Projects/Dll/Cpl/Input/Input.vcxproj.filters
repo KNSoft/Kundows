@@ -63,7 +63,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\cpl\input\locale_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\cpl\input\input.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\cpl\input\input.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\cpl\input\CMakeLists.txt">

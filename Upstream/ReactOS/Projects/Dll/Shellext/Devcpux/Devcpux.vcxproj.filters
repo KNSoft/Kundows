@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\shellext\devcpux\processor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\shellext\devcpux\devcpux.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\shellext\devcpux\devcpux.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\shellext\devcpux\CMakeLists.txt">

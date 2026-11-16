@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\CMakeFiles\freeldr_pe.dir\freeldr_i386.msvc.lds.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\CMakeFiles\freeldr_pe.dir\freeldr_i386.msvc.lds.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\boot\freeldr\freeldr\freeldr.c">
@@ -30,13 +30,13 @@
     <ClCompile Include="..\..\..\..\Source\boot\freeldr\freeldr\ntldr\ntldropts.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\freeldr_i386_freeldr_pe_linker_file.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\freeldr_i386_freeldr_pe_linker_file.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\multiboot_freeldr_base_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\multiboot_freeldr_base_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\boot\freeldr\freeldr\CMakeLists.txt">

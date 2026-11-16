@@ -21,7 +21,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\applications\winhlp32\macro.lex.yy.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\applications\winhlp32\macro.lex.yy.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\base\applications\winhlp32\callback.c">

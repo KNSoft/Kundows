@@ -42,7 +42,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\shellext\stobject\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\shellext\stobject\stobject.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\shellext\stobject\stobject.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\shellext\stobject\CMakeLists.txt">

@@ -36,10 +36,10 @@
     <ClInclude Include="..\..\..\Source\drivers\base\kdcom\kddll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom.def">
       <Filter>Generated Files</Filter>
     </None>
-    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\Source\drivers\base\kdcom\CMakeLists.txt">

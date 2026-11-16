@@ -21,10 +21,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\samsrv\sam_s.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\samsrv\sam_s.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\samsrv\samsrv_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\samsrv\samsrv_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\dll\win32\samsrv\alias.c">
@@ -66,7 +66,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\win32\samsrv\samsrv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\samsrv\samsrv.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\samsrv\samsrv.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\samsrv\CMakeLists.txt">

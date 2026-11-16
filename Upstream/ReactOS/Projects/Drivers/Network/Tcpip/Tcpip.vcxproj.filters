@@ -72,7 +72,7 @@
     <ClInclude Include="..\..\..\..\Source\drivers\network\tcpip\include\lwip\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\network\tcpip\tcpip.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tcpip\tcpip.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\network\tcpip\CMakeLists.txt">

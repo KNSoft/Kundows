@@ -12,7 +12,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\include\psdk\mmc_i.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\psdk\mmc_i.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <None Include="..\..\..\..\Source\sdk\include\psdk\CMakeLists.txt">

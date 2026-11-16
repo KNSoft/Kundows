@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\schedsvc\atsvc_s.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\schedsvc\atsvc_s.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\base\services\schedsvc\job.c">
@@ -30,7 +30,7 @@
     <ClCompile Include="..\..\..\..\Source\base\services\schedsvc\schedsvc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\schedsvc\schedsvc.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\schedsvc\schedsvc.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\base\services\schedsvc\CMakeLists.txt">

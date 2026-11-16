@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msimtf\msimtf_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\msimtf\msimtf_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\dll\win32\msimtf\activeimmapp.c">
@@ -30,7 +30,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\win32\msimtf\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msimtf\msimtf.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\msimtf\msimtf.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\msimtf\CMakeLists.txt">
@@ -42,7 +42,7 @@
     <None Include="Msimtf.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msimtf\msimtf_r.res">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\msimtf\msimtf_r.res">
       <Filter>Generated Files</Filter>
     </Object>
   </ItemGroup>

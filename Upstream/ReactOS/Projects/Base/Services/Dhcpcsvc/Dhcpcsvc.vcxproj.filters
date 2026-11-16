@@ -21,13 +21,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\dhcpcsvc\dhcpcsvc_c.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\dhcpcsvc\dhcpcsvc_c.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\dhcpcsvc\dhcpcsvc_s.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\dhcpcsvc\dhcpcsvc_s.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\dhcpcsvc\dhcpcsvc_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\dhcpcsvc\dhcpcsvc_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\base\services\dhcpcsvc\dhcp\adapter.c">
@@ -69,7 +69,7 @@
     <ClInclude Include="..\..\..\..\Source\base\services\dhcpcsvc\include\rosdhcp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\dhcpcsvc\dhcpcsvc.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\dhcpcsvc\dhcpcsvc.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\base\services\dhcpcsvc\CMakeLists.txt">

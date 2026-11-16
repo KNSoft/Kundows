@@ -987,37 +987,37 @@
     <ClInclude Include="..\..\Source\ntoskrnl\include\ntoskrnl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\zw_ntoskrnl_asm.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\zw_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\boot_ntoskrnl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\boot_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\ctxswitch_ntoskrnl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\ctxswitch_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\fastinterlck_asm_ntoskrnl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\fastinterlck_asm_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\ioport_ntoskrnl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\ioport_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\prefetch_ntoskrnl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\prefetch_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\trap_ntoskrnl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\trap_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\usercall_asm_ntoskrnl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\usercall_asm_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\zeropage_ntoskrnl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\zeropage_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\zw_ntoskrnl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\zw_ntoskrnl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <None Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\ntoskrnl.def">
+    <None Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\ntoskrnl.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\Source\ntoskrnl\CMakeLists.txt">

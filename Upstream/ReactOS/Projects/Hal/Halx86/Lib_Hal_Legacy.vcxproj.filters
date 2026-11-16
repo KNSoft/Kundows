@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\hal\halx86\legacy\bus\bushndlr.c">

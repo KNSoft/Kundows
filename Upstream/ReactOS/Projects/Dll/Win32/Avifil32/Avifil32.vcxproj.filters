@@ -21,10 +21,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\avifil32\avifil32_p.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\avifil32\avifil32_p.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\avifil32\proxy.dlldata.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\avifil32\proxy.dlldata.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\dll\win32\avifil32\acmstream.c">
@@ -63,7 +63,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\win32\avifil32\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\avifil32\avifil32.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\avifil32\avifil32.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\avifil32\CMakeLists.txt">
@@ -78,7 +78,7 @@
     <None Include="Avifil32.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\avifil32\avifil32_r.res">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\avifil32\avifil32_r.res">
       <Filter>Generated Files</Filter>
     </Object>
     <ResourceCompile Include="..\..\..\..\Source\dll\win32\avifil32\avifil32.rc">

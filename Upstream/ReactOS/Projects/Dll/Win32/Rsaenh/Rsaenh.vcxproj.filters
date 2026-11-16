@@ -27,7 +27,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\win32\rsaenh\rsaenh.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\rsaenh\rsaenh.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\rsaenh\rsaenh.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\rsaenh\CMakeLists.txt">

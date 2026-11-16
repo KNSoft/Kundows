@@ -21,10 +21,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\cc_parser.tab.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\cc_parser.tab.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\parser.tab.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\parser.tab.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\dll\win32\jscript\activex.c">
@@ -111,16 +111,16 @@
     <ClCompile Include="..\..\..\..\Source\dll\win32\jscript\vbarray.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\cc_parser.tab.h">
+    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\cc_parser.tab.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\parser.tab.h">
+    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\parser.tab.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\dll\win32\jscript\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\jscript.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\jscript.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\jscript\CMakeLists.txt">
@@ -138,10 +138,10 @@
     <None Include="Jscript.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\jscript_classes_r.res">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\jscript_classes_r.res">
       <Filter>Generated Files</Filter>
     </Object>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\jsglobal_t.res">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\jscript\jsglobal_t.res">
       <Filter>Generated Files</Filter>
     </Object>
     <ResourceCompile Include="..\..\..\..\Source\dll\win32\jscript\rsrc.rc">

@@ -18,7 +18,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\win32\msisys.ocx\msisys.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msisys.ocx\msisys.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\msisys.ocx\msisys.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\msisys.ocx\CMakeLists.txt">

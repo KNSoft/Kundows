@@ -111,7 +111,7 @@
     <ClInclude Include="..\..\..\..\Source\win32ss\gdi\gdi32\include\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\gdi\gdi32\gdi32.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\gdi\gdi32\gdi32.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\win32ss\gdi\gdi32\CMakeLists.txt">

@@ -18,13 +18,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\asmshader.tab.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\asmshader.tab.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\asmshader.yy.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\asmshader.yy.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\d3dcompiler_40_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\d3dcompiler_40_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Source\dll\directx\wine\d3dcompiler_43\asmparser.c">
@@ -45,10 +45,10 @@
     <ClCompile Include="..\..\..\..\..\Source\dll\directx\wine\d3dcompiler_43\utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\asmshader.tab.h">
+    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\asmshader.tab.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\d3dcompiler_40.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_40\d3dcompiler_40.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\dll\directx\wine\d3dcompiler_40\CMakeLists.txt">

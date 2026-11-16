@@ -30,7 +30,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\shellext\deskmon\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\shellext\deskmon\deskmon.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\shellext\deskmon\deskmon.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\shellext\deskmon\CMakeLists.txt">

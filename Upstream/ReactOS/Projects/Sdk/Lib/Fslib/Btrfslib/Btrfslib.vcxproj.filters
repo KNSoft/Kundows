@@ -33,7 +33,7 @@
     <ClCompile Include="..\..\..\..\..\Source\sdk\lib\fslib\btrfslib\btrfslib.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\fslib\btrfslib\asm\crc32c_btrfs_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\fslib\btrfslib\asm\crc32c_btrfs_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\..\Source\drivers\filesystems\btrfs\crc32c.S">

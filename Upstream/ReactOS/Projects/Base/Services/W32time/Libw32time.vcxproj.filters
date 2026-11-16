@@ -12,10 +12,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\w32time\libw32time_impalias.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\w32time\libw32time_impalias.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\w32time\libw32time_impalias.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\w32time\libw32time_impalias.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\base\services\w32time\CMakeLists.txt">
@@ -27,7 +27,7 @@
     <None Include="Libw32time.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\w32time\libw32time_tmp.lib">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\w32time\libw32time_tmp.lib">
       <Filter>Generated Files</Filter>
     </Object>
   </ItemGroup>

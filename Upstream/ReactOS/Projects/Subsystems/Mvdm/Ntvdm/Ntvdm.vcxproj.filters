@@ -21,7 +21,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\subsystems\mvdm\ntvdm\bios\bios.c">
@@ -168,7 +168,7 @@
     <ClInclude Include="..\..\..\..\Source\subsystems\mvdm\ntvdm\ntvdm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\ntvdm.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\ntvdm.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\subsystems\mvdm\ntvdm\CMakeLists.txt">

@@ -36,10 +36,10 @@
     <ClCompile Include="..\..\..\Source\hal\halx86\apic\tsc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\apictrap_lib_hal_apic_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\apictrap_lib_hal_apic_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\tsccal_lib_hal_apic_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\tsccal_lib_hal_apic_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\Source\hal\halx86\CMakeLists.txt">

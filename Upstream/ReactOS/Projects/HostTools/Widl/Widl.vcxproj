@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32"><Configuration>Debug</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64"><Configuration>Debug</Configuration><Platform>ARM64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64"><Configuration>Release</Configuration><Platform>ARM64</Platform></ProjectConfiguration>
+  </ItemGroup>
+
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{0BD1B80C-7B4E-5D30-9B52-4FD9AE9ED79C}</ProjectGuid>
+    <ProjectName>widl</ProjectName>
+    <RootNamespace>Widl</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\..\..\..\</KundowsRoot>
+    <ReactOSSourceRoot>$(KundowsRoot)Upstream\ReactOS\Source\</ReactOSSourceRoot>
+    <ReactOSCommonIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\Common\Include\</ReactOSCommonIncludeDirectory>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+
+  <PropertyGroup>
+    <ReactOSParserGeneratedDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</ReactOSParserGeneratedDirectory>
+    <OutDir>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(KundowsRoot)IntDir\HostTools\$(Platform)\$(Configuration)\Widl\</IntDir>
+    <TargetName>widl</TargetName>
+    <ReactOSHostDefines>__REACTOS__;_CRT_DECLARE_NONSTDC_NAMES=1;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;INT16=SHORT;LANG_SCOTTISH_GAELIC=0x91;INCLUDEDIR=&quot;unused&quot;;LIBDIR=&quot;unused&quot;;strtoull=_strtoui64;strtoll=_strtoi64;open=_open;close=_close</ReactOSHostDefines>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='Win32'">
+    <ReactOSHostDefines>$(ReactOSHostDefines);_M_IX86;_X86_;__i386__;i386</ReactOSHostDefines>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='x64'">
+    <ReactOSHostDefines>$(ReactOSHostDefines);_M_AMD64;_M_X64;_AMD64_;__x86_64;__x86_64__;_WIN64</ReactOSHostDefines>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='ARM64'">
+    <ReactOSHostDefines>$(ReactOSHostDefines);_M_ARM64;_ARM64_;__arm64__;__aarch64__;_WIN64</ReactOSHostDefines>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ReactOSParserGeneratedDirectory);$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\WppHost;$(ReactOSSourceRoot)sdk\tools\widl;$(ReactOSSourceRoot)sdk\tools\wpp;$(ReactOSSourceRoot)sdk\include\host;$(ReactOSCommonIncludeDirectory);$(ReactOSCommonIncludeDirectory)psdk;$(ReactOSSourceRoot)sdk\include;$(ReactOSSourceRoot)sdk\include\crt;$(ReactOSSourceRoot)sdk\include\ddk;$(ReactOSSourceRoot)sdk\include\ndk;$(ReactOSSourceRoot)sdk\include\psdk;$(ReactOSSourceRoot)sdk\include\reactos;$(ReactOSSourceRoot)sdk\include\reactos\libs;$(ReactOSSourceRoot)sdk\include\vcruntime;$(ReactOSSourceRoot)sdk\include\winrt;$(ReactOSSourceRoot)sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>$(ReactOSHostDefines);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4018;4090;4146;4244;4267;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\wpphost.lib;libcmt.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName).exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <ReactOSParserSource Include="parser.tab.c">
+      <Snapshot>$(ReactOSParserSnapshotRoot)Widl\parser.tab.c</Snapshot>
+      <Destination>$(ReactOSParserGeneratedDirectory)parser.tab.c</Destination>
+    </ReactOSParserSource>
+    <ReactOSParserSource Include="parser.tab.h">
+      <Snapshot>$(ReactOSParserSnapshotRoot)Widl\parser.tab.h</Snapshot>
+      <Destination>$(ReactOSParserGeneratedDirectory)parser.tab.h</Destination>
+    </ReactOSParserSource>
+    <ReactOSParserSource Include="parser.yy.c">
+      <Snapshot>$(ReactOSParserSnapshotRoot)Widl\parser.yy.c</Snapshot>
+      <Destination>$(ReactOSParserGeneratedDirectory)parser.yy.c</Destination>
+    </ReactOSParserSource>
+    <ReactOSParserInput Include="$(ReactOSSourceRoot)sdk\tools\widl\parser.y;$(ReactOSSourceRoot)sdk\tools\widl\parser.l" />
+
+    <ClCompile Include="$(ReactOSParserGeneratedDirectory)parser.tab.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ReactOSParserGeneratedDirectory)parser.yy.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\attribute.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\client.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\expr.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\hash.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\header.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\proxy.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\register.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\server.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\typegen.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\typelib.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\typetree.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\utils.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\widl.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\write_msft.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\widl\write_sltg.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\port\getopt.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\port\getopt1.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\port\mkstemps.c" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WppHost\WppHost.vcxproj">
+      <Project>{A0AF93A1-7444-5EA7-9D8E-BB6739FDD8F7}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Prepare\ReactOSPrepare.vcxproj">
+      <Project>{8D4D7C42-2B0E-4CF5-9F9C-FB06A7AFD3A5}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+
+  <Import Project="$(KundowsRoot)Build\ReactOSParser.targets" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

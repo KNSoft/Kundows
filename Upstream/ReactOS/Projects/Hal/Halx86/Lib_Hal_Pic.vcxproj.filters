@@ -39,13 +39,13 @@
     <ClCompile Include="..\..\..\Source\hal\halx86\pic\processor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\pic_lib_hal_pic_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\pic_lib_hal_pic_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\systimer_lib_hal_pic_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\systimer_lib_hal_pic_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\trap_lib_hal_pic_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\trap_lib_hal_pic_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\Source\hal\halx86\CMakeLists.txt">

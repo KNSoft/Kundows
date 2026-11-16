@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\win32ss\user\user32_vista\dpi.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\user\user32_vista\user32_vista.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\user\user32_vista\user32_vista.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\win32ss\user\user32_vista\CMakeLists.txt">

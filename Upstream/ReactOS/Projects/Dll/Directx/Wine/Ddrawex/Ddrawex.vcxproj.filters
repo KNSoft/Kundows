@@ -27,7 +27,7 @@
     <ClCompile Include="..\..\..\..\..\Source\dll\directx\wine\ddrawex\surface.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\ddrawex\ddrawex.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\ddrawex\ddrawex.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\dll\directx\wine\ddrawex\CMakeLists.txt">
@@ -39,7 +39,7 @@
     <None Include="Ddrawex.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\ddrawex\ddrawex_r.res">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\ddrawex\ddrawex_r.res">
       <Filter>Generated Files</Filter>
     </Object>
     <ResourceCompile Include="..\..\..\..\..\Source\dll\directx\wine\ddrawex\version.rc">

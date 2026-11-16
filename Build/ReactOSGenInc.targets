@@ -1,6 +1,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ReactOSGenIncEnabled Condition="'$(ReactOSGenIncEnabled)' == ''">true</ReactOSGenIncEnabled>
+    <ReactOSGenIncTool Condition="'$(ReactOSGenIncTool)' == '' and '$(Platform)' == 'ARM64' and '$(PROCESSOR_ARCHITECTURE)' == 'AMD64'">$(KundowsRoot)OutDir\HostTools\x64\$(Configuration)\geninc.exe</ReactOSGenIncTool>
     <ReactOSGenIncTool Condition="'$(ReactOSGenIncTool)' == ''">$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\geninc.exe</ReactOSGenIncTool>
     <ReactOSGenIncData Condition="'$(ReactOSGenIncData)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\GenIncData\genincdata.dll</ReactOSGenIncData>
     <ReactOSGenIncOutputDirectory Condition="'$(ReactOSGenIncOutputDirectory)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\asm</ReactOSGenIncOutputDirectory>

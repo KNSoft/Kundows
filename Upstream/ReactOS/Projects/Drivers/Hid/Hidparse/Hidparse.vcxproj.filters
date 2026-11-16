@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\drivers\hid\hidparse\hidparse.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\hid\hidparse\hidparse.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\hid\hidparse\hidparse.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\hid\hidparse\CMakeLists.txt">

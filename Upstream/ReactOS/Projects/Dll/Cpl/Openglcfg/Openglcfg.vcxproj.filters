@@ -30,7 +30,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\cpl\openglcfg\openglcfg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\cpl\openglcfg\openglcfg.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\cpl\openglcfg\openglcfg.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\cpl\openglcfg\CMakeLists.txt">

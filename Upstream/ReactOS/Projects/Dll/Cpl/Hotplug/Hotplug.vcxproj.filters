@@ -27,7 +27,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\cpl\hotplug\hotplug.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\cpl\hotplug\hotplug.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\cpl\hotplug\hotplug.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\cpl\hotplug\CMakeLists.txt">

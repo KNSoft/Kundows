@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\cpl\telephon\telephon.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\cpl\telephon\telephon.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\cpl\telephon\telephon.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\cpl\telephon\CMakeLists.txt">

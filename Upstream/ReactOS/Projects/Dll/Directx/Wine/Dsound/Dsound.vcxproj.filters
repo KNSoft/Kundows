@@ -51,7 +51,7 @@
     <ClCompile Include="..\..\..\..\..\Source\dll\directx\wine\dsound\sound3d.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dsound\dsound.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dsound\dsound.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\dll\directx\wine\dsound\CMakeLists.txt">

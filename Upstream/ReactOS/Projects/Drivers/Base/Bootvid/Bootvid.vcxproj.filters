@@ -48,7 +48,7 @@
     <ClInclude Include="..\..\..\..\Source\drivers\base\bootvid\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\bootvid\bootvid.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\bootvid\bootvid.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\base\bootvid\CMakeLists.txt">
@@ -60,7 +60,7 @@
     <None Include="Bootvid.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <ResourceCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\bootvid\bootvid.rc">
+    <ResourceCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\bootvid\bootvid.rc">
       <Filter>Generated Files</Filter>
     </ResourceCompile>
   </ItemGroup>

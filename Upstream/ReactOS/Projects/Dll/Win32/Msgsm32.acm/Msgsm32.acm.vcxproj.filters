@@ -18,7 +18,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\win32\msgsm32.acm\msgsm32.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\msgsm32.acm\msgsm32.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\msgsm32.acm\msgsm32.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\msgsm32.acm\CMakeLists.txt">

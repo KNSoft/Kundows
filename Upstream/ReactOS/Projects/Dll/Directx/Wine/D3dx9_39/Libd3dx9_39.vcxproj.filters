@@ -12,10 +12,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dx9_39\libd3dx9_39_impalias.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dx9_39\libd3dx9_39_impalias.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dx9_39\libd3dx9_39_impalias.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dx9_39\libd3dx9_39_impalias.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\..\Source\dll\directx\wine\d3dx9_39\CMakeLists.txt">
@@ -27,7 +27,7 @@
     <None Include="Libd3dx9_39.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dx9_39\libd3dx9_39_tmp.lib">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dx9_39\libd3dx9_39_tmp.lib">
       <Filter>Generated Files</Filter>
     </Object>
   </ItemGroup>

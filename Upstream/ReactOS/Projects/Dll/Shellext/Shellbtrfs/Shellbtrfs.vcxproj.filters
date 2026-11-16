@@ -72,10 +72,10 @@
     <ClInclude Include="..\..\..\..\Source\dll\shellext\shellbtrfs\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\shellext\shellbtrfs\asm\crc32c_btrfs_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\shellext\shellbtrfs\asm\crc32c_btrfs_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\shellext\shellbtrfs\shellbtrfs.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\shellext\shellbtrfs\shellbtrfs.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\shellext\shellbtrfs\CMakeLists.txt">

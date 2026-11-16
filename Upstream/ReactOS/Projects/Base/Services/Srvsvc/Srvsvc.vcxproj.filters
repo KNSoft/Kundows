@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\srvsvc\srvsvc_s.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\srvsvc\srvsvc_s.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\base\services\srvsvc\rpcserver.c">
@@ -27,7 +27,7 @@
     <ClCompile Include="..\..\..\..\Source\base\services\srvsvc\srvsvc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\services\srvsvc\srvsvc.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\services\srvsvc\srvsvc.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\base\services\srvsvc\CMakeLists.txt">

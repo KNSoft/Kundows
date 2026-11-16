@@ -30,7 +30,7 @@
     <ClCompile Include="..\..\..\..\Source\sdk\lib\cpprt\typeinfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\cpprt\asm\cpprt_cpprt_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\cpprt\asm\cpprt_cpprt_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\sdk\lib\cpprt\CMakeLists.txt">

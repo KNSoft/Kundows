@@ -72,7 +72,7 @@
     <ClCompile Include="..\..\..\..\..\Source\drivers\storage\class\classpnp\xferpkt.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\storage\class\classpnp\classpnp.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\storage\class\classpnp\classpnp.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\drivers\storage\class\classpnp\CMakeLists.txt">

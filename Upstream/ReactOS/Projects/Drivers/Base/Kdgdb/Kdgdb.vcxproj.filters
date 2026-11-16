@@ -48,7 +48,7 @@
     <ClInclude Include="..\..\..\..\Source\drivers\base\kdgdb\kdgdb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\base\kdgdb\CMakeLists.txt">

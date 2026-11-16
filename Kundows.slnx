@@ -4,7 +4,7 @@
     <BuildType Name="Release" />
     <Platform Name="ARM64" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
+    <Platform Name="Win32" />
   </Configurations>
   <Folder Name="/Migration/">
     <File Path="Upstream/ReactOS/Projects/Migration.json" />

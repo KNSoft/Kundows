@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\win32\objsel\objsel.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\objsel\objsel.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\objsel\objsel.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\objsel\CMakeLists.txt">
@@ -33,7 +33,7 @@
     <None Include="Objsel.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\objsel\objsel_classes_r.res">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\objsel\objsel_classes_r.res">
       <Filter>Generated Files</Filter>
     </Object>
     <ResourceCompile Include="..\..\..\..\Source\dll\win32\objsel\objsel.rc">

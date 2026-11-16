@@ -12,7 +12,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_impalias.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_impalias.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\Source\hal\hal.spec">
@@ -24,7 +24,7 @@
     <None Include="Libhalapic.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_tmp.lib">
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_tmp.lib">
       <Filter>Generated Files</Filter>
     </Object>
   </ItemGroup>

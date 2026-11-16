@@ -189,10 +189,10 @@
     <ClInclude Include="..\..\..\..\Source\drivers\filesystems\btrfs\btrfs_drv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\filesystems\btrfs\asm\crc32c_btrfs_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\filesystems\btrfs\asm\crc32c_btrfs_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\filesystems\btrfs\asm\xor_btrfs_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\filesystems\btrfs\asm\xor_btrfs_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\drivers\filesystems\btrfs\CMakeLists.txt">

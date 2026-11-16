@@ -36,7 +36,7 @@
     <ClInclude Include="..\..\..\..\Source\drivers\hid\hidclass\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\hid\hidclass\hidclass.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\hid\hidclass\hidclass.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\hid\hidclass\CMakeLists.txt">

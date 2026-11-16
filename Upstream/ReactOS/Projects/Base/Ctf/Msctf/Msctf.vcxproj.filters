@@ -21,7 +21,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\ctf\msctf\msctf_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\ctf\msctf\msctf_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\base\ctf\msctf\categorymgr.cpp">
@@ -63,7 +63,7 @@
     <ClInclude Include="..\..\..\..\Source\base\ctf\msctf\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\ctf\msctf\msctf.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\ctf\msctf\msctf.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\base\ctf\msctf\CMakeLists.txt">

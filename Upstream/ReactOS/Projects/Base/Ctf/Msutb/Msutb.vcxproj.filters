@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\base\ctf\msutb\msutb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\ctf\msutb\msutb.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\ctf\msutb\msutb.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\base\ctf\msutb\CMakeLists.txt">

@@ -57,13 +57,13 @@
     <ClInclude Include="..\..\..\Source\sdk\lib\rtl\rtl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\rtl\asm\debug_asm_blrtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\rtl\asm\debug_asm_blrtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\rtl\asm\rtlmem_blrtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\rtl\asm\rtlmem_blrtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\rtl\asm\rtlswap_blrtl_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\rtl\asm\rtlswap_blrtl_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\Source\boot\rtl\CMakeLists.txt">

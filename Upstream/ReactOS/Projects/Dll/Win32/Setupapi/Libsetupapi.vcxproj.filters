@@ -12,10 +12,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\setupapi\libsetupapi_impalias.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\setupapi\libsetupapi_impalias.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\setupapi\libsetupapi_impalias.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\setupapi\libsetupapi_impalias.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\dll\win32\setupapi\CMakeLists.txt">
@@ -27,7 +27,7 @@
     <None Include="Libsetupapi.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\setupapi\libsetupapi_tmp.lib">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\setupapi\libsetupapi_tmp.lib">
       <Filter>Generated Files</Filter>
     </Object>
   </ItemGroup>

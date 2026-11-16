@@ -1,0 +1,448 @@
+diff --git a/dll/ntdll/dispatch/arm64/stubs_asm.s b/dll/ntdll/dispatch/arm64/stubs_asm.s
+new file mode 100644
+index 00000000000..c10d5765347
+--- /dev/null
++++ b/dll/ntdll/dispatch/arm64/stubs_asm.s
+@@ -0,0 +1,20 @@
++/*
++ * PROJECT:     ReactOS NTDLL
++ * PURPOSE:     ARM64 user-mode dispatcher entry stubs
++ */
++
++#include <kxarm64.h>
++
++    TEXTAREA
++
++    LEAF_ENTRY LdrInitializeThunk
++    brk #0
++    ret
++    LEAF_END LdrInitializeThunk
++
++    LEAF_ENTRY KiUserApcDispatcher
++    brk #0
++    ret
++    LEAF_END KiUserApcDispatcher
++
++    END
+diff --git a/dll/ntdll/rtl/libsupp.c b/dll/ntdll/rtl/libsupp.c
+index 38c0412c31b..05964963f8d 100644
+--- a/dll/ntdll/rtl/libsupp.c
++++ b/dll/ntdll/rtl/libsupp.c
+@@ -257,7 +257,7 @@ RtlWalkFrameChain(OUT PVOID *Callers,
+         __asm__("move $sp, %0" : "=r" (Stack) : );
+ #elif defined(_M_PPC)
+     __asm__("mr %0,1" : "=r" (Stack) : );
+-#elif defined(_M_ARM)
++#elif defined(_M_ARM) || defined(_M_ARM64) || defined(_ARM64_) || defined(__arm64__) || defined(__aarch64__)
+ #if defined __GNUC__
+     __asm__("mov sp, %0" : "=r"(Stack) : );
+ #elif defined(_MSC_VER)
+diff --git a/ntoskrnl/ntdll.S b/ntoskrnl/ntdll.S
+index c14e9743515..e1aab9e83f8 100644
+--- a/ntoskrnl/ntdll.S
++++ b/ntoskrnl/ntdll.S
+@@ -4,7 +4,17 @@
+ /* This file only has the NT5 syscalls */
+ #define SYSFUNCS_NT5_ONLY
+ 
+-#ifdef _M_ARM
++#if defined(_M_ARM)
++
++    TEXTAREA
++
++#define SVC_(name, argcount) STUB_U name
++
++#include <sysfuncs.h>
++
++    END
++
++#elif defined(_M_ARM64) || defined(_ARM64_) || defined(__arm64__) || defined(__aarch64__)
+ 
+     TEXTAREA
+ 
+diff --git a/ntoskrnl/ntdll_nt6.S b/ntoskrnl/ntdll_nt6.S
+index d4af15396b2..2edd1289dd4 100644
+--- a/ntoskrnl/ntdll_nt6.S
++++ b/ntoskrnl/ntdll_nt6.S
+@@ -3,7 +3,11 @@
+ 
+ /* Skip NT5 syscalls, so we get the right IDs for the NT6 ones */
+ #define SYSFUNCS_NT5_ONLY
++#if defined(_M_ARM64) || defined(_ARM64_) || defined(__arm64__) || defined(__aarch64__)
++#define SVC_(name, argcount) SYSCALL_ID_INC
++#else
+ #define SVC_(name, argcount) SyscallId = SyscallId + 1
++#endif
+ #include <sysfuncs.h>
+ #undef SVC_
+ #undef SYSFUNCS_NT5_ONLY
+@@ -11,7 +15,17 @@
+ /* Now do the NT6 ones proper */
+ #define SYSFUNCS_NT6_ONLY
+ 
+-#ifdef _M_ARM
++#if defined(_M_ARM)
++
++    TEXTAREA
++
++#define SVC_(name, argcount) STUB_U name
++
++#include <sysfuncs.h>
++
++    END
++
++#elif defined(_M_ARM64) || defined(_ARM64_) || defined(__arm64__) || defined(__aarch64__)
+ 
+     TEXTAREA
+ 
+diff --git a/sdk/include/asm/syscalls.inc b/sdk/include/asm/syscalls.inc
+index a59cee00e6b..80baaeb10d8 100644
+--- a/sdk/include/asm/syscalls.inc
++++ b/sdk/include/asm/syscalls.inc
+@@ -1,5 +1,47 @@
+ 
+-#ifdef _M_ARM
++#if defined(_M_ARM64) || defined(_ARM64_) || defined(__arm64__) || defined(__aarch64__)
++
++#include <kxarm64.h>
++
++    GBLA SyscallId
++SyscallId SETA 0
++
++    MACRO
++    SYSCALL_ID_INC
++SyscallId SETA SyscallId + 1
++    MEND
++
++    MACRO
++    STUB_K $Name
++    LCLS NtFuncName
++    LCLS ZwFuncName
++NtFuncName    SETS "Nt$Name"
++ZwFuncName    SETS "Zw$Name"
++    LEAF_ENTRY $NtFuncName
++    ALTERNATE_ENTRY $ZwFuncName
++    mov w8, #SyscallId
++    svc #0
++    ret
++    LEAF_END $NtFuncName
++SyscallId SETA SyscallId + 1
++    MEND
++
++    MACRO
++    STUB_U $Name
++    LCLS NtFuncName
++    LCLS ZwFuncName
++NtFuncName    SETS "Nt$Name"
++ZwFuncName    SETS "Zw$Name"
++    LEAF_ENTRY $NtFuncName
++    ALTERNATE_ENTRY $ZwFuncName
++    mov w8, #SyscallId
++    svc #0
++    ret
++    LEAF_END $NtFuncName
++SyscallId SETA SyscallId + 1
++    MEND
++
++#elif defined(_M_ARM)
+ 
+ #include <ksarm.h>
+ 
+diff --git a/sdk/lib/rtl/arm64/debug_asm.S b/sdk/lib/rtl/arm64/debug_asm.S
+new file mode 100644
+index 00000000000..4ae1b4c5076
+--- /dev/null
++++ b/sdk/lib/rtl/arm64/debug_asm.S
+@@ -0,0 +1,32 @@
++/*
++ * PROJECT:     ReactOS Run-Time Library
++ * PURPOSE:     ARM64 debug routines
++ */
++
++#include <kxarm64.h>
++
++    TEXTAREA
++
++    LEAF_ENTRY DbgUserBreakPoint
++    ALTERNATE_ENTRY DbgBreakPoint
++    brk #0
++    ret
++    LEAF_END DbgUserBreakPoint
++
++    LEAF_ENTRY RtlpBreakWithStatusInstruction
++    ALTERNATE_ENTRY DbgBreakPointWithStatus
++    brk #0
++    ret
++    LEAF_END RtlpBreakWithStatusInstruction
++
++    LEAF_ENTRY DebugService
++    mov x0, xzr
++    ret
++    LEAF_END DebugService
++
++    LEAF_ENTRY DebugService2
++    mov x0, xzr
++    ret
++    LEAF_END DebugService2
++
++    END
+diff --git a/sdk/lib/rtl/arm64/except.c b/sdk/lib/rtl/arm64/except.c
+new file mode 100644
+index 00000000000..54396704d76
+--- /dev/null
++++ b/sdk/lib/rtl/arm64/except.c
+@@ -0,0 +1,67 @@
++/*
++ * PROJECT:     ReactOS Runtime Library
++ * LICENSE:     GPL-2.0-or-later
++ * PURPOSE:     ARM64 user-mode exception support stubs
++ */
++
++#include <rtl.h>
++
++#define NDEBUG
++#include <debug.h>
++
++VOID
++NTAPI
++RtlCaptureContext(
++    _Out_ PCONTEXT ContextRecord)
++{
++    RtlZeroMemory(ContextRecord, sizeof(*ContextRecord));
++    ContextRecord->ContextFlags = CONTEXT_FULL;
++}
++
++VOID
++NTAPI
++RtlGetCallersAddress(
++    _Out_ PVOID *CallersAddress,
++    _Out_ PVOID *CallersCaller)
++{
++    ASSERT(FALSE);
++    *CallersAddress = NULL;
++    *CallersCaller = NULL;
++}
++
++BOOLEAN
++NTAPI
++RtlDispatchException(
++    _In_ PEXCEPTION_RECORD ExceptionRecord,
++    _In_ PCONTEXT Context)
++{
++    ASSERT(FALSE);
++    return FALSE;
++}
++
++VOID
++NTAPI
++RtlUnwind(
++    _In_opt_ PVOID TargetFrame,
++    _In_opt_ PVOID TargetIp,
++    _In_opt_ PEXCEPTION_RECORD ExceptionRecord,
++    _In_ PVOID ReturnValue)
++{
++    ASSERT(FALSE);
++}
++
++VOID
++NTAPI
++RtlInitializeContext(
++    _In_ HANDLE ProcessHandle,
++    _Out_ PCONTEXT ThreadContext,
++    _In_ PVOID ThreadStartParam OPTIONAL,
++    _In_ PTHREAD_START_ROUTINE ThreadStartAddress,
++    _In_ PINITIAL_TEB StackBase)
++{
++    RtlZeroMemory(ThreadContext, sizeof(*ThreadContext));
++    ThreadContext->ContextFlags = CONTEXT_FULL;
++    ThreadContext->X0 = (ULONG64)ThreadStartParam;
++    ThreadContext->Pc = (ULONG64)ThreadStartAddress;
++    ThreadContext->Sp = (ULONG64)StackBase->StackBase;
++}
+diff --git a/sdk/lib/rtl/arm64/interlocked.S b/sdk/lib/rtl/arm64/interlocked.S
+new file mode 100644
+index 00000000000..d62c47c1410
+--- /dev/null
++++ b/sdk/lib/rtl/arm64/interlocked.S
+@@ -0,0 +1,47 @@
++/*
++ * PROJECT:     ReactOS Runtime Library
++ * PURPOSE:     ARM64 128-bit interlocked operation
++ */
++
++#include <kxarm64.h>
++
++    TEXTAREA
++
++/*
++ * BOOLEAN
++ * NTAPI
++ * RtlpInterlockedCompareExchange128(
++ *     _Inout_ volatile LONG64 *Destination,
++ *     _In_ LONG64 ExchangeHigh,
++ *     _In_ LONG64 ExchangeLow,
++ *     _Inout_ PLONG64 ComparandResult);
++ *
++ * The ARM64 MSVC intrinsic is supplied by the CRT, which is not linked into
++ * ReactOS system libraries.  Keep the operation local and use the baseline
++ * ARMv8 load-linked/store-conditional pair instead.
++ */
++    LEAF_ENTRY RtlpInterlockedCompareExchange128
++    ldr x6, [x3]
++    ldr x7, [x3, #8]
++
++LABEL(RtlpInterlockedCompareExchange128Retry)
++    ldaxp x4, x5, [x0]
++    cmp x4, x6
++    ccmp x5, x7, #0, eq
++    b.ne RtlpInterlockedCompareExchange128Fail
++    stlxp w8, x2, x1, [x0]
++    cbnz w8, RtlpInterlockedCompareExchange128Retry
++    dmb ish
++    mov w0, #1
++    ret
++
++LABEL(RtlpInterlockedCompareExchange128Fail)
++    clrex
++    str x4, [x3]
++    str x5, [x3, #8]
++    dmb ish
++    mov w0, #0
++    ret
++    LEAF_END RtlpInterlockedCompareExchange128
++
++    END
+diff --git a/sdk/lib/rtl/slist.c b/sdk/lib/rtl/slist.c
+index a9541c2d37f..6519746a97f 100644
+--- a/sdk/lib/rtl/slist.c
++++ b/sdk/lib/rtl/slist.c
+@@ -18,6 +18,111 @@
+ BOOLEAN RtlpUse16ByteSLists = -1;
+ #endif
+ 
++#if defined(_M_ARM64) || defined(_ARM64_) || defined(__arm64__) || defined(__aarch64__)
++BOOLEAN
++NTAPI
++RtlpInterlockedCompareExchange128(
++    _Inout_ volatile LONG64 *Destination,
++    _In_ LONG64 ExchangeHigh,
++    _In_ LONG64 ExchangeLow,
++    _Inout_ PLONG64 ComparandResult);
++#define ROS_INTERLOCKED_COMPARE_EXCHANGE128 RtlpInterlockedCompareExchange128
++#else
++#define ROS_INTERLOCKED_COMPARE_EXCHANGE128 _InterlockedCompareExchange128
++#endif
++
++#if defined(_M_ARM64) || defined(_ARM64_) || defined(__arm64__) || defined(__aarch64__)
++
++/*
++ * ARM64 uses the 16-byte SList header.  Keep these operations in C so the
++ * compiler can select the native 128-bit compare/exchange primitive.
++ */
++PSLIST_ENTRY
++NTAPI
++RtlInterlockedPushEntrySList(
++    _Inout_ PSLIST_HEADER SListHead,
++    _Inout_ __drv_aliasesMem PSLIST_ENTRY SListEntry)
++{
++    SLIST_HEADER OldSListHead, NewSListHead;
++
++    do
++    {
++        OldSListHead = *SListHead;
++        SListEntry->Next = (PSLIST_ENTRY)(OldSListHead.Region & ~0xFULL);
++
++        NewSListHead = OldSListHead;
++        NewSListHead.Header16.Depth++;
++        NewSListHead.Header16.Sequence++;
++        NewSListHead.Region = (ULONG64)SListEntry;
++        NewSListHead.Header16.HeaderType = 1;
++        NewSListHead.Header16.Init = 1;
++    }
++    while (!ROS_INTERLOCKED_COMPARE_EXCHANGE128(
++        (volatile LONG64 *)SListHead,
++        (LONG64)NewSListHead.Region,
++        (LONG64)NewSListHead.Alignment,
++        (LONG64 *)&OldSListHead));
++
++    return (PSLIST_ENTRY)(OldSListHead.Region & ~0xFULL);
++}
++
++PSLIST_ENTRY
++NTAPI
++RtlInterlockedPopEntrySList(
++    _Inout_ PSLIST_HEADER SListHead)
++{
++    SLIST_HEADER OldSListHead, NewSListHead;
++    PSLIST_ENTRY Entry;
++
++    do
++    {
++        OldSListHead = *SListHead;
++        Entry = (PSLIST_ENTRY)(OldSListHead.Region & ~0xFULL);
++        if (!Entry)
++            return NULL;
++
++        NewSListHead = OldSListHead;
++        NewSListHead.Region = (ULONG64)Entry->Next;
++        NewSListHead.Header16.Depth--;
++        NewSListHead.Header16.HeaderType = 1;
++        NewSListHead.Header16.Init = 1;
++    }
++    while (!ROS_INTERLOCKED_COMPARE_EXCHANGE128(
++        (volatile LONG64 *)SListHead,
++        (LONG64)NewSListHead.Region,
++        (LONG64)NewSListHead.Alignment,
++        (LONG64 *)&OldSListHead));
++
++    return Entry;
++}
++
++PSLIST_ENTRY
++NTAPI
++RtlInterlockedFlushSList(
++    _Inout_ PSLIST_HEADER SListHead)
++{
++    SLIST_HEADER OldSListHead, NewSListHead;
++
++    do
++    {
++        OldSListHead = *SListHead;
++        NewSListHead = OldSListHead;
++        NewSListHead.Region = 0;
++        NewSListHead.Header16.Depth = 0;
++        NewSListHead.Header16.HeaderType = 1;
++        NewSListHead.Header16.Init = 1;
++    }
++    while (!ROS_INTERLOCKED_COMPARE_EXCHANGE128(
++        (volatile LONG64 *)SListHead,
++        (LONG64)NewSListHead.Region,
++        (LONG64)NewSListHead.Alignment,
++        (LONG64 *)&OldSListHead));
++
++    return (PSLIST_ENTRY)(OldSListHead.Region & ~0xFULL);
++}
++
++#endif
++
+ /* FUNCTIONS ***************************************************************/
+ 
+ VOID
+@@ -132,7 +237,7 @@ RtlInterlockedPushListSList(
+             NewSListHead.Header16.Init = 1;
+ 
+             /* Atomically exchange the SlistHead with the new one */
+-            exchanged = _InterlockedCompareExchange128((PLONG64)SListHead,
++            exchanged = ROS_INTERLOCKED_COMPARE_EXCHANGE128((PLONG64)SListHead,
+                                                        NewSListHead.Region,
+                                                        NewSListHead.Alignment,
+                                                        (PLONG64)&OldSListHead);
+@@ -221,7 +326,7 @@ RtlInterlockedPushListSListEx(
+ }
+ #endif
+ 
+-#if !defined(_M_IX86) && !defined(_M_AMD64)
++#if !defined(_M_IX86) && !defined(_M_AMD64) && !defined(_M_ARM64) && !defined(_ARM64_) && !defined(__arm64__) && !defined(__aarch64__)
+ 
+ _WARN("C based S-List functions can bugcheck, if not handled properly in kernel")
+ 

@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\hlsl.tab.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\hlsl.tab.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\hlsl.yy.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\hlsl.yy.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\preproc.tab.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\preproc.tab.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\preproc.yy.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\preproc.yy.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\sdk\lib\vkd3d\libs\vkd3d-common\blob.c">
@@ -108,10 +108,10 @@
     <ClCompile Include="..\..\..\..\Source\sdk\lib\vkd3d\libs\vkd3d\vkd3d_main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\hlsl.tab.h">
+    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\hlsl.tab.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\preproc.tab.h">
+    <ClInclude Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vkd3d\preproc.tab.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <None Include="..\..\..\..\Source\sdk\lib\vkd3d\CMakeLists.txt">

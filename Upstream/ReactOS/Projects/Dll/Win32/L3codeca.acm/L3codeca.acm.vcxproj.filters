@@ -18,7 +18,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\win32\l3codeca.acm\mpegl3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\l3codeca.acm\l3codeca.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\l3codeca.acm\l3codeca.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\l3codeca.acm\CMakeLists.txt">

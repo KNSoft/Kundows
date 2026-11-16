@@ -21,7 +21,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\spoolss\spoolss_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\spoolss\spoolss_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Source\win32ss\printing\base\marshalling.c">
@@ -72,7 +72,7 @@
     <ClInclude Include="..\..\..\..\..\Source\win32ss\printing\base\spoolss\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\spoolss\spoolss.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\printing\base\spoolss\spoolss.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\win32ss\printing\base\spoolss\CMakeLists.txt">

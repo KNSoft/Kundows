@@ -33,7 +33,7 @@
     <ClCompile Include="..\..\..\..\Source\drivers\crypto\ksecdd\stubs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\crypto\ksecdd\ksecdd.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\crypto\ksecdd\ksecdd.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\crypto\ksecdd\CMakeLists.txt">

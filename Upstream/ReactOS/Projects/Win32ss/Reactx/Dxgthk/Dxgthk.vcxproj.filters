@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\win32ss\reactx\dxgthk\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\reactx\dxgthk\dxgthk.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\reactx\dxgthk\dxgthk.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\win32ss\reactx\dxgthk\CMakeLists.txt">

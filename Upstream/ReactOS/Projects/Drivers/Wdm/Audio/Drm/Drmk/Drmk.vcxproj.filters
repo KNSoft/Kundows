@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\..\..\Source\drivers\wdm\audio\drm\drmk\stubs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\wdm\audio\drm\drmk\drmk.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\wdm\audio\drm\drmk\drmk.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\..\Source\drivers\wdm\audio\drm\drmk\CMakeLists.txt">

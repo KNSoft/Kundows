@@ -18,7 +18,7 @@
     <ClCompile Include="..\..\..\..\Source\drivers\multimedia\bdasup\bdasup.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\multimedia\bdasup\bdasup.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\multimedia\bdasup\bdasup.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\multimedia\bdasup\CMakeLists.txt">

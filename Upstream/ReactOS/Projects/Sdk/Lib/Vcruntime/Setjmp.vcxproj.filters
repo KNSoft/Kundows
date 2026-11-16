@@ -27,22 +27,22 @@
     <ClCompile Include="..\..\..\..\Source\sdk\lib\vcruntime\i386\longjmp.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_setjmp_vcrt_setjmp_asm.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_setjmp_vcrt_setjmp_asm.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\__longjmp_noframe_vcrt_setjmp_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\__longjmp_noframe_vcrt_setjmp_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\__longjmp_nounwind_vcrt_setjmp_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\__longjmp_nounwind_vcrt_setjmp_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_seh_longjmp_unwind_vcrt_setjmp_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_seh_longjmp_unwind_vcrt_setjmp_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_setjmp3_vcrt_setjmp_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_setjmp3_vcrt_setjmp_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_setjmp_vcrt_setjmp_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_setjmp_vcrt_setjmp_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\sdk\lib\vcruntime\CMakeLists.txt">

@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\..\Source\dll\directx\wine\dpnhupnp\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dpnhupnp\dpnhupnp.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dpnhupnp\dpnhupnp.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\dll\directx\wine\dpnhupnp\CMakeLists.txt">

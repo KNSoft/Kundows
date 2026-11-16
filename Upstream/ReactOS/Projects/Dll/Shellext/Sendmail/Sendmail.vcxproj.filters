@@ -30,7 +30,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\shellext\sendmail\precomp.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\shellext\sendmail\sendmail.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\shellext\sendmail\sendmail.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\shellext\sendmail\CMakeLists.txt">

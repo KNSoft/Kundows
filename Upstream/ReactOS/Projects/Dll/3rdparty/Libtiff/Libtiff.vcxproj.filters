@@ -129,7 +129,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\3rdparty\libtiff\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\3rdparty\libtiff\libtiff.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\3rdparty\libtiff\libtiff.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\3rdparty\libtiff\CMakeLists.txt">

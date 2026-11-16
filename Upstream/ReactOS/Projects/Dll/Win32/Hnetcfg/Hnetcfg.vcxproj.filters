@@ -42,7 +42,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\win32\hnetcfg\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\hnetcfg\hnetcfg.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\hnetcfg\hnetcfg.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\win32\hnetcfg\CMakeLists.txt">
@@ -54,10 +54,10 @@
     <None Include="Hnetcfg.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\hnetcfg\hnetcfg_r.res">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\hnetcfg\hnetcfg_r.res">
       <Filter>Generated Files</Filter>
     </Object>
-    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\win32\hnetcfg\hnetcfg_tlb_t.res">
+    <Object Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\hnetcfg\hnetcfg_tlb_t.res">
       <Filter>Generated Files</Filter>
     </Object>
   </ItemGroup>

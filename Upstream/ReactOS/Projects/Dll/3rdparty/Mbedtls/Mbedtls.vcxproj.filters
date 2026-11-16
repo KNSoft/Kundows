@@ -168,7 +168,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\3rdparty\mbedtls\x509_crt.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\3rdparty\mbedtls\mbedtls.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\3rdparty\mbedtls\mbedtls.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\3rdparty\mbedtls\CMakeLists.txt">

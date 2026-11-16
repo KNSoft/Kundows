@@ -69,7 +69,7 @@
     <ClInclude Include="..\..\..\..\Source\drivers\usb\usbport\usbport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\usb\usbport\usbport.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\usb\usbport\usbport.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\usb\usbport\CMakeLists.txt">

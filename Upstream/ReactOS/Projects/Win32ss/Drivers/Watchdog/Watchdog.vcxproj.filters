@@ -18,7 +18,7 @@
     <ClCompile Include="..\..\..\..\Source\win32ss\drivers\watchdog\watchdog.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\drivers\watchdog\watchdog.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\drivers\watchdog\watchdog.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\win32ss\drivers\watchdog\CMakeLists.txt">

@@ -105,7 +105,7 @@
     <ClCompile Include="..\..\..\..\..\Source\dll\directx\wine\wined3d\wined3d_main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\wine\wined3d\d3dwine.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\wined3d\d3dwine.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\dll\directx\wine\wined3d\CMakeLists.txt">

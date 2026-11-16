@@ -84,7 +84,7 @@
     <ClInclude Include="..\..\..\..\Source\drivers\network\ndis\include\ndissys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\network\ndis\ndis.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\ndis\ndis.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\network\ndis\CMakeLists.txt">

@@ -69,7 +69,7 @@
     <ClCompile Include="..\..\..\Source\hal\halx86\generic\x86bios.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\v86_lib_hal_generic_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\v86_lib_hal_generic_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\Source\hal\halx86\CMakeLists.txt">

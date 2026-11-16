@@ -13,7 +13,7 @@
   ],
   "Adaptations": [
     "Source references are relative to the native project",
-    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "Generated inputs are relocated to OutDir/Build/Generated/<Platform>/<Configuration>",
     "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
     "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
     "Object-library inputs refer to their native intermediate directories",
@@ -52,12 +52,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -65,12 +65,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -78,12 +78,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -91,12 +91,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -104,12 +104,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -117,12 +117,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
         }
       ],
       "PerSourceProperties": [],
@@ -214,18 +214,18 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;CMAKE_INTDIR=\\\"Debug\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
         },
         "MASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
           "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1",
           "GenerateDebugInformation": "true",
           "PreserveIdentifierCase": "1",
           "WarningLevel": "3"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -311,12 +311,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -324,12 +324,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -337,12 +337,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -350,12 +350,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -363,12 +363,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -376,12 +376,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
         }
       ],
       "PerSourceProperties": [],
@@ -416,18 +416,18 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;CMAKE_INTDIR=\\\"Release\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
         },
         "MASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
           "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch",
           "GenerateDebugInformation": "false",
           "PreserveIdentifierCase": "1",
           "WarningLevel": "3"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -506,12 +506,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -519,12 +519,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -532,12 +532,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -545,12 +545,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -558,12 +558,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -571,12 +571,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
         }
       ],
       "PerSourceProperties": [],
@@ -611,18 +611,18 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;CMAKE_INTDIR=\\\"Debug\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
         },
         "MASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
           "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1",
           "GenerateDebugInformation": "true",
           "PreserveIdentifierCase": "1",
           "WarningLevel": "3"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -699,12 +699,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -712,12 +712,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -725,12 +725,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -738,12 +738,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -751,12 +751,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -764,12 +764,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
         }
       ],
       "PerSourceProperties": [],
@@ -804,18 +804,18 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;CMAKE_INTDIR=\\\"Release\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
         },
         "MASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
           "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115",
           "GenerateDebugInformation": "false",
           "PreserveIdentifierCase": "1",
           "WarningLevel": "3"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -894,12 +894,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -907,12 +907,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -920,12 +920,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -933,12 +933,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -946,12 +946,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -959,19 +959,19 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
         }
       ],
       "PerSourceProperties": [],
       "TrialBuild": "NotAttempted",
       "OriginalArm64AssemblerSettings": {
         "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
-        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
         "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1",
         "GenerateDebugInformation": "true",
         "WarningLevel": "3"
@@ -1006,15 +1006,15 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;CMAKE_INTDIR=\\\"Debug\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
         },
         "MARMASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Debug\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
           "ObjectFileName": "$(IntDir)%(Filename).obj"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -1090,12 +1090,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\ExtraLargeLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/ExtraLargeLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -1103,12 +1103,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\LargeFontsLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/LargeFontsLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -1116,12 +1116,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Light\\RegularLight_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Light/RegularLight_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -1129,12 +1129,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\ExtraLargeDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/ExtraLargeDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -1142,12 +1142,12 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\LargeFontsDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/LargeFontsDark_utf16.INI"
         },
         {
           "Status": "NotMigrated",
@@ -1155,19 +1155,19 @@
             "media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles\\textfiles\\Dark\\RegularDark_utf16.INI"
           ],
           "HostTools": [
             "utf16le"
           ],
-          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
+          "ReferenceCommand": "..\\..\\..\\..\\host-tools\\bin\\$(Configuration)\\utf16le.exe $(ProjectDir)..\\..\\..\\..\\..\\Source/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark.INI $(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/media/themes/Modern/modern.msstyles/textfiles/Dark/RegularDark_utf16.INI"
         }
       ],
       "PerSourceProperties": [],
       "TrialBuild": "NotAttempted",
       "OriginalArm64AssemblerSettings": {
         "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
-        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
         "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115",
         "GenerateDebugInformation": "false",
         "WarningLevel": "3"
@@ -1202,15 +1202,15 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;CMAKE_INTDIR=\\\"Release\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)"
         },
         "MARMASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);CMAKE_INTDIR=\"Release\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(IncludePaths)",
           "ObjectFileName": "$(IntDir)%(Filename).obj"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\media\\themes\\Modern\\modern.msstyles;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",

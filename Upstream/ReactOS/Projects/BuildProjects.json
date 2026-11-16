@@ -22,6 +22,16 @@
       "Record": "Upstream/ReactOS/Projects/HostTools/GenIncData/GenIncData.Migration.json"
     },
     {
+      "Target": "wpphost",
+      "Project": "Upstream/ReactOS/Projects/HostTools/WppHost/WppHost.vcxproj",
+      "Record": "Upstream/ReactOS/Projects/HostTools/WppHost/WppHost.Migration.json"
+    },
+    {
+      "Target": "widl",
+      "Project": "Upstream/ReactOS/Projects/HostTools/Widl/Widl.vcxproj",
+      "Record": "Upstream/ReactOS/Projects/HostTools/Widl/Widl.Migration.json"
+    },
+    {
       "Target": "ReactOSPrepare",
       "Project": "Upstream/ReactOS/Projects/Prepare/ReactOSPrepare.vcxproj",
       "Record": "Upstream/ReactOS/Projects/Prepare/ReactOSPrepare.Migration.json"

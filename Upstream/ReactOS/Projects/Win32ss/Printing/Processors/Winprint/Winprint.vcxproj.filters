@@ -30,7 +30,7 @@
     <ClInclude Include="..\..\..\..\..\Source\win32ss\printing\processors\winprint\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\printing\processors\winprint\winprint.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\printing\processors\winprint\winprint.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\win32ss\printing\processors\winprint\CMakeLists.txt">

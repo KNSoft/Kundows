@@ -54,7 +54,7 @@
     <ClInclude Include="..\..\..\..\Source\drivers\filters\fltmgr\fltmgr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\filters\fltmgr\fltmgr.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\filters\fltmgr\fltmgr.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\filters\fltmgr\CMakeLists.txt">

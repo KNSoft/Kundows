@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\base\shell\rshell\misc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\shell\rshell\rshell.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\shell\rshell\rshell.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\base\shell\rshell\CMakeLists.txt">

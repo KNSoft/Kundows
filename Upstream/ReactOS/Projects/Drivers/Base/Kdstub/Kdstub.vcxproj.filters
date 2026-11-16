@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\drivers\base\kdstub\kdstub.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdstub\kdstub.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdstub\kdstub.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\base\kdstub\CMakeLists.txt">

@@ -21,13 +21,13 @@
     <ClCompile Include="..\..\..\Source\win32ss\win32u\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\win32u\asm\sys-stubs_win32u_asm.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\win32u\asm\sys-stubs_win32u_asm.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\win32u\asm\sys-stubs_win32u_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\win32u\asm\sys-stubs_win32u_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\win32u\win32u.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\win32u\win32u.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\Source\win32ss\win32u\CMakeLists.txt">

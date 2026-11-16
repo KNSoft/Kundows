@@ -24,7 +24,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\user\user32\user32_stubs.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\user\user32\user32_stubs.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\win32ss\user\rtl\image.c">
@@ -198,10 +198,10 @@
     <ClInclude Include="..\..\..\..\Source\win32ss\user\user32\include\user32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\user\user32\asm\wndproc_fixup_user32_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\user\user32\asm\wndproc_fixup_user32_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\user\user32\user32.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\user\user32\user32.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\win32ss\user\user32\CMakeLists.txt">

@@ -39,7 +39,7 @@
     <ClCompile Include="..\..\..\Source\hal\halx86\smp\smp.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\apentry_lib_hal_smp_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\asm\apentry_lib_hal_smp_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\Source\hal\halx86\CMakeLists.txt">

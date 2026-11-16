@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\CMakeFiles\extldr">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\CMakeFiles\extldr">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\boot\freeldr\bootsect\CMakeLists.txt">

@@ -96,16 +96,16 @@
     <ClInclude Include="..\..\..\..\Source\boot\freeldr\freeldr\include\freeldr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\drvmap_rosload_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\drvmap_rosload_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\linux_rosload_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\linux_rosload_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\misc_rosload_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\asm\misc_rosload_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\rosload.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\rosload.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\boot\freeldr\freeldr\CMakeLists.txt">

@@ -39,7 +39,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\np\nfs\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\np\nfs\nfs41_np.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\np\nfs\nfs41_np.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\np\nfs\CMakeLists.txt">

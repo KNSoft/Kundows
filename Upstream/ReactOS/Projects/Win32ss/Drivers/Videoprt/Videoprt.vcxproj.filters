@@ -75,7 +75,7 @@
     <ClInclude Include="..\..\..\..\Source\win32ss\drivers\videoprt\videoprt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\drivers\videoprt\videoprt.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\drivers\videoprt\videoprt.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\win32ss\drivers\videoprt\CMakeLists.txt">

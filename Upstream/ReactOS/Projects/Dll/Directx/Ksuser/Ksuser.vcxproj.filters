@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\directx\ksuser\ksuser.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\directx\ksuser\ksuser.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\ksuser\ksuser.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\directx\ksuser\CMakeLists.txt">

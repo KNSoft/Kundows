@@ -102,7 +102,7 @@
     <ClInclude Include="..\..\..\..\..\Source\drivers\storage\ide\pciidex\pciidex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\storage\ide\pciidex\pciidex.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\storage\ide\pciidex\pciidex.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\drivers\storage\ide\pciidex\CMakeLists.txt">

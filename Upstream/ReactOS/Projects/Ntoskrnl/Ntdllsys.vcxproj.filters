@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\ntdll_ntdllsys_asm.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\ntdll_ntdllsys_asm.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\ntdll_ntdllsys_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\asm\ntdll_ntdllsys_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\Source\ntoskrnl\CMakeLists.txt">

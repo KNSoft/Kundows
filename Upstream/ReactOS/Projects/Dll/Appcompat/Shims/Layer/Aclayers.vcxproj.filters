@@ -36,7 +36,7 @@
     <ClCompile Include="..\..\..\..\..\Source\dll\appcompat\shims\layer\vmhorizon.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\appcompat\shims\layer\aclayers.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\appcompat\shims\layer\aclayers.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\dll\appcompat\shims\layer\CMakeLists.txt">

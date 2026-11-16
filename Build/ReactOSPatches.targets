@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReactOSPatchesScript Condition="'$(ReactOSPatchesScript)' == ''">$(KundowsRoot)Build\ApplyReactOSPatches.ps1</ReactOSPatchesScript>
+    <ReactOSPatchesFile Condition="'$(ReactOSPatchesFile)' == ''">$(KundowsRoot)Build\Patches\ReactOS-arm64-ntdll.patch</ReactOSPatchesFile>
+    <ReactOSPatchesStateFile Condition="'$(ReactOSPatchesStateFile)' == ''">$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-arm64-ntdll.state</ReactOSPatchesStateFile>
+  </PropertyGroup>
+
+  <Target Name="ApplyReactOSPatches"
+          Condition="Exists('$(ReactOSPatchesScript)') and Exists('$(ReactOSPatchesFile)')"
+          BeforeTargets="PrepareForBuild">
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSPatchesScript)&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(ReactOSPatchesFile)&quot; -StateFile &quot;$(ReactOSPatchesStateFile)&quot;" />
+  </Target>
+</Project>

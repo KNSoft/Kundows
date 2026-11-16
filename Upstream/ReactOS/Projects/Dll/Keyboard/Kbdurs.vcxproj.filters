@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\Source\dll\keyboard\kbdurs\kbdurs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\keyboard\kbdurs.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\keyboard\kbdurs.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\Source\dll\keyboard\CMakeLists.txt">

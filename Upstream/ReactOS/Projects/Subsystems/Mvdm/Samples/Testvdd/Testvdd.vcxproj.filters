@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\..\Source\subsystems\mvdm\samples\testvdd\testvdd.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\subsystems\mvdm\samples\testvdd\CMakeLists.txt">

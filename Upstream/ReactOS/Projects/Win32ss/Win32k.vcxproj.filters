@@ -24,13 +24,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\gdi\dib\dib16gen.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\gdi\dib\dib16gen.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\gdi\dib\dib32gen.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\gdi\dib\dib32gen.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\gdi\dib\dib8gen.c">
+    <ClCompile Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\gdi\dib\dib8gen.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\win32ss\gdi\dib\alphablend.c">
@@ -519,19 +519,19 @@
     <ClInclude Include="..\..\Source\win32ss\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\asm\dib24bpp_hline_win32k_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\asm\dib24bpp_hline_win32k_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\asm\dib32bpp_colorfill_win32k_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\asm\dib32bpp_colorfill_win32k_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\asm\dib32bpp_hline_win32k_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\asm\dib32bpp_hline_win32k_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\asm\floatobj_win32k_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\asm\floatobj_win32k_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <None Include="$(ProjectDir)..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\win32k.def">
+    <None Include="$(ProjectDir)..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\win32k.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\Source\win32ss\CMakeLists.txt">

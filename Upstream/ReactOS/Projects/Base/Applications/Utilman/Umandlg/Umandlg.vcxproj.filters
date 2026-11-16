@@ -33,7 +33,7 @@
     <ClInclude Include="..\..\..\..\..\Source\base\applications\utilman\umandlg\umandlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\applications\utilman\umandlg\umandlg.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\applications\utilman\umandlg\umandlg.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\base\applications\utilman\umandlg\CMakeLists.txt">

@@ -174,7 +174,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\opengl\mesa\xform.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\opengl\mesa\asm\asm-386_mesa_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\opengl\mesa\asm\asm-386_mesa_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\dll\opengl\mesa\CMakeLists.txt">

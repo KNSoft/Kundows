@@ -177,7 +177,7 @@
     <ClInclude Include="..\..\..\..\Source\drivers\usb\usbhub3\usbhub3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\usb\usbhub3\usbhub3.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\usb\usbhub3\usbhub3.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\usb\usbhub3\CMakeLists.txt">

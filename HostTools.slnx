@@ -4,7 +4,7 @@
     <BuildType Name="Release" />
     <Platform Name="ARM64" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
+    <Platform Name="Win32" />
   </Configurations>
   <Folder Name="/HostTools/Hpp/">
     <Project Path="Upstream/ReactOS/Projects/HostTools/Hpp/Hpp.vcxproj" />
@@ -15,5 +15,11 @@
   <Folder Name="/HostTools/GenInc/">
     <Project Path="Upstream/ReactOS/Projects/HostTools/GenInc/GenInc.vcxproj" />
     <Project Path="Upstream/ReactOS/Projects/HostTools/GenIncData/GenIncData.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/WppHost/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/WppHost/WppHost.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Widl/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Widl/Widl.vcxproj" />
   </Folder>
 </Solution>

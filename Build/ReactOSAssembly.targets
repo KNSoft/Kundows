@@ -1,4 +1,5 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(KundowsRoot)Build\ReactOSGenInc.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSGenInc.targets')" />
   <PropertyGroup>
     <ReactOSAssemblyCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITECTURE)' == 'AMD64'">x64</ReactOSAssemblyCompilerHostArchitecture>
     <ReactOSAssemblyCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITEW6432)' == 'AMD64'">x64</ReactOSAssemblyCompilerHostArchitecture>
@@ -9,6 +10,8 @@
     <ReactOSAssemblyCompilerArchitecture Condition="'$(Platform)' == 'x64'">x64</ReactOSAssemblyCompilerArchitecture>
     <ReactOSAssemblyCompilerArchitecture Condition="'$(Platform)' == 'ARM64'">arm64</ReactOSAssemblyCompilerArchitecture>
     <ReactOSAssemblyCompiler>$(VCToolsInstallDir)bin\Host$(ReactOSAssemblyCompilerHostArchitecture)\$(ReactOSAssemblyCompilerArchitecture)\cl.exe</ReactOSAssemblyCompiler>
+    <ReactOSAssemblyScript>$(KundowsRoot)Build\GenerateReactOSAssemblySources.ps1</ReactOSAssemblyScript>
+    <ReactOSAssemblyListDirectory>$(IntDir)ReactOSAssembly\</ReactOSAssemblyListDirectory>
   </PropertyGroup>
   <Target Name="GenerateReactOSAssembly"
           Condition="'@(ReactOSAssemblySource)' != ''"
@@ -19,5 +22,52 @@
     <Error Condition="!Exists('$(ReactOSAssemblyCompiler)')" Text="MSVC compiler was not found for $(Platform): $(ReactOSAssemblyCompiler)" />
     <MakeDir Directories="@(ReactOSAssemblySource->'%(AsmOutputDirectory)')" />
     <Exec Command="&quot;$(ReactOSAssemblyCompiler)&quot; /nologo /X @(ReactOSAssemblyIncludeDirectory->'/I&quot;%(Identity)&quot;', ' ') @(ReactOSAssemblyDefinition->'/D%(Identity)', ' ') /EP /c &quot;%(ReactOSAssemblySource.Identity)&quot; &gt; &quot;%(ReactOSAssemblySource.AsmOutput)&quot;" />
+  </Target>
+  <Target Name="GenerateReactOSInferredAssembly"
+          Condition="'$(ReactOSAssemblyInferenceEnabled)' == 'true' and '@(ReactOSAssemblySource)' == ''"
+          DependsOnTargets="GenerateReactOSGenInc"
+          BeforeTargets="PrepareForBuild"
+          Inputs="$(MSBuildProjectFullPath);$(ReactOSAssemblyScript);@(None);@(MASM);@(MARMASM);$(ReactOSGenIncOutputFile)"
+          Outputs="@(MASM);@(MARMASM)">
+    <Error Condition="!Exists('$(ReactOSAssemblyCompiler)')" Text="MSVC compiler was not found for $(Platform): $(ReactOSAssemblyCompiler)" />
+    <ItemGroup>
+      <ReactOSInferredAssemblySource Include="@(None)" />
+      <ReactOSInferredAssemblyOutput Include="@(MASM)" />
+      <ReactOSInferredAssemblyOutput Include="@(MARMASM)" />
+    </ItemGroup>
+    <MakeDir Directories="$(ReactOSAssemblyListDirectory)" />
+    <ItemGroup>
+      <ReactOSAssemblyIncludeDirectory Include="$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\asm" />
+      <ReactOSAssemblyIncludeDirectory Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\asm" />
+      <ReactOSAssemblyIncludeDirectory Include="@(ClCompile->'%(AdditionalIncludeDirectories)')" />
+      <ReactOSAssemblyIncludeDirectory Include="@(MASM->'%(IncludePaths)')" />
+      <ReactOSAssemblyIncludeDirectory Include="@(MARMASM->'%(IncludePaths)')" />
+      <ReactOSAssemblyDefinition Include="@(ClCompile->'%(PreprocessorDefinitions)')" />
+      <ReactOSAssemblyDefinition Include="@(MASM->'%(PreprocessorDefinitions)')" />
+      <ReactOSAssemblyDefinition Include="@(MARMASM->'%(PreprocessorDefinitions)')" />
+    </ItemGroup>
+    <RemoveDuplicates Inputs="@(ReactOSAssemblyIncludeDirectory)">
+      <Output TaskParameter="Filtered" ItemName="ReactOSAssemblyUniqueIncludeDirectory" />
+    </RemoveDuplicates>
+    <RemoveDuplicates Inputs="@(ReactOSAssemblyDefinition)">
+      <Output TaskParameter="Filtered" ItemName="ReactOSAssemblyUniqueDefinition" />
+    </RemoveDuplicates>
+    <WriteLinesToFile
+      File="$(ReactOSAssemblyListDirectory)Sources.txt"
+      Lines="@(ReactOSInferredAssemblySource->'%(FullPath)')"
+      Overwrite="true" />
+    <WriteLinesToFile
+      File="$(ReactOSAssemblyListDirectory)Outputs.txt"
+      Lines="@(ReactOSInferredAssemblyOutput->'%(FullPath)')"
+      Overwrite="true" />
+    <WriteLinesToFile
+      File="$(ReactOSAssemblyListDirectory)Includes.txt"
+      Lines="@(ReactOSAssemblyUniqueIncludeDirectory)"
+      Overwrite="true" />
+    <WriteLinesToFile
+      File="$(ReactOSAssemblyListDirectory)Definitions.txt"
+      Lines="@(ReactOSAssemblyUniqueDefinition)"
+      Overwrite="true" />
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSAssemblyScript)&quot; -Compiler &quot;$(ReactOSAssemblyCompiler)&quot; -SourceListFile &quot;$(ReactOSAssemblyListDirectory)Sources.txt&quot; -OutputListFile &quot;$(ReactOSAssemblyListDirectory)Outputs.txt&quot; -IncludeListFile &quot;$(ReactOSAssemblyListDirectory)Includes.txt&quot; -DefinitionListFile &quot;$(ReactOSAssemblyListDirectory)Definitions.txt&quot;" />
   </Target>
 </Project>

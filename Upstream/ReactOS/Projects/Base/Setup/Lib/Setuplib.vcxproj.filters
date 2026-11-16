@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\base\setup\lib\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\setup\lib\setuplib.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\setup\lib\setuplib.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\base\setup\lib\CMakeLists.txt">

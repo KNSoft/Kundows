@@ -12,16 +12,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\libkdcom_impalias.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\libkdcom_impalias.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MARMASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\libkdcom_impalias.asm">
+    <MARMASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\libkdcom_impalias.asm">
       <Filter>Generated Files</Filter>
     </MARMASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\libkdcom_impalias.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\libkdcom_impalias.asm">
       <Filter>Generated Files</Filter>
     </MASM>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\libkdcom_impalias.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\libkdcom_impalias.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\Source\drivers\base\kdcom\CMakeLists.txt">
@@ -39,10 +39,10 @@
     <None Include="Libkdcom.Migration.json">
       <Filter>Migration</Filter>
     </None>
-    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\libkdcom_tmp.lib">
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\libkdcom_tmp.lib">
       <Filter>Generated Files</Filter>
     </Object>
-    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\libkdcom_tmp.lib">
+    <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\libkdcom_tmp.lib">
       <Filter>Generated Files</Filter>
     </Object>
   </ItemGroup>

@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\win32ss\user\winsrv\init.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\win32ss\user\winsrv\winsrv.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\user\winsrv\winsrv.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\win32ss\user\winsrv\CMakeLists.txt">

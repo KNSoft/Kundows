@@ -51,7 +51,7 @@
     <ClInclude Include="..\..\..\..\..\Source\drivers\storage\port\scsiport\scsiport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\storage\port\scsiport\scsiport.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\storage\port\scsiport\scsiport.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\Source\drivers\storage\port\scsiport\CMakeLists.txt">

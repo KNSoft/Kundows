@@ -45,7 +45,7 @@
     <ClInclude Include="..\..\..\..\Source\subsystems\csr\csrsrv\srv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\subsystems\csr\csrsrv\csrsrv.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\csr\csrsrv\csrsrv.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\subsystems\csr\csrsrv\CMakeLists.txt">

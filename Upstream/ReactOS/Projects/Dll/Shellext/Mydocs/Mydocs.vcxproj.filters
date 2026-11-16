@@ -30,7 +30,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\shellext\mydocs\precomp.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\shellext\mydocs\mydocs.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\shellext\mydocs\mydocs.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\shellext\mydocs\CMakeLists.txt">

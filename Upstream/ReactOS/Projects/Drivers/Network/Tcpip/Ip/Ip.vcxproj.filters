@@ -96,7 +96,7 @@
     <ClInclude Include="..\..\..\..\..\Source\drivers\network\tcpip\ip\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\network\tcpip\ip\asm\checksum_ip_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tcpip\ip\asm\checksum_ip_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\..\Source\drivers\network\tcpip\ip\CMakeLists.txt">

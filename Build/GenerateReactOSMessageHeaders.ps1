@@ -39,6 +39,11 @@ finally {
     $reader.Dispose()
 }
 
+# The frozen ReactOS sources use semicolon comment lines.  Recent mc.exe
+# versions copy a leading semicolon comment into the generated header without
+# turning it into a C comment, so discard those comments before invocation.
+$sourceText = [regex]::Replace($sourceText, "(?m)^\s*;.*(?:\r?\n|$)", "")
+
 [IO.File]::WriteAllText(
     $convertedSource,
     $sourceText,

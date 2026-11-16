@@ -36,7 +36,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\shellext\ntobjshex\precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\shellext\ntobjshex\ntobjshex.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\shellext\ntobjshex\ntobjshex.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\shellext\ntobjshex\CMakeLists.txt">

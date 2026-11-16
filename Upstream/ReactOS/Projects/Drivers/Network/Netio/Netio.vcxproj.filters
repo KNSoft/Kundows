@@ -24,7 +24,7 @@
     <ClCompile Include="..\..\..\..\Source\drivers\network\tdihelpers\tdiconn.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\network\netio\netio.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\netio\netio.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\drivers\network\netio\CMakeLists.txt">

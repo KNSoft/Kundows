@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\..\..\Source\dll\shellext\mmcshext\mmcshext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\shellext\mmcshext\mmcshext.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\shellext\mmcshext\mmcshext.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\shellext\mmcshext\CMakeLists.txt">

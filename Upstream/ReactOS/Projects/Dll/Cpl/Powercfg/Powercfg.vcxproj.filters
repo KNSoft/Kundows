@@ -42,7 +42,7 @@
     <ClInclude Include="..\..\..\..\Source\dll\cpl\powercfg\powercfg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\dll\cpl\powercfg\powercfg.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\cpl\powercfg\powercfg.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\dll\cpl\powercfg\CMakeLists.txt">

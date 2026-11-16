@@ -30,7 +30,7 @@
     <ClCompile Include="..\..\..\..\Source\sdk\lib\vcruntime\purecall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_chkesp_vcruntime_asm.asm">
+    <MASM Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\vcruntime\asm\_chkesp_vcruntime_asm.asm">
       <Filter>Generated Files</Filter>
     </MASM>
     <None Include="..\..\..\..\Source\sdk\lib\vcruntime\CMakeLists.txt">

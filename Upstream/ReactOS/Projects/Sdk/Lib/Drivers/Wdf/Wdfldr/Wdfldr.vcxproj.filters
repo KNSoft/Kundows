@@ -39,7 +39,7 @@
     <ClInclude Include="..\..\..\..\..\..\Source\sdk\lib\drivers\wdf\wdfldr\wdfloader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\sdk\lib\drivers\wdf\wdfldr\wdfldr.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\lib\drivers\wdf\wdfldr\wdfldr.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\..\Source\sdk\lib\drivers\wdf\wdfldr\CMakeLists.txt">

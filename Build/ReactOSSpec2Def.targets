@@ -1,6 +1,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ReactOSSpec2DefEnabled Condition="'$(ReactOSSpec2DefEnabled)' == ''">true</ReactOSSpec2DefEnabled>
+    <ReactOSSpec2DefTool Condition="'$(ReactOSSpec2DefTool)' == '' and '$(Platform)' == 'ARM64' and ('$(PROCESSOR_ARCHITECTURE)' == 'AMD64' or '$(PROCESSOR_ARCHITEW6432)' == 'AMD64')">$(KundowsRoot)OutDir\HostTools\x64\$(Configuration)\spec2def.exe</ReactOSSpec2DefTool>
     <ReactOSSpec2DefTool Condition="'$(ReactOSSpec2DefTool)' == ''">$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\spec2def.exe</ReactOSSpec2DefTool>
     <ReactOSSpec2DefArchitecture Condition="'$(ReactOSSpec2DefArchitecture)' == '' and '$(Platform)' == 'Win32'">i386</ReactOSSpec2DefArchitecture>
     <ReactOSSpec2DefArchitecture Condition="'$(ReactOSSpec2DefArchitecture)' == '' and '$(Platform)' == 'x64'">x86_64</ReactOSSpec2DefArchitecture>

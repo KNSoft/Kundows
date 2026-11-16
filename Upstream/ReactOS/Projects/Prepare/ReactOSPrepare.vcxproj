@@ -19,9 +19,6 @@
     <ReactOSSourceDirectory>$(KundowsRoot)Upstream\ReactOS\Source</ReactOSSourceDirectory>
     <ReactOSSourceRoot>$(ReactOSSourceDirectory)\</ReactOSSourceRoot>
     <CommonIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\Common\Include</CommonIncludeDirectory>
-    <PlatformIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include</PlatformIncludeDirectory>
-    <ModuleGeneratedDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\ReactOSPrepare</ModuleGeneratedDirectory>
-    <HppTool>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\hpp.exe</HppTool>
     <XdkDirectory>$(ReactOSSourceDirectory)\sdk\include\xdk</XdkDirectory>
     <ReactOSMessageHeaderScript>$(KundowsRoot)Build\GenerateReactOSMessageHeaders.ps1</ReactOSMessageHeaderScript>
     <ReactOSMessageOutputDirectory>$(CommonIncludeDirectory)\reactos\mc</ReactOSMessageOutputDirectory>
@@ -39,6 +36,10 @@
     <Import Project="..\ReactOS.props" />
   </ImportGroup>
   <PropertyGroup>
+    <PlatformIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include</PlatformIncludeDirectory>
+    <ModuleGeneratedDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\ReactOSPrepare</ModuleGeneratedDirectory>
+    <HppTool Condition="'$(Platform)' == 'ARM64' and '$(PROCESSOR_ARCHITECTURE)' == 'AMD64'">$(KundowsRoot)OutDir\HostTools\x64\$(Configuration)\hpp.exe</HppTool>
+    <HppTool Condition="'$(HppTool)' == ''">$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\hpp.exe</HppTool>
     <IntDir>$(KundowsRoot)IntDir\$(Platform)\$(Configuration)\ReactOSPrepare\</IntDir>
   </PropertyGroup>
   <ItemGroup>
@@ -104,6 +105,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HostTools\Hpp\Hpp.vcxproj">
       <Project>{5CDE3E84-C42D-4B9F-B3D2-DB7598B48D09}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>

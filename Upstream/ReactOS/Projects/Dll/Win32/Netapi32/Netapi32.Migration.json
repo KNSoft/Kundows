@@ -14,7 +14,7 @@
   ],
   "Adaptations": [
     "Source references are relative to the native project",
-    "Generated inputs are relocated to OutDir/Generated/<Platform>/<Configuration>",
+    "Generated inputs are relocated to OutDir/Build/Generated/<Platform>/<Configuration>",
     "CMake PCH wrapper sources are replaced by /Yc on an original source for each language",
     "__RELFILE__ uses __FILE__ to avoid checkout-path-specific offsets",
     "Object-library inputs refer to their native intermediate directories",
@@ -53,13 +53,13 @@
             "dll/win32/netapi32/netapi32.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
         },
         {
           "Status": "NotMigrated",
@@ -67,8 +67,8 @@
             "sdk/include/reactos/idl/atsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -81,8 +81,8 @@
             "sdk/include/reactos/idl/browser.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
           ],
           "HostTools": [
             "widl"
@@ -95,8 +95,8 @@
             "sdk/include/reactos/idl/dssetup.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
           ],
           "HostTools": [
             "widl"
@@ -109,8 +109,8 @@
             "sdk/include/reactos/idl/netdfs.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
           ],
           "HostTools": [
             "widl"
@@ -123,8 +123,8 @@
             "sdk/include/reactos/idl/netlogon.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
           ],
           "HostTools": [
             "widl"
@@ -137,8 +137,8 @@
             "sdk/include/reactos/idl/srvsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -151,8 +151,8 @@
             "sdk/include/reactos/idl/wkssvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -170,13 +170,13 @@
             "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\browser.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\dfs.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\display.c",
@@ -206,7 +206,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ]
         },
         {
@@ -288,7 +288,7 @@
           "GenerateManifest": "false"
         },
         "ClCompile": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /w14115 /EHs-c-",
           "AssemblerListingLocation": "$(IntDir)",
           "BasicRuntimeChecks": "EnableFastChecks",
@@ -323,18 +323,18 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Debug\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
         },
         "MASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
           "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /RTC1 /wd4267",
           "GenerateDebugInformation": "true",
           "PreserveIdentifierCase": "1",
           "WarningLevel": "3"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -358,7 +358,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -442,13 +442,13 @@
             "dll/win32/netapi32/netapi32.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=i386 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
         },
         {
           "Status": "NotMigrated",
@@ -456,8 +456,8 @@
             "sdk/include/reactos/idl/atsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -470,8 +470,8 @@
             "sdk/include/reactos/idl/browser.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
           ],
           "HostTools": [
             "widl"
@@ -484,8 +484,8 @@
             "sdk/include/reactos/idl/dssetup.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
           ],
           "HostTools": [
             "widl"
@@ -498,8 +498,8 @@
             "sdk/include/reactos/idl/netdfs.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
           ],
           "HostTools": [
             "widl"
@@ -512,8 +512,8 @@
             "sdk/include/reactos/idl/netlogon.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
           ],
           "HostTools": [
             "widl"
@@ -526,8 +526,8 @@
             "sdk/include/reactos/idl/srvsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -540,8 +540,8 @@
             "sdk/include/reactos/idl/wkssvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -559,13 +559,13 @@
             "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\browser.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\dfs.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\display.c",
@@ -595,7 +595,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ]
         },
         {
@@ -620,7 +620,7 @@
           "GenerateManifest": "false"
         },
         "ClCompile": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /w14115 /EHs-c-",
           "AssemblerListingLocation": "$(IntDir)",
           "BasicRuntimeChecks": "Default",
@@ -658,18 +658,18 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Release\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
         },
         "MASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_IX86;_X86_;__i386__;i386;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;_USE_32BIT_TIME_T;WIN32;_WINDOWS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
           "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /arch:IA32 /Zc:threadSafeInit- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /hotpatch /wd4267",
           "GenerateDebugInformation": "false",
           "PreserveIdentifierCase": "1",
           "WarningLevel": "3"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -693,7 +693,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -775,13 +775,13 @@
             "dll/win32/netapi32/netapi32.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
         },
         {
           "Status": "NotMigrated",
@@ -789,8 +789,8 @@
             "sdk/include/reactos/idl/atsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -803,8 +803,8 @@
             "sdk/include/reactos/idl/browser.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
           ],
           "HostTools": [
             "widl"
@@ -817,8 +817,8 @@
             "sdk/include/reactos/idl/dssetup.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
           ],
           "HostTools": [
             "widl"
@@ -831,8 +831,8 @@
             "sdk/include/reactos/idl/netdfs.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
           ],
           "HostTools": [
             "widl"
@@ -845,8 +845,8 @@
             "sdk/include/reactos/idl/netlogon.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
           ],
           "HostTools": [
             "widl"
@@ -859,8 +859,8 @@
             "sdk/include/reactos/idl/srvsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -873,8 +873,8 @@
             "sdk/include/reactos/idl/wkssvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -892,13 +892,13 @@
             "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\browser.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\dfs.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\display.c",
@@ -928,7 +928,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ]
         },
         {
@@ -953,7 +953,7 @@
           "GenerateManifest": "false"
         },
         "ClCompile": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /d2FH4- /w14115 /EHs-c-",
           "AssemblerListingLocation": "$(IntDir)",
           "BasicRuntimeChecks": "EnableFastChecks",
@@ -986,18 +986,18 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Debug\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
         },
         "MASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;__x86_64;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
           "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1 /wd4267",
           "GenerateDebugInformation": "true",
           "PreserveIdentifierCase": "1",
           "WarningLevel": "3"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -1021,7 +1021,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -1103,13 +1103,13 @@
             "dll/win32/netapi32/netapi32.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=x86_64 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
         },
         {
           "Status": "NotMigrated",
@@ -1117,8 +1117,8 @@
             "sdk/include/reactos/idl/atsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1131,8 +1131,8 @@
             "sdk/include/reactos/idl/browser.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1145,8 +1145,8 @@
             "sdk/include/reactos/idl/dssetup.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1159,8 +1159,8 @@
             "sdk/include/reactos/idl/netdfs.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1173,8 +1173,8 @@
             "sdk/include/reactos/idl/netlogon.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1187,8 +1187,8 @@
             "sdk/include/reactos/idl/srvsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1201,8 +1201,8 @@
             "sdk/include/reactos/idl/wkssvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1220,13 +1220,13 @@
             "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\browser.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\dfs.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\display.c",
@@ -1256,7 +1256,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ]
         },
         {
@@ -1281,7 +1281,7 @@
           "GenerateManifest": "false"
         },
         "ClCompile": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /d2FH4- /w14115 /EHs-c-",
           "AssemblerListingLocation": "$(IntDir)",
           "BasicRuntimeChecks": "Default",
@@ -1317,18 +1317,18 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Release\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
         },
         "MASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_M_AMD64;_M_X64;_AMD64_;__x86_64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;__x86_64;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
           "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /d2FH4- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /wd4267",
           "GenerateDebugInformation": "false",
           "PreserveIdentifierCase": "1",
           "WarningLevel": "3"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -1352,7 +1352,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -1432,13 +1432,13 @@
             "dll/win32/netapi32/netapi32.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 --dbg $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
         },
         {
           "Status": "NotMigrated",
@@ -1446,8 +1446,8 @@
             "sdk/include/reactos/idl/atsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1460,8 +1460,8 @@
             "sdk/include/reactos/idl/browser.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1474,8 +1474,8 @@
             "sdk/include/reactos/idl/dssetup.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1488,8 +1488,8 @@
             "sdk/include/reactos/idl/netdfs.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1502,8 +1502,8 @@
             "sdk/include/reactos/idl/netlogon.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1516,8 +1516,8 @@
             "sdk/include/reactos/idl/srvsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1530,8 +1530,8 @@
             "sdk/include/reactos/idl/wkssvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1549,13 +1549,13 @@
             "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\browser.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\dfs.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\display.c",
@@ -1585,7 +1585,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ]
         },
         {
@@ -1604,7 +1604,7 @@
       "TrialBuild": "NotAttempted",
       "OriginalArm64AssemblerSettings": {
         "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
-        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
         "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ob0 /Od /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /RTC1 /wd4267",
         "GenerateDebugInformation": "true",
         "WarningLevel": "3"
@@ -1617,7 +1617,7 @@
           "GenerateManifest": "false"
         },
         "ClCompile": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115 /EHs-c-",
           "AssemblerListingLocation": "$(IntDir)",
           "BasicRuntimeChecks": "EnableFastChecks",
@@ -1650,15 +1650,15 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;_DEBUG;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Debug\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
         },
         "MARMASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=1;_SEH_ENABLE_TRACE;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;__RUNTIME_CHECKS__;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Debug\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
           "ObjectFileName": "$(IntDir)%(Filename).obj"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -1681,7 +1681,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -1763,13 +1763,13 @@
             "dll/win32/netapi32/netapi32.spec"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32.def",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ],
           "HostTools": [
             "spec2def"
           ],
-          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
+          "ReferenceCommand": "..\\..\\..\\host-tools\\bin\\$(Configuration)\\spec2def.exe --ms -a=arm64 -n=netapi32.dll -d=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def -s=$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32_stubs.c --version=0x502 $(ProjectDir)..\\..\\..\\..\\Source/dll/win32/netapi32/netapi32.spec"
         },
         {
           "Status": "NotMigrated",
@@ -1777,8 +1777,8 @@
             "sdk/include/reactos/idl/atsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1791,8 +1791,8 @@
             "sdk/include/reactos/idl/browser.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1805,8 +1805,8 @@
             "sdk/include/reactos/idl/dssetup.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1819,8 +1819,8 @@
             "sdk/include/reactos/idl/netdfs.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1833,8 +1833,8 @@
             "sdk/include/reactos/idl/netlogon.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1847,8 +1847,8 @@
             "sdk/include/reactos/idl/srvsvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1861,8 +1861,8 @@
             "sdk/include/reactos/idl/wkssvc.idl"
           ],
           "Outputs": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.h"
           ],
           "HostTools": [
             "widl"
@@ -1880,13 +1880,13 @@
             "PrecompiledHeaderOutputFile": "$(IntDir)$(ProjectName).c.pch"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\atsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\browser_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\dssetup_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netdfs_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netlogon_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\srvsvc_c.c",
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\wkssvc_c.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\browser.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\dfs.c",
             "..\\..\\..\\..\\Source\\dll\\win32\\netapi32\\display.c",
@@ -1916,7 +1916,7 @@
             "PrecompiledHeader": "NotUsing"
           },
           "Files": [
-            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+            "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
           ]
         },
         {
@@ -1935,7 +1935,7 @@
       "TrialBuild": "NotAttempted",
       "OriginalArm64AssemblerSettings": {
         "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
-        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+        "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
         "AdditionalOptions": "%(AdditionalOptions) /MP /MT /Ox /Ob2 /Ot /Oy /GT /GF /X /Zl /wd4819 /GS- /Zc:threadSafeInit- /forceInterlockedFunctions- /wd4244 /wd4290 /wd4800 /wd4200 /wd4214 /wd4018 /w14115 /wd4267",
         "GenerateDebugInformation": "false",
         "WarningLevel": "3"
@@ -1948,7 +1948,7 @@
           "GenerateManifest": "false"
         },
         "ClCompile": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\c++\\stlport;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\atl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "AdditionalOptions": "%(AdditionalOptions) /Zc:__cplusplus /Zc:threadSafeInit- /forceInterlockedFunctions- /w14115 /EHs-c-",
           "AssemblerListingLocation": "$(IntDir)",
           "BasicRuntimeChecks": "Default",
@@ -1984,15 +1984,15 @@
         },
         "ResourceCompile": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);WIN32;__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\\\"Release\\\";",
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)"
         },
         "MARMASM": {
           "PreprocessorDefinitions": "%(PreprocessorDefinitions);__REACTOS__;__RELFILE__=__FILE__;_SBCS;DBG=0;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_ARM64_;__arm64__;__aarch64__;_WIN64;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;NDEBUG=;LANGUAGE_EN_US;WIN32_LEAN_AND_MEAN=;_DLL;__USE_CRTIMP;CMAKE_INTDIR=\"Release\";",
-          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
+          "IncludePaths": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(IncludePaths)",
           "ObjectFileName": "$(IntDir)%(Filename).obj"
         },
         "Midl": {
-          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
+          "AdditionalIncludeDirectories": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\dll\\win32\\netapi32;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\crt;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\ndk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\vcruntime;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\winrt;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\psdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\ddk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos;$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\sdk\\include\\reactos\\mc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\dxsdk;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\pseh\\include;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\idl;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\tdilib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\cryptlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\apisets;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\vcruntime\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libpng;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\zlib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libjpeg;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\libtiff;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\inc;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\lib\\3rdparty\\symcrypt\\lib;$(ProjectDir)..\\..\\..\\..\\Source\\sdk\\include\\reactos\\libs\\mbedtls;%(AdditionalIncludeDirectories)",
           "OutputDirectory": "$(IntDir)",
           "HeaderFileName": "%(Filename).h",
           "TypeLibraryName": "%(Filename).tlb",
@@ -2015,7 +2015,7 @@
           "ImportLibrary": "$(OutDir)$(TargetName).lib",
           "LinkDLL": "true",
           "LinkErrorReporting": "",
-          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
+          "ModuleDefinitionFile": "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)/dll/win32/netapi32/netapi32.def",
           "OptimizeReferences": "true",
           "ProgramDataBaseFile": "$(OutDir)$(TargetName).pdb",
           "RandomizedBaseAddress": "",
@@ -2135,22 +2135,22 @@
       "Reason": "File API lists PCH headers even for sources explicitly marked NotUsing; original per-file overrides take precedence",
       "Configurations": {
         "Debug|Win32": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
         ],
         "Release|Win32": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
         ],
         "Debug|x64": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
         ],
         "Release|x64": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
         ],
         "Debug|ARM64": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
         ],
         "Release|ARM64": [
-          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
+          "$(ProjectDir)..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\$(Platform)\\$(Configuration)\\dll\\win32\\netapi32\\netapi32_stubs.c"
         ]
       },
       "Resolution": "Preserve NotUsing and original forced includes; choose another original source as native PCH creator"

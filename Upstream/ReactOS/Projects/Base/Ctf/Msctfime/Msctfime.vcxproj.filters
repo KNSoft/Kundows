@@ -42,7 +42,7 @@
     <ClCompile Include="..\..\..\..\Source\base\ctf\msctfime\ui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\base\ctf\msctfime\msctfime.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\base\ctf\msctfime\msctfime.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\Source\base\ctf\msctfime\CMakeLists.txt">

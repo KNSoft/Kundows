@@ -147,7 +147,7 @@
     <ClInclude Include="..\..\..\..\..\..\Source\drivers\wdm\audio\backpln\portcls\private.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <None Include="$(ProjectDir)..\..\..\..\..\..\..\..\OutDir\Generated\$(Platform)\$(Configuration)\drivers\wdm\audio\backpln\portcls\portcls.def">
+    <None Include="$(ProjectDir)..\..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\wdm\audio\backpln\portcls\portcls.def">
       <Filter>Generated Files</Filter>
     </None>
     <None Include="..\..\..\..\..\..\Source\drivers\wdm\audio\backpln\portcls\CMakeLists.txt">
