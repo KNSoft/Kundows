@@ -8,8 +8,7 @@ param(
     [string]$Configuration = "Release",
     [string]$SourceRoot = "",
     [string]$KundowsRoot = "",
-    [string]$OutputDirectory = "",
-    [switch]$AllowUnresolved
+    [string]$OutputDirectory = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -787,7 +786,6 @@ function Build-ReactOSCabinet {
         }
         $destination = ([string]$declaration.Destination).Replace([string]"\", [string]"/").ToLowerInvariant()
         if (-not $directoryNumbers.ContainsKey($destination)) {
-            if ($AllowUnresolved) { continue }
             throw "No upstream CAB directory number for '$($declaration.Destination)'."
         }
         $key = "$($declaration.Source)|$($directoryNumbers[$destination])"
@@ -1361,7 +1359,6 @@ $report = [pscustomobject]@{
     Platform = $Platform
     Configuration = $Configuration
     Architecture = $architecture
-    AllowUnresolved = [bool]$AllowUnresolved
     Declarations = $result.Declarations
     Unresolved = $result.Unresolved
     GeneratedInfConversions = $result.GeneratedInfConversions
@@ -1376,7 +1373,7 @@ Write-Host "ISO declaration audit: declarations=$($result.Declarations.Count), u
 Write-Host "Audit report: $reportPath"
 
 if ($Mode -eq "Build") {
-    if ($report.BootcdUnresolved.Count -gt 0 -and -not $AllowUnresolved) {
+    if ($report.BootcdUnresolved.Count -gt 0) {
         throw "ISO build is blocked because the upstream declaration adapter has unresolved BootCD entries. See $reportPath or use -Mode Audit to resolve them."
     }
     Build-NlsFiles
