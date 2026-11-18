@@ -618,6 +618,10 @@ function Get-RegistryInfSources {
     $sources = [Collections.Generic.List[string]]::new()
     foreach ($cmake in Get-ChildItem -LiteralPath $SourceRoot -Recurse -Filter "CMakeLists.txt" -File) {
         $sourceDirectory = Split-Path -Parent $cmake.FullName
+        $relativeDirectory = [IO.Path]::GetRelativePath($SourceRoot, $sourceDirectory).Replace("\", "/").ToLowerInvariant()
+        if ($defaultDisabledCmakeDirectories -contains $relativeDirectory) {
+            continue
+        }
         $text = Get-Content -LiteralPath $cmake.FullName -Raw
         foreach ($call in Get-CMakeCalls -Text $text -CommandName "add_registry_inf") {
             foreach ($token in (Split-CMakeArguments $call.Body)) {
