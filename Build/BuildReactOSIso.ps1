@@ -41,6 +41,43 @@ $winArchitecture = switch ($Platform) {
     "ARM64" { "arm64" }
 }
 
+# These directories are not part of ReactOS' default system configuration:
+# the parent CMake files either comment them out or guard them with
+# DLL_EXPORT_VERSION >= 0x600/0x603 (the default is 0x502).
+$defaultDisabledCmakeDirectories = @(
+    "base/applications/msconfig_new",
+    "dll/cpl/liccpa",
+    "dll/directx/ksproxy",
+    "dll/directx/wine/d2d1",
+    "dll/directx/wine/d3d10",
+    "dll/directx/wine/d3d10_1",
+    "dll/directx/wine/d3d10core",
+    "dll/directx/wine/d3d11",
+    "dll/directx/wine/d3d12",
+    "dll/directx/wine/d3d12core",
+    "dll/directx/wine/d3dx10_43",
+    "dll/directx/wine/dplay",
+    "dll/directx/wine/dpnhpast",
+    "dll/directx/wine/dwrite",
+    "dll/directx/wine/dxcore",
+    "dll/directx/wine/dxgi",
+    "dll/directx/wine/dxva2",
+    "dll/nls/idndl",
+    "dll/win32/avrt",
+    "dll/win32/bcp47langs",
+    "dll/win32/bcryptprimitives",
+    "dll/win32/dcomp",
+    "dll/win32/dwmapi",
+    "dll/win32/mmdevapi",
+    "dll/win32/msnet32",
+    "dll/win32/ncrypt",
+    "dll/win32/rtworkq",
+    "dll/win32/tbs",
+    "dll/win32/wevtapi",
+    "drivers/storage/class/sfloppy",
+    "drivers/usb/usbaudio"
+)
+
 function Assert-File([string]$Path, [string]$Description) {
     if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) {
         throw "$Description was not found: $Path"
@@ -1046,6 +1083,9 @@ function Get-CdDeclarations {
         $sourceDirectory = Split-Path -Parent $cmake.FullName
         $relativeDirectory = [IO.Path]::GetRelativePath($SourceRoot, $sourceDirectory)
         $normalizedRelativeDirectory = $relativeDirectory.Replace("\", "/").ToLowerInvariant()
+        if ($defaultDisabledCmakeDirectories -contains $normalizedRelativeDirectory) {
+            continue
+        }
         if ($normalizedRelativeDirectory -eq "modules/rosapps" -or
             $normalizedRelativeDirectory.StartsWith("modules/rosapps/") -or
             $normalizedRelativeDirectory -eq "modules/rostests" -or
