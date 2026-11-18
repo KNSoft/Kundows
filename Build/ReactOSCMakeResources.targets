@@ -1,0 +1,17 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReactOSCMakeResourcesEnabled Condition="'$(ReactOSCMakeResourcesEnabled)' == ''">true</ReactOSCMakeResourcesEnabled>
+    <ReactOSCMakeResourcesScript Condition="'$(ReactOSCMakeResourcesScript)' == ''">$(KundowsRoot)Build\GenerateReactOSCMakeResources.ps1</ReactOSCMakeResourcesScript>
+    <ReactOSCMakeResourcesStamp>$(IntDir)ReactOSCMakeResources\Project.stamp</ReactOSCMakeResourcesStamp>
+  </PropertyGroup>
+
+  <Target Name="GenerateReactOSCMakeResources"
+          Condition="'$(ReactOSCMakeResourcesEnabled)' == 'true' and '@(ResourceCompile)' != ''"
+          BeforeTargets="PrepareForBuild"
+          Inputs="$(MSBuildProjectFullPath);$(ReactOSCMakeResourcesScript);@(ResourceCompile);@(None)"
+          Outputs="$(ReactOSCMakeResourcesStamp)">
+    <MakeDir Directories="$(IntDir)ReactOSCMakeResources\" />
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSCMakeResourcesScript)&quot; -ProjectFile &quot;$(MSBuildProjectFullPath)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -Platform &quot;$(Platform)&quot; -Configuration &quot;$(Configuration)&quot;" />
+    <Touch Files="$(ReactOSCMakeResourcesStamp)" AlwaysCreate="true" />
+  </Target>
+</Project>

@@ -8,11 +8,32 @@
     <ReactOSSpec2DefArchitecture Condition="'$(ReactOSSpec2DefArchitecture)' == '' and '$(Platform)' == 'ARM64'">arm64</ReactOSSpec2DefArchitecture>
     <ReactOSSpec2DefVersion Condition="'$(ReactOSSpec2DefVersion)' == ''">0x502</ReactOSSpec2DefVersion>
     <ReactOSSpec2DefOutputDirectory Condition="'$(ReactOSSpec2DefOutputDirectory)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName)</ReactOSSpec2DefOutputDirectory>
+    <ReactOSSpec2DefScript Condition="'$(ReactOSSpec2DefScript)' == ''">$(KundowsRoot)Build\GenerateReactOSSpec2Def.ps1</ReactOSSpec2DefScript>
     <ReactOSSpec2DefDefFile>$(ReactOSSpec2DefOutputDirectory)\$(ReactOSSpec2DefDefName)</ReactOSSpec2DefDefFile>
     <ReactOSSpec2DefStubFile>$(ReactOSSpec2DefOutputDirectory)\$(ReactOSSpec2DefStubName)</ReactOSSpec2DefStubFile>
+
+    <ReactOSSpec2DefHostArchitecture Condition="'$(ReactOSSpec2DefHostArchitecture)' == '' and '$(PROCESSOR_ARCHITECTURE)' == 'AMD64'">x64</ReactOSSpec2DefHostArchitecture>
+    <ReactOSSpec2DefHostArchitecture Condition="'$(ReactOSSpec2DefHostArchitecture)' == '' and '$(PROCESSOR_ARCHITEW6432)' == 'AMD64'">x64</ReactOSSpec2DefHostArchitecture>
+    <ReactOSSpec2DefHostArchitecture Condition="'$(ReactOSSpec2DefHostArchitecture)' == '' and '$(PROCESSOR_ARCHITECTURE)' == 'x86'">x86</ReactOSSpec2DefHostArchitecture>
+    <ReactOSSpec2DefHostArchitecture Condition="'$(ReactOSSpec2DefHostArchitecture)' == '' and '$(PROCESSOR_ARCHITECTURE)' == 'ARM64'">arm64</ReactOSSpec2DefHostArchitecture>
+    <ReactOSSpec2DefHostArchitecture Condition="'$(ReactOSSpec2DefHostArchitecture)' == ''">x64</ReactOSSpec2DefHostArchitecture>
+    <ReactOSSpec2DefTargetArchitecture Condition="'$(ReactOSSpec2DefTargetArchitecture)' == '' and '$(Platform)' == 'Win32'">x86</ReactOSSpec2DefTargetArchitecture>
+    <ReactOSSpec2DefTargetArchitecture Condition="'$(ReactOSSpec2DefTargetArchitecture)' == '' and '$(Platform)' == 'x64'">x64</ReactOSSpec2DefTargetArchitecture>
+    <ReactOSSpec2DefTargetArchitecture Condition="'$(ReactOSSpec2DefTargetArchitecture)' == '' and '$(Platform)' == 'ARM64'">arm64</ReactOSSpec2DefTargetArchitecture>
+    <ReactOSSpec2DefStubAssembler Condition="'$(ReactOSSpec2DefStubAssembler)' == '' and '$(Platform)' == 'Win32'">$(VCToolsInstallDir)bin\Host$(ReactOSSpec2DefHostArchitecture)\x86\ml.exe</ReactOSSpec2DefStubAssembler>
+    <ReactOSSpec2DefStubAssembler Condition="'$(ReactOSSpec2DefStubAssembler)' == '' and '$(Platform)' == 'x64'">$(VCToolsInstallDir)bin\Host$(ReactOSSpec2DefHostArchitecture)\x64\ml64.exe</ReactOSSpec2DefStubAssembler>
+    <ReactOSSpec2DefStubAssembler Condition="'$(ReactOSSpec2DefStubAssembler)' == '' and '$(Platform)' == 'ARM64'">$(VCToolsInstallDir)bin\Host$(ReactOSSpec2DefHostArchitecture)\arm64\armasm64.exe</ReactOSSpec2DefStubAssembler>
+    <ReactOSSpec2DefLinker Condition="'$(ReactOSSpec2DefLinker)' == ''">$(VCToolsInstallDir)bin\Host$(ReactOSSpec2DefHostArchitecture)\$(ReactOSSpec2DefTargetArchitecture)\link.exe</ReactOSSpec2DefLinker>
+    <ReactOSSpec2DefStubObjectExtension Condition="'$(ReactOSSpec2DefStubObjectExtension)' == ''">obj</ReactOSSpec2DefStubObjectExtension>
+    <ReactOSSpec2DefLibMachine Condition="'$(ReactOSSpec2DefLibMachine)' == '' and '$(Platform)' == 'Win32'">x86</ReactOSSpec2DefLibMachine>
+    <ReactOSSpec2DefLibMachine Condition="'$(ReactOSSpec2DefLibMachine)' == '' and '$(Platform)' == 'x64'">x64</ReactOSSpec2DefLibMachine>
+    <ReactOSSpec2DefLibMachine Condition="'$(ReactOSSpec2DefLibMachine)' == '' and '$(Platform)' == 'ARM64'">arm64</ReactOSSpec2DefLibMachine>
+    <ReactOSSpec2DefInferredDllStamp>$(IntDir)ReactOSSpec2Def\Dll.stamp</ReactOSSpec2DefInferredDllStamp>
+    <ReactOSSpec2DefInferredImportStamp>$(IntDir)ReactOSSpec2Def\ImportLibrary.stamp</ReactOSSpec2DefInferredImportStamp>
   </PropertyGroup>
+
   <Target Name="GenerateReactOSSpec2Def"
-          Condition="'$(ReactOSSpec2DefEnabled)' == 'true'"
+          Condition="'$(ReactOSSpec2DefEnabled)' == 'true' and '$(ReactOSSpec2DefSpecFile)' != ''"
           BeforeTargets="PrepareForBuild"
           Inputs="$(ReactOSSpec2DefSpecFile);$(ReactOSSpec2DefTool)"
           Outputs="$(ReactOSSpec2DefDefFile);$(ReactOSSpec2DefStubFile)">
@@ -20,4 +41,86 @@
     <MakeDir Directories="$(ReactOSSpec2DefOutputDirectory)" />
     <Exec Command="&quot;$(ReactOSSpec2DefTool)&quot; --ms -a=$(ReactOSSpec2DefArchitecture) -n=$(ReactOSSpec2DefDllName) -d=&quot;$(ReactOSSpec2DefDefFile)&quot; -s=&quot;$(ReactOSSpec2DefStubFile)&quot; --version=$(ReactOSSpec2DefVersion) --dbg &quot;$(ReactOSSpec2DefSpecFile)&quot;" />
   </Target>
+
+  <Target Name="GenerateReactOSSpec2DefInferredDll"
+          Condition="'$(ReactOSSpec2DefEnabled)' == 'true' and '@(None->WithMetadataValue('Extension','.spec'))' != '' and '@(ClCompile->WithMetadataValue('Extension','.c'))' != ''"
+          BeforeTargets="PrepareForBuild"
+          Inputs="$(MSBuildProjectFullPath);@(None);@(ClCompile);$(ReactOSSpec2DefTool)"
+          Outputs="$(ReactOSSpec2DefInferredDllStamp)">
+    <ItemGroup>
+      <ReactOSSpec2DefLocalSpec Include="@(None->WithMetadataValue('Extension','.spec'))" />
+      <ReactOSSpec2DefLocalStub Include="@(ClCompile->WithMetadataValue('Extension','.c'))">
+        <StubFile>%(FullPath)</StubFile>
+        <OutputDirectory>%(RootDir)%(Directory)</OutputDirectory>
+        <DefFile>%(RootDir)%(Directory)$([System.String]::Copy('%(Filename)').Replace('_stubs', '')).def</DefFile>
+      </ReactOSSpec2DefLocalStub>
+    </ItemGroup>
+    <PropertyGroup>
+      <ReactOSSpec2DefLocalSpecFile>@(ReactOSSpec2DefLocalSpec)</ReactOSSpec2DefLocalSpecFile>
+      <ReactOSSpec2DefLocalSpecStem>$([System.IO.Path]::GetFileNameWithoutExtension('$(ReactOSSpec2DefLocalSpecFile)'))</ReactOSSpec2DefLocalSpecStem>
+      <ReactOSSpec2DefLocalSpecExtension>$([System.IO.Path]::GetExtension('$(ReactOSSpec2DefLocalSpecStem)'))</ReactOSSpec2DefLocalSpecExtension>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefLocalSpecExtension)' == ''">$(ReactOSSpec2DefLocalSpecStem).dll</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefLocalSpecExtension)' != ''">$(ReactOSSpec2DefLocalSpecStem)</ReactOSSpec2DefLocalDllName>
+    </PropertyGroup>
+    <ItemGroup>
+      <ReactOSSpec2DefLocalStub Update="@(ReactOSSpec2DefLocalStub)">
+        <SpecFile>$(ReactOSSpec2DefLocalSpecFile)</SpecFile>
+      </ReactOSSpec2DefLocalStub>
+    </ItemGroup>
+    <Error Condition="!Exists('$(ReactOSSpec2DefTool)')" Text="HostTools.slnx must be built first for $(Platform)|$(Configuration): $(ReactOSSpec2DefTool)" />
+    <MakeDir Directories="@(ReactOSSpec2DefLocalStub->'%(OutputDirectory)');$(IntDir)ReactOSSpec2Def\" />
+    <Exec Condition="$([System.String]::Copy('%(ReactOSSpec2DefLocalStub.Filename)').EndsWith('_stubs'))" Command="&quot;$(ReactOSSpec2DefTool)&quot; --ms -a=$(ReactOSSpec2DefArchitecture) -n=$(ReactOSSpec2DefLocalDllName) -d=&quot;%(ReactOSSpec2DefLocalStub.DefFile)&quot; -s=&quot;%(ReactOSSpec2DefLocalStub.StubFile)&quot; --version=$(ReactOSSpec2DefVersion) --dbg &quot;%(ReactOSSpec2DefLocalStub.SpecFile)&quot;" />
+    <Touch Files="$(ReactOSSpec2DefInferredDllStamp)" AlwaysCreate="true" />
+  </Target>
+
+  <Target Name="GenerateReactOSSpec2DefInferredImport"
+          Condition="'$(ReactOSSpec2DefEnabled)' == 'true' and '@(None->WithMetadataValue('Extension','.spec'))' != '' and ( '@(MASM)' != '' or '@(MARMASM)' != '' )"
+          BeforeTargets="PrepareForBuild"
+          Inputs="$(MSBuildProjectFullPath);@(None);@(MASM);@(MARMASM);$(ReactOSSpec2DefTool);$(ReactOSSpec2DefStubAssembler);$(ReactOSSpec2DefLinker)"
+          Outputs="$(ReactOSSpec2DefInferredImportStamp)">
+    <ItemGroup>
+      <ReactOSSpec2DefLocalSpec Include="@(None->WithMetadataValue('Extension','.spec'))" />
+      <ReactOSSpec2DefLocalImport Include="@(MASM->WithMetadataValue('Extension','.asm'));@(MARMASM->WithMetadataValue('Extension','.asm'))">
+        <AliasFile>%(FullPath)</AliasFile>
+        <OutputDirectory>%(RootDir)%(Directory)</OutputDirectory>
+        <StubFile>%(RootDir)%(Directory)$([System.String]::Copy('%(Filename)').Replace('_impalias', '_stubs')).asm</StubFile>
+        <DefFile>%(RootDir)%(Directory)$([System.String]::Copy('%(Filename)').Replace('_impalias', '_implib')).def</DefFile>
+        <StubObjectFile>%(RootDir)%(Directory)$([System.String]::Copy('%(Filename)').Replace('_impalias', '_stubs')).obj</StubObjectFile>
+        <TemporaryLibraryFile>%(RootDir)%(Directory)$([System.String]::Copy('%(Filename)').Replace('_impalias', '_tmp')).lib</TemporaryLibraryFile>
+      </ReactOSSpec2DefLocalImport>
+    </ItemGroup>
+    <PropertyGroup>
+      <ReactOSSpec2DefLocalSpecFile>@(ReactOSSpec2DefLocalSpec)</ReactOSSpec2DefLocalSpecFile>
+      <ReactOSSpec2DefLocalSpecStem>$([System.IO.Path]::GetFileNameWithoutExtension('$(ReactOSSpec2DefLocalSpecFile)'))</ReactOSSpec2DefLocalSpecStem>
+      <ReactOSSpec2DefLocalSpecExtension>$([System.IO.Path]::GetExtension('$(ReactOSSpec2DefLocalSpecStem)'))</ReactOSSpec2DefLocalSpecExtension>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefLocalSpecExtension)' == ''">$(ReactOSSpec2DefLocalSpecStem).dll</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefLocalSpecExtension)' != ''">$(ReactOSSpec2DefLocalSpecStem)</ReactOSSpec2DefLocalDllName>
+    </PropertyGroup>
+    <ItemGroup>
+      <ReactOSSpec2DefLocalImport Update="@(ReactOSSpec2DefLocalImport)">
+        <SpecFile>$(ReactOSSpec2DefLocalSpecFile)</SpecFile>
+      </ReactOSSpec2DefLocalImport>
+    </ItemGroup>
+    <Error Condition="!Exists('$(ReactOSSpec2DefTool)')" Text="HostTools.slnx must be built first for $(Platform)|$(Configuration): $(ReactOSSpec2DefTool)" />
+    <Error Condition="!Exists('$(ReactOSSpec2DefStubAssembler)')" Text="MSVC assembler was not found for $(Platform): $(ReactOSSpec2DefStubAssembler)" />
+    <Error Condition="!Exists('$(ReactOSSpec2DefLinker)')" Text="MSVC linker was not found for $(Platform): $(ReactOSSpec2DefLinker)" />
+    <MakeDir Directories="@(ReactOSSpec2DefLocalImport->'%(OutputDirectory)');$(IntDir)ReactOSSpec2Def\" />
+    <Exec Condition="$([System.String]::Copy('%(ReactOSSpec2DefLocalImport.Filename)').EndsWith('_impalias'))" Command="&quot;$(ReactOSSpec2DefTool)&quot; --ms --implib -a=$(ReactOSSpec2DefArchitecture) -n=$(ReactOSSpec2DefLocalDllName) -d=&quot;%(ReactOSSpec2DefLocalImport.DefFile)&quot; -l=&quot;%(ReactOSSpec2DefLocalImport.StubFile)&quot; -i=&quot;%(ReactOSSpec2DefLocalImport.AliasFile)&quot; --version=$(ReactOSSpec2DefVersion) --dbg &quot;%(ReactOSSpec2DefLocalImport.SpecFile)&quot;" />
+    <Exec Condition="'$(Platform)' != 'ARM64' and $([System.String]::Copy('%(ReactOSSpec2DefLocalImport.Filename)').EndsWith('_impalias'))" Command="&quot;$(ReactOSSpec2DefStubAssembler)&quot; /nologo /quiet /Cp /Fo&quot;%(ReactOSSpec2DefLocalImport.StubObjectFile)&quot; /c /Ta&quot;%(ReactOSSpec2DefLocalImport.StubFile)&quot;" />
+    <Exec Condition="'$(Platform)' == 'ARM64' and $([System.String]::Copy('%(ReactOSSpec2DefLocalImport.Filename)').EndsWith('_impalias'))" Command="&quot;$(ReactOSSpec2DefStubAssembler)&quot; -nologo -o &quot;%(ReactOSSpec2DefLocalImport.StubObjectFile)&quot; &quot;%(ReactOSSpec2DefLocalImport.StubFile)&quot;" />
+    <Exec Condition="$([System.String]::Copy('%(ReactOSSpec2DefLocalImport.Filename)').EndsWith('_impalias'))" Command="&quot;$(ReactOSSpec2DefLinker)&quot; /LIB /NOLOGO /MACHINE:$(ReactOSSpec2DefLibMachine) /DEF:&quot;%(ReactOSSpec2DefLocalImport.DefFile)&quot; /OUT:&quot;%(ReactOSSpec2DefLocalImport.TemporaryLibraryFile)&quot; &quot;%(ReactOSSpec2DefLocalImport.StubObjectFile)&quot;" />
+    <Touch Files="$(ReactOSSpec2DefInferredImportStamp)" AlwaysCreate="true" />
+  </Target>
+
+  <Target Name="GenerateReactOSSpec2DefInferredDef"
+          Condition="'$(ReactOSSpec2DefEnabled)' == 'true' and '@(None->WithMetadataValue('Extension','.spec'))' != ''"
+          BeforeTargets="PrepareForBuild"
+          Inputs="$(MSBuildProjectFullPath);$(ReactOSSpec2DefScript);$(ReactOSSpec2DefTool);@(None)"
+          Outputs="$(IntDir)ReactOSSpec2Def\Definition.stamp">
+    <Error Condition="!Exists('$(ReactOSSpec2DefTool)')" Text="HostTools.slnx must be built first for $(Platform)|$(Configuration): $(ReactOSSpec2DefTool)" />
+    <Error Condition="!Exists('$(ReactOSSpec2DefScript)')" Text="spec2def generation script was not found: $(ReactOSSpec2DefScript)" />
+    <MakeDir Directories="$(IntDir)ReactOSSpec2Def\" />
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSSpec2DefScript)&quot; -Spec2DefTool &quot;$(ReactOSSpec2DefTool)&quot; -ProjectFile &quot;$(MSBuildProjectFullPath)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -OutputStamp &quot;$(IntDir)ReactOSSpec2Def\Definition.stamp&quot; -Architecture &quot;$(ReactOSSpec2DefArchitecture)&quot; -Platform &quot;$(Platform)&quot; -Configuration &quot;$(Configuration)&quot; -TargetName &quot;$(TargetName)&quot; -TargetExtension &quot;$(TargetExt)&quot; -Version &quot;$(ReactOSSpec2DefVersion)&quot;" />
+  </Target>
+
 </Project>

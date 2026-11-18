@@ -80,6 +80,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\ReactOS.props" />
   </ImportGroup>
+  <PropertyGroup>
+    <ReactOSParserGeneratedDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\tools\wpp\</ReactOSParserGeneratedDirectory>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>wpp</TargetName>
     <TargetExt>.lib</TargetExt>
@@ -448,7 +451,23 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\tools\wpp\ppy.tab.c">
+    <ReactOSParserSource Include="ppy.tab.c">
+      <Snapshot>$(ReactOSParserSnapshotRoot)Wpp\ppy.tab.c</Snapshot>
+      <Destination>$(ReactOSParserGeneratedDirectory)ppy.tab.c</Destination>
+    </ReactOSParserSource>
+    <ReactOSParserSource Include="ppy.tab.h">
+      <Snapshot>$(ReactOSParserSnapshotRoot)Wpp\ppy.tab.h</Snapshot>
+      <Destination>$(ReactOSParserGeneratedDirectory)ppy.tab.h</Destination>
+    </ReactOSParserSource>
+    <ReactOSParserSource Include="ppl.yy.c">
+      <Snapshot>$(ReactOSParserSnapshotRoot)Wpp\ppl.yy.c</Snapshot>
+      <Destination>$(ReactOSParserGeneratedDirectory)ppl.yy.c</Destination>
+    </ReactOSParserSource>
+    <ReactOSParserInput Include="$(ProjectDir)..\..\..\..\Source\sdk\tools\wpp\ppy.y;$(ProjectDir)..\..\..\..\Source\sdk\tools\wpp\ppl.l" />
+    <ClCompile Include="$(ReactOSParserGeneratedDirectory)ppy.tab.c">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(ReactOSParserGeneratedDirectory)ppl.yy.c">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\sdk\tools\wpp\wpp.c">

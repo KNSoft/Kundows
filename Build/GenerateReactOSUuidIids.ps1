@@ -161,7 +161,7 @@ if ($Mode -eq "Header") {
 $arguments += @("-o", $OutputFile, $IdlFile)
 
 $widlExitCode = 0
-Push-Location -LiteralPath $outputDirectory
+Push-Location -LiteralPath (Split-Path -Parent ([IO.Path]::GetFullPath($IdlFile)))
 try {
     & $WidlTool @arguments
     $widlExitCode = $LASTEXITCODE
@@ -171,6 +171,16 @@ finally {
 }
 
 if ($widlExitCode -eq 0) {
+    if ($Mode -eq "Header" -and [IO.Path]::GetFileName($OutputFile) -ieq "oaidl.h") {
+        $headerText = [IO.File]::ReadAllText($OutputFile)
+        if ($headerText -notmatch "(?m)^\s*#define\s+__oaidl_h__\b") {
+            $compatibilityGuard = "#ifndef __oaidl_h__`r`n#define __oaidl_h__`r`n#endif`r`n`r`n"
+            [IO.File]::WriteAllText(
+                $OutputFile,
+                $compatibilityGuard + $headerText,
+                [Text.UTF8Encoding]::new($false))
+        }
+    }
     exit 0
 }
 

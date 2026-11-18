@@ -31,7 +31,7 @@ if (-not (Test-Path -LiteralPath $Compiler)) {
 }
 
 $sourceFiles = Read-ListFile $SourceListFile |
-    Where-Object { [IO.Path]::GetExtension($_) -in @(".s", ".S") }
+    Where-Object { [IO.Path]::GetExtension($_) -in @(".s", ".S", ".lds") }
 $outputFiles = Read-ListFile $OutputListFile |
     Where-Object { [IO.Path]::GetExtension($_) -ieq ".asm" }
 $includeDirectories = Read-ListFile $IncludeListFile
@@ -39,6 +39,9 @@ $definitions = Read-ListFile $DefinitionListFile
 
 foreach ($sourceFile in $sourceFiles) {
     $sourceName = [IO.Path]::GetFileNameWithoutExtension($sourceFile)
+    if ([IO.Path]::GetExtension($sourceFile) -ieq ".lds") {
+        $sourceName = [IO.Path]::GetFileNameWithoutExtension($sourceName)
+    }
     $outputCandidates = @(
         $outputFiles | Where-Object {
             $outputName = [IO.Path]::GetFileNameWithoutExtension($_)
@@ -85,5 +88,27 @@ foreach ($sourceFile in $sourceFiles) {
     & $Compiler @arguments > $outputFile
     if ($LASTEXITCODE -ne 0) {
         throw "cl.exe failed with exit code $LASTEXITCODE while preprocessing '$sourceFile'"
+    }
+
+    if ([IO.Path]::GetExtension($sourceFile) -ieq ".lds") {
+        $targetDirectory = Split-Path -Parent $outputDirectory
+        $cOutputDirectory = Join-Path $targetDirectory "CMakeFiles\freeldr_pe.dir"
+        $cOutputFile = Join-Path $cOutputDirectory ([IO.Path]::GetFileName($sourceFile) + ".c")
+        New-Item -ItemType Directory -Force -Path $cOutputDirectory | Out-Null
+
+        $cArguments = @("/nologo", "/X")
+        foreach ($includeDirectory in $includeDirectories) {
+            $cArguments += "/I$includeDirectory"
+        }
+        foreach ($definition in $definitions) {
+            if ($definition -ne "_USE_ML") {
+                $cArguments += "/D$definition"
+            }
+        }
+        $cArguments += @("/EP", "/c", $sourceFile)
+        & $Compiler @cArguments > $cOutputFile
+        if ($LASTEXITCODE -ne 0) {
+            throw "cl.exe failed with exit code $LASTEXITCODE while preprocessing C source '$sourceFile'"
+        }
     }
 }

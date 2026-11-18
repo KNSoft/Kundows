@@ -679,9 +679,9 @@
     <None Include="..\..\..\Source\dll\ntdll\dispatch\i386\dispatch.S" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
     <None Include="..\..\..\Source\dll\ntdll\dispatch\arm64\stubs_asm.s" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64' Or '$(Configuration)|$(Platform)'=='Release|ARM64'" />
     <None Include="Ntdll.Migration.json" />
-    <Object Include="$(KundowsRoot)IntDir\$(Platform)\$(Configuration)\Rtl_Um\libsupp.obj" />
-    <Object Include="$(KundowsRoot)IntDir\$(Platform)\$(Configuration)\Rtl_Um\uilist.obj" />
-    <Object Include="$(KundowsRoot)IntDir\$(Platform)\$(Configuration)\Rtl_Um\version.obj" />
+    <Object Include="$(KundowsRoot)OutDir\Intermediate\$(Platform)\$(Configuration)\Rtl_Um\libsupp.obj" />
+    <Object Include="$(KundowsRoot)OutDir\Intermediate\$(Platform)\$(Configuration)\Rtl_Um\uilist.obj" />
+    <Object Include="$(KundowsRoot)OutDir\Intermediate\$(Platform)\$(Configuration)\Rtl_Um\version.obj" />
     <ResourceCompile Include="..\..\..\Source\dll\ntdll\def\ntdll.rc" />
   </ItemGroup>
   <ItemGroup>

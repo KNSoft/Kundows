@@ -3,7 +3,8 @@
   <PropertyGroup>
     <KundowsRoot>$(MSBuildThisFileDirectory)..\..\..\</KundowsRoot>
     <OutDir>$(KundowsRoot)OutDir\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</OutDir>
-    <IntDir>$(KundowsRoot)IntDir\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
+    <IntDir>$(KundowsRoot)OutDir\Intermediate\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
+    <ReactOSPrepareDependencyEnabled Condition="'$(ReactOSPrepareDependencyEnabled)' == ''">true</ReactOSPrepareDependencyEnabled>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -24,4 +25,45 @@
   </ItemDefinitionGroup>
   <Import Project="$(KundowsRoot)Build\ReactOSPatches.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSPatches.targets')" />
   <Import Project="$(KundowsRoot)Build\ReactOSAssembly.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSAssembly.targets')" />
+  <Import Project="$(KundowsRoot)Build\ReactOSParser.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSParser.targets')" />
+  <Import Project="$(KundowsRoot)Build\ReactOSMessage.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSMessage.targets')" />
+  <Import Project="$(KundowsRoot)Build\ReactOSUtf16.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSUtf16.targets')" />
+  <Import Project="$(KundowsRoot)Build\ReactOSBin2c.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSBin2c.targets')" />
+  <Import Project="$(KundowsRoot)Build\ReactOSBootSector.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSBootSector.targets')" />
+  <Import Project="$(KundowsRoot)Build\ReactOSGenDib.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSGenDib.targets')" />
+  <Import Project="$(KundowsRoot)Build\ReactOSCMakeResources.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSCMakeResources.targets')" />
+  <Import Project="$(KundowsRoot)Build\ReactOSSpec2Def.targets"
+          Condition="Exists('$(KundowsRoot)Build\ReactOSSpec2Def.targets') and '$(MSBuildProjectName)' != 'Ntdll' and '$(MSBuildProjectName)' != 'Comcat' and '$(MSBuildProjectName)' != 'Hal'" />
+  <Import Project="$(KundowsRoot)Build\ReactOSWidl.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSWidl.targets')" />
+
+  <Target Name="PrepareReactOSResourceIncludeOrder" BeforeTargets="ResourceCompile">
+    <ItemGroup>
+      <ResourceCompile>
+        <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;%(ResourceCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      </ResourceCompile>
+    </ItemGroup>
+  </Target>
+
+  <ItemGroup Condition="'$(MSBuildProjectName)' != 'ReactOSPrepare'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Widl\Widl.vcxproj">
+      <Project>{0BD1B80C-7B4E-5D30-9B52-4FD9AE9ED79C}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Spec2Def\Spec2Def.vcxproj">
+      <Project>{C1D4A6B2-1C6A-4D4F-BD29-4D6D2E2FDFA8}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(ReactOSPrepareDependencyEnabled)' == 'true' and '$(MSBuildProjectName)' != 'ReactOSPrepare' and '$(MSBuildProjectName)' != 'GenIncData'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Prepare\ReactOSPrepare.vcxproj">
+      <Project>{8D4D7C42-2B0E-4CF5-9F9C-FB06A7AFD3A5}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

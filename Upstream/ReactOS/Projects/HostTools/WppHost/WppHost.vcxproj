@@ -56,7 +56,7 @@
 
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ReactOSParserGeneratedDirectory);$(ReactOSSourceRoot)sdk\tools\wpp;$(ReactOSSourceRoot)sdk\tools\widl;$(ReactOSSourceRoot)sdk\include\host;$(ReactOSCommonIncludeDirectory);$(ReactOSCommonIncludeDirectory)psdk;$(ReactOSSourceRoot)sdk\include;$(ReactOSSourceRoot)sdk\include\crt;$(ReactOSSourceRoot)sdk\include\ddk;$(ReactOSSourceRoot)sdk\include\ndk;$(ReactOSSourceRoot)sdk\include\psdk;$(ReactOSSourceRoot)sdk\include\reactos;$(ReactOSSourceRoot)sdk\include\reactos\libs;$(ReactOSSourceRoot)sdk\include\vcruntime;$(ReactOSSourceRoot)sdk\include\winrt;$(ReactOSSourceRoot)sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ReactOSParserGeneratedDirectory);$(ReactOSSourceRoot)sdk\tools\wpp;$(ReactOSSourceRoot)sdk\tools\widl;$(ReactOSSourceRoot)sdk\include\host;$(ReactOSCommonIncludeDirectory);$(ReactOSCommonIncludeDirectory)psdk;$(ReactOSSourceRoot)sdk\include;$(ReactOSSourceRoot)sdk\include\ucrt;$(ReactOSSourceRoot)sdk\include\vcruntime;$(ReactOSSourceRoot)sdk\include\crt;$(ReactOSSourceRoot)sdk\include\ddk;$(ReactOSSourceRoot)sdk\include\ndk;$(ReactOSSourceRoot)sdk\include\psdk;$(ReactOSSourceRoot)sdk\include\reactos;$(ReactOSSourceRoot)sdk\include\reactos\libs;$(ReactOSSourceRoot)sdk\include\winrt;$(ReactOSSourceRoot)sdk\lib\pseh\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PreprocessorDefinitions>$(ReactOSHostDefines);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
@@ -107,15 +107,6 @@
     <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\wpp\wpp.c">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Prepare\ReactOSPrepare.vcxproj">
-      <Project>{8D4D7C42-2B0E-4CF5-9F9C-FB06A7AFD3A5}</Project>
-      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-    </ProjectReference>
   </ItemGroup>
 
   <Import Project="$(KundowsRoot)Build\ReactOSParser.targets" />

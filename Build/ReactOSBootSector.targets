@@ -1,0 +1,31 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReactOSBootSectorEnabled Condition="'$(ReactOSBootSectorEnabled)' == ''">true</ReactOSBootSectorEnabled>
+    <ReactOSBootSectorScript Condition="'$(ReactOSBootSectorScript)' == ''">$(KundowsRoot)Build\GenerateReactOSBootSector.ps1</ReactOSBootSectorScript>
+    <ReactOSBootSectorGeneratedRoot Condition="'$(ReactOSBootSectorGeneratedRoot)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)</ReactOSBootSectorGeneratedRoot>
+    <ReactOSBootSectorCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITEW6432)' == 'AMD64' or '$(PROCESSOR_ARCHITECTURE)' == 'AMD64'">x64</ReactOSBootSectorCompilerHostArchitecture>
+    <ReactOSBootSectorCompilerHostArchitecture Condition="'$(ReactOSBootSectorCompilerHostArchitecture)' == ''">$(Platform)</ReactOSBootSectorCompilerHostArchitecture>
+    <ReactOSBootSectorCompiler>$(VCToolsInstallDir)bin\Host$(ReactOSBootSectorCompilerHostArchitecture)\x64\cl.exe</ReactOSBootSectorCompiler>
+    <ReactOSBootSectorAssembler>$(VCToolsInstallDir)bin\Host$(ReactOSBootSectorCompilerHostArchitecture)\x86\ml.exe</ReactOSBootSectorAssembler>
+    <ReactOSBootSectorProjectStamp>$(IntDir)ReactOSBootSector\Project.stamp</ReactOSBootSectorProjectStamp>
+  </PropertyGroup>
+
+  <Target Name="GenerateReactOSBootSectorProjectFiles"
+          Condition="'$(ReactOSBootSectorEnabled)' == 'true' and '$(ReactOSBootSectorProjectGeneration)' != 'false' and '@(None->WithMetadataValue('Filename','CMakeLists'))' != ''"
+          BeforeTargets="PrepareForBuild"
+          Inputs="$(MSBuildProjectFullPath);$(ReactOSBootSectorScript);@(None)"
+          Outputs="$(ReactOSBootSectorProjectStamp)">
+    <ItemGroup>
+      <ReactOSBootSectorProjectCMake Include="@(None->WithMetadataValue('Filename','CMakeLists'))">
+        <CMakeListFile>%(FullPath)</CMakeListFile>
+        <SourceDirectory>%(RootDir)%(Directory).</SourceDirectory>
+      </ReactOSBootSectorProjectCMake>
+    </ItemGroup>
+    <Error Condition="'%(ReactOSBootSectorProjectCMake.CMakeListFile)' != '' and !Exists('$(ReactOSBootSectorCompiler)')" Text="MSVC compiler was not found: $(ReactOSBootSectorCompiler)" />
+    <Error Condition="'%(ReactOSBootSectorProjectCMake.CMakeListFile)' != '' and !Exists('$(ReactOSBootSectorAssembler)')" Text="x86 assembler was not found: $(ReactOSBootSectorAssembler)" />
+    <MakeDir Directories="$(IntDir)ReactOSBootSector\" />
+    <Exec Condition="'%(ReactOSBootSectorProjectCMake.CMakeListFile)' != ''"
+          Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSBootSectorScript)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSBootSectorGeneratedRoot)&quot; -CMakeListFile &quot;%(ReactOSBootSectorProjectCMake.CMakeListFile)&quot; -SourceDirectory &quot;%(ReactOSBootSectorProjectCMake.SourceDirectory)&quot; -Compiler &quot;$(ReactOSBootSectorCompiler)&quot; -Assembler &quot;$(ReactOSBootSectorAssembler)&quot;" />
+    <Touch Files="$(ReactOSBootSectorProjectStamp)" AlwaysCreate="true" />
+  </Target>
+</Project>

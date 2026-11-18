@@ -1,0 +1,25 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReactOSUtf16Enabled Condition="'$(ReactOSUtf16Enabled)' == ''">true</ReactOSUtf16Enabled>
+    <ReactOSUtf16Script Condition="'$(ReactOSUtf16Script)' == ''">$(KundowsRoot)Build\GenerateReactOSUtf16.ps1</ReactOSUtf16Script>
+    <ReactOSUtf16GeneratedRoot Condition="'$(ReactOSUtf16GeneratedRoot)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)</ReactOSUtf16GeneratedRoot>
+    <ReactOSUtf16ProjectStamp>$(IntDir)ReactOSUtf16\Project.stamp</ReactOSUtf16ProjectStamp>
+  </PropertyGroup>
+
+  <Target Name="GenerateReactOSUtf16ProjectFiles"
+          Condition="'$(ReactOSUtf16Enabled)' == 'true' and '$(ReactOSUtf16ProjectGeneration)' != 'false' and '@(None->WithMetadataValue('Filename','CMakeLists'))' != ''"
+          BeforeTargets="PrepareForBuild"
+          Inputs="$(MSBuildProjectFullPath);$(ReactOSUtf16Script);@(None)"
+          Outputs="$(ReactOSUtf16ProjectStamp)">
+    <ItemGroup>
+      <ReactOSUtf16ProjectCMake Include="@(None->WithMetadataValue('Filename','CMakeLists'))">
+        <CMakeListFile>%(FullPath)</CMakeListFile>
+        <SourceDirectory>%(RootDir)%(Directory).</SourceDirectory>
+      </ReactOSUtf16ProjectCMake>
+    </ItemGroup>
+    <MakeDir Directories="$(IntDir)ReactOSUtf16\" />
+    <Exec Condition="'%(ReactOSUtf16ProjectCMake.CMakeListFile)' != ''"
+          Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSUtf16Script)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSUtf16GeneratedRoot)&quot; -CMakeListFile &quot;%(ReactOSUtf16ProjectCMake.CMakeListFile)&quot; -SourceDirectory &quot;%(ReactOSUtf16ProjectCMake.SourceDirectory)&quot;" />
+    <Touch Files="$(ReactOSUtf16ProjectStamp)" AlwaysCreate="true" />
+  </Target>
+</Project>
