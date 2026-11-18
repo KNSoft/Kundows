@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{3B9D8EC0-2E57-4AE6-8FED-3F774A5C6B6C}</ProjectGuid>
+    <ProjectName>mkhive</ProjectName>
+    <RootNamespace>Mkhive</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\..\..\..\</KundowsRoot>
+    <ReactOSSourceRoot>$(KundowsRoot)Upstream\ReactOS\Source\</ReactOSSourceRoot>
+    <ReactOSCommonIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\Common\Include\</ReactOSCommonIncludeDirectory>
+  </PropertyGroup>
+  <Import Project="$(KundowsRoot)Build\ReactOSHostToolConfigurations.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration"><ConfigurationType>Application</ConfigurationType><PlatformToolset>v145</PlatformToolset><CharacterSet>NotSet</CharacterSet><UseDebugLibraries>true</UseDebugLibraries></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration"><ConfigurationType>Application</ConfigurationType><PlatformToolset>v145</PlatformToolset><CharacterSet>NotSet</CharacterSet><UseDebugLibraries>false</UseDebugLibraries></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(KundowsRoot)Build\ReactOSHostTool.props" />
+  <PropertyGroup>
+    <OutDir>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(KundowsRoot)IntDir\HostTools\$(Platform)\$(Configuration)\Mkhive\</IntDir>
+    <TargetName>mkhive</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ReactOSSourceRoot)sdk\tools\mkhive;$(ReactOSSourceRoot)sdk\lib\rtl;$(ReactOSSourceRoot)sdk\lib\cmlib;$(ReactOSSourceRoot)sdk\lib\inflib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MKHIVE_HOST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(OutDir)unicode.lib;$(OutDir)cmlibhost.lib;$(OutDir)inflibhost.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName).exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkhive\binhive.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkhive\cmi.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkhive\mkhive.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkhive\reginf.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkhive\registry.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkhive\rtl.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Unicode\Unicode.vcxproj">
+      <Project>{6966DDD8-D2C6-46A8-8F63-90FF412E2B12}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\CmlibHost\CmlibHost.vcxproj">
+      <Project>{6DA1B805-3A19-4827-87DC-A8A41FBD815E}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\InflibHost\InflibHost.vcxproj">
+      <Project>{A5D424CC-D17E-4248-99A2-2576FCDCDB9F}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

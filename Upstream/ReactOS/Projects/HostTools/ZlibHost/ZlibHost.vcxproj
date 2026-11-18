@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{40CD6FDB-0C69-4A14-A493-387BFEF66860}</ProjectGuid>
+    <ProjectName>zlibhost</ProjectName>
+    <RootNamespace>ZlibHost</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\..\..\..\</KundowsRoot>
+    <ReactOSSourceRoot>$(KundowsRoot)Upstream\ReactOS\Source\</ReactOSSourceRoot>
+    <ReactOSCommonIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\Common\Include\</ReactOSCommonIncludeDirectory>
+  </PropertyGroup>
+  <Import Project="$(KundowsRoot)Build\ReactOSHostToolConfigurations.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration"><ConfigurationType>StaticLibrary</ConfigurationType><PlatformToolset>v145</PlatformToolset><CharacterSet>NotSet</CharacterSet><UseDebugLibraries>true</UseDebugLibraries></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration"><ConfigurationType>StaticLibrary</ConfigurationType><PlatformToolset>v145</PlatformToolset><CharacterSet>NotSet</CharacterSet><UseDebugLibraries>false</UseDebugLibraries></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(KundowsRoot)Build\ReactOSHostTool.props" />
+  <PropertyGroup>
+    <OutDir>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(KundowsRoot)IntDir\HostTools\$(Platform)\$(Configuration)\ZlibHost\</IntDir>
+    <TargetName>zlibhost</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ReactOSSourceRoot)sdk\include\reactos\libs\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>Z_SOLO;NO_VIZ;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\3rdparty\zlib\adler32.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\3rdparty\zlib\crc32.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\3rdparty\zlib\deflate.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\3rdparty\zlib\inffast.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\3rdparty\zlib\inflate.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\3rdparty\zlib\inftrees.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\3rdparty\zlib\trees.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\3rdparty\zlib\zutil.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

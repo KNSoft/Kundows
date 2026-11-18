@@ -22,4 +22,41 @@
   <Folder Name="/HostTools/Widl/">
     <Project Path="Upstream/ReactOS/Projects/HostTools/Widl/Widl.vcxproj" />
   </Folder>
+  <Folder Name="/HostTools/Cabman/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Cabman/Cabman.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/CmlibHost/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/CmlibHost/CmlibHost.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Fatten/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Fatten/Fatten.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/InflibHost/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/InflibHost/InflibHost.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Isohybrid/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Isohybrid/Isohybrid.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Mkhive/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Mkhive/Mkhive.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Mkisofs/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Mkisofs/Mkisofs.vcxproj" />
+    <Project Path="Upstream/ReactOS/Projects/HostTools/MkisofsLibs/MkisofsLibs.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Mkshelllink/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Mkshelllink/Mkshelllink.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Unicode/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Unicode/Unicode.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/ZlibHost/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/ZlibHost/ZlibHost.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Txt2nls/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Txt2nls/Txt2nls.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Xml2sdb/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Xml2sdb/Xml2sdb.vcxproj" />
+  </Folder>
 </Solution>

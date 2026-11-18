@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{A5D424CC-D17E-4248-99A2-2576FCDCDB9F}</ProjectGuid>
+    <ProjectName>inflibhost</ProjectName>
+    <RootNamespace>InflibHost</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\..\..\..\</KundowsRoot>
+    <ReactOSSourceRoot>$(KundowsRoot)Upstream\ReactOS\Source\</ReactOSSourceRoot>
+    <ReactOSCommonIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\Common\Include\</ReactOSCommonIncludeDirectory>
+  </PropertyGroup>
+  <Import Project="$(KundowsRoot)Build\ReactOSHostToolConfigurations.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration"><ConfigurationType>StaticLibrary</ConfigurationType><PlatformToolset>v145</PlatformToolset><CharacterSet>NotSet</CharacterSet><UseDebugLibraries>true</UseDebugLibraries></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration"><ConfigurationType>StaticLibrary</ConfigurationType><PlatformToolset>v145</PlatformToolset><CharacterSet>NotSet</CharacterSet><UseDebugLibraries>false</UseDebugLibraries></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(KundowsRoot)Build\ReactOSHostTool.props" />
+  <PropertyGroup>
+    <OutDir>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(KundowsRoot)IntDir\HostTools\$(Platform)\$(Configuration)\InflibHost\</IntDir>
+    <TargetName>inflibhost</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ReactOSSourceRoot)sdk\lib\inflib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__NO_CTYPE_INLINES;INFLIB_HOST;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\inflib\infcore.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\inflib\infget.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\inflib\infput.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\inflib\infhostgen.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\inflib\infhostget.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\inflib\infhostput.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\lib\inflib\infhostrtl.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

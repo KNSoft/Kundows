@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{829F76D2-A77A-4D75-8711-57377DAAABC1}</ProjectGuid>
+    <ProjectName>mkisofs</ProjectName>
+    <RootNamespace>Mkisofs</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\..\..\..\</KundowsRoot>
+    <ReactOSSourceRoot>$(KundowsRoot)Upstream\ReactOS\Source\</ReactOSSourceRoot>
+    <ReactOSCommonIncludeDirectory>$(KundowsRoot)OutDir\Build\SDK\Common\Include\</ReactOSCommonIncludeDirectory>
+  </PropertyGroup>
+  <Import Project="$(KundowsRoot)Build\ReactOSHostToolConfigurations.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration"><ConfigurationType>Application</ConfigurationType><PlatformToolset>v145</PlatformToolset><CharacterSet>NotSet</CharacterSet><UseDebugLibraries>true</UseDebugLibraries></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration"><ConfigurationType>Application</ConfigurationType><PlatformToolset>v145</PlatformToolset><CharacterSet>NotSet</CharacterSet><UseDebugLibraries>false</UseDebugLibraries></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <ReactOSHostMinimalIncludes>true</ReactOSHostMinimalIncludes>
+  </PropertyGroup>
+  <Import Project="$(KundowsRoot)Build\ReactOSHostTool.props" />
+  <PropertyGroup>
+    <OutDir>$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(KundowsRoot)IntDir\HostTools\$(Platform)\$(Configuration)\Mkisofs\</IntDir>
+    <TargetName>mkisofs</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ReactOSSourceRoot)sdk\tools\mkisofs;$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\include;$(ReactOSSourceRoot)sdk\tools\mkisofs\reactos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DUPLICATES_ONCE;INS_BASE=&quot;.&quot;;SCHILY_BUILD;SORTING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4101;4113;4244;4267;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(OutDir)mkisofs-libs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName).exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\boot.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\eltorito.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\hash.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\inode.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\isonum.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\joliet.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\match.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\mkisofs.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\multi.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\name.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\rock.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\stream.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\tree.c" />
+    <ClCompile Include="$(ReactOSSourceRoot)sdk\tools\mkisofs\schilytools\mkisofs\write.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MkisofsLibs\MkisofsLibs.vcxproj">
+      <Project>{7AEA44C2-9566-4558-9007-07B92A0B8616}</Project>
+      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
