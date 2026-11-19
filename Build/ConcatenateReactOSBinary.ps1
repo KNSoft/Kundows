@@ -10,24 +10,24 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-foreach ($input in @($FirstInputFile, $SecondInputFile)) {
-    if (-not (Test-Path -LiteralPath $input -PathType Leaf)) {
-        throw "Concatenation input was not found: $input"
+foreach ($sourceFile in @($FirstInputFile, $SecondInputFile)) {
+    if (-not (Test-Path -LiteralPath $sourceFile -PathType Leaf)) {
+        throw "Concatenation input was not found: $sourceFile"
     }
 }
 
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent $OutputFile) | Out-Null
-$output = [IO.File]::Open(
+$outputStream = [IO.File]::Open(
     $OutputFile,
     [IO.FileMode]::Create,
     [IO.FileAccess]::Write,
     [IO.FileShare]::None
 )
 try {
-    foreach ($input in @($FirstInputFile, $SecondInputFile)) {
-        $stream = [IO.File]::OpenRead($input)
+    foreach ($sourceFile in @($FirstInputFile, $SecondInputFile)) {
+        $stream = [IO.File]::OpenRead($sourceFile)
         try {
-            $stream.CopyTo($output)
+            $stream.CopyTo($outputStream)
         }
         finally {
             $stream.Dispose()
@@ -35,5 +35,5 @@ try {
     }
 }
 finally {
-    $output.Dispose()
+    $outputStream.Dispose()
 }

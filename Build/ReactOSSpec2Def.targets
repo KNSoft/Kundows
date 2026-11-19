@@ -59,8 +59,9 @@
       <ReactOSSpec2DefLocalSpecFile>@(ReactOSSpec2DefLocalSpec)</ReactOSSpec2DefLocalSpecFile>
       <ReactOSSpec2DefLocalSpecStem>$([System.IO.Path]::GetFileNameWithoutExtension('$(ReactOSSpec2DefLocalSpecFile)'))</ReactOSSpec2DefLocalSpecStem>
       <ReactOSSpec2DefLocalSpecExtension>$([System.IO.Path]::GetExtension('$(ReactOSSpec2DefLocalSpecStem)'))</ReactOSSpec2DefLocalSpecExtension>
-      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefLocalSpecExtension)' == ''">$(ReactOSSpec2DefLocalSpecStem).dll</ReactOSSpec2DefLocalDllName>
-      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefLocalSpecExtension)' != ''">$(ReactOSSpec2DefLocalSpecStem)</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' != ''">$(ReactOSSpec2DefModuleName)</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' == '' and '$(ReactOSSpec2DefLocalSpecExtension)' == ''">$(ReactOSSpec2DefLocalSpecStem).dll</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' == '' and '$(ReactOSSpec2DefLocalSpecExtension)' != ''">$(ReactOSSpec2DefLocalSpecStem)</ReactOSSpec2DefLocalDllName>
     </PropertyGroup>
     <ItemGroup>
       <ReactOSSpec2DefLocalStub Update="@(ReactOSSpec2DefLocalStub)">
@@ -93,8 +94,9 @@
       <ReactOSSpec2DefLocalSpecFile>@(ReactOSSpec2DefLocalSpec)</ReactOSSpec2DefLocalSpecFile>
       <ReactOSSpec2DefLocalSpecStem>$([System.IO.Path]::GetFileNameWithoutExtension('$(ReactOSSpec2DefLocalSpecFile)'))</ReactOSSpec2DefLocalSpecStem>
       <ReactOSSpec2DefLocalSpecExtension>$([System.IO.Path]::GetExtension('$(ReactOSSpec2DefLocalSpecStem)'))</ReactOSSpec2DefLocalSpecExtension>
-      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefLocalSpecExtension)' == ''">$(ReactOSSpec2DefLocalSpecStem).dll</ReactOSSpec2DefLocalDllName>
-      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefLocalSpecExtension)' != ''">$(ReactOSSpec2DefLocalSpecStem)</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' != ''">$(ReactOSSpec2DefModuleName)</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' == '' and '$(ReactOSSpec2DefLocalSpecExtension)' == ''">$(ReactOSSpec2DefLocalSpecStem).dll</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' == '' and '$(ReactOSSpec2DefLocalSpecExtension)' != ''">$(ReactOSSpec2DefLocalSpecStem)</ReactOSSpec2DefLocalDllName>
     </PropertyGroup>
     <ItemGroup>
       <ReactOSSpec2DefLocalImport Update="@(ReactOSSpec2DefLocalImport)">

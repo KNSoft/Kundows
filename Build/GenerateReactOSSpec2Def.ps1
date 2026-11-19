@@ -84,18 +84,28 @@ function Get-DefinitionFiles {
 function Get-CMakeModuleName([string]$SpecFile) {
     $specLeaf = [IO.Path]::GetFileName($SpecFile)
     $directory = Split-Path -Parent $SpecFile
+    $candidates = [Collections.Generic.List[string]]::new()
     while ($directory -and $directory.StartsWith($sourceRootPath, [StringComparison]::OrdinalIgnoreCase)) {
-        $cmake = Join-Path $directory "CMakeLists.txt"
-        if (Test-Path -LiteralPath $cmake -PathType Leaf) {
+        $cmakeFiles = [Collections.Generic.List[string]]::new()
+        $cmakeLists = Join-Path $directory "CMakeLists.txt"
+        if (Test-Path -LiteralPath $cmakeLists -PathType Leaf) {
+            $cmakeFiles.Add($cmakeLists)
+        }
+        foreach ($cmakeFile in Get-ChildItem -LiteralPath $directory -Filter "*.cmake" -File) {
+            $cmakeFiles.Add($cmakeFile.FullName)
+        }
+        foreach ($cmake in $cmakeFiles) {
             $contents = Get-Content -LiteralPath $cmake -Raw
-            foreach ($match in [regex]::Matches($contents, "(?im)spec2def\s*\(\s*(?<module>[^\s\)]+)\s+(?<spec>[^\s\)]+)")) {
+            foreach ($match in [regex]::Matches($contents, "(?im)^(?!\s*#)\s*spec2def\s*\(\s*(?<module>[^\s\)]+)\s+(?<spec>[^\s\)]+)")) {
                 $specToken = $match.Groups["spec"].Value.Trim('"')
                 if ($specToken -eq $specLeaf -or $specToken.EndsWith("/$specLeaf", [StringComparison]::OrdinalIgnoreCase) -or $specToken.EndsWith("\$specLeaf", [StringComparison]::OrdinalIgnoreCase)) {
                     $module = $match.Groups["module"].Value.Trim('"')
                     if ($module -match "\$\{[^}]+\}") {
                         $module = "$TargetName$TargetExtension"
                     }
-                    return $module
+                    if (-not $candidates.Contains($module)) {
+                        $candidates.Add($module)
+                    }
                 }
             }
         }
@@ -104,6 +114,21 @@ function Get-CMakeModuleName([string]$SpecFile) {
             break
         }
         $directory = $parent
+    }
+
+    if ($candidates.Count -gt 0) {
+        $targetStem = [IO.Path]::GetFileNameWithoutExtension("$TargetName$TargetExtension")
+        $targetAliases = @(
+            $targetStem
+            $targetStem -replace "(?i)_pe$", ""
+        ) | Where-Object { $_ }
+        foreach ($candidate in $candidates) {
+            $candidateStem = [IO.Path]::GetFileNameWithoutExtension($candidate)
+            if ($targetAliases -contains $candidateStem) {
+                return $candidate
+            }
+        }
+        return $candidates[0]
     }
 
     if ($TargetName) {
