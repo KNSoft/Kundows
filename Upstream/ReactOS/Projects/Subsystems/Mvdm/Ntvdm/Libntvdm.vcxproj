@@ -80,6 +80,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\ReactOS.props" />
   </ImportGroup>
+  <PropertyGroup>
+    <ReactOSSpec2DefModuleName>ntvdm.exe</ReactOSSpec2DefModuleName>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>libntvdm</TargetName>
     <TargetExt>.lib</TargetExt>

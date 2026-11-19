@@ -80,6 +80,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\..\ReactOS.props" />
   </ImportGroup>
+  <PropertyGroup>
+    <ReactOSSpec2DefModuleName>storport.sys</ReactOSSpec2DefModuleName>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>libstorport</TargetName>
     <TargetExt>.lib</TargetExt>
