@@ -16,7 +16,9 @@ param(
     [string]$Configuration,
     [string]$TargetName = "",
     [string]$TargetExtension = ".dll",
-    [string]$Version = "0x502"
+    [string]$Version = "0x502",
+    [switch]$ResolveModuleName,
+    [string]$ModuleNameOutput = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -101,7 +103,11 @@ function Get-CMakeModuleName([string]$SpecFile) {
                 if ($specToken -eq $specLeaf -or $specToken.EndsWith("/$specLeaf", [StringComparison]::OrdinalIgnoreCase) -or $specToken.EndsWith("\$specLeaf", [StringComparison]::OrdinalIgnoreCase)) {
                     $module = $match.Groups["module"].Value.Trim('"')
                     if ($module -match "\$\{[^}]+\}") {
-                        $module = "$TargetName$TargetExtension"
+                        $runtimeTarget = $TargetName -replace "(?i)^lib", ""
+                        if (-not $runtimeTarget) {
+                            $runtimeTarget = [IO.Path]::GetFileNameWithoutExtension($specLeaf)
+                        }
+                        $module = "$runtimeTarget.dll"
                     }
                     if (-not $candidates.Contains($module)) {
                         $candidates.Add($module)
@@ -121,6 +127,9 @@ function Get-CMakeModuleName([string]$SpecFile) {
         $targetAliases = @(
             $targetStem
             $targetStem -replace "(?i)_pe$", ""
+            $targetStem -replace "(?i)^lib", ""
+            ($targetStem -replace "(?i)^lib", "") -replace "(?i)_pe$", ""
+            [IO.Path]::GetFileNameWithoutExtension($specLeaf)
         ) | Where-Object { $_ }
         foreach ($candidate in $candidates) {
             $candidateStem = [IO.Path]::GetFileNameWithoutExtension($candidate)
@@ -163,6 +172,27 @@ function Test-CMakeNoDebugExports([string]$SpecFile) {
 
 $specFiles = @(Get-SpecFiles)
 $definitionFiles = @(Get-DefinitionFiles)
+if ($ResolveModuleName) {
+    if (-not $ModuleNameOutput) {
+        throw "ModuleNameOutput is required when ResolveModuleName is specified."
+    }
+
+    $moduleName = if ($specFiles.Count -gt 0) {
+        Get-CMakeModuleName $specFiles[0]
+    } elseif ($TargetName) {
+        "$TargetName$TargetExtension"
+    } else {
+        ""
+    }
+
+    New-Item -ItemType Directory -Force -Path (Split-Path -Parent $ModuleNameOutput) | Out-Null
+    [IO.File]::WriteAllText(
+        [IO.Path]::GetFullPath($ModuleNameOutput),
+        "$moduleName`r`n",
+        [Text.UTF8Encoding]::new($false))
+    exit 0
+}
+
 if ($specFiles.Count -eq 0 -or $definitionFiles.Count -eq 0) {
     New-Item -ItemType Directory -Force -Path (Split-Path -Parent $OutputStamp) | Out-Null
     New-Item -ItemType File -Force -Path $OutputStamp | Out-Null

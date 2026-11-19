@@ -30,6 +30,7 @@
     <ReactOSSpec2DefLibMachine Condition="'$(ReactOSSpec2DefLibMachine)' == '' and '$(Platform)' == 'ARM64'">arm64</ReactOSSpec2DefLibMachine>
     <ReactOSSpec2DefInferredDllStamp>$(IntDir)ReactOSSpec2Def\Dll.stamp</ReactOSSpec2DefInferredDllStamp>
     <ReactOSSpec2DefInferredImportStamp>$(IntDir)ReactOSSpec2Def\ImportLibrary.stamp</ReactOSSpec2DefInferredImportStamp>
+    <ReactOSSpec2DefInferredModuleNameFile>$(IntDir)ReactOSSpec2Def\ModuleName.txt</ReactOSSpec2DefInferredModuleNameFile>
   </PropertyGroup>
 
   <Target Name="GenerateReactOSSpec2Def"
@@ -77,8 +78,8 @@
   <Target Name="GenerateReactOSSpec2DefInferredImport"
           Condition="'$(ReactOSSpec2DefEnabled)' == 'true' and '@(None->WithMetadataValue('Extension','.spec'))' != '' and ( '@(MASM)' != '' or '@(MARMASM)' != '' )"
           BeforeTargets="PrepareForBuild"
-          Inputs="$(MSBuildProjectFullPath);@(None);@(MASM);@(MARMASM);$(ReactOSSpec2DefTool);$(ReactOSSpec2DefStubAssembler);$(ReactOSSpec2DefLinker)"
-          Outputs="$(ReactOSSpec2DefInferredImportStamp)">
+           Inputs="$(MSBuildProjectFullPath);$(ReactOSSpec2DefScript);@(None);@(MASM);@(MARMASM);$(ReactOSSpec2DefTool);$(ReactOSSpec2DefStubAssembler);$(ReactOSSpec2DefLinker)"
+           Outputs="$(ReactOSSpec2DefInferredImportStamp)">
     <ItemGroup>
       <ReactOSSpec2DefLocalSpec Include="@(None->WithMetadataValue('Extension','.spec'))" />
       <ReactOSSpec2DefLocalImport Include="@(MASM->WithMetadataValue('Extension','.asm'));@(MARMASM->WithMetadataValue('Extension','.asm'))">
@@ -90,13 +91,19 @@
         <TemporaryLibraryFile>%(RootDir)%(Directory)$([System.String]::Copy('%(Filename)').Replace('_impalias', '_tmp')).lib</TemporaryLibraryFile>
       </ReactOSSpec2DefLocalImport>
     </ItemGroup>
+    <Error Condition="'$(ReactOSSpec2DefModuleName)' == '' and !Exists('$(ReactOSSpec2DefScript)')" Text="spec2def generation script was not found: $(ReactOSSpec2DefScript)" />
+    <Exec Condition="'$(ReactOSSpec2DefModuleName)' == ''" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSSpec2DefScript)&quot; -Spec2DefTool &quot;$(ReactOSSpec2DefTool)&quot; -ProjectFile &quot;$(MSBuildProjectFullPath)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -OutputStamp &quot;$(ReactOSSpec2DefInferredModuleNameFile)&quot; -ModuleNameOutput &quot;$(ReactOSSpec2DefInferredModuleNameFile)&quot; -Architecture &quot;$(ReactOSSpec2DefArchitecture)&quot; -Platform &quot;$(Platform)&quot; -Configuration &quot;$(Configuration)&quot; -TargetName &quot;$(TargetName)&quot; -TargetExtension &quot;$(TargetExt)&quot; -Version &quot;$(ReactOSSpec2DefVersion)&quot; -ResolveModuleName" />
+    <ReadLinesFromFile Condition="'$(ReactOSSpec2DefModuleName)' == ''" File="$(ReactOSSpec2DefInferredModuleNameFile)">
+      <Output TaskParameter="Lines" PropertyName="ReactOSSpec2DefResolvedModuleName" />
+    </ReadLinesFromFile>
     <PropertyGroup>
       <ReactOSSpec2DefLocalSpecFile>@(ReactOSSpec2DefLocalSpec)</ReactOSSpec2DefLocalSpecFile>
       <ReactOSSpec2DefLocalSpecStem>$([System.IO.Path]::GetFileNameWithoutExtension('$(ReactOSSpec2DefLocalSpecFile)'))</ReactOSSpec2DefLocalSpecStem>
       <ReactOSSpec2DefLocalSpecExtension>$([System.IO.Path]::GetExtension('$(ReactOSSpec2DefLocalSpecStem)'))</ReactOSSpec2DefLocalSpecExtension>
       <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' != ''">$(ReactOSSpec2DefModuleName)</ReactOSSpec2DefLocalDllName>
-      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' == '' and '$(ReactOSSpec2DefLocalSpecExtension)' == ''">$(ReactOSSpec2DefLocalSpecStem).dll</ReactOSSpec2DefLocalDllName>
-      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' == '' and '$(ReactOSSpec2DefLocalSpecExtension)' != ''">$(ReactOSSpec2DefLocalSpecStem)</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' == '' and '$(ReactOSSpec2DefResolvedModuleName)' != ''">$(ReactOSSpec2DefResolvedModuleName)</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' == '' and '$(ReactOSSpec2DefResolvedModuleName)' == '' and '$(ReactOSSpec2DefLocalSpecExtension)' == ''">$(ReactOSSpec2DefLocalSpecStem).dll</ReactOSSpec2DefLocalDllName>
+      <ReactOSSpec2DefLocalDllName Condition="'$(ReactOSSpec2DefModuleName)' == '' and '$(ReactOSSpec2DefResolvedModuleName)' == '' and '$(ReactOSSpec2DefLocalSpecExtension)' != ''">$(ReactOSSpec2DefLocalSpecStem)</ReactOSSpec2DefLocalDllName>
     </PropertyGroup>
     <ItemGroup>
       <ReactOSSpec2DefLocalImport Update="@(ReactOSSpec2DefLocalImport)">
