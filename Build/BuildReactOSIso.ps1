@@ -55,7 +55,19 @@ $defaultDisabledCmakeDirectories = @(
     "dll/directx/wine/d3d11",
     "dll/directx/wine/d3d12",
     "dll/directx/wine/d3d12core",
+    "dll/directx/wine/d3dx10_33",
+    "dll/directx/wine/d3dx10_34",
+    "dll/directx/wine/d3dx10_35",
+    "dll/directx/wine/d3dx10_36",
+    "dll/directx/wine/d3dx10_37",
+    "dll/directx/wine/d3dx10_38",
+    "dll/directx/wine/d3dx10_39",
+    "dll/directx/wine/d3dx10_40",
+    "dll/directx/wine/d3dx10_41",
+    "dll/directx/wine/d3dx10_42",
     "dll/directx/wine/d3dx10_43",
+    "dll/directx/wine/d3dx11_42",
+    "dll/directx/wine/d3dx11_43",
     "dll/directx/wine/dplay",
     "dll/directx/wine/dpnhpast",
     "dll/directx/wine/dwrite",
@@ -169,6 +181,28 @@ function Get-CMakeCalls {
             Text = $Text.Substring($match.Index, $end - $match.Index + 1)
             Body = $Text.Substring($open + 1, $end - $open - 1)
             Offset = $match.Index
+        }
+    }
+}
+
+function Get-CMakeFunctionDefinitions {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Text
+    )
+
+    $pattern = "(?ims)(?:^|`n)\s*(?:function|macro)\s*\(\s*(?<name>[A-Za-z_][A-Za-z0-9_]*)\s*(?<parameters>[^)]*)\)\s*(?<body>.*?)^\s*end(?:function|macro)\s*\("
+    foreach ($match in [regex]::Matches($Text, $pattern)) {
+        $lineStart = $Text.LastIndexOf("`n", [Math]::Max(0, $match.Index - 1)) + 1
+        $linePrefix = $Text.Substring($lineStart, $match.Index - $lineStart)
+        if ($linePrefix.TrimStart().StartsWith("#")) {
+            continue
+        }
+
+        [pscustomobject]@{
+            Name = $match.Groups["name"].Value
+            Parameters = $match.Groups["parameters"].Value
+            Body = $match.Groups["body"].Value
         }
     }
 }
@@ -391,6 +425,141 @@ function Resolve-OutputForTarget {
         return $candidates[0].Output
     }
     return $null
+}
+
+function Get-ActiveFunctionCdCalls {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Text,
+        [Parameter(Mandatory = $true)]
+        [hashtable]$Variables,
+        [Parameter(Mandatory = $true)]
+        [object[]]$FunctionDefinitions,
+        [Parameter(Mandatory = $true)]
+        [object[]]$ProjectMap
+    )
+
+    $calls = [Collections.Generic.List[object]]::new()
+    foreach ($definition in $FunctionDefinitions) {
+        foreach ($invocation in @(Get-CMakeCalls -Text $Text -CommandName $definition.Name)) {
+            $invocationTokens = [Collections.Generic.List[string]]::new()
+            foreach ($token in (Split-CMakeArguments $invocation.Body)) {
+                foreach ($expanded in (Expand-CMakeValueList -Value $token -Variables $Variables)) {
+                    $invocationTokens.Add([string]$expanded)
+                }
+            }
+
+            $localVariables = @{}
+            foreach ($key in $Variables.Keys) {
+                $localVariables[$key] = $Variables[$key]
+            }
+
+            $parameters = @(Split-CMakeArguments $definition.Parameters)
+            $fixedArgumentIndex = 0
+            foreach ($parameter in $parameters) {
+                if (-not $parameter) {
+                    continue
+                }
+                if ($parameter -eq "ARGN") {
+                    $localVariables[$parameter] = @(
+                        if ($fixedArgumentIndex -lt $invocationTokens.Count) {
+                            $invocationTokens[$fixedArgumentIndex..($invocationTokens.Count - 1)]
+                        }
+                    )
+                    break
+                }
+                $localVariables[$parameter] = if ($fixedArgumentIndex -lt $invocationTokens.Count) {
+                    $invocationTokens[$fixedArgumentIndex]
+                } else {
+                    ""
+                }
+                $fixedArgumentIndex++
+            }
+
+            foreach ($parseCall in @(Get-CMakeCalls -Text $definition.Body -CommandName "cmake_parse_arguments")) {
+                $parseTokens = @(Split-CMakeArguments $parseCall.Body)
+                if ($parseTokens.Count -lt 4) {
+                    continue
+                }
+                $prefix = $parseTokens[0]
+                $oneValueKeywords = @(
+                    if ($parseTokens[2]) { $parseTokens[2] -split ";" }
+                )
+                $multiValueKeywords = @(
+                    if ($parseTokens[3]) { $parseTokens[3] -split ";" }
+                )
+                $keywords = @($oneValueKeywords + $multiValueKeywords)
+                $extraTokens = @(
+                    if ($fixedArgumentIndex -lt $invocationTokens.Count) {
+                        $invocationTokens[$fixedArgumentIndex..($invocationTokens.Count - 1)]
+                    }
+                )
+                for ($index = 0; $index -lt $extraTokens.Count; $index++) {
+                    $keyword = $extraTokens[$index]
+                    if ($oneValueKeywords -contains $keyword) {
+                        $localVariables["${prefix}_${keyword}"] = if ($index + 1 -lt $extraTokens.Count) {
+                            $extraTokens[$index + 1]
+                        } else {
+                            ""
+                        }
+                        $index++
+                    } elseif ($multiValueKeywords -contains $keyword) {
+                        $values = [Collections.Generic.List[string]]::new()
+                        for ($valueIndex = $index + 1; $valueIndex -lt $extraTokens.Count; $valueIndex++) {
+                            if ($keywords -contains $extraTokens[$valueIndex]) {
+                                $index = $valueIndex - 1
+                                break
+                            }
+                            $values.Add($extraTokens[$valueIndex])
+                            $index = $valueIndex
+                        }
+                        $localVariables["${prefix}_${keyword}"] = @($values)
+                    }
+                }
+            }
+
+            foreach ($setCall in @(Get-CMakeCalls -Text $definition.Body -CommandName "set")) {
+                $setTokens = @(Split-CMakeArguments $setCall.Body)
+                if ($setTokens.Count -lt 2) {
+                    continue
+                }
+                $setName = $setTokens[0]
+                $setValues = [Collections.Generic.List[string]]::new()
+                foreach ($setValue in $setTokens[1..($setTokens.Count - 1)]) {
+                    foreach ($expanded in (Expand-CMakeValueList -Value $setValue -Variables $localVariables)) {
+                        $value = [string]$expanded
+                        if ($value -match '^\$<TARGET_FILE_NAME:(?<target>[^>]+)>$') {
+                            $targetOutput = Resolve-OutputForTarget -Target $Matches["target"] -ProjectMap $ProjectMap
+                            if ($targetOutput) {
+                                $value = [IO.Path]::GetFileName($targetOutput)
+                            }
+                        }
+                        $setValues.Add($value)
+                    }
+                }
+                $hasExistingValue = $localVariables.ContainsKey($setName) -and
+                    @($localVariables[$setName]).Count -gt 0 -and
+                    [string]$localVariables[$setName][0]
+                if (-not ($hasExistingValue -and $setName -match "_NAME_ON_CD$")) {
+                    $localVariables[$setName] = if ($setValues.Count -eq 1) {
+                        $setValues[0]
+                    } else {
+                        @($setValues)
+                    }
+                }
+            }
+
+            foreach ($cdCall in @(Get-CMakeCalls -Text $definition.Body -CommandName "add_cd_file")) {
+                $calls.Add([pscustomobject]@{
+                    Text = $cdCall.Text
+                    Body = $cdCall.Body
+                    Offset = $invocation.Offset
+                    Variables = $localVariables
+                })
+            }
+        }
+    }
+    return @($calls)
 }
 
 function Test-ProjectTargetDisabled {
@@ -1087,6 +1256,22 @@ function Get-CdDeclarations {
         Get-ChildItem -LiteralPath $SourceRoot -Recurse -Filter "CMakeLists.txt" -File
         Get-ChildItem -LiteralPath $SourceRoot -Recurse -Filter "*.cmake" -File
     ) | Sort-Object FullName -Unique
+    $activeFunctionNames = @(
+        "add_bootvid",
+        "add_d3dcompiler_target",
+        "add_d3dx10_forwarder",
+        "add_d3dx11_target",
+        "add_d3dx9_target",
+        "add_hal"
+    )
+    $functionDefinitions = [Collections.Generic.List[object]]::new()
+    foreach ($functionFile in $cmakeFiles) {
+        foreach ($definition in @(Get-CMakeFunctionDefinitions -Text (Get-Content -LiteralPath $functionFile.FullName -Raw))) {
+            if ($activeFunctionNames -contains $definition.Name) {
+                $functionDefinitions.Add($definition)
+            }
+        }
+    }
     foreach ($cmake in $cmakeFiles) {
         $sourceDirectory = Split-Path -Parent $cmake.FullName
         $relativeDirectory = [IO.Path]::GetRelativePath($SourceRoot, $sourceDirectory)
@@ -1242,7 +1427,11 @@ function Get-CdDeclarations {
             }
         }
 
-        foreach ($call in Get-CMakeCalls -Text $text -CommandName "add_cd_file") {
+        $cdCalls = @(
+            Get-CMakeCalls -Text $text -CommandName "add_cd_file"
+            Get-ActiveFunctionCdCalls -Text $text -Variables $variables -FunctionDefinitions @($functionDefinitions) -ProjectMap $projectMap
+        )
+        foreach ($call in $cdCalls) {
             $tokens = @(Split-CMakeArguments $call.Body)
             if ($tokens.Count -eq 0) {
                 continue
@@ -1265,18 +1454,23 @@ function Get-CdDeclarations {
                 })
                 continue
             }
+            $callVariables = if ($call.PSObject.Properties.Name -contains "Variables") {
+                $call.Variables
+            } else {
+                $variables
+            }
             $images = @($arguments.Images)
             if ($images -contains "all") {
                 $images = @("bootcd", "livecd", "regtest")
             }
-            $destinationValues = @(Expand-CMakeValueList -Value $arguments.Destination -Variables $variables)
+            $destinationValues = @(Expand-CMakeValueList -Value $arguments.Destination -Variables $callVariables)
             $destination = if ($destinationValues.Count -gt 0) {
                 [string]$destinationValues[0]
             } else {
                 ""
             }
             $nameOnCd = if ($arguments.NameOnCd) {
-                $nameValues = @(Expand-CMakeValueList -Value $arguments.NameOnCd -Variables $variables)
+                $nameValues = @(Expand-CMakeValueList -Value $arguments.NameOnCd -Variables $callVariables)
                 if ($nameValues.Count -gt 0) { [string]$nameValues[0] } else { "" }
             } else {
                 ""
@@ -1300,7 +1494,7 @@ function Get-CdDeclarations {
 
             foreach ($image in $images) {
                 foreach ($item in $values) {
-                    $expandedValues = @(Expand-CMakeValueList -Value $item.Value -Variables $variables)
+                    $expandedValues = @(Expand-CMakeValueList -Value $item.Value -Variables $callVariables)
                     $expandedValues = @($expandedValues | ForEach-Object {
                         if ($_ -is [Array]) { $_ } else { [string]$_ }
                     } | ForEach-Object {
