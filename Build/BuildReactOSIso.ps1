@@ -1083,7 +1083,11 @@ function Get-CdDeclarations {
     $unresolved = [Collections.Generic.List[object]]::new()
     $generatedInfConversions = [Collections.Generic.List[object]]::new()
 
-    foreach ($cmake in Get-ChildItem -LiteralPath $SourceRoot -Recurse -Filter "CMakeLists.txt" -File) {
+    $cmakeFiles = @(
+        Get-ChildItem -LiteralPath $SourceRoot -Recurse -Filter "CMakeLists.txt" -File
+        Get-ChildItem -LiteralPath $SourceRoot -Recurse -Filter "*.cmake" -File
+    ) | Sort-Object FullName -Unique
+    foreach ($cmake in $cmakeFiles) {
         $sourceDirectory = Split-Path -Parent $cmake.FullName
         $relativeDirectory = [IO.Path]::GetRelativePath($SourceRoot, $sourceDirectory)
         $normalizedRelativeDirectory = $relativeDirectory.Replace("\", "/").ToLowerInvariant()
@@ -1099,6 +1103,9 @@ function Get-CdDeclarations {
             continue
         }
         $binaryDirectory = Join-Path $generatedRoot $relativeDirectory
+        if ($normalizedRelativeDirectory -eq "boot" -and $cmake.Name -eq "boot_images.cmake") {
+            $binaryDirectory = $generatedRoot
+        }
         $text = Get-Content -LiteralPath $cmake.FullName -Raw
         $variables = @{
             "ARCH" = $architecture
@@ -1108,6 +1115,11 @@ function Get-CdDeclarations {
             "CMAKE_BINARY_DIR" = $generatedRoot
             "CMAKE_CURRENT_SOURCE_DIR" = $sourceDirectory
             "CMAKE_CURRENT_BINARY_DIR" = $binaryDirectory
+            "EFI_PLATFORM_ID" = switch ($architecture) {
+                "i386" { "ia32" }
+                "amd64" { "x64" }
+                "arm64" { "aa64" }
+            }
         }
         if ($relativeDirectory.Replace("\", "/") -eq "hal/halx86" -and $architecture -eq "amd64") {
             $variables["_halname"] = @("hal", "halmp")

@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <Target Name="GenerateReactOSBootSectorProjectFiles"
-          Condition="'$(ReactOSBootSectorEnabled)' == 'true' and '$(ReactOSBootSectorProjectGeneration)' != 'false' and '@(None->WithMetadataValue('Filename','CMakeLists'))' != ''"
+          Condition="'$(ReactOSBootSectorEnabled)' == 'true' and '$(ReactOSBootSectorProjectGeneration)' != 'false' and ('@(None->WithMetadataValue('Filename','CMakeLists'))' != '' or '$(ReactOSBootSectorAdditionalCMakeListFile)' != '')"
           BeforeTargets="PrepareForBuild"
           Inputs="$(MSBuildProjectFullPath);$(ReactOSBootSectorScript);@(None)"
           Outputs="$(ReactOSBootSectorProjectStamp)">
@@ -19,6 +19,10 @@
       <ReactOSBootSectorProjectCMake Include="@(None->WithMetadataValue('Filename','CMakeLists'))">
         <CMakeListFile>%(FullPath)</CMakeListFile>
         <SourceDirectory>%(RootDir)%(Directory).</SourceDirectory>
+      </ReactOSBootSectorProjectCMake>
+      <ReactOSBootSectorProjectCMake Include="$(ReactOSBootSectorAdditionalCMakeListFile)" Condition="'$(ReactOSBootSectorAdditionalCMakeListFile)' != ''">
+        <CMakeListFile>$(ReactOSBootSectorAdditionalCMakeListFile)</CMakeListFile>
+        <SourceDirectory>$(ReactOSBootSectorAdditionalCMakeListDirectory)</SourceDirectory>
       </ReactOSBootSectorProjectCMake>
     </ItemGroup>
     <Error Condition="'%(ReactOSBootSectorProjectCMake.CMakeListFile)' != '' and !Exists('$(ReactOSBootSectorCompiler)')" Text="MSVC compiler was not found: $(ReactOSBootSectorCompiler)" />

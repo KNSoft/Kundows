@@ -78,6 +78,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\ReactOS.props" />
   </ImportGroup>
+  <PropertyGroup>
+    <ReactOSFreeLdrGeneratedDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\</ReactOSFreeLdrGeneratedDirectory>
+    <ReactOSFreeLdr16Binary>$(ReactOSFreeLdrGeneratedDirectory)frldr16.bin</ReactOSFreeLdr16Binary>
+    <ReactOSFreeLdrPeBinary>$(KundowsRoot)OutDir\$(Platform)\$(Configuration)\freeldr_pe\freeldr_pe.exe</ReactOSFreeLdrPeBinary>
+    <ReactOSFreeLdrBinary>$(ReactOSFreeLdrGeneratedDirectory)freeldr.sys</ReactOSFreeLdrBinary>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -135,7 +141,21 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="Frldr16.vcxproj" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'">
+      <Project>{C7806362-ED44-5EFB-98DF-64DD34F524F3}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
+  <Target Name="BuildReactOSFreeLdr"
+          AfterTargets="Build"
+          Condition="'$(Platform)'=='Win32' Or '$(Platform)'=='x64'"
+          Inputs="$(ReactOSFreeLdr16Binary);$(ReactOSFreeLdrPeBinary)"
+          Outputs="$(ReactOSFreeLdrBinary)">
+    <Error Condition="!Exists('$(ReactOSFreeLdr16Binary)')" Text="FreeLdr 16-bit prefix was not generated: $(ReactOSFreeLdr16Binary)" />
+    <Error Condition="!Exists('$(ReactOSFreeLdrPeBinary)')" Text="FreeLdr PE image was not generated: $(ReactOSFreeLdrPeBinary)" />
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(KundowsRoot)Build\ConcatenateReactOSBinary.ps1&quot; -OutputFile &quot;$(ReactOSFreeLdrBinary)&quot; -FirstInputFile &quot;$(ReactOSFreeLdr16Binary)&quot; -SecondInputFile &quot;$(ReactOSFreeLdrPeBinary)&quot;" />
+  </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

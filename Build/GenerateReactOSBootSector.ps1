@@ -166,7 +166,7 @@ foreach ($match in [regex]::Matches($contents, "(?is)set\s*\(\s*(?<name>[A-Za-z_
     $variables[$match.Groups["name"].Value] = $match.Groups["value"].Value.Trim()
 }
 
-foreach ($match in [regex]::Matches($contents, "(?im)CreateBootSectorTarget\s*\((?<body>[^\r\n\)]*)")) {
+foreach ($match in [regex]::Matches($contents, "(?is)CreateBootSectorTarget\s*\((?<body>.*?)\)")) {
     $tokens = @(
         (Expand-CMakeValue $match.Groups["body"].Value $variables) -split "\s+" |
             ForEach-Object { $_.Trim() } |
