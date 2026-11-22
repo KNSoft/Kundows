@@ -1791,6 +1791,9 @@
     <Project Path="Upstream/ReactOS/Projects/Ntoskrnl/Ntoskrnl.vcxproj" />
   </Folder>
   <Folder Name="/ReactOS/Subsystems/Mvdm/" />
+  <Folder Name="/ReactOS/Subsystems/Mvdm/Dos/">
+    <Project Path="Upstream/ReactOS/Projects/Subsystems/Mvdm/Dos/Command.vcxproj" />
+  </Folder>
   <Folder Name="/ReactOS/Subsystems/Mvdm/Ntvdm/">
     <Project Path="Upstream/ReactOS/Projects/Subsystems/Mvdm/Ntvdm/Libntvdm.vcxproj" />
     <Project Path="Upstream/ReactOS/Projects/Subsystems/Mvdm/Ntvdm/Ntvdm.vcxproj" />

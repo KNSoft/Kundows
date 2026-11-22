@@ -25,3 +25,23 @@ by MSBuild for the host-tool project, never rediscovered inside the generator.
 
 `Build/Tests/GenDib.Tests.ps1` compares all six configurations with direct
 upstream output and checks no-op rebuilds and missing-output regeneration.
+
+## Raw 16-bit binaries
+
+`ReactOSBootSector.targets` executes the recorded MSVC preprocessing, x86 ML,
+and upstream obj2bin stages. Boot-sector and Frldr16 projects own their outputs;
+FreeLdr consumes Frldr16 rather than generating a second copy. The DOS command
+binary has its own native utility project instead of being discovered and built
+inside bin2c.
+
+Maintenance-only import and validation:
+
+```powershell
+Build/ImportReactOSGenerators.ps1 -Generator BootSector -Check
+Build/Tests/BootSector.Tests.ps1 -MSBuild <path-to-MSBuild.exe>
+```
+
+The importer uses evaluated commands from the migration records, not a CMake
+parser. Native builds read only committed project items. Tests exercise all
+recorded configurations and compare the binary stage with direct upstream
+obj2bin output, including incremental and deleted-output behavior.

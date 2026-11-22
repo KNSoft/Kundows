@@ -1,35 +1,45 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ReactOSBootSectorEnabled Condition="'$(ReactOSBootSectorEnabled)' == ''">true</ReactOSBootSectorEnabled>
-    <ReactOSBootSectorScript Condition="'$(ReactOSBootSectorScript)' == ''">$(KundowsRoot)Build\GenerateReactOSBootSector.ps1</ReactOSBootSectorScript>
-    <ReactOSBootSectorGeneratedRoot Condition="'$(ReactOSBootSectorGeneratedRoot)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)</ReactOSBootSectorGeneratedRoot>
-    <ReactOSBootSectorCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITEW6432)' == 'AMD64' or '$(PROCESSOR_ARCHITECTURE)' == 'AMD64'">x64</ReactOSBootSectorCompilerHostArchitecture>
-    <ReactOSBootSectorCompilerHostArchitecture Condition="'$(ReactOSBootSectorCompilerHostArchitecture)' == ''">$(Platform)</ReactOSBootSectorCompilerHostArchitecture>
-    <ReactOSBootSectorCompiler>$(VCToolsInstallDir)bin\Host$(ReactOSBootSectorCompilerHostArchitecture)\x64\cl.exe</ReactOSBootSectorCompiler>
-    <ReactOSBootSectorAssembler>$(VCToolsInstallDir)bin\Host$(ReactOSBootSectorCompilerHostArchitecture)\x86\ml.exe</ReactOSBootSectorAssembler>
-    <ReactOSBootSectorProjectStamp>$(IntDir)ReactOSBootSector\Project.stamp</ReactOSBootSectorProjectStamp>
+    <ReactOSBootSectorHostPlatform>$(Platform)</ReactOSBootSectorHostPlatform>
+    <ReactOSBootSectorHostPlatform Condition="'$(Platform)' == 'ARM64' and ('$(PROCESSOR_ARCHITECTURE)' == 'AMD64' or '$(PROCESSOR_ARCHITEW6432)' == 'AMD64')">x64</ReactOSBootSectorHostPlatform>
+    <ReactOSObj2BinTool>$(KundowsRoot)OutDir\HostTools\$(ReactOSBootSectorHostPlatform)\$(Configuration)\obj2bin.exe</ReactOSObj2BinTool>
   </PropertyGroup>
-
-  <Target Name="GenerateReactOSBootSectorProjectFiles"
-          Condition="'$(ReactOSBootSectorEnabled)' == 'true' and '$(ReactOSBootSectorProjectGeneration)' != 'false' and ('@(None->WithMetadataValue('Filename','CMakeLists'))' != '' or '$(ReactOSBootSectorAdditionalCMakeListFile)' != '')"
-          BeforeTargets="PrepareForBuild"
-          Inputs="$(MSBuildProjectFullPath);$(ReactOSBootSectorScript);@(None)"
-          Outputs="$(ReactOSBootSectorProjectStamp)">
+  <Target Name="CopyReactOSAsm16"
+          Condition="'@(ReactOSAsm16Copy)' != ''"
+          Inputs="$(MSBuildProjectFullPath);$(MSBuildThisFileFullPath);%(ReactOSAsm16Copy.Identity)"
+          Outputs="%(ReactOSAsm16Copy.Outputs)">
+    <Copy SourceFiles="%(ReactOSAsm16Copy.Identity)" DestinationFiles="%(ReactOSAsm16Copy.Outputs)" />
+  </Target>
+  <Target Name="PreprocessReactOSBootSector"
+          DependsOnTargets="ResolveProjectReferences;CopyReactOSAsm16"
+          Condition="'@(ReactOSBootPreprocess)' != ''"
+          Inputs="$(MSBuildProjectFullPath);$(MSBuildThisFileFullPath);$(VCToolsInstallDir)bin\Host$(PreferredToolArchitecture)\$(PlatformShortName)\cl.exe;%(ReactOSBootPreprocess.Identity)"
+          Outputs="%(ReactOSBootPreprocess.Outputs)">
+    <MakeDir Directories="%(ReactOSBootPreprocess.OutputDirectory)" />
+    <Exec Command="&quot;$(VCToolsInstallDir)bin\Host$(PreferredToolArchitecture)\$(PlatformShortName)\cl.exe&quot; %(ReactOSBootPreprocess.Arguments)" />
     <ItemGroup>
-      <ReactOSBootSectorProjectCMake Include="@(None->WithMetadataValue('Filename','CMakeLists'))">
-        <CMakeListFile>%(FullPath)</CMakeListFile>
-        <SourceDirectory>%(RootDir)%(Directory).</SourceDirectory>
-      </ReactOSBootSectorProjectCMake>
-      <ReactOSBootSectorProjectCMake Include="$(ReactOSBootSectorAdditionalCMakeListFile)" Condition="'$(ReactOSBootSectorAdditionalCMakeListFile)' != ''">
-        <CMakeListFile>$(ReactOSBootSectorAdditionalCMakeListFile)</CMakeListFile>
-        <SourceDirectory>$(ReactOSBootSectorAdditionalCMakeListDirectory)</SourceDirectory>
-      </ReactOSBootSectorProjectCMake>
+      <FileWrites Include="%(ReactOSBootPreprocess.Outputs);@(ReactOSAsm16Copy->'%(Outputs)')" />
     </ItemGroup>
-    <Error Condition="'%(ReactOSBootSectorProjectCMake.CMakeListFile)' != '' and !Exists('$(ReactOSBootSectorCompiler)')" Text="MSVC compiler was not found: $(ReactOSBootSectorCompiler)" />
-    <Error Condition="'%(ReactOSBootSectorProjectCMake.CMakeListFile)' != '' and !Exists('$(ReactOSBootSectorAssembler)')" Text="x86 assembler was not found: $(ReactOSBootSectorAssembler)" />
-    <MakeDir Directories="$(IntDir)ReactOSBootSector\" />
-    <Exec Condition="'%(ReactOSBootSectorProjectCMake.CMakeListFile)' != ''"
-          Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSBootSectorScript)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSBootSectorGeneratedRoot)&quot; -CMakeListFile &quot;%(ReactOSBootSectorProjectCMake.CMakeListFile)&quot; -SourceDirectory &quot;%(ReactOSBootSectorProjectCMake.SourceDirectory)&quot; -Compiler &quot;$(ReactOSBootSectorCompiler)&quot; -Assembler &quot;$(ReactOSBootSectorAssembler)&quot;" />
-    <Touch Files="$(ReactOSBootSectorProjectStamp)" AlwaysCreate="true" />
+  </Target>
+  <Target Name="AssembleReactOSBootSector"
+          DependsOnTargets="PreprocessReactOSBootSector"
+          Condition="'@(ReactOSBootAssemble)' != ''"
+          Inputs="$(MSBuildProjectFullPath);$(MSBuildThisFileFullPath);$(VCToolsInstallDir)bin\Host$(PreferredToolArchitecture)\x86\ml.exe;%(ReactOSBootAssemble.Identity)"
+          Outputs="%(ReactOSBootAssemble.Outputs)">
+    <Exec Command="&quot;$(VCToolsInstallDir)bin\Host$(PreferredToolArchitecture)\x86\ml.exe&quot; %(ReactOSBootAssemble.Arguments)" />
+    <ItemGroup>
+      <FileWrites Include="%(ReactOSBootAssemble.Outputs)" />
+    </ItemGroup>
+  </Target>
+  <Target Name="GenerateReactOSBootSectorProjectFiles"
+          BeforeTargets="ClCompile;ResourceCompile;Lib;Link;Build"
+          DependsOnTargets="AssembleReactOSBootSector"
+          Condition="'@(ReactOSBootConvert)' != ''"
+          Inputs="$(MSBuildProjectFullPath);$(MSBuildThisFileFullPath);$(ReactOSObj2BinTool);%(ReactOSBootConvert.Identity)"
+          Outputs="%(ReactOSBootConvert.Outputs)">
+    <Exec Command="&quot;$(ReactOSObj2BinTool)&quot; %(ReactOSBootConvert.Arguments)" />
+    <ItemGroup>
+      <FileWrites Include="%(ReactOSBootConvert.Outputs)" />
+    </ItemGroup>
   </Target>
 </Project>

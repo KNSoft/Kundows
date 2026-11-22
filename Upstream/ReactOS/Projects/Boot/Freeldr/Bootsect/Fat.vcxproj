@@ -129,6 +129,90 @@
     <None Include="Fat.Migration.json" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64'" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup Label="ReactOSBootSector" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSBootPreprocess Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\bootsect\fat.S">
+      <Arguments>/nologo /X /I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\asm" /I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\asm" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\crt" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ddk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ndk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\psdk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos\libs" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\vcruntime" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\winrt" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\psdk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\ddk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\dxsdk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\lib\pseh\include" -I"$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr" -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -DWINVER=0x502 -D_WIN32_IE=0x603 -D_WIN32_WINNT=0x502 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US /D__ASM__ /D_USE_ML /EP /c "$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\bootsect\fat.S" &gt; "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp</Outputs>
+    </ReactOSBootPreprocess>
+    <ReactOSBootAssemble Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj</Outputs>
+    </ReactOSBootAssemble>
+    <ReactOSBootConvert Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin" 7c00</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin</Outputs>
+    </ReactOSBootConvert>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Obj2bin\Obj2bin.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{AF11E530-6ADF-43CD-A380-4FAEB2A22053}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBootSectorHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBootSector" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSBootPreprocess Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\bootsect\fat.S">
+      <Arguments>/nologo /X /I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\asm" /I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\asm" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\crt" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ddk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ndk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\psdk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos\libs" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\vcruntime" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\winrt" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\psdk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\ddk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\dxsdk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\lib\pseh\include" -I"$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr" -D__REACTOS__ -D_SBCS -DDBG=0 -DWINVER=0x502 -D_WIN32_IE=0x603 -D_WIN32_WINNT=0x502 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_IX86 -D_X86_ -D__i386__ -Di386 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D_USE_32BIT_TIME_T -DWIN32 -D_WINDOWS -D__STDC__=1 -DLANGUAGE_EN_US /D__ASM__ /D_USE_ML /EP /c "$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\bootsect\fat.S" &gt; "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp</Outputs>
+    </ReactOSBootPreprocess>
+    <ReactOSBootAssemble Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj</Outputs>
+    </ReactOSBootAssemble>
+    <ReactOSBootConvert Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin" 7c00</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin</Outputs>
+    </ReactOSBootConvert>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Obj2bin\Obj2bin.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{AF11E530-6ADF-43CD-A380-4FAEB2A22053}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBootSectorHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBootSector" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSBootPreprocess Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\bootsect\fat.S">
+      <Arguments>/nologo /X /I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\asm" /I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\asm" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\crt" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ddk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ndk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\psdk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos\libs" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\vcruntime" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\winrt" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\psdk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\ddk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\dxsdk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\lib\pseh\include" -I"$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr" -D__REACTOS__ -D_SBCS -DDBG=1 -D_SEH_ENABLE_TRACE -DWINVER=0x502 -D_WIN32_IE=0x603 -D_WIN32_WINNT=0x502 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -D__RUNTIME_CHECKS__ -DLANGUAGE_EN_US -D__x86_64 /D__ASM__ /D_USE_ML /EP /c "$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\bootsect\fat.S" &gt; "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp</Outputs>
+    </ReactOSBootPreprocess>
+    <ReactOSBootAssemble Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj</Outputs>
+    </ReactOSBootAssemble>
+    <ReactOSBootConvert Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin" 7c00</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin</Outputs>
+    </ReactOSBootConvert>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Obj2bin\Obj2bin.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{AF11E530-6ADF-43CD-A380-4FAEB2A22053}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBootSectorHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBootSector" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSBootPreprocess Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\bootsect\fat.S">
+      <Arguments>/nologo /X /I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\asm" /I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\asm" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\crt" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ddk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ndk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\psdk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos\libs" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\vcruntime" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\winrt" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\psdk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\ddk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos" -I"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\dxsdk" -I"$(KundowsRoot)Upstream\ReactOS\Source\sdk\lib\pseh\include" -I"$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr" -D__REACTOS__ -D_SBCS -DDBG=0 -DWINVER=0x502 -D_WIN32_IE=0x603 -D_WIN32_WINNT=0x502 -D_WIN32_WINDOWS=0x502 -D_SETUPAPI_VER=0x502 -DMINGW_HAS_SECURE_API=1 -DD3D_UMD_INTERFACE_VERSION=0x000C -DDXGKDDI_INTERFACE_VERSION=0x1052 -DDLL_EXPORT_VERSION=0x502 -D_M_AMD64 -D_M_X64 -D_AMD64_ -D__x86_64__ -D_WIN64 -D_NEW_DELETE_OPERATORS_ -DUSE_COMPILER_EXCEPTIONS -D__STDC__=1 -DLANGUAGE_EN_US -D__x86_64 /D__ASM__ /D_USE_ML /EP /c "$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\bootsect\fat.S" &gt; "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp</Outputs>
+    </ReactOSBootPreprocess>
+    <ReactOSBootAssemble Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.tmp"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj</Outputs>
+    </ReactOSBootAssemble>
+    <ReactOSBootConvert Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin.obj" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin" 7c00</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin</Outputs>
+    </ReactOSBootConvert>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Obj2bin\Obj2bin.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{AF11E530-6ADF-43CD-A380-4FAEB2A22053}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBootSectorHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />
