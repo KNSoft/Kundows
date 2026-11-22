@@ -786,16 +786,42 @@ function Write-ConcatenatedFile {
 
 function Get-RegistryInfSources {
     $sources = [Collections.Generic.List[string]]::new()
+    $projectMap = Get-ProjectOutputMap -ProjectRoot (Join-Path $KundowsRoot "Upstream\ReactOS\Projects")
     foreach ($cmake in Get-ChildItem -LiteralPath $SourceRoot -Recurse -Filter "CMakeLists.txt" -File) {
         $sourceDirectory = Split-Path -Parent $cmake.FullName
         $relativeDirectory = [IO.Path]::GetRelativePath($SourceRoot, $sourceDirectory).Replace("\", "/").ToLowerInvariant()
         if ($defaultDisabledCmakeDirectories -contains $relativeDirectory) {
             continue
         }
+        if ($relativeDirectory -eq "modules/rosapps" -or
+            $relativeDirectory.StartsWith("modules/rosapps/") -or
+            $relativeDirectory -eq "modules/rostests" -or
+            $relativeDirectory.StartsWith("modules/rostests/") -or
+            $relativeDirectory -eq "modules/wallpapers" -or
+            $relativeDirectory.StartsWith("modules/wallpapers/")) {
+            continue
+        }
         $text = Get-Content -LiteralPath $cmake.FullName -Raw
         foreach ($call in Get-CMakeCalls -Text $text -CommandName "add_registry_inf") {
             foreach ($token in (Split-CMakeArguments $call.Body)) {
                 if ($token -match "\$\{|\$\(" -or $token.StartsWith("#")) {
+                    continue
+                }
+                $targetStem = [IO.Path]::GetFileNameWithoutExtension($token)
+                $targetNames = @(
+                    $targetStem
+                    if ($targetStem -match "(?i)_reg$") {
+                        $targetStem -replace "(?i)_reg$", ""
+                    }
+                ) | Where-Object { $_ } | Select-Object -Unique
+                $targetMatches = @($projectMap | Where-Object {
+                    $targetNames -contains $_.ProjectName -or
+                    $targetNames -contains $_.TargetName
+                })
+                if ($targetMatches.Count -gt 1) {
+                    throw "Registry INF target '$($targetNames -join ', ')' is ambiguous for '$($cmake.FullName)'."
+                }
+                if ($targetMatches.Count -eq 1 -and -not $targetMatches[0].Buildable) {
                     continue
                 }
                 $path = if ([IO.Path]::IsPathRooted($token)) {
