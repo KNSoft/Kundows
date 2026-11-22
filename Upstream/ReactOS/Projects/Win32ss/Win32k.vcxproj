@@ -1706,6 +1706,17 @@
       <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\win32k.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\win32k_stubs.c</Outputs>
     </ReactOSSpec2Def>
   </ItemGroup>
+  <ItemGroup Label="ReactOSGenDib">
+    <ReactOSGenDib Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\gdi\dib">
+      <Outputs>%(Identity)\dib8gen.c;%(Identity)\dib16gen.c;%(Identity)\dib32gen.c</Outputs>
+    </ReactOSGenDib>
+    <ProjectReference Include="..\HostTools\GenDib\GenDib.vcxproj">
+      <Project>{E6B18B88-D431-431D-93F4-D971CCAFB00F}</Project>
+      <SetPlatform>Platform=$(ReactOSGenDibHostPlatform)</SetPlatform>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

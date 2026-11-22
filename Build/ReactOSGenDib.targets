@@ -1,25 +1,19 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ReactOSGenDibEnabled Condition="'$(ReactOSGenDibEnabled)' == ''">true</ReactOSGenDibEnabled>
-    <ReactOSGenDibScript Condition="'$(ReactOSGenDibScript)' == ''">$(KundowsRoot)Build\GenerateReactOSGenDib.ps1</ReactOSGenDibScript>
-    <ReactOSGenDibCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITEW6432)' == 'AMD64' or '$(PROCESSOR_ARCHITECTURE)' == 'AMD64'">x64</ReactOSGenDibCompilerHostArchitecture>
-    <ReactOSGenDibCompilerHostArchitecture Condition="'$(ReactOSGenDibCompilerHostArchitecture)' == ''">$(Platform)</ReactOSGenDibCompilerHostArchitecture>
-    <ReactOSGenDibCompilerArchitecture Condition="'$(ReactOSGenDibCompilerHostArchitecture)' == 'x64'">x64</ReactOSGenDibCompilerArchitecture>
-    <ReactOSGenDibCompilerArchitecture Condition="'$(ReactOSGenDibCompilerHostArchitecture)' == 'x86'">x86</ReactOSGenDibCompilerArchitecture>
-    <ReactOSGenDibCompilerArchitecture Condition="'$(ReactOSGenDibCompilerArchitecture)' == ''">$(ReactOSGenDibCompilerHostArchitecture)</ReactOSGenDibCompilerArchitecture>
-    <ReactOSGenDibCompiler>$(VCToolsInstallDir)bin\Host$(ReactOSGenDibCompilerHostArchitecture)\$(ReactOSGenDibCompilerArchitecture)\cl.exe</ReactOSGenDibCompiler>
-    <ReactOSGenDibOutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\win32ss\gdi\dib</ReactOSGenDibOutputDirectory>
-    <ReactOSGenDibStamp>$(IntDir)ReactOSGenDib\gendib.stamp</ReactOSGenDibStamp>
+    <ReactOSGenDibHostPlatform>$(Platform)</ReactOSGenDibHostPlatform>
+    <ReactOSGenDibHostPlatform Condition="'$(Platform)' == 'ARM64' and ('$(PROCESSOR_ARCHITECTURE)' == 'AMD64' or '$(PROCESSOR_ARCHITEW6432)' == 'AMD64')">x64</ReactOSGenDibHostPlatform>
+    <ReactOSGenDibTool>$(KundowsRoot)OutDir\HostTools\$(ReactOSGenDibHostPlatform)\$(Configuration)\gendib.exe</ReactOSGenDibTool>
   </PropertyGroup>
-
   <Target Name="GenerateReactOSGenDib"
-          Condition="'$(ReactOSGenDibEnabled)' == 'true' and '$(MSBuildProjectName)' == 'Win32k'"
-          BeforeTargets="PrepareForBuild"
-          Inputs="$(ReactOSGenDibScript);$(KundowsRoot)Upstream\ReactOS\Source\sdk\tools\gendib\gendib.c"
-          Outputs="$(ReactOSGenDibOutputDirectory)\dib8gen.c;$(ReactOSGenDibOutputDirectory)\dib16gen.c;$(ReactOSGenDibOutputDirectory)\dib32gen.c">
-    <Error Condition="!Exists('$(ReactOSGenDibCompiler)')" Text="MSVC compiler was not found: $(ReactOSGenDibCompiler)" />
-    <MakeDir Directories="$(IntDir)ReactOSGenDib" />
-    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSGenDibScript)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)&quot; -Compiler &quot;$(ReactOSGenDibCompiler)&quot;" />
-    <Touch Files="$(ReactOSGenDibStamp)" AlwaysCreate="true" />
+          BeforeTargets="ClCompile;Build"
+          DependsOnTargets="ResolveProjectReferences"
+          Condition="'@(ReactOSGenDib)' != ''"
+          Inputs="$(MSBuildProjectFullPath);$(MSBuildThisFileFullPath);$(ReactOSGenDibTool)"
+          Outputs="%(ReactOSGenDib.Outputs)">
+    <MakeDir Directories="%(ReactOSGenDib.Identity)" />
+    <Exec Command="&quot;$(ReactOSGenDibTool)&quot; &quot;%(ReactOSGenDib.Identity)&quot;" />
+    <ItemGroup>
+      <FileWrites Include="%(ReactOSGenDib.Outputs)" />
+    </ItemGroup>
   </Target>
 </Project>
