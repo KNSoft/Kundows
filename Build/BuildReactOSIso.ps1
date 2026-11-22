@@ -115,9 +115,10 @@ function Get-CMakeCalls {
         $definitionDepth = 0
         foreach ($definition in [regex]::Matches(
             $prefix,
-            "(?im)^\s*(?<command>function|macro|endfunction|endmacro)\b"
+            "(?im)^\s*(?<command>function|macro|endfunction|endmacro)\s*\("
         )) {
-            if ($definition.Groups["command"].Value -match "^(?i:function|macro)$") {
+            if ($definition.Groups["command"].Value -ieq "function" -or
+                $definition.Groups["command"].Value -ieq "macro") {
                 $definitionDepth++
             } elseif ($definitionDepth -gt 0) {
                 $definitionDepth--
