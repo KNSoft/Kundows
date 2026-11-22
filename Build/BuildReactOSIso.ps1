@@ -311,6 +311,40 @@ function Expand-CMakeValueList {
     return @($expanded)
 }
 
+function Resolve-CMakeTargetFileNames {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Value,
+        [Parameter(Mandatory = $true)]
+        [object[]]$ProjectMap
+    )
+
+    return [regex]::Replace($Value, '\$<TARGET_FILE_NAME:(?<target>[^>]+)>', {
+        param($match)
+        $output = Resolve-OutputForTarget -Target $match.Groups["target"].Value -ProjectMap $ProjectMap
+        if ($output) {
+            return [IO.Path]::GetFileName($output)
+        }
+        return $match.Value
+    })
+}
+
+function Test-IsoRelativePath {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    if ([string]::IsNullOrWhiteSpace($Path) -or
+        $Path -match '\$(?:\{|<|\()|[<>:"\\|?*\x00-\x1F]' -or
+        $Path.StartsWith("/")) {
+        return $false
+    }
+    foreach ($component in $Path.Split("/")) {
+        if ($component -in @("", ".", "..")) {
+            return $false
+        }
+    }
+    return $true
+}
+
 function Get-ProjectOutputMap {
     param(
         [Parameter(Mandatory = $true)]
@@ -1287,6 +1321,13 @@ function Build-BootcdIso {
             "-b", $mbr, "-t", "0x96", $iso
         )
     }
+    $layoutValidator = Join-Path $PSScriptRoot "TestReactOSIsoLayout.ps1"
+    Assert-File $layoutValidator "ISO layout validator"
+    & pwsh.exe -NoLogo -NoProfile -NonInteractive -File $layoutValidator `
+        -Iso $iso -OutputJson (Join-Path $auditRoot "iso-layout.json") | Out-Host
+    if ($LASTEXITCODE -ne 0) {
+        throw "Generated ISO failed raw directory/layout validation: $iso"
+    }
     return $iso
 }
 
@@ -1613,6 +1654,16 @@ function Get-CdDeclarations {
                     }
                     $cdDestination = if ($destination -eq "root") { "" } else { $destination }
                     $cdName = if ($nameOnCd) { $nameOnCd } else { [IO.Path]::GetFileName($source) }
+                    $cdName = Resolve-CMakeTargetFileNames -Value $cdName -ProjectMap $projectMap
+                    $cdPath = if ($cdDestination) { "$cdDestination/$cdName" } else { $cdName }
+                    if ($cdName.Contains("/") -or -not (Test-IsoRelativePath -Path $cdPath)) {
+                        $unresolved.Add([pscustomobject]@{
+                            File = $cmake.FullName
+                            Call = $call.Text
+                            Reason = "Unresolved or invalid ISO destination/name: '$cdPath'"
+                        })
+                        continue
+                    }
                     $declarations.Add([pscustomobject]@{
                         Image = $image
                         Placement = if ($arguments.NoCab) { "Direct" } else { "Cab" }
