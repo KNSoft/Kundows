@@ -12,6 +12,18 @@
   <Folder Name="/HostTools/Spec2Def/">
     <Project Path="Upstream/ReactOS/Projects/HostTools/Spec2Def/Spec2Def.vcxproj" />
   </Folder>
+  <Folder Name="/HostTools/Bin2c/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Bin2c/Bin2c.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Obj2bin/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Obj2bin/Obj2bin.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/Utf16le/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/Utf16le/Utf16le.vcxproj" />
+  </Folder>
+  <Folder Name="/HostTools/GenDib/">
+    <Project Path="Upstream/ReactOS/Projects/HostTools/GenDib/GenDib.vcxproj" />
+  </Folder>
   <Folder Name="/HostTools/GenInc/">
     <Project Path="Upstream/ReactOS/Projects/HostTools/GenInc/GenInc.vcxproj" />
     <Project Path="Upstream/ReactOS/Projects/HostTools/GenIncData/GenIncData.vcxproj" />
