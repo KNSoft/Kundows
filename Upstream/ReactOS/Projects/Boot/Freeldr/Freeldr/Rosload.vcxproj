@@ -266,7 +266,8 @@
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr;$(ProjectDir)..\..\..\..\Source\boot\freeldr\freeldr;$(ProjectDir)..\..\..\..\Source\boot\freeldr\freeldr\include\arch\uefi;$(ProjectDir)..\..\..\..\Source\boot\freeldr\freeldr\include;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\edk2;$(ProjectDir)..\..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include;$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(ProjectDir)..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(ProjectDir)..\..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\..\Source\ntoskrnl\include;$(ProjectDir)..\..\..\..\Source\sdk\lib\cmlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit- /d2FH4- /w14115</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <!-- The debug loader must remain small enough for the real-mode FreeLdr low-memory window. -->
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <CallingConvention />
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -276,11 +277,11 @@
       <ForceConformanceInForLoopScope />
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <MinimalRebuild />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <OmitDefaultLibName>true</OmitDefaultLibName>
-      <Optimization>Disabled</Optimization>
+      <Optimization>Full</Optimization>
       <RemoveUnreferencedCodeData />
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <StringPooling>true</StringPooling>
