@@ -85,6 +85,7 @@
     <Project Path="Upstream/ReactOS/Projects/Sdk/Include/Psdk/Xml_Uuids.vcxproj" />
   </Folder>
   <Folder Name="/ReactOS/Dll/Win32/Advapi32/">
+    <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advapi32/Advapi32RpcHeaders.vcxproj" />
     <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advapi32/Advapi32.vcxproj" />
     <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advapi32/Libadvapi32.vcxproj" />
     <Project Path="Upstream/ReactOS/Projects/Dll/Win32/Advapi32/Win32_Registry.vcxproj" />

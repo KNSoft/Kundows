@@ -159,12 +159,15 @@ function Update-Project([string]$Path, [xml]$Items, [string]$Label) {
     $lines = $text.ToString() -split "`n"
     $block = if ($Items.DocumentElement.ChildNodes.Count) { ($lines | Select-Object -Skip 1 | Select-Object -SkipLast 1) -join "`n" } else { "" }
     $contents = [IO.File]::ReadAllText($Path)
-    $updated = [regex]::Replace($contents, "(?ms)^  <ItemGroup Label=`"$Label`"[^>]*>.*?^  </ItemGroup>\r?\n", "")
+    $pattern = "(?ms)^  <ItemGroup Label=`"$Label`"[^>]*>.*?^  </ItemGroup>\r?\n"
+    $existing = [regex]::Match($contents, $pattern)
+    $updated = [regex]::Replace($contents, $pattern, "")
     if ($block) {
         $newline = if ($contents.Contains("`r`n")) { "`r`n" } else { "`n" }
         $anchor = '  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />'
         if (-not $updated.Contains($anchor)) { throw "Native C++ targets import missing: $Path" }
-        $updated = $updated.Replace($anchor, $block.Replace("`n", $newline) + $newline + $anchor)
+        $block = $block.Replace("`n", $newline) + $newline
+        $updated = if ($existing.Success) { $updated.Insert($existing.Index, $block) } else { $updated.Replace($anchor, $block + $anchor) }
     }
     if ($contents -cne $updated) {
         if ($Check) { throw "$Path differs from its recorded $Label commands" }

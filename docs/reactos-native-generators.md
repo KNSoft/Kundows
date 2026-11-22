@@ -78,3 +78,66 @@ WIDL is the only producer of IID definitions. Invalid IDL must fail with WIDL's
 exit status; there is no UUID-regex fallback or generated-header rewriting.
 `Build/Tests/UuidIids.Tests.ps1` compares valid and invalid IID/header generation
 with direct WIDL across all six configurations.
+
+## WIDL commands and dependencies
+
+Native WIDL builds consume only explicit project items: original arguments,
+working directories, declared input/output files, and the optional second
+upstream header pass. They do not inspect CMake or reverse-resolve IDLs from
+generated filenames. The old WIDL and UUID generation scripts are removed.
+Guards, RPC interfaces, proxy symbols, and IDL contents are never rewritten.
+
+Preserve forward slashes in WIDL arguments. Upstream `sdk/tools/tools.h` uses
+`strrchr(file, '/')` in `get_basename`; replacing slashes with backslashes changes
+the generated names. Correct arguments remove the need for compatibility
+preambles and proxy-symbol normalization.
+
+The old migration records truncate many multiline commands at `cd`. Therefore
+WIDL's maintenance importer reads the complete original custom commands from
+isolated reference VS projects, not those truncated summaries. CMake is used
+only to configure/generate those reference projects, never to build ReactOS or
+as part of the native build. Keep `DLL_EXPORT_VERSION=0x502`,
+`ENABLE_ROSTESTS=0`, and separate Debug/Release configurations when regenerating
+the current baseline. `DLL_EXPORT_VERSION=0x600` is still supported upstream,
+but changes the target/export set and is not part of this migration.
+
+`ImportReactOSWidl.ps1 -ReferenceRoot <directory> [-Check]` expects six generated
+reference trees named `reference-{x86,x64,arm64}-{Debug,Release}`. It preserves
+their commands and dependencies, consolidates shared SDK generation in
+ReactOSPrepare, and gives shared Advapi32 RPC files an explicit utility producer.
+Only actual WIDL producers reference the WIDL host project.
+
+```powershell
+Build/Tests/Widl.Tests.ps1 -MSBuild <path-to-MSBuild.exe>
+```
+
+Optionally supply `-ReferenceRoot` to verify metadata parity as well. Reference
+trees and their CMake cache files are not native build inputs.
+
+The scope remains the existing default-system migration. This work does not
+enable NT6 exports, rostests, or new guest functionality, and does not replace
+the existing disconnected Debug/Release boot records with a new boot claim.
+
+## Validation (2026-11-22)
+
+- Four upstream host tools: 24 MSVC builds and 28 executable smoke cases.
+- Raw binaries: 50 configuration chains; existing 28 x64 Debug/Release binary
+  hashes unchanged.
+- Bin2c: 18 configuration recipes; native Win32 HAL legacy sources compile,
+  and both PCI table objects have the original `INITDATA` section.
+- UTF-16: 96 configuration recipes, including stale-input, encoding/BOM,
+  packaging-consumer, and failure checks.
+- WIDL: 3018 configuration recipes across all six configurations, 108 direct
+  output comparisons, and 24 valid/invalid IID/header cases. Incremental,
+  missing-output, and second-pass failure checks pass.
+- WIDL import is unchanged on recheck. Spec2def, raw-binary, bin2c, and UTF-16
+  imports also remain unchanged; importing one family does not reorder another.
+- Rebuilt x64 Debug/Release UUID libraries and Comcat/Advapi32 DLLs. Exact PE
+  validation against their audited provider closures passes: 63 images in each
+  configuration, 9773 Debug / 9454 Release imports, zero errors.
+- Existing spec2def tests (62 native cases), KD protocol tests (10), ISO-name
+  tests (17), and packaging audits (3273 Debug / 3267 Release declarations,
+  zero unresolved inputs) still pass.
+
+Logs and isolated reference projects are under the session temporary
+`native-tools-1122` directory. No new ISO or VM boot validation is claimed.

@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param()
+param([string]$MSBuild = "MSBuild.exe")
 $ErrorActionPreference = "Stop"
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\.."))
 $temporary = Join-Path $env:TEMP ("kundows-iids-" + [guid]::NewGuid())
@@ -25,17 +25,17 @@ try {
                     $arguments = @("-nostdinc", "-D__REACTOS__", "-D_MIDL_USE_GUIDDEF_") + $architecture + $options
                     Push-Location $temporary
                     try {
-                        & $tool @arguments -o "$temporary\wrapped" "$temporary\input.idl" > "$temporary\direct.log" 2>&1
+                        & $tool @arguments -o "$temporary/output" "$temporary/input.idl" > "$temporary\direct.log" 2>&1
                         $directCode = $LASTEXITCODE
-                        $reference = if (Test-Path "$temporary\wrapped") { [IO.File]::ReadAllBytes("$temporary\wrapped") }
-                        Remove-Item "$temporary\wrapped" -Force -ErrorAction SilentlyContinue
-                        & pwsh.exe -NoLogo -NoProfile -File "$root\Build\GenerateReactOSUuidIids.ps1" -WidlTool $tool -Architecture $platform -IdlFile "$temporary\input.idl" -OutputFile "$temporary\wrapped" -Mode $mode > "$temporary\wrapped.log" 2>&1
+                        $reference = if (Test-Path "$temporary\output") { [IO.File]::ReadAllBytes("$temporary\output") }
+                        Remove-Item "$temporary\output" -Force -ErrorAction SilentlyContinue
+                        & $MSBuild "$PSScriptRoot\Widl.Tests.proj" /nologo /v:quiet "/p:FixtureRoot=$temporary" "/p:Platform=$platform" "/p:Configuration=$configuration" "/p:ArchitectureFlags=$($architecture -join ' ')" "/p:ModeFlags=$($options -join ' ')" > "$temporary\wrapped.log" 2>&1
                         $wrapperCode = $LASTEXITCODE
                     }
                     finally { Pop-Location }
                     if ($wrapperCode -ne $directCode -or (($directCode -eq 0) -ne $valid)) { throw "IID/header failure propagation differs from upstream: $platform $configuration $mode valid=$valid" }
-                    if ($valid -and [Convert]::ToHexString($reference) -cne [Convert]::ToHexString([IO.File]::ReadAllBytes("$temporary\wrapped"))) { throw "IID/header output was rewritten" }
-                    if (-not $valid -and (Test-Path "$temporary\wrapped")) { throw "Invalid IDL manufactured an IID/header output" }
+                    if ($valid -and [Convert]::ToHexString($reference) -cne [Convert]::ToHexString([IO.File]::ReadAllBytes("$temporary\output"))) { throw "IID/header output was rewritten" }
+                    if (-not $valid -and (Test-Path "$temporary\output")) { throw "Invalid IDL manufactured an IID/header output" }
                     $cases++
                 }
             }

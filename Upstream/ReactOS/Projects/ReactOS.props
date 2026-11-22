@@ -8,19 +8,19 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Uuid;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Uuid;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Uuid;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </Midl>
     <MASM>
-      <IncludePaths>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Uuid;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(IncludePaths)</IncludePaths>
+      <IncludePaths>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(IncludePaths)</IncludePaths>
     </MASM>
     <MARMASM>
-      <IncludePaths>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Uuid;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(IncludePaths)</IncludePaths>
+      <IncludePaths>$(KundowsRoot)OutDir\Build\SDK\Common\Include;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos\mc;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include;$(KundowsRoot)OutDir\Build\SDK\$(Platform)\Include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\$(MSBuildProjectName);%(IncludePaths)</IncludePaths>
     </MARMASM>
   </ItemDefinitionGroup>
   <Import Project="$(KundowsRoot)Build\ReactOSPatches.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSPatches.targets')" />
@@ -44,12 +44,6 @@
   </Target>
 
   <ItemGroup Condition="'$(MSBuildProjectName)' != 'ReactOSPrepare'">
-    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Widl\Widl.vcxproj">
-      <Project>{0BD1B80C-7B4E-5D30-9B52-4FD9AE9ED79C}</Project>
-      <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-    </ProjectReference>
     <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Spec2Def\Spec2Def.vcxproj">
       <Project>{C1D4A6B2-1C6A-4D4F-BD29-4D6D2E2FDFA8}</Project>
       <AdditionalProperties>Configuration=$(Configuration);Platform=$(Platform)</AdditionalProperties>

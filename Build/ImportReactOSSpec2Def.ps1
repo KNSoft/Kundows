@@ -110,15 +110,16 @@ foreach ($project in Get-ChildItem -LiteralPath $ProjectRoot -Recurse -Filter "*
     $record = Get-Content -LiteralPath $recordPath -Raw | ConvertFrom-Json
     $items = Get-Spec2DefItems $record $project.DirectoryName
     $contents = [IO.File]::ReadAllText($project.FullName)
-    $updated = [regex]::Replace(
-        $contents, '(?ms)^  <ItemGroup Label="ReactOSSpec2Def"[^>]*>.*?^  </ItemGroup>\r?\n', "")
+    $pattern = '(?ms)^  <ItemGroup Label="ReactOSSpec2Def"[^>]*>.*?^  </ItemGroup>\r?\n'
+    $existing = [regex]::Match($contents, $pattern)
+    $updated = [regex]::Replace($contents, $pattern, "")
     if ($items) {
         $withRecipes++
         $newline = if ($contents.Contains("`r`n")) { "`r`n" } else { "`n" }
         $items = $items.Replace("`n", $newline) + $newline
         $anchor = '  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />'
         if (-not $updated.Contains($anchor)) { throw "Native C++ targets import missing: $($project.FullName)" }
-        $updated = $updated.Replace($anchor, $items + $anchor)
+        $updated = if ($existing.Success) { $updated.Insert($existing.Index, $items) } else { $updated.Replace($anchor, $items + $anchor) }
     }
     if ($updated -cne $contents) {
         $changed++

@@ -1,85 +1,22 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ReactOSWidlEnabled Condition="'$(ReactOSWidlEnabled)' == ''">true</ReactOSWidlEnabled>
-    <ReactOSWidlTool Condition="'$(ReactOSWidlTool)' == '' and '$(Platform)' == 'ARM64' and ('$(PROCESSOR_ARCHITECTURE)' == 'AMD64' or '$(PROCESSOR_ARCHITEW6432)' == 'AMD64')">$(KundowsRoot)OutDir\HostTools\x64\$(Configuration)\widl.exe</ReactOSWidlTool>
-    <ReactOSWidlTool Condition="'$(ReactOSWidlTool)' == ''">$(KundowsRoot)OutDir\HostTools\$(Platform)\$(Configuration)\widl.exe</ReactOSWidlTool>
-    <ReactOSWidlScript Condition="'$(ReactOSWidlScript)' == ''">$(KundowsRoot)Build\GenerateReactOSWidl.ps1</ReactOSWidlScript>
-    <ReactOSWidlGeneratedRoot Condition="'$(ReactOSWidlGeneratedRoot)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)</ReactOSWidlGeneratedRoot>
-    <ReactOSWidlArchitecture Condition="'$(ReactOSWidlArchitecture)' == ''">$(Platform)</ReactOSWidlArchitecture>
-    <ReactOSWidlIncludeDirectories Condition="'$(ReactOSWidlIncludeDirectories)' == ''">$(KundowsRoot)Upstream\ReactOS\Source\sdk\include;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\crt;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ddk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\ndk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\psdk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos\idl;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos\libs;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\vcruntime;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\winrt;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\wine;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\psdk;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\ddk;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\dxsdk;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\reactos\mc;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\wine;$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\dxsdk;$(KundowsRoot)Upstream\ReactOS\Source\sdk\lib\pseh\include</ReactOSWidlIncludeDirectories>
-    <ReactOSWidlLibraryDirectories Condition="'$(ReactOSWidlLibraryDirectories)' == ''">$(ReactOSWidlGeneratedRoot)\sdk\include\psdk;$(ReactOSWidlGeneratedRoot)\sdk\include\dxsdk;$(ReactOSWidlGeneratedRoot)\sdk\include\wine;$(ReactOSWidlGeneratedRoot)\sdk\include\reactos</ReactOSWidlLibraryDirectories>
-    <ReactOSWidlSharedStamp>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\ReactOSWidl\Shared.stamp</ReactOSWidlSharedStamp>
-    <ReactOSWidlProjectStamp>$(IntDir)ReactOSWidl\Project.stamp</ReactOSWidlProjectStamp>
+    <ReactOSWidlHostPlatform>$(Platform)</ReactOSWidlHostPlatform>
+    <ReactOSWidlHostPlatform Condition="'$(Platform)' == 'ARM64' and ('$(PROCESSOR_ARCHITECTURE)' == 'AMD64' or '$(PROCESSOR_ARCHITEW6432)' == 'AMD64')">x64</ReactOSWidlHostPlatform>
+    <ReactOSWidlTool>$(KundowsRoot)OutDir\HostTools\$(ReactOSWidlHostPlatform)\$(Configuration)\widl.exe</ReactOSWidlTool>
+    <ReactOSWidlSourceRoot>$([MSBuild]::NormalizePath('$(KundowsRoot)', 'Upstream', 'ReactOS', 'Source').Replace('\', '/'))</ReactOSWidlSourceRoot>
+    <ReactOSWidlGeneratedRoot>$([MSBuild]::NormalizePath('$(KundowsRoot)', 'OutDir', 'Build', 'Generated', '$(Platform)', '$(Configuration)').Replace('\', '/'))</ReactOSWidlGeneratedRoot>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ReactOSWidlSharedDirectory Include="$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\psdk">
-      <CMakeListFile>%(FullPath)\CMakeLists.txt</CMakeListFile>
-      <SourceDirectory>%(FullPath)</SourceDirectory>
-      <OutputDirectory>$(ReactOSWidlGeneratedRoot)\sdk\include\psdk</OutputDirectory>
-      <DefineList>_MIDL_USE_GUIDDEF_</DefineList>
-    </ReactOSWidlSharedDirectory>
-    <ReactOSWidlSharedDirectory Include="$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\dxsdk">
-      <CMakeListFile>%(FullPath)\CMakeLists.txt</CMakeListFile>
-      <SourceDirectory>%(FullPath)</SourceDirectory>
-      <OutputDirectory>$(ReactOSWidlGeneratedRoot)\sdk\include\dxsdk</OutputDirectory>
-    </ReactOSWidlSharedDirectory>
-    <ReactOSWidlSharedDirectory Include="$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\wine">
-      <CMakeListFile>%(FullPath)\CMakeLists.txt</CMakeListFile>
-      <SourceDirectory>%(FullPath)</SourceDirectory>
-      <OutputDirectory>$(ReactOSWidlGeneratedRoot)\sdk\include\wine</OutputDirectory>
-    </ReactOSWidlSharedDirectory>
-    <ReactOSWidlSharedDirectory Include="$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\reactos">
-      <CMakeListFile>%(FullPath)\CMakeLists.txt</CMakeListFile>
-      <SourceDirectory>%(FullPath)</SourceDirectory>
-      <OutputDirectory>$(ReactOSWidlGeneratedRoot)\sdk\include\reactos</OutputDirectory>
-      <DefineList>_MIDL_USE_GUIDDEF_</DefineList>
-    </ReactOSWidlSharedDirectory>
-    <ReactOSWidlSharedTypeLib Include="$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\psdk\stdole2.idl">
-      <IdlFile>%(FullPath)</IdlFile>
-      <OutputFile>$(ReactOSWidlGeneratedRoot)\sdk\include\psdk\stdole2.tlb</OutputFile>
-    </ReactOSWidlSharedTypeLib>
-  </ItemGroup>
-
-  <Target Name="GenerateReactOSWidlShared"
-          Condition="'$(ReactOSWidlEnabled)' == 'true' and '$(ReactOSWidlSharedGeneration)' == 'true'"
-          BeforeTargets="Build"
-          Inputs="$(ReactOSWidlScript);$(ReactOSWidlTool);@(ReactOSWidlSharedDirectory->'%(CMakeListFile)');@(ReactOSWidlSharedTypeLib->'%(IdlFile)')"
-          Outputs="$(ReactOSWidlSharedStamp)">
-    <Error Condition="!Exists('$(ReactOSWidlTool)')" Text="HostTools.slnx must be built first for $(Platform)|$(Configuration): $(ReactOSWidlTool)" />
-    <MakeDir Directories="@(ReactOSWidlSharedDirectory->'%(OutputDirectory)');$(ReactOSWidlGeneratedRoot)\ReactOSWidl" />
-    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSWidlScript)&quot; -WidlTool &quot;$(ReactOSWidlTool)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSWidlGeneratedRoot)&quot; -CMakeListFile &quot;%(ReactOSWidlSharedDirectory.CMakeListFile)&quot; -SourceDirectory &quot;%(ReactOSWidlSharedDirectory.SourceDirectory)&quot; -OutputDirectory &quot;%(ReactOSWidlSharedDirectory.OutputDirectory)&quot; -Mode SharedHeaders -Architecture &quot;$(ReactOSWidlArchitecture)&quot; -DefineList &quot;%(ReactOSWidlSharedDirectory.DefineList)&quot; -IncludeDirectoryList &quot;$(ReactOSWidlIncludeDirectories)&quot;" />
-    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSWidlScript)&quot; -WidlTool &quot;$(ReactOSWidlTool)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSWidlGeneratedRoot)&quot; -IdlFile &quot;%(ReactOSWidlSharedTypeLib.IdlFile)&quot; -OutputFile &quot;%(ReactOSWidlSharedTypeLib.OutputFile)&quot; -Mode TypeLib -Architecture &quot;$(ReactOSWidlArchitecture)&quot; -LibraryDirectoryList &quot;$(ReactOSWidlLibraryDirectories)&quot; -IncludeDirectoryList &quot;$(ReactOSWidlIncludeDirectories)&quot;" />
-    <Touch Files="$(ReactOSWidlSharedStamp)" AlwaysCreate="true" />
-  </Target>
-
-  <Target Name="GenerateReactOSWidlProjectFiles"
-          Condition="'$(ReactOSWidlEnabled)' == 'true' and '$(ReactOSWidlProjectGeneration)' != 'false' and ( '@(ClCompile->WithMetadataValue('Extension','.c'))' != '' or '@(ResourceCompile->WithMetadataValue('Extension','.res'))' != '' or '@(Object->WithMetadataValue('Extension','.res'))' != '' or '@(None->WithMetadataValue('Filename','CMakeLists'))' != '' )"
-          BeforeTargets="PrepareForBuild"
-          Inputs="$(MSBuildProjectFullPath);$(ReactOSWidlScript);$(ReactOSWidlTool);@(ClCompile);@(ResourceCompile);@(Object);@(None)"
-          Outputs="$(ReactOSWidlProjectStamp)">
-    <Error Condition="('@(ClCompile->WithMetadataValue('Extension','.c'))' != '' or '@(ResourceCompile->WithMetadataValue('Extension','.res'))' != '' or '@(Object->WithMetadataValue('Extension','.res'))' != '' or '@(None->WithMetadataValue('Filename','CMakeLists'))' != '') and !Exists('$(ReactOSWidlTool)')" Text="HostTools.slnx must be built first for $(Platform)|$(Configuration): $(ReactOSWidlTool)" />
+  <Target Name="GenerateReactOSWidl"
+          BeforeTargets="ClCompile;ResourceCompile;Lib;Link;Build"
+          DependsOnTargets="ResolveProjectReferences"
+          Condition="'@(ReactOSWidl)' != ''"
+          Inputs="$(MSBuildProjectFullPath);$(MSBuildThisFileFullPath);$(ReactOSWidlTool);%(ReactOSWidl.Inputs)"
+          Outputs="%(ReactOSWidl.Outputs)">
+    <MakeDir Directories="%(ReactOSWidl.OutputDirectory)" />
+    <Exec WorkingDirectory="%(ReactOSWidl.WorkingDirectory)" Command="&quot;$(ReactOSWidlTool)&quot; %(ReactOSWidl.Arguments)" />
+    <Exec Condition="'%(ReactOSWidl.HeaderArguments)' != ''" WorkingDirectory="%(ReactOSWidl.WorkingDirectory)" Command="&quot;$(ReactOSWidlTool)&quot; %(ReactOSWidl.HeaderArguments)" />
     <ItemGroup>
-      <ReactOSWidlProjectCMake Include="@(None->WithMetadataValue('Filename','CMakeLists'))">
-        <CMakeListFile>%(FullPath)</CMakeListFile>
-        <SourceDirectory>%(RootDir)%(Directory).</SourceDirectory>
-      </ReactOSWidlProjectCMake>
-      <ReactOSWidlProjectC Include="@(ClCompile->WithMetadataValue('Extension','.c'))">
-        <OutputFile>%(FullPath)</OutputFile>
-        <HeaderFile>%(RootDir)%(Directory)%(Filename).h</HeaderFile>
-      </ReactOSWidlProjectC>
-      <ReactOSWidlProjectResource Include="@(ResourceCompile->WithMetadataValue('Extension','.res'));@(Object->WithMetadataValue('Extension','.res'))">
-        <OutputFile>%(FullPath)</OutputFile>
-      </ReactOSWidlProjectResource>
+      <FileWrites Include="%(ReactOSWidl.Outputs)" />
     </ItemGroup>
-    <MakeDir Directories="$(IntDir)ReactOSWidl\" />
-    <Exec Condition="'%(ReactOSWidlProjectCMake.CMakeListFile)' != ''" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSWidlScript)&quot; -WidlTool &quot;$(ReactOSWidlTool)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSWidlGeneratedRoot)&quot; -CMakeListFile &quot;%(ReactOSWidlProjectCMake.CMakeListFile)&quot; -SourceDirectory &quot;%(ReactOSWidlProjectCMake.SourceDirectory)&quot; -Mode ProjectHeaders -Architecture &quot;$(ReactOSWidlArchitecture)&quot; -LibraryDirectoryList &quot;$(ReactOSWidlLibraryDirectories)&quot; -IncludeDirectoryList &quot;$(ReactOSWidlIncludeDirectories)&quot;" />
-    <Exec Condition="$([System.String]::Copy('%(ReactOSWidlProjectC.FullPath)').Contains('\OutDir\Build\Generated\')) and $([System.String]::Copy('%(ReactOSWidlProjectC.Filename)').EndsWith('_i'))" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSWidlScript)&quot; -WidlTool &quot;$(ReactOSWidlTool)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSWidlGeneratedRoot)&quot; -OutputFile &quot;%(ReactOSWidlProjectC.OutputFile)&quot; -Mode Iids -Architecture &quot;$(ReactOSWidlArchitecture)&quot; -IncludeDirectoryList &quot;$(ReactOSWidlIncludeDirectories)&quot;" />
-    <Exec Condition="$([System.String]::Copy('%(ReactOSWidlProjectC.FullPath)').Contains('\OutDir\Build\Generated\')) and $([System.String]::Copy('%(ReactOSWidlProjectC.Filename)').EndsWith('_c'))" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSWidlScript)&quot; -WidlTool &quot;$(ReactOSWidlTool)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSWidlGeneratedRoot)&quot; -OutputFile &quot;%(ReactOSWidlProjectC.OutputFile)&quot; -HeaderFile &quot;%(ReactOSWidlProjectC.HeaderFile)&quot; -Mode RpcClient -Architecture &quot;$(ReactOSWidlArchitecture)&quot; -IncludeDirectoryList &quot;$(ReactOSWidlIncludeDirectories)&quot;" />
-    <Exec Condition="$([System.String]::Copy('%(ReactOSWidlProjectC.FullPath)').Contains('\OutDir\Build\Generated\')) and $([System.String]::Copy('%(ReactOSWidlProjectC.Filename)').EndsWith('_s'))" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSWidlScript)&quot; -WidlTool &quot;$(ReactOSWidlTool)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSWidlGeneratedRoot)&quot; -OutputFile &quot;%(ReactOSWidlProjectC.OutputFile)&quot; -HeaderFile &quot;%(ReactOSWidlProjectC.HeaderFile)&quot; -Mode RpcServer -Architecture &quot;$(ReactOSWidlArchitecture)&quot; -IncludeDirectoryList &quot;$(ReactOSWidlIncludeDirectories)&quot;" />
-    <Exec Condition="$([System.String]::Copy('%(ReactOSWidlProjectResource.FullPath)').Contains('\OutDir\Build\Generated\')) and $([System.String]::Copy('%(ReactOSWidlProjectResource.Filename)').EndsWith('_r'))" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSWidlScript)&quot; -WidlTool &quot;$(ReactOSWidlTool)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSWidlGeneratedRoot)&quot; -OutputFile &quot;%(ReactOSWidlProjectResource.OutputFile)&quot; -Mode Resource -Architecture &quot;$(ReactOSWidlArchitecture)&quot; -IncludeDirectoryList &quot;$(ReactOSWidlIncludeDirectories)&quot;" />
-    <Exec Condition="$([System.String]::Copy('%(ReactOSWidlProjectResource.FullPath)').Contains('\OutDir\Build\Generated\')) and $([System.String]::Copy('%(ReactOSWidlProjectResource.Filename)').EndsWith('_t'))" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSWidlScript)&quot; -WidlTool &quot;$(ReactOSWidlTool)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSWidlGeneratedRoot)&quot; -OutputFile &quot;%(ReactOSWidlProjectResource.OutputFile)&quot; -Mode TypeLib -Architecture &quot;$(ReactOSWidlArchitecture)&quot; -LibraryDirectoryList &quot;$(ReactOSWidlLibraryDirectories)&quot; -IncludeDirectoryList &quot;$(ReactOSWidlIncludeDirectories)&quot;" />
-    <Exec Condition="$([System.String]::Copy('%(ReactOSWidlProjectResource.FullPath)').Contains('\OutDir\Build\Generated\')) and $([System.String]::Copy('%(ReactOSWidlProjectResource.Filename)').EndsWith('_w'))" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSWidlScript)&quot; -WidlTool &quot;$(ReactOSWidlTool)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSWidlGeneratedRoot)&quot; -OutputFile &quot;%(ReactOSWidlProjectResource.OutputFile)&quot; -Mode WinrtResource -Architecture &quot;$(ReactOSWidlArchitecture)&quot; -IncludeDirectoryList &quot;$(ReactOSWidlIncludeDirectories)&quot;" />
-    <Touch Files="$(ReactOSWidlProjectStamp)" AlwaysCreate="true" />
   </Target>
 </Project>

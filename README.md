@@ -9,6 +9,10 @@ Export definitions and import libraries use explicit native generation items
 translated from ReactOS's recorded commands, not build-time module-name
 inference. See [native spec2def generation](docs/reactos-native-spec2def.md).
 
+Other generators also reuse the upstream host tools and explicit native
+commands/dependencies. See [native generators](docs/reactos-native-generators.md)
+for maintenance-time reference imports and validation.
+
 ## Upstream
 
 - ReactOS is at `Upstream\ReactOS\Source`.

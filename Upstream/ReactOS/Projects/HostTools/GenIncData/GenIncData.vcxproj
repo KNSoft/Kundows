@@ -35,7 +35,6 @@
     <TargetName>genincdata</TargetName>
     <LinkIncremental>false</LinkIncremental>
     <ReactOSGenIncEnabled>false</ReactOSGenIncEnabled>
-    <ReactOSWidlEnabled>false</ReactOSWidlEnabled>
     <ReactOSPrepareProject>$(KundowsRoot)Upstream\ReactOS\Projects\Prepare\ReactOSPrepare.vcxproj</ReactOSPrepareProject>
   </PropertyGroup>
   <ItemDefinitionGroup>

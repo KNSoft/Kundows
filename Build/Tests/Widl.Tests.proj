@@ -1,0 +1,20 @@
+<Project DefaultTargets="GenerateReactOSWidl" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\</KundowsRoot>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+  </PropertyGroup>
+  <Import Project="..\ReactOSWidl.targets" />
+  <ItemGroup>
+    <ReactOSWidl Include="$(FixtureRoot)/output">
+      <Arguments>-nostdinc -D__REACTOS__ -D_MIDL_USE_GUIDDEF_ $(ArchitectureFlags) $(ModeFlags) -o "$(FixtureRoot)/output" "$(FixtureRoot)/input.idl"</Arguments>
+      <HeaderArguments Condition="'$(HeaderCommand)' != ''">$(HeaderCommand)</HeaderArguments>
+      <Inputs>$(FixtureRoot)/input.idl;$(ExtraInput)</Inputs>
+      <Outputs>$(FixtureRoot)/output</Outputs>
+      <Outputs Condition="'$(HeaderCommand)' != ''">$(FixtureRoot)/output;$(FixtureRoot)/header</Outputs>
+      <OutputDirectory>$(FixtureRoot)</OutputDirectory>
+      <WorkingDirectory>$(FixtureRoot)</WorkingDirectory>
+    </ReactOSWidl>
+  </ItemGroup>
+  <Target Name="ResolveProjectReferences" />
+</Project>

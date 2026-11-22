@@ -464,6 +464,48 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSWidl" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Dll\Win32\Advapi32\Advapi32RpcHeaders.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{881DECD7-A58F-42ED-A24C-B1180BFEA092}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSWidl" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Dll\Win32\Advapi32\Advapi32RpcHeaders.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{881DECD7-A58F-42ED-A24C-B1180BFEA092}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSWidl" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Dll\Win32\Advapi32\Advapi32RpcHeaders.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{881DECD7-A58F-42ED-A24C-B1180BFEA092}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSWidl" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Dll\Win32\Advapi32\Advapi32RpcHeaders.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{881DECD7-A58F-42ED-A24C-B1180BFEA092}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSWidl" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Dll\Win32\Advapi32\Advapi32RpcHeaders.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{881DECD7-A58F-42ED-A24C-B1180BFEA092}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSWidl" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Dll\Win32\Advapi32\Advapi32RpcHeaders.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{881DECD7-A58F-42ED-A24C-B1180BFEA092}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />
