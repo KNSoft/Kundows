@@ -1,0 +1,73 @@
+diff --git a/hal/halx86/apic/tsc.c b/hal/halx86/apic/tsc.c
+--- a/hal/halx86/apic/tsc.c
++++ b/hal/halx86/apic/tsc.c
+@@ -76,7 +76,6 @@ HalpInitializeTsc(VOID)
+     RegisterA = HalpReadCmos(RTC_REGISTER_A);
+     RegisterA = (RegisterA & 0xF0) | RTC_MODE;
+-    HalpWriteCmos(RTC_REGISTER_A, RegisterA);
+ 
+     /* Save old IDT entry */
+     PreviousHandler = KeQueryInterruptHandler(APIC_CLOCK_VECTOR);
+ 
+@@ -92,6 +91,14 @@ HalpInitializeTsc(VOID)
+     /* Read register C, so that the next interrupt can happen */
+     HalpReadCmos(RTC_REGISTER_C);
+ 
++    /*
++     * Start the periodic divider only after its handler and interrupt
++     * route are ready. Reload it even if firmware selected the same rate:
++     * Hyper-V can leave the source stopped when programmed while masked.
++     */
++    HalpWriteCmos(RTC_REGISTER_A, RegisterA & 0xF0);
++    HalpWriteCmos(RTC_REGISTER_A, RegisterA);
++
+     /* Wait for completion */
+     _enable();
+     while (TscCalibrationPhase < NUM_SAMPLES) _ReadWriteBarrier();
+diff --git a/hal/halx86/apic/rtctimer.c b/hal/halx86/apic/rtctimer.c
+--- a/hal/halx86/apic/rtctimer.c
++++ b/hal/halx86/apic/rtctimer.c
+@@ -84,6 +84,9 @@ RtcSetClockRate(UCHAR ClockRate)
+     /* Read value of register A */
+     RegisterA = HalpReadCmos(RTC_REGISTER_A);
+ 
++    /* Restart the periodic divider before selecting the new clock rate. */
++    HalpWriteCmos(RTC_REGISTER_A, RegisterA & 0xF0);
++
+     /* Change lower 4 bits to new rate */
+     RegisterA &= 0xF0;
+     RegisterA |= ClockRate;
+@@ -123,12 +126,6 @@ HalpInitializeClock(VOID)
+     /* Release CMOS lock */
+     HalpReleaseCmosSpinLock();
+ 
+-    /* Set initial rate */
+-    RtcSetClockRate(HalpCurrentClockRate);
+-
+-    /* Restore interrupt state */
+-    __writeeflags(EFlags);
+-
+     /* Calculate minumum and maximum increment */
+     HalpMinimumTimeIncrement = RtcClockRateToPreciseIncrement(RtcMinimumClockRate) / 1000;
+     HalpMaximumTimeIncrement = RtcClockRateToPreciseIncrement(RtcMaximumClockRate) / 1000;
+@@ -139,11 +136,20 @@ HalpInitializeClock(VOID)
+     /* Enable the timer interrupt */
+     HalEnableSystemInterrupt(APIC_CLOCK_VECTOR, CLOCK_LEVEL, Latched);
+ 
++    /*
++     * Program the periodic source after unmasking its route, but before
++     * restoring CPU interrupts. All clock state must be ready for its ISR.
++     */
++    RtcSetClockRate(HalpCurrentClockRate);
++
+     /* The pin is edge triggered */
+     HalpAcquireCmosSpinLock();
+     HalpReadCmos(RTC_REGISTER_C);
+     HalpReleaseCmosSpinLock();
+ 
++    /* Restore interrupt state */
++    __writeeflags(EFlags);
++
+     DPRINT1("Clock initialized\n");
+ }
+ 

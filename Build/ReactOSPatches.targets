@@ -7,13 +7,16 @@
     <ReactOSRtlCompatPatchStateFile Condition="'$(ReactOSRtlCompatPatchStateFile)' == ''">$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-rtl-compat.state</ReactOSRtlCompatPatchStateFile>
     <ReactOSKdAutoProbePatchFile Condition="'$(ReactOSKdAutoProbePatchFile)' == ''">$(KundowsRoot)Build\Patches\ReactOS-kd-auto-probe.patch</ReactOSKdAutoProbePatchFile>
     <ReactOSKdAutoProbePatchStateFile Condition="'$(ReactOSKdAutoProbePatchStateFile)' == ''">$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-kd-auto-probe.state</ReactOSKdAutoProbePatchStateFile>
+    <ReactOSRtcPeriodicPatchFile Condition="'$(ReactOSRtcPeriodicPatchFile)' == ''">$(KundowsRoot)Build\Patches\ReactOS-rtc-periodic.patch</ReactOSRtcPeriodicPatchFile>
+    <ReactOSRtcPeriodicPatchStateFile Condition="'$(ReactOSRtcPeriodicPatchStateFile)' == ''">$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-rtc-periodic.state</ReactOSRtcPeriodicPatchStateFile>
   </PropertyGroup>
 
   <Target Name="ApplyReactOSPatches"
-          Condition="Exists('$(ReactOSPatchesScript)') and (Exists('$(ReactOSPatchesFile)') or Exists('$(ReactOSRtlCompatPatchFile)') or Exists('$(ReactOSKdAutoProbePatchFile)'))"
+          Condition="Exists('$(ReactOSPatchesScript)') and (Exists('$(ReactOSPatchesFile)') or Exists('$(ReactOSRtlCompatPatchFile)') or Exists('$(ReactOSKdAutoProbePatchFile)') or Exists('$(ReactOSRtcPeriodicPatchFile)'))"
           BeforeTargets="PrepareForBuild">
     <Exec Condition="Exists('$(ReactOSPatchesFile)')" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSPatchesScript)&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(ReactOSPatchesFile)&quot; -StateFile &quot;$(ReactOSPatchesStateFile)&quot;" />
     <Exec Condition="Exists('$(ReactOSRtlCompatPatchFile)')" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSPatchesScript)&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(ReactOSRtlCompatPatchFile)&quot; -StateFile &quot;$(ReactOSRtlCompatPatchStateFile)&quot;" />
     <Exec Condition="Exists('$(ReactOSKdAutoProbePatchFile)')" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSPatchesScript)&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(ReactOSKdAutoProbePatchFile)&quot; -StateFile &quot;$(ReactOSKdAutoProbePatchStateFile)&quot;" />
+    <Exec Condition="Exists('$(ReactOSRtcPeriodicPatchFile)')" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSPatchesScript)&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(ReactOSRtcPeriodicPatchFile)&quot; -StateFile &quot;$(ReactOSRtcPeriodicPatchStateFile)&quot;" />
   </Target>
 </Project>
