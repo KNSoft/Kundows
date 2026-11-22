@@ -701,6 +701,24 @@ function Test-IsPlannedGeneratedPath {
     return $relative -match "^media/nls/[^/]+\.nls$"
 }
 
+function Get-BootcdIniSource {
+    $source = Join-Path $SourceRoot "boot\bootdata\bootcd.ini"
+    if ($Configuration -ne "Release") {
+        return $source
+    }
+
+    $output = Join-Path $generatedRoot "boot\bootdata\bootcd.Release.ini"
+    $contents = Get-Content -LiteralPath $source -Raw
+    $contents = [regex]::Replace(
+        $contents,
+        "(?im)^\s*DefaultOS\s*=\s*LiveImg_Debug\s*$",
+        "DefaultOS=LiveImg"
+    )
+    New-Item -ItemType Directory -Force -Path (Split-Path -Parent $output) | Out-Null
+    [IO.File]::WriteAllText($output, $contents, [Text.UTF8Encoding]::new($false))
+    return $output
+}
+
 function Get-HostToolPath {
     param(
         [Parameter(Mandatory = $true)]
@@ -1555,6 +1573,14 @@ function Get-CdDeclarations {
                         } else {
                             [IO.Path]::GetFullPath((Join-Path $sourceDirectory $value))
                         }
+                    }
+                    if ($item.Kind -eq "FILE" -and
+                        [string]::Equals(
+                            [IO.Path]::GetFullPath($source),
+                            [IO.Path]::GetFullPath((Join-Path $SourceRoot "boot\bootdata\bootcd.ini")),
+                            [StringComparison]::OrdinalIgnoreCase
+                        )) {
+                        $source = Get-BootcdIniSource
                     }
                     if (-not $source) {
                         if ($item.Kind -eq "TARGET" -and
