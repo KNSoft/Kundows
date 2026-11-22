@@ -1,0 +1,73 @@
+diff --git a/drivers/base/kdcom/kdcom.c b/drivers/base/kdcom/kdcom.c
+--- a/drivers/base/kdcom/kdcom.c
++++ b/drivers/base/kdcom/kdcom.c
+@@ -274,9 +274,23 @@ NTAPI
+ KdpReceiveByte(OUT PUCHAR OutByte)
+ {
+     USHORT Status;
++    ULONG Retries = 10000;
++
++    /*
++     * Bound the wait without cportlib's long, tight UART polling loop. Each
++     * port read can cause a VM exit, making that loop take many seconds on
++     * a virtual serial port with no debugger attached. The HAL provides an
++     * early-boot stall implementation before its timers are calibrated.
++     */
++    do
++    {
++        Status = CpGetByte(&KdComPort, OutByte, FALSE, FALSE);
++        if (Status != CP_GET_NODATA)
++            break;
++
++        KeStallExecutionProcessor(100);
++    } while (--Retries);
+ 
+-    /* Get the byte */
+-    Status = CpGetByte(&KdComPort, OutByte, TRUE, FALSE);
+     switch (Status)
+     {
+         case CP_GET_SUCCESS:
+diff --git a/drivers/base/kdcom/kddll.c b/drivers/base/kdcom/kddll.c
+--- a/drivers/base/kdcom/kddll.c
++++ b/drivers/base/kdcom/kddll.c
+@@ -13,6 +13,9 @@
+ ULONG CurrentPacketId = INITIAL_PACKET_ID | SYNC_PACKET_ID;
+ ULONG RemotePacketId  = INITIAL_PACKET_ID;
+ 
++/* Only a KD reply, not an emulated UART, establishes a debugger connection. */
++static BOOLEAN KdpConnectionEstablished;
++
+ 
+ /* PRIVATE FUNCTIONS **********************************************************/
+ 
+@@ -336,7 +339,14 @@ KdSendPacket(
+                                                 MessageData->Length);
+     }
+ 
++    /*
++     * Give an unattached debugger a short, automatic discovery window. Keep
++     * the caller's normal retry allowance once a host has acknowledged KD
++     * traffic. This does not disable KD or time out exception packets.
++     */
+     Retries = KdContext->KdpDefaultRetries;
++    if (!KdpConnectionEstablished && Retries > 2)
++        Retries = 2;
+ 
+     for (;;)
+     {
+@@ -369,6 +379,7 @@ KdSendPacket(
+         if (KdStatus == KDP_PACKET_RECEIVED)
+         {
+             /* Packet received, we can quit the loop */
++            KdpConnectionEstablished = TRUE;
+             CurrentPacketId &= ~SYNC_PACKET_ID;
+             Retries = KdContext->KdpDefaultRetries;
+             break;
+@@ -409,6 +420,7 @@ KdSendPacket(
+                 }
+ 
+                 /* Reset debugger state */
++                KdpConnectionEstablished = FALSE;
+                 KD_DEBUGGER_NOT_PRESENT = TRUE;
+                 SharedUserData->KdDebuggerEnabled &= ~0x00000002;
+                 CurrentPacketId = INITIAL_PACKET_ID | SYNC_PACKET_ID;

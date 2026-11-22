@@ -5,12 +5,15 @@
     <ReactOSPatchesStateFile Condition="'$(ReactOSPatchesStateFile)' == ''">$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-arm64-ntdll.state</ReactOSPatchesStateFile>
     <ReactOSRtlCompatPatchFile Condition="'$(ReactOSRtlCompatPatchFile)' == ''">$(KundowsRoot)Build\Patches\ReactOS-rtl-compat.patch</ReactOSRtlCompatPatchFile>
     <ReactOSRtlCompatPatchStateFile Condition="'$(ReactOSRtlCompatPatchStateFile)' == ''">$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-rtl-compat.state</ReactOSRtlCompatPatchStateFile>
+    <ReactOSKdAutoProbePatchFile Condition="'$(ReactOSKdAutoProbePatchFile)' == ''">$(KundowsRoot)Build\Patches\ReactOS-kd-auto-probe.patch</ReactOSKdAutoProbePatchFile>
+    <ReactOSKdAutoProbePatchStateFile Condition="'$(ReactOSKdAutoProbePatchStateFile)' == ''">$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-kd-auto-probe.state</ReactOSKdAutoProbePatchStateFile>
   </PropertyGroup>
 
   <Target Name="ApplyReactOSPatches"
-          Condition="Exists('$(ReactOSPatchesScript)') and (Exists('$(ReactOSPatchesFile)') or Exists('$(ReactOSRtlCompatPatchFile)'))"
+          Condition="Exists('$(ReactOSPatchesScript)') and (Exists('$(ReactOSPatchesFile)') or Exists('$(ReactOSRtlCompatPatchFile)') or Exists('$(ReactOSKdAutoProbePatchFile)'))"
           BeforeTargets="PrepareForBuild">
     <Exec Condition="Exists('$(ReactOSPatchesFile)')" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSPatchesScript)&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(ReactOSPatchesFile)&quot; -StateFile &quot;$(ReactOSPatchesStateFile)&quot;" />
     <Exec Condition="Exists('$(ReactOSRtlCompatPatchFile)')" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSPatchesScript)&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(ReactOSRtlCompatPatchFile)&quot; -StateFile &quot;$(ReactOSRtlCompatPatchStateFile)&quot;" />
+    <Exec Condition="Exists('$(ReactOSKdAutoProbePatchFile)')" Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSPatchesScript)&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(ReactOSKdAutoProbePatchFile)&quot; -StateFile &quot;$(ReactOSKdAutoProbePatchStateFile)&quot;" />
   </Target>
 </Project>
