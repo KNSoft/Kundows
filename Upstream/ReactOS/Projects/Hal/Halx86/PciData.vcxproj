@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{67C9CA89-A87A-44A8-90B3-FA2814144F72}</ProjectGuid>
+    <ProjectName>pcidata</ProjectName>
+    <RootNamespace>PciData</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\..\..\..\</KundowsRoot>
+  </PropertyGroup>
+  <Import Project="$(KundowsRoot)Build\ReactOSHostToolConfigurations.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="..\..\ReactOS.props" />
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSBin2c Include="$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\legacy\bus\pci_classes.ids">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\legacy\bus\pci_classes.ids" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.h" BINSTR ClassTable DATA_SEG(\"INITDATA\") "$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\include\hal.h"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.h</Outputs>
+    </ReactOSBin2c>
+    <ReactOSBin2c Include="$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\legacy\bus\pci_vendors.ids">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\legacy\bus\pci_vendors.ids" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.h" BINSTR VendorTable DATA_SEG(\"INITDATA\") "$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\include\hal.h"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSBin2c Include="$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\legacy\bus\pci_classes.ids">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\legacy\bus\pci_classes.ids" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.h" BINSTR ClassTable DATA_SEG(\"INITDATA\") "$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\include\hal.h"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_classes.h</Outputs>
+    </ReactOSBin2c>
+    <ReactOSBin2c Include="$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\legacy\bus\pci_vendors.ids">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\legacy\bus\pci_vendors.ids" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.h" BINSTR VendorTable DATA_SEG(\"INITDATA\") "$(KundowsRoot)Upstream\ReactOS\Source\hal\halx86\include\hal.h"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\pci_vendors.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

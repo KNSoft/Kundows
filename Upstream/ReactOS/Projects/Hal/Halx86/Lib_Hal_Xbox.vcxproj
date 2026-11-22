@@ -333,6 +333,20 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Hal\Halx86\PciData.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{67C9CA89-A87A-44A8-90B3-FA2814144F72}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Hal\Halx86\PciData.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{67C9CA89-A87A-44A8-90B3-FA2814144F72}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

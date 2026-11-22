@@ -1,31 +1,19 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ReactOSBin2cEnabled Condition="'$(ReactOSBin2cEnabled)' == ''">true</ReactOSBin2cEnabled>
-    <ReactOSBin2cScript Condition="'$(ReactOSBin2cScript)' == ''">$(KundowsRoot)Build\GenerateReactOSBin2c.ps1</ReactOSBin2cScript>
-    <ReactOSBin2cGeneratedRoot Condition="'$(ReactOSBin2cGeneratedRoot)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)</ReactOSBin2cGeneratedRoot>
-    <ReactOSBin2cCompilerHostArchitecture Condition="'$(PROCESSOR_ARCHITEW6432)' == 'AMD64' or '$(PROCESSOR_ARCHITECTURE)' == 'AMD64'">x64</ReactOSBin2cCompilerHostArchitecture>
-    <ReactOSBin2cCompilerHostArchitecture Condition="'$(ReactOSBin2cCompilerHostArchitecture)' == ''">$(Platform)</ReactOSBin2cCompilerHostArchitecture>
-    <ReactOSBin2cCompiler>$(VCToolsInstallDir)bin\Host$(ReactOSBin2cCompilerHostArchitecture)\x64\cl.exe</ReactOSBin2cCompiler>
-    <ReactOSBin2cAssembler>$(VCToolsInstallDir)bin\Host$(ReactOSBin2cCompilerHostArchitecture)\x86\ml.exe</ReactOSBin2cAssembler>
-    <ReactOSBin2cProjectStamp>$(IntDir)ReactOSBin2c\Project.stamp</ReactOSBin2cProjectStamp>
+    <ReactOSBin2cHostPlatform>$(Platform)</ReactOSBin2cHostPlatform>
+    <ReactOSBin2cHostPlatform Condition="'$(Platform)' == 'ARM64' and ('$(PROCESSOR_ARCHITECTURE)' == 'AMD64' or '$(PROCESSOR_ARCHITEW6432)' == 'AMD64')">x64</ReactOSBin2cHostPlatform>
+    <ReactOSBin2cTool>$(KundowsRoot)OutDir\HostTools\$(ReactOSBin2cHostPlatform)\$(Configuration)\bin2c.exe</ReactOSBin2cTool>
   </PropertyGroup>
-
   <Target Name="GenerateReactOSBin2cProjectFiles"
-          Condition="'$(ReactOSBin2cEnabled)' == 'true' and '$(ReactOSBin2cProjectGeneration)' != 'false' and '@(None->WithMetadataValue('Filename','CMakeLists'))' != ''"
-          BeforeTargets="PrepareForBuild"
-          Inputs="$(MSBuildProjectFullPath);$(ReactOSBin2cScript);@(None)"
-          Outputs="$(ReactOSBin2cProjectStamp)">
+          BeforeTargets="ClCompile;ResourceCompile;Lib;Link;Build"
+          DependsOnTargets="ResolveProjectReferences"
+          Condition="'@(ReactOSBin2c)' != ''"
+          Inputs="$(MSBuildProjectFullPath);$(MSBuildThisFileFullPath);$(ReactOSBin2cTool);%(ReactOSBin2c.Identity)"
+          Outputs="%(ReactOSBin2c.Outputs)">
+    <MakeDir Directories="%(ReactOSBin2c.OutputDirectory)" />
+    <Exec Command="&quot;$(ReactOSBin2cTool)&quot; %(ReactOSBin2c.Arguments)" />
     <ItemGroup>
-      <ReactOSBin2cProjectCMake Include="@(None->WithMetadataValue('Filename','CMakeLists'))">
-        <CMakeListFile>%(FullPath)</CMakeListFile>
-        <SourceDirectory>%(RootDir)%(Directory).</SourceDirectory>
-      </ReactOSBin2cProjectCMake>
+      <FileWrites Include="%(ReactOSBin2c.Outputs)" />
     </ItemGroup>
-    <MakeDir Directories="$(IntDir)ReactOSBin2c\" />
-    <Error Condition="'%(ReactOSBin2cProjectCMake.CMakeListFile)' != '' and !Exists('$(ReactOSBin2cCompiler)')" Text="MSVC compiler was not found: $(ReactOSBin2cCompiler)" />
-    <Error Condition="'%(ReactOSBin2cProjectCMake.CMakeListFile)' != '' and !Exists('$(ReactOSBin2cAssembler)')" Text="x86 assembler was not found: $(ReactOSBin2cAssembler)" />
-    <Exec Condition="'%(ReactOSBin2cProjectCMake.CMakeListFile)' != ''"
-          Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSBin2cScript)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSBin2cGeneratedRoot)&quot; -CMakeListFile &quot;%(ReactOSBin2cProjectCMake.CMakeListFile)&quot; -SourceDirectory &quot;%(ReactOSBin2cProjectCMake.SourceDirectory)&quot; -Compiler &quot;$(ReactOSBin2cCompiler)&quot; -Assembler &quot;$(ReactOSBin2cAssembler)&quot;" />
-    <Touch Files="$(ReactOSBin2cProjectStamp)" AlwaysCreate="true" />
   </Target>
 </Project>

@@ -45,3 +45,16 @@ The importer uses evaluated commands from the migration records, not a CMake
 parser. Native builds read only committed project items. Tests exercise all
 recorded configurations and compare the binary stage with direct upstream
 obj2bin output, including incremental and deleted-output behavior.
+
+## Binary-to-C generation
+
+Bin2c executes the original tool with every recorded argument, including
+`BINSTR`, array attributes, and the attribute header. PciData owns the shared
+HAL tables and is referenced by its three HAL consumers. InstallFreeLdr
+references the boot-sector projects; NTVDM references the DOS Command project.
+No source-tree lookup or implicit assembler invocation remains in bin2c.
+
+```powershell
+Build/ImportReactOSGenerators.ps1 -Generator Bin2c -Check
+Build/Tests/Bin2c.Tests.ps1 -MSBuild <path-to-MSBuild.exe>
+```

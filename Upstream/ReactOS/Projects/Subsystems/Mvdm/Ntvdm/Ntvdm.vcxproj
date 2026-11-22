@@ -1011,6 +1011,114 @@
       <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\ntvdm.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\ntvdm_stubs.c</Outputs>
     </ReactOSSpec2Def>
   </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h" BIN CommandCom</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Subsystems\Mvdm\Dos\Command.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{0CDAB3D3-F8A6-48F3-BE91-260047F2E410}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h" BIN CommandCom</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Subsystems\Mvdm\Dos\Command.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{0CDAB3D3-F8A6-48F3-BE91-260047F2E410}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h" BIN CommandCom</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Subsystems\Mvdm\Dos\Command.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{0CDAB3D3-F8A6-48F3-BE91-260047F2E410}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h" BIN CommandCom</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Subsystems\Mvdm\Dos\Command.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{0CDAB3D3-F8A6-48F3-BE91-260047F2E410}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h" BIN CommandCom</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Subsystems\Mvdm\Dos\Command.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{0CDAB3D3-F8A6-48F3-BE91-260047F2E410}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\dos\command.com" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h" BIN CommandCom</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\ntvdm\command_com.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\Subsystems\Mvdm\Dos\Command.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{0CDAB3D3-F8A6-48F3-BE91-260047F2E410}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

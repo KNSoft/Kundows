@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet("BootSector")]
+    [ValidateSet("BootSector", "Bin2c")]
     [string]$Generator = "BootSector",
     [switch]$Check
 )
@@ -12,7 +12,7 @@ $projectRoot = Join-Path $root "Upstream\ReactOS\Projects"
 # Maintenance-time import only. Native builds never read migration records.
 function Split-Command([string]$Command) {
     return @([regex]::Matches($Command, '(?:[^\s"]|"[^"]*")+') |
-        ForEach-Object { $_.Value.Replace('"', "") })
+        ForEach-Object { $_.Value.Trim('"') })
 }
 function Convert-Path([string]$Path, [string]$Directory) {
     $expanded = $Path.Replace('$(ProjectDir)', "$Directory\").Replace("/", "\")
@@ -38,7 +38,7 @@ function Add-Item([xml]$Document, [Xml.XmlElement]$Group, [string]$Kind, [string
 function Add-HostReference([xml]$Document, [Xml.XmlElement]$Group, [string]$Tool, [string]$Guid) {
     Add-Item $Document $Group "ProjectReference" "`$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\$Tool\$Tool.vcxproj" @{
         Project = "{$Guid}"
-        SetPlatform = 'Platform=$(ReactOSBootSectorHostPlatform)'
+        SetPlatform = "Platform=`$(ReactOS${Generator}HostPlatform)"
         ReferenceOutputAssembly = "false"
         LinkLibraryDependencies = "false"
     }
@@ -88,6 +88,43 @@ function Get-BootSectorItems([object]$Record, [string]$Directory, [string]$Steps
     }
     return $document
 }
+function Get-Bin2cItems([object]$Record, [string]$Directory, [switch]$ReferenceOnly) {
+    $document = [xml]"<Project xmlns='$namespace'/>"
+    foreach ($configuration in $Record.Configurations.PSObject.Properties) {
+        $steps = @($configuration.Value.PendingGenerationSteps | Where-Object { $_.HostTools -contains "bin2c" })
+        if (-not $steps.Count) { continue }
+        $group = $document.CreateElement("ItemGroup", $namespace)
+        $group.SetAttribute("Label", "ReactOSBin2c")
+        $group.SetAttribute("Condition", "'`$(Configuration)|`$(Platform)'=='$($configuration.Name)'")
+        if ($ReferenceOnly) {
+            Add-Item $document $group "ProjectReference" '$(KundowsRoot)Upstream\ReactOS\Projects\Hal\Halx86\PciData.vcxproj' @{
+                Project = "{67C9CA89-A87A-44A8-90B3-FA2814144F72}"
+                ReferenceOutputAssembly = "false"
+                LinkLibraryDependencies = "false"
+            }
+        } else {
+            foreach ($step in $steps) {
+                $arguments = @(Split-Command $step.ReferenceCommand | Select-Object -Skip 1)
+                $outputs = @($step.Outputs | ForEach-Object { Convert-Path $_ $Directory })
+                Add-Item $document $group "ReactOSBin2c" (Convert-Path $arguments[0] $Directory) @{
+                    Arguments = (@($arguments | ForEach-Object { Convert-Argument $_ $Directory }) -join " ")
+                    Outputs = $outputs -join ";"
+                    OutputDirectory = $outputs[0].Substring(0, $outputs[0].LastIndexOf("\"))
+                }
+            }
+            Add-HostReference $document $group "Bin2c" "68DF970F-540E-4F4B-88BA-0A5477F3F1C6"
+            if ($Record.Target -eq "ntvdm") {
+                Add-Item $document $group "ProjectReference" '$(KundowsRoot)Upstream\ReactOS\Projects\Subsystems\Mvdm\Dos\Command.vcxproj' @{
+                    Project = "{0CDAB3D3-F8A6-48F3-BE91-260047F2E410}"
+                    ReferenceOutputAssembly = "false"
+                    LinkLibraryDependencies = "false"
+                }
+            }
+        }
+        $null = $document.DocumentElement.AppendChild($group)
+    }
+    return $document
+}
 function Update-Project([string]$Path, [xml]$Items, [string]$Label) {
     $settings = [Xml.XmlWriterSettings]::new()
     $settings.Indent = $true
@@ -121,14 +158,24 @@ foreach ($project in Get-ChildItem -LiteralPath $projectRoot -Recurse -Filter "*
     $recordPath = Join-Path $project.DirectoryName "$($project.BaseName).Migration.json"
     if (-not (Test-Path -LiteralPath $recordPath)) { continue }
     $record = Get-Content -LiteralPath $recordPath -Raw | ConvertFrom-Json
-    # freeldr consumes Frldr16.vcxproj; its migration record repeats that
-    # dependency's commands. There must be only one producer for the binary.
-    if ($record.Target -eq "freeldr") { continue }
-    $items = Get-BootSectorItems $record $project.DirectoryName "PendingGenerationSteps"
+    if ($Generator -eq "BootSector") {
+        # freeldr consumes Frldr16.vcxproj; do not repeat its producer.
+        if ($record.Target -eq "freeldr") { continue }
+        $items = Get-BootSectorItems $record $project.DirectoryName "PendingGenerationSteps"
+    } else {
+        $items = Get-Bin2cItems $record $project.DirectoryName -ReferenceOnly:($record.Target -in @("lib_hal_legacy", "lib_hal_pc98", "lib_hal_xbox"))
+    }
     if ($items.DocumentElement.ChildNodes.Count) { $projects++ }
-    $changed += Update-Project $project.FullName $items "ReactOSBootSector"
+    $changed += Update-Project $project.FullName $items "ReactOS$Generator"
 }
-$infrastructure = Get-Content (Join-Path $projectRoot "Infrastructure.json") -Raw | ConvertFrom-Json
-$items = Get-BootSectorItems $infrastructure.Targets.command $projectRoot "Steps"
-$changed += Update-Project (Join-Path $projectRoot "Subsystems\Mvdm\Dos\Command.vcxproj") $items "ReactOSBootSector"
-"raw binary import: $($projects + 1) producers; $changed projects updated"
+if ($Generator -eq "BootSector") {
+    $infrastructure = Get-Content (Join-Path $projectRoot "Infrastructure.json") -Raw | ConvertFrom-Json
+    $items = Get-BootSectorItems $infrastructure.Targets.command $projectRoot "Steps"
+    $changed += Update-Project (Join-Path $projectRoot "Subsystems\Mvdm\Dos\Command.vcxproj") $items "ReactOSBootSector"
+} else {
+    $directory = Join-Path $projectRoot "Hal\Halx86"
+    $record = Get-Content (Join-Path $directory "Lib_Hal_Legacy.Migration.json") -Raw | ConvertFrom-Json
+    $items = Get-Bin2cItems $record $directory
+    $changed += Update-Project (Join-Path $directory "PciData.vcxproj") $items "ReactOSBin2c"
+}
+"$Generator import: $($projects + 1) projects with recipes/references; $changed projects updated"

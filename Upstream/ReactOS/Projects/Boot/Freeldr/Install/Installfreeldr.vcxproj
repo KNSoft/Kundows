@@ -476,6 +476,78 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.h" BIN fat_data</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.h</Outputs>
+    </ReactOSBin2c>
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat32.bin">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat32.bin" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.h" BIN fat32_data</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.h" BIN fat_data</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.h</Outputs>
+    </ReactOSBin2c>
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat32.bin">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat32.bin" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.h" BIN fat32_data</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.h" BIN fat_data</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.h</Outputs>
+    </ReactOSBin2c>
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat32.bin">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat32.bin" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.h" BIN fat32_data</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSBin2c" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat.bin" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.h" BIN fat_data</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat.h</Outputs>
+    </ReactOSBin2c>
+    <ReactOSBin2c Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat32.bin">
+      <Arguments>"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\bootsect\fat32.bin" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.c" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.h" BIN fat32_data</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.c;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\install\fat32.h</Outputs>
+    </ReactOSBin2c>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Bin2c\Bin2c.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{68DF970F-540E-4F4B-88BA-0A5477F3F1C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSBin2cHostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

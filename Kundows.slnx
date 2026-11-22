@@ -1140,6 +1140,7 @@
   </Folder>
   <Folder Name="/ReactOS/Hal/" />
   <Folder Name="/ReactOS/Hal/Halx86/">
+    <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/PciData.vcxproj" />
     <Project Path="Upstream/ReactOS/Projects/Hal/Halx86/Hal.vcxproj">
       <Build Solution="Debug|ARM64" Project="false" />
       <Build Solution="Release|ARM64" Project="false" />
