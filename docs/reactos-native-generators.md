@@ -71,3 +71,10 @@ managed-text conversion implementation.
 Build/ImportReactOSGenerators.ps1 -Generator Utf16 -Check
 Build/Tests/Utf16.Tests.ps1 -MSBuild <path-to-MSBuild.exe>
 ```
+
+## IID failures
+
+WIDL is the only producer of IID definitions. Invalid IDL must fail with WIDL's
+exit status; there is no UUID-regex fallback or generated-header rewriting.
+`Build/Tests/UuidIids.Tests.ps1` compares valid and invalid IID/header generation
+with direct WIDL across all six configurations.
