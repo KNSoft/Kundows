@@ -32,8 +32,7 @@
   <Import Project="$(KundowsRoot)Build\ReactOSBootSector.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSBootSector.targets')" />
   <Import Project="$(KundowsRoot)Build\ReactOSGenDib.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSGenDib.targets')" />
   <Import Project="$(KundowsRoot)Build\ReactOSCMakeResources.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSCMakeResources.targets')" />
-  <Import Project="$(KundowsRoot)Build\ReactOSSpec2Def.targets"
-          Condition="Exists('$(KundowsRoot)Build\ReactOSSpec2Def.targets') and '$(MSBuildProjectName)' != 'Ntdll' and '$(MSBuildProjectName)' != 'Comcat' and '$(MSBuildProjectName)' != 'Hal'" />
+  <Import Project="$(KundowsRoot)Build\ReactOSSpec2Def.targets" />
   <Import Project="$(KundowsRoot)Build\ReactOSWidl.targets" Condition="Exists('$(KundowsRoot)Build\ReactOSWidl.targets')" />
 
   <Target Name="PrepareReactOSResourceIncludeOrder" BeforeTargets="ResourceCompile">

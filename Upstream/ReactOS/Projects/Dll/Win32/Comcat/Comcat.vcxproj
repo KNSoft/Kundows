@@ -80,13 +80,6 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="Exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\ReactOS.props" />
   </ImportGroup>
-  <PropertyGroup>
-    <ReactOSSpec2DefDllName>comcat.dll</ReactOSSpec2DefDllName>
-    <ReactOSSpec2DefSpecFile>$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\comcat\comcat.spec</ReactOSSpec2DefSpecFile>
-    <ReactOSSpec2DefDefName>comcat.def</ReactOSSpec2DefDefName>
-    <ReactOSSpec2DefStubName>comcat_stubs.c</ReactOSSpec2DefStubName>
-    <ReactOSSpec2DefOutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat</ReactOSSpec2DefOutputDirectory>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>comcat</TargetName>
     <TargetExt>.dll</TargetExt>
@@ -658,6 +651,48 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\comcat\comcat.spec">
+      <Arguments>--ms -a=i386 -n=comcat.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\comcat\comcat.spec">
+      <Arguments>--ms -a=i386 -n=comcat.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\comcat\comcat.spec">
+      <Arguments>--ms -a=x86_64 -n=comcat.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\comcat\comcat.spec">
+      <Arguments>--ms -a=x86_64 -n=comcat.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\comcat\comcat.spec">
+      <Arguments>--ms -a=arm64 -n=comcat.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\comcat\comcat.spec">
+      <Arguments>--ms -a=arm64 -n=comcat.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Comcat\comcat_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />
@@ -670,5 +705,4 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(KundowsRoot)Build\ReactOSSpec2Def.targets" />
 </Project>

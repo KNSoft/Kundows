@@ -339,6 +339,20 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\crtdll\crtdll.spec">
+      <Arguments>--ms -a=i386 -n=crtdll.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll\crtdll.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll\crtdll_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll\crtdll.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll\crtdll_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\crtdll\crtdll.spec">
+      <Arguments>--ms -a=i386 -n=crtdll.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll\crtdll.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll\crtdll_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll\crtdll.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\crtdll\crtdll_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

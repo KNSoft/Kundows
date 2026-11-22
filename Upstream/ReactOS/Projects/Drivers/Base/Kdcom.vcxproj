@@ -667,6 +667,48 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\base\kdcom\kdcom.spec">
+      <Arguments>--ms -a=i386 -n=kdcom.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\base\kdrosdbg\kdrosdbg.spec">
+      <Arguments>--ms -a=i386 -n=kdcom.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\base\kdcom\kdcom.spec">
+      <Arguments>--ms -a=x86_64 -n=kdcom.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\base\kdrosdbg\kdrosdbg.spec">
+      <Arguments>--ms -a=x86_64 -n=kdcom.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\base\kdcom\kdcom.spec">
+      <Arguments>--ms -a=arm64 -n=kdcom.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdcom\kdcom_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\base\kdrosdbg\kdrosdbg.spec">
+      <Arguments>--ms -a=arm64 -n=kdcom.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdrosdbg\kdcom_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

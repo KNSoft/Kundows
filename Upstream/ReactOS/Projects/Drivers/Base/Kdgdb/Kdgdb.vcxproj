@@ -335,6 +335,20 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\base\kdgdb\kdgdb.spec">
+      <Arguments>--ms -a=i386 -n=kdgdb.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\base\kdgdb\kdgdb.spec">
+      <Arguments>--ms -a=x86_64 -n=kdgdb.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\base\kdgdb\kdgdb_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

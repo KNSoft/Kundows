@@ -353,6 +353,20 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\hal\hal.spec">
+      <Arguments>--ms -a=i386 -n=hal.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\hal.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\hal_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\hal.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\hal_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\hal\hal.spec">
+      <Arguments>--ms -a=i386 -n=hal.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\hal.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\hal_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\hal.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\hal_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

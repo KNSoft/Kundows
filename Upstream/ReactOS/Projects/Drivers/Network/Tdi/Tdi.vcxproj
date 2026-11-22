@@ -680,6 +680,48 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\network\tdi\misc\tdi.spec">
+      <Arguments>--ms -a=i386 -n=tdi.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\network\tdi\misc\tdi.spec">
+      <Arguments>--ms -a=i386 -n=tdi.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\network\tdi\misc\tdi.spec">
+      <Arguments>--ms -a=x86_64 -n=tdi.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\network\tdi\misc\tdi.spec">
+      <Arguments>--ms -a=x86_64 -n=tdi.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\network\tdi\misc\tdi.spec">
+      <Arguments>--ms -a=arm64 -n=tdi.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\drivers\network\tdi\misc\tdi.spec">
+      <Arguments>--ms -a=arm64 -n=tdi.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\drivers\network\tdi\tdi_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

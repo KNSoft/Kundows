@@ -5,6 +5,10 @@
 - Use the latest MSVC toolchain and native `.slnx` projects.
 - Do not use CMake, Ninja, or RosBE as the build entry point.
 
+Export definitions and import libraries use explicit native generation items
+translated from ReactOS's recorded commands, not build-time module-name
+inference. See [native spec2def generation](docs/reactos-native-spec2def.md).
+
 ## Upstream
 
 - ReactOS is at `Upstream\ReactOS\Source`.

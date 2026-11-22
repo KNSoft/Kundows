@@ -456,6 +456,108 @@
     <Object Include="$(ProjectDir)..\..\..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\d3dcompiler_34\d3dcompiler_34.spec">
+      <Arguments>--ms --version=0x502 --dbg -a=i386 --implib -n=d3dcompiler_34.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" -l="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm" -i="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2DefStub Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</Outputs>
+      <Tool>ml.exe</Tool>
+    </ReactOSSpec2DefStub>
+    <ReactOSImportLibrary Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def">
+      <AdditionalInputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</AdditionalInputs>
+      <Arguments>/LIB /NOLOGO /MACHINE:x86 /DEF:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" /OUT:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib</Outputs>
+    </ReactOSImportLibrary>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\d3dcompiler_34\d3dcompiler_34.spec">
+      <Arguments>--ms --version=0x502 -a=i386 --implib -n=d3dcompiler_34.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" -l="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm" -i="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2DefStub Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</Outputs>
+      <Tool>ml.exe</Tool>
+    </ReactOSSpec2DefStub>
+    <ReactOSImportLibrary Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def">
+      <AdditionalInputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</AdditionalInputs>
+      <Arguments>/LIB /NOLOGO /MACHINE:x86 /DEF:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" /OUT:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib</Outputs>
+    </ReactOSImportLibrary>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\d3dcompiler_34\d3dcompiler_34.spec">
+      <Arguments>--ms --version=0x502 --dbg -a=x86_64 --implib -n=d3dcompiler_34.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" -l="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm" -i="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2DefStub Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</Outputs>
+      <Tool>ml64.exe</Tool>
+    </ReactOSSpec2DefStub>
+    <ReactOSImportLibrary Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def">
+      <AdditionalInputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</AdditionalInputs>
+      <Arguments>/LIB /NOLOGO /MACHINE:amd64 /DEF:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" /OUT:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib</Outputs>
+    </ReactOSImportLibrary>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\d3dcompiler_34\d3dcompiler_34.spec">
+      <Arguments>--ms --version=0x502 -a=x86_64 --implib -n=d3dcompiler_34.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" -l="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm" -i="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2DefStub Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</Outputs>
+      <Tool>ml64.exe</Tool>
+    </ReactOSSpec2DefStub>
+    <ReactOSImportLibrary Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def">
+      <AdditionalInputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</AdditionalInputs>
+      <Arguments>/LIB /NOLOGO /MACHINE:amd64 /DEF:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" /OUT:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib</Outputs>
+    </ReactOSImportLibrary>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\d3dcompiler_34\d3dcompiler_34.spec">
+      <Arguments>--ms --version=0x502 --dbg -a=arm64 --implib -n=d3dcompiler_34.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" -l="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm" -i="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2DefStub Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm">
+      <Arguments>-nologo -o "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</Outputs>
+      <Tool>armasm64.exe</Tool>
+    </ReactOSSpec2DefStub>
+    <ReactOSImportLibrary Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def">
+      <AdditionalInputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</AdditionalInputs>
+      <Arguments>/LIB /NOLOGO /MACHINE:arm64 /DEF:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" /OUT:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib</Outputs>
+    </ReactOSImportLibrary>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\d3dcompiler_34\d3dcompiler_34.spec">
+      <Arguments>--ms --version=0x502 -a=arm64 --implib -n=d3dcompiler_34.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" -l="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm" -i="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_impalias.asm</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2DefStub Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm">
+      <Arguments>-nologo -o "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</Outputs>
+      <Tool>armasm64.exe</Tool>
+    </ReactOSSpec2DefStub>
+    <ReactOSImportLibrary Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def">
+      <AdditionalInputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj</AdditionalInputs>
+      <Arguments>/LIB /NOLOGO /MACHINE:arm64 /DEF:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_implib.def" /OUT:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_stubs.asm.obj"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\d3dcompiler_34\libd3dcompiler_34_tmp.lib</Outputs>
+    </ReactOSImportLibrary>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

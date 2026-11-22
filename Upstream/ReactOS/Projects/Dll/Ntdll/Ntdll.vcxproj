@@ -81,11 +81,6 @@
     <Import Project="..\..\ReactOS.props" />
   </ImportGroup>
   <PropertyGroup>
-    <ReactOSSpec2DefDllName>ntdll.dll</ReactOSSpec2DefDllName>
-    <ReactOSSpec2DefSpecFile>$(KundowsRoot)Upstream\ReactOS\Source\dll\ntdll\def\ntdll.spec</ReactOSSpec2DefSpecFile>
-    <ReactOSSpec2DefDefName>ntdll.def</ReactOSSpec2DefDefName>
-    <ReactOSSpec2DefStubName>ntdll_stubs.c</ReactOSSpec2DefStubName>
-    <ReactOSSpec2DefOutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll</ReactOSSpec2DefOutputDirectory>
     <ReactOSAssemblyIncludeDirectories>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\sdk\include\asm;$(ProjectDir)..\..\..\Source\sdk\include\asm;$(KundowsRoot)OutDir\Build\SDK\Common\Include\ddk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\psdk;$(KundowsRoot)OutDir\Build\SDK\Common\Include\reactos;$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\ntdll;$(ProjectDir)..\..\..\Source\dll\ntdll;$(ProjectDir)..\..\..\Source\sdk\include\reactos\subsys;$(ProjectDir)..\..\..\Source\dll\ntdll\include;$(ProjectDir)..\..\..\Source\sdk\include;$(ProjectDir)..\..\..\Source\sdk\include\crt;$(ProjectDir)..\..\..\Source\sdk\include\ddk;$(ProjectDir)..\..\..\Source\sdk\include\ndk;$(ProjectDir)..\..\..\Source\sdk\include\psdk;$(ProjectDir)..\..\..\Source\sdk\include\reactos;$(ProjectDir)..\..\..\Source\sdk\include\reactos\libs;$(ProjectDir)..\..\..\Source\sdk\include\vcruntime;$(ProjectDir)..\..\..\Source\sdk\include\winrt;$(ProjectDir)..\..\..\Source\sdk\include\dxsdk;$(ProjectDir)..\..\..\Source\sdk\lib\pseh\include;$(ProjectDir)..\..\..\Source\sdk\lib\apisets</ReactOSAssemblyIncludeDirectories>
     <ReactOSAssemblyDefinitions>__REACTOS__;__RELFILE__=__FILE__;_SBCS;WINVER=0x502;_WIN32_IE=0x603;_WIN32_WINNT=0x502;_WIN32_WINDOWS=0x502;_SETUPAPI_VER=0x502;MINGW_HAS_SECURE_API=1;D3D_UMD_INTERFACE_VERSION=0x000C;DXGKDDI_INTERFACE_VERSION=0x1052;DLL_EXPORT_VERSION=0x502;_NEW_DELETE_OPERATORS_;USE_COMPILER_EXCEPTIONS;__STDC__=1;LANGUAGE_EN_US;__NTDLL__;_NTOSKRNL_;CRTDLL;__ASM__;_USE_ML</ReactOSAssemblyDefinitions>
     <ReactOSAssemblyDefinitions Condition="'$(Platform)'=='Win32'">$(ReactOSAssemblyDefinitions);_M_IX86;_X86_;__i386__;i386;_USE_32BIT_TIME_T;WIN32;_WINDOWS</ReactOSAssemblyDefinitions>
@@ -776,6 +771,48 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\ntdll\def\ntdll.spec">
+      <Arguments>--ms -a=i386 -n=ntdll.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\ntdll\def\ntdll.spec">
+      <Arguments>--ms -a=i386 -n=ntdll.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\ntdll\def\ntdll.spec">
+      <Arguments>--ms -a=x86_64 -n=ntdll.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\ntdll\def\ntdll.spec">
+      <Arguments>--ms -a=x86_64 -n=ntdll.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\ntdll\def\ntdll.spec">
+      <Arguments>--ms -a=arm64 -n=ntdll.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\ntdll\def\ntdll.spec">
+      <Arguments>--ms -a=arm64 -n=ntdll.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\Ntdll\ntdll_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />
@@ -788,5 +825,4 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(KundowsRoot)Build\ReactOSSpec2Def.targets" />
 </Project>

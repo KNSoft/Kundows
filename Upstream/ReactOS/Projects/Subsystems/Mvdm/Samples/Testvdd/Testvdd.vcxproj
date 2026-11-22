@@ -312,6 +312,20 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\subsystems\mvdm\samples\testvdd\testvdd.spec">
+      <Arguments>--ms -a=i386 -n=testvdd.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\subsystems\mvdm\samples\testvdd\testvdd.spec">
+      <Arguments>--ms -a=i386 -n=testvdd.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\subsystems\mvdm\samples\testvdd\testvdd_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

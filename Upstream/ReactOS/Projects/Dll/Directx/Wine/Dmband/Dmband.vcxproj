@@ -699,6 +699,48 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\dmband\dmband.spec">
+      <Arguments>--ms -a=i386 -n=dmband.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\dmband\dmband.spec">
+      <Arguments>--ms -a=i386 -n=dmband.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\dmband\dmband.spec">
+      <Arguments>--ms -a=x86_64 -n=dmband.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\dmband\dmband.spec">
+      <Arguments>--ms -a=x86_64 -n=dmband.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\dmband\dmband.spec">
+      <Arguments>--ms -a=arm64 -n=dmband.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\directx\wine\dmband\dmband.spec">
+      <Arguments>--ms -a=arm64 -n=dmband.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\directx\wine\dmband\dmband_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

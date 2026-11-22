@@ -685,6 +685,44 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\freeldr\freeldr.spec">
+      <Arguments>--ms -a=i386 -n=freeldr.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\freeldr\freeldr.spec">
+      <Arguments>--ms -a=i386 -n=uefildr.exe -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\uefildr.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\uefildr_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\uefildr.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\uefildr_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\freeldr\freeldr.spec">
+      <Arguments>--ms -a=i386 -n=freeldr.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\freeldr\freeldr.spec">
+      <Arguments>--ms -a=i386 -n=uefildr.exe -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\uefildr.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\uefildr_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\uefildr.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\uefildr_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\freeldr\freeldr.spec">
+      <Arguments>--ms -a=x86_64 -n=freeldr.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr_stubs.c" --version=0x502 --dbg</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\boot\freeldr\freeldr\freeldr.spec">
+      <Arguments>--ms -a=x86_64 -n=freeldr.sys -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def" -s="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr_stubs.c" --version=0x502</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\boot\freeldr\freeldr\freeldr_stubs.c</Outputs>
+    </ReactOSSpec2Def>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

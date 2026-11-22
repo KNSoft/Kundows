@@ -211,6 +211,40 @@
     <Object Include="$(ProjectDir)..\..\..\..\..\OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_tmp.lib" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32'" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\hal\hal.spec">
+      <Arguments>--ms --version=0x502 --dbg -a=i386 --implib -n=halapic.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_implib.def" -l="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm" -i="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_impalias.asm"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_implib.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_impalias.asm</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2DefStub Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm.obj</Outputs>
+      <Tool>ml.exe</Tool>
+    </ReactOSSpec2DefStub>
+    <ReactOSImportLibrary Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_implib.def">
+      <AdditionalInputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm.obj</AdditionalInputs>
+      <Arguments>/LIB /NOLOGO /MACHINE:x86 /DEF:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_implib.def" /OUT:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_tmp.lib" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm.obj"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_tmp.lib</Outputs>
+    </ReactOSImportLibrary>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSSpec2Def" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSSpec2Def Include="$(KundowsRoot)Upstream\ReactOS\Source\hal\hal.spec">
+      <Arguments>--ms --version=0x502 -a=i386 --implib -n=halapic.dll -d="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_implib.def" -l="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm" -i="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_impalias.asm"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_implib.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_impalias.asm</Outputs>
+    </ReactOSSpec2Def>
+    <ReactOSSpec2DefStub Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm">
+      <Arguments>/nologo /quiet /Cp /Fo"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm.obj" /c /Ta "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm.obj</Outputs>
+      <Tool>ml.exe</Tool>
+    </ReactOSSpec2DefStub>
+    <ReactOSImportLibrary Include="$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_implib.def">
+      <AdditionalInputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm.obj</AdditionalInputs>
+      <Arguments>/LIB /NOLOGO /MACHINE:x86 /DEF:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_implib.def" /OUT:"$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_tmp.lib" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_stubs.asm.obj"</Arguments>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\hal\halx86\libhalapic_tmp.lib</Outputs>
+    </ReactOSImportLibrary>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

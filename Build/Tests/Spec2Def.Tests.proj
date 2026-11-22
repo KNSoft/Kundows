@@ -1,0 +1,21 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Ntoskrnl\Libntoskrnl.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Ntoskrnl\Ntkrnlmp\Ntkrnlmp.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Win32ss\Libwin32k.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Win32ss\Printing\Base\Winspool\Libwinspool.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Sdk\Lib\Pathcch\Pathcch.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Boot\Freeldr\Freeldr\Libfreeldr.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Boot\Freeldr\Freeldr\Uefildr.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Dll\Directx\Wine\D3dx9_24\D3dx9_24.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Dll\Ntdll\Ntdll.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Dll\Win32\Comcat\Comcat.vcxproj" />
+    <NativeProject Include="$(MSBuildThisFileDirectory)..\..\Upstream\ReactOS\Projects\Hal\Halx86\Hal.vcxproj" />
+  </ItemGroup>
+  <Target Name="Build">
+    <MSBuild Projects="@(NativeProject)"
+             Targets="GenerateReactOSSpec2Def;GenerateReactOSImportLibrary"
+             Properties="Configuration=$(Configuration);Platform=$(Platform);BuildProjectReferences=false"
+             BuildInParallel="true" />
+  </Target>
+</Project>
