@@ -1,0 +1,37 @@
+diff --git a/sdk/tools/spec2def/spec2def.c b/sdk/tools/spec2def/spec2def.c
+index 2ab25d9f96d..2a648f4245a 100644
+--- a/sdk/tools/spec2def/spec2def.c
++++ b/sdk/tools/spec2def/spec2def.c
+@@ -265,6 +265,20 @@ OutputLine_stub(FILE *file, EXPORT *pexp)
+         bRelay = 1;
+     }
+ 
++    if (gbMSComp && (giArch == ARCH_X86) && (pexp->strName.buf[0] == '?'))
++    {
++        /*
++         * x86 LINK strips C++ export names at the first '@' when a .def
++         * alias names a plain C stub. A COFF weak alias preserves the
++         * exported name without changing the stub's calling convention.
++         */
++        fprintf(file, "#pragma comment(linker,\"/alternatename:%.*s=%sstub_function%d",
++                pexp->strName.len, pexp->strName.buf, gpszUnderscore, pexp->nNumber);
++        if (pexp->nCallingConvention == CC_STDCALL)
++            fprintf(file, "@%d", pexp->nStackBytes);
++        fprintf(file, "\")\n\n");
++    }
++
+     /* Declare the "real" function */
+     if (bRelay)
+     {
+@@ -666,8 +680,9 @@ OutputLine_def_MS(FILE *fileDest, EXPORT *pexp)
+     else if (((pexp->uFlags & FL_STUB) || (pexp->nCallingConvention == CC_STUB)) &&
+              (pexp->strName.buf[0] == '?'))
+     {
+-        /* C++ stubs are forwarded to C stubs */
+-        fprintf(fileDest, "=stub_function%d", pexp->nNumber);
++        /* x86 C++ stubs use the weak aliases emitted by OutputLine_stub. */
++        if (giArch != ARCH_X86)
++            fprintf(fileDest, "=stub_function%d", pexp->nNumber);
+     }
+     else if (gbTracing && ((pexp->uFlags & FL_NORELAY) == 0) && (pexp->nCallingConvention == CC_STDCALL) &&
+             (pexp->strName.buf[0] != '?'))

@@ -58,5 +58,8 @@
   <ItemGroup>
     <ClCompile Include="$(KundowsRoot)Upstream\ReactOS\Source\sdk\tools\spec2def\spec2def.c" />
   </ItemGroup>
+  <Target Name="ApplyReactOSSpec2DefCppExportPatch" BeforeTargets="PrepareForBuild">
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(KundowsRoot)Build\ApplyReactOSPatches.ps1&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(KundowsRoot)Build\Patches\ReactOS-spec2def-cpp-exports.patch&quot; -StateFile &quot;$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-spec2def-cpp-exports.state&quot;" />
+  </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>

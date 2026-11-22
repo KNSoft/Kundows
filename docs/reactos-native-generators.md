@@ -141,3 +141,24 @@ the existing disconnected Debug/Release boot records with a new boot claim.
 
 Logs and isolated reference projects are under the session temporary
 `native-tools-1122` directory. No new ISO or VM boot validation is claimed.
+
+## x86 MSVC C++ stub exports
+
+The four-ISO validation found that x86 LINK truncates decorated C++ exports
+when a DEF entry aliases them directly to a C stub. Fix this in the upstream
+`spec2def` producer: emit a COFF `/alternatename` directive and leave the full
+decorated DEF name unaliased. The original stub calling convention and export
+ordinal are retained. No generated DEF file or linked PE is rewritten.
+
+`Spec2Def.vcxproj` applies `ReactOS-spec2def-cpp-exports.patch` before compiling
+the upstream tool. The patch is scoped to this producer, not every consumer.
+
+```powershell
+Build/Tests/Spec2Def.CppExports.Tests.ps1 -MSBuild <path-to-MSBuild.exe>
+```
+
+The regression builds actual Win32 Debug/Release `msvcrt20`, `msvcrt40`, and
+`vssapi` DLLs, then checks 1976 complete C++ export names and ordinals against
+the original specs and generated definitions. All six tool configurations and
+the existing 62 spec2def cases also pass. Unaffected generator modes remain
+byte-identical; a typed-stub check preserves both cdecl and stdcall symbols.
