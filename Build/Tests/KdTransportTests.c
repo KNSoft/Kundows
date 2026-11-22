@@ -50,6 +50,8 @@ static struct { UCHAR KdDebuggerEnabled; } Shared;
 static UCHAR Tx[65536], Rx[65536];
 static size_t TxSize, RxSize, RxPosition;
 static unsigned Timeouts, AckAfterTimeouts, Failures, Tests;
+static unsigned ReceiveErrors, ReceiveCalls;
+static BOOLEAN LastControlCPending;
 VOID NTAPI KdpSendByte(UCHAR byte);
 KDP_STATUS NTAPI KdpReceiveByte(PUCHAR byte);
 KDP_STATUS NTAPI KdpPollByte(PUCHAR byte);
@@ -75,6 +77,16 @@ static void EnqueueAck(void)
 
 KDP_STATUS NTAPI KdpReceiveByte(PUCHAR byte)
 {
+    if (++ReceiveCalls > 4096)
+    {
+        fputs("Unbounded UART error polling\n", stderr);
+        exit(2);
+    }
+    if (ReceiveErrors)
+    {
+        --ReceiveErrors;
+        return KDP_PACKET_RESEND;
+    }
     if (RxPosition == RxSize && AckAfterTimeouts && Timeouts == AckAfterTimeouts)
     {
         EnqueueAck();
@@ -90,6 +102,7 @@ KDP_STATUS NTAPI KdpPollBreakIn(VOID) { return KDP_PACKET_TIMEOUT; }
 static void Reset(void)
 {
     TxSize = RxSize = RxPosition = Timeouts = AckAfterTimeouts = 0;
+    ReceiveErrors = ReceiveCalls = LastControlCPending = 0;
     CurrentPacketId = INITIAL_PACKET_ID | SYNC_PACKET_ID;
     RemotePacketId = INITIAL_PACKET_ID;
     KdpConnectionEstablished = NotPresent = FALSE;
@@ -102,6 +115,7 @@ static unsigned Send(ULONG type, ULONG message, unsigned retries)
     KD_CONTEXT context = { retries, FALSE };
     size_t before = TxSize;
     KdSendPacket(type, &header, NULL, &context);
+    LastControlCPending = context.KdpControlCPending;
     CHECK(context.KdpDefaultRetries == retries);
     return (unsigned)((TxSize - before) / (sizeof(KD_PACKET) + sizeof(message) + 1));
 }
@@ -148,6 +162,31 @@ int main(void)
     ++Tests;
     Reset();
     CHECK(Send(PACKET_TYPE_KD_DEBUG_IO, DbgKdPrintStringApi, 0) == 1 && NotPresent);
+    ++Tests;
+    Reset();
+    ReceiveErrors = 10000; /* An emulated UART can report persistent line errors. */
+    CHECK(Send(PACKET_TYPE_KD_DEBUG_IO, DbgKdPrintStringApi, 20) == 2);
+    CHECK(ReceiveCalls == 2 && NotPresent && !LastControlCPending);
+    ++Tests;
+    Reset();
+    ReceiveErrors = 1;
+    EnqueueAck();
+    CHECK(Send(PACKET_TYPE_KD_DEBUG_IO, DbgKdPrintStringApi, 20) == 2);
+    CHECK(KdpConnectionEstablished && !NotPresent && !LastControlCPending);
+    ++Tests;
+    Reset();
+    EnqueueAck();
+    CHECK(Send(PACKET_TYPE_KD_DEBUG_IO, DbgKdPrintStringApi, 20) == 1);
+    ReceiveErrors = 10000;
+    CHECK(Send(PACKET_TYPE_KD_DEBUG_IO, DbgKdPrintStringApi, 20) == 20);
+    CHECK(NotPresent && !KdpConnectionEstablished && !LastControlCPending);
+    ++Tests;
+    Reset();
+    Rx[0] = BREAKIN_PACKET_BYTE;
+    RxSize = 1;
+    AckAfterTimeouts = 1;
+    CHECK(Send(PACKET_TYPE_KD_DEBUG_IO, DbgKdPrintStringApi, 20) == 2);
+    CHECK(KdpConnectionEstablished && LastControlCPending);
     ++Tests;
     printf("KD transport: %u cases, %u failures\n", Tests, Failures);
     return Failures ? 1 : 0;

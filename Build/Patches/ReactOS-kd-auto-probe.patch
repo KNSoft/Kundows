@@ -71,3 +71,20 @@ diff --git a/drivers/base/kdcom/kddll.c b/drivers/base/kdcom/kddll.c
                  KD_DEBUGGER_NOT_PRESENT = TRUE;
                  SharedUserData->KdDebuggerEnabled &= ~0x00000002;
                  CurrentPacketId = INITIAL_PACKET_ID | SYNC_PACKET_ID;
+diff --git a/drivers/base/kdcom/kdserial.c b/drivers/base/kdcom/kdserial.c
+--- a/drivers/base/kdcom/kdserial.c
++++ b/drivers/base/kdcom/kdserial.c
+@@ -86,8 +86,11 @@ KdpReceivePacketLeader(
+         /* Receive a single byte */
+         KdStatus = KdpReceiveByte(&Byte);
+ 
+-        /* Check for timeout */
+-        if (KdStatus == KDP_PACKET_TIMEOUT)
++        /*
++         * A UART line error has not delivered a packet leader. Let the
++         * caller's retry policy handle it instead of polling forever.
++         */
++        if (KdStatus == KDP_PACKET_TIMEOUT || KdStatus == KDP_PACKET_RESEND)
+         {
+             /* Check if we already got a breakin byte */
+             if (Buffer[0] == BREAKIN_PACKET_BYTE)
