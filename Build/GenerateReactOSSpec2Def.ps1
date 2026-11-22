@@ -18,7 +18,8 @@ param(
     [string]$TargetExtension = ".dll",
     [string]$Version = "0x502",
     [switch]$ResolveModuleName,
-    [string]$ModuleNameOutput = ""
+    [string]$ModuleNameOutput = "",
+    [string]$ModuleNameOverride = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -83,67 +84,207 @@ function Get-DefinitionFiles {
     return @($values | ForEach-Object { Expand-ProjectPath $_ } | Select-Object -Unique)
 }
 
+function Get-CMakeProjectFiles {
+    $files = [Collections.Generic.List[string]]::new()
+    foreach ($item in @($xml.Project.ItemGroup.None)) {
+        $include = [string]$item.Include
+        if (-not $include) {
+            continue
+        }
+
+        $isCMake = [IO.Path]::GetFileName($include) -ieq "CMakeLists.txt" -or
+            [IO.Path]::GetExtension($include) -ieq ".cmake"
+        if (-not $isCMake) {
+            continue
+        }
+
+        $candidate = if ([IO.Path]::IsPathRooted($include)) {
+            $include
+        } else {
+            Join-Path $projectDirectory $include
+        }
+        if (Test-Path -LiteralPath $candidate -PathType Leaf) {
+            $fullPath = [IO.Path]::GetFullPath($candidate)
+            if (-not $files.Contains($fullPath)) {
+                [void]$files.Add($fullPath)
+            }
+        }
+    }
+    return @($files)
+}
+
 function Get-CMakeModuleName([string]$SpecFile) {
+    if ($ModuleNameOverride) {
+        return $ModuleNameOverride
+    }
+
     $specLeaf = [IO.Path]::GetFileName($SpecFile)
-    $directory = Split-Path -Parent $SpecFile
-    $candidates = [Collections.Generic.List[string]]::new()
-    while ($directory -and $directory.StartsWith($sourceRootPath, [StringComparison]::OrdinalIgnoreCase)) {
-        $cmakeFiles = [Collections.Generic.List[string]]::new()
-        $cmakeLists = Join-Path $directory "CMakeLists.txt"
-        if (Test-Path -LiteralPath $cmakeLists -PathType Leaf) {
-            $cmakeFiles.Add($cmakeLists)
-        }
-        foreach ($cmakeFile in Get-ChildItem -LiteralPath $directory -Filter "*.cmake" -File) {
-            $cmakeFiles.Add($cmakeFile.FullName)
-        }
-        foreach ($cmake in $cmakeFiles) {
+    $targetStem = [IO.Path]::GetFileNameWithoutExtension("$TargetName$TargetExtension")
+    $runtimeTarget = $targetStem -replace "(?i)^lib", ""
+    $runtimeTarget = $runtimeTarget -replace "(?i)_pe$", ""
+    if (-not $runtimeTarget) {
+        $runtimeTarget = [IO.Path]::GetFileNameWithoutExtension($specLeaf)
+    }
+
+    $targetIdentityAliases = @(
+        $targetStem
+        $runtimeTarget
+        $targetStem -replace "(?i)_pe$", ""
+        $targetStem -replace "(?i)^lib", ""
+        ($targetStem -replace "(?i)^lib", "") -replace "(?i)_pe$", ""
+    ) | Where-Object { $_ } | Select-Object -Unique
+
+    $targetAliases = @(
+        $targetStem
+        $runtimeTarget
+        $targetStem -replace "(?i)_pe$", ""
+        $targetStem -replace "(?i)^lib", ""
+        ($targetStem -replace "(?i)^lib", "") -replace "(?i)_pe$", ""
+        [IO.Path]::GetFileNameWithoutExtension($specLeaf)
+    ) | Where-Object { $_ } | Select-Object -Unique
+
+    function Expand-CMakeToken([string]$Token) {
+        $normalized = $Token.Trim('"').Replace("\", "/")
+        return [regex]::Replace($normalized, '\$\{[^}]+\}', $runtimeTarget)
+    }
+
+    function Test-CMakeSpecToken([string]$Token) {
+        $resolved = Expand-CMakeToken $Token
+        $resolvedLeaf = [IO.Path]::GetFileName($resolved)
+        return $resolvedLeaf.Equals($specLeaf, [StringComparison]::OrdinalIgnoreCase) -or
+            $resolved.EndsWith("/$specLeaf", [StringComparison]::OrdinalIgnoreCase)
+    }
+
+    function Search-CMakeFiles([System.Collections.IEnumerable]$CMakeFiles) {
+        foreach ($cmake in $CMakeFiles) {
             $contents = Get-Content -LiteralPath $cmake -Raw
             foreach ($match in [regex]::Matches($contents, "(?im)^(?!\s*#)\s*spec2def\s*\(\s*(?<module>[^\s\)]+)\s+(?<spec>[^\s\)]+)")) {
-                $specToken = $match.Groups["spec"].Value.Trim('"')
-                if ($specToken -eq $specLeaf -or $specToken.EndsWith("/$specLeaf", [StringComparison]::OrdinalIgnoreCase) -or $specToken.EndsWith("\$specLeaf", [StringComparison]::OrdinalIgnoreCase)) {
-                    $module = $match.Groups["module"].Value.Trim('"')
-                    if ($module -match "\$\{[^}]+\}") {
-                        $runtimeTarget = $TargetName -replace "(?i)^lib", ""
-                        if (-not $runtimeTarget) {
-                            $runtimeTarget = [IO.Path]::GetFileNameWithoutExtension($specLeaf)
-                        }
-                        $module = "$runtimeTarget.dll"
-                    }
-                    if (-not $candidates.Contains($module)) {
-                        $candidates.Add($module)
-                    }
+                $specToken = $match.Groups["spec"].Value
+                if (-not (Test-CMakeSpecToken $specToken)) {
+                    continue
+                }
+
+                $module = Expand-CMakeToken $match.Groups["module"].Value
+                if (-not $candidates.Contains($module)) {
+                    [void]$candidates.Add($module)
+                }
+            }
+
+            foreach ($match in [regex]::Matches($contents, "(?im)^(?!\s*#)\s*generate_import_lib\s*\(\s*(?<target>[^\s\)]+)\s+(?<module>[^\s\)]+)\s+(?<spec>[^\s\)]+)")) {
+                $targetToken = Expand-CMakeToken $match.Groups["target"].Value
+                $targetStem = [IO.Path]::GetFileNameWithoutExtension($targetToken)
+                if ($targetIdentityAliases -notcontains $targetStem) {
+                    continue
+                }
+
+                $specToken = $match.Groups["spec"].Value
+                if (-not (Test-CMakeSpecToken $specToken)) {
+                    continue
+                }
+
+                # ReactOS's MSVC generate_import_lib wrapper passes its
+                # second argument to spec2def as -n=<runtime-module>.
+                $module = Expand-CMakeToken $match.Groups["module"].Value
+                if (-not $targetSpecificCandidates.Contains($module)) {
+                    [void]$targetSpecificCandidates.Add($module)
                 }
             }
         }
-        $parent = Split-Path -Parent $directory
-        if ($parent -eq $directory) {
-            break
-        }
-        $directory = $parent
     }
 
-    if ($candidates.Count -gt 0) {
-        $targetStem = [IO.Path]::GetFileNameWithoutExtension("$TargetName$TargetExtension")
-        $targetAliases = @(
-            $targetStem
-            $targetStem -replace "(?i)_pe$", ""
-            $targetStem -replace "(?i)^lib", ""
-            ($targetStem -replace "(?i)^lib", "") -replace "(?i)_pe$", ""
-            [IO.Path]::GetFileNameWithoutExtension($specLeaf)
-        ) | Where-Object { $_ }
-        foreach ($candidate in $candidates) {
-            $candidateStem = [IO.Path]::GetFileNameWithoutExtension($candidate)
-            if ($targetAliases -contains $candidateStem) {
-                return $candidate
+    $searchFiles = [Collections.Generic.List[string]]::new()
+    $pendingFiles = [Collections.Generic.Queue[string]]::new()
+    $visitedFiles = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
+    $projectCMakeFiles = @(Get-CMakeProjectFiles)
+    foreach ($cmake in $projectCMakeFiles) {
+        $pendingFiles.Enqueue($cmake)
+    }
+
+    while ($pendingFiles.Count -gt 0) {
+        $cmake = $pendingFiles.Dequeue()
+        $cmake = [IO.Path]::GetFullPath($cmake)
+        if (-not $visitedFiles.Add($cmake)) {
+            continue
+        }
+        [void]$searchFiles.Add($cmake)
+
+        $contents = Get-Content -LiteralPath $cmake -Raw
+        $cmakeDirectory = Split-Path -Parent $cmake
+        foreach ($match in [regex]::Matches($contents, "(?im)^(?!\s*#)\s*include\s*\(\s*(?<path>[^\s\)]+)")) {
+            $include = $match.Groups["path"].Value.Trim('"')
+            if (-not $include) {
+                continue
+            }
+            $include = $include.Replace('${CMAKE_CURRENT_SOURCE_DIR}', $cmakeDirectory)
+            $include = $include.Replace('${CMAKE_CURRENT_LIST_DIR}', $cmakeDirectory)
+            if ($include -match "\$\{|\$\(") {
+                continue
+            }
+            $includePath = if ([IO.Path]::IsPathRooted($include)) {
+                [IO.Path]::GetFullPath($include)
+            } else {
+                [IO.Path]::GetFullPath((Join-Path $cmakeDirectory $include))
+            }
+            foreach ($candidate in @(
+                $includePath
+                "$includePath.cmake"
+                (Join-Path $includePath "CMakeLists.txt")
+            )) {
+                if (Test-Path -LiteralPath $candidate -PathType Leaf) {
+                    $pendingFiles.Enqueue([IO.Path]::GetFullPath($candidate))
+                    break
+                }
             }
         }
-        return $candidates[0]
+        foreach ($match in [regex]::Matches($contents, "(?im)^(?!\s*#)\s*add_subdirectory\s*\(\s*(?<path>[^\s\)]+)")) {
+            $subdirectory = $match.Groups["path"].Value.Trim('"')
+            if (-not $subdirectory -or $subdirectory -match "\$\{|\$\(") {
+                continue
+            }
+            $subdirectoryCMake = Join-Path (Join-Path $cmakeDirectory $subdirectory) "CMakeLists.txt"
+            if (Test-Path -LiteralPath $subdirectoryCMake -PathType Leaf) {
+                $pendingFiles.Enqueue([IO.Path]::GetFullPath($subdirectoryCMake))
+            }
+        }
     }
 
-    if ($TargetName) {
-        return "$TargetName$TargetExtension"
+    $candidates = [Collections.Generic.List[string]]::new()
+    $targetSpecificCandidates = [Collections.Generic.List[string]]::new()
+    Search-CMakeFiles $searchFiles
+    $allCandidates = @($candidates + $targetSpecificCandidates | Select-Object -Unique)
+
+    if ($candidates.Count -gt 0 -or $targetSpecificCandidates.Count -gt 0) {
+        $identityCandidates = @(
+            $candidates | Where-Object {
+                $candidateStem = [IO.Path]::GetFileNameWithoutExtension($_)
+                $targetIdentityAliases -contains $candidateStem
+            }
+        )
+        $identityCandidates = @($identityCandidates + $targetSpecificCandidates | Select-Object -Unique)
+        if ($identityCandidates.Count -eq 1) {
+            return $identityCandidates[0]
+        }
+        if ($identityCandidates.Count -gt 1) {
+            throw "CMake module resolution is ambiguous for '$SpecFile' and target '$TargetName$TargetExtension': $($identityCandidates -join ', ')"
+        }
+
+        $fallbackCandidates = @(
+            $candidates | Where-Object {
+                $candidateStem = [IO.Path]::GetFileNameWithoutExtension($_)
+                $targetAliases -contains $candidateStem
+            }
+        )
+        if ($fallbackCandidates.Count -eq 1) {
+            return $fallbackCandidates[0]
+        }
+        if ($fallbackCandidates.Count -gt 1) {
+            throw "CMake module resolution is ambiguous for '$SpecFile' and target '$TargetName$TargetExtension': $($fallbackCandidates -join ', ')"
+        }
+
+        throw "CMake module declarations for '$SpecFile' do not match target '$TargetName$TargetExtension': $($allCandidates -join ', ')"
     }
-    return ([IO.Path]::GetFileNameWithoutExtension($specLeaf) + ".dll")
+
+    throw "No CMake module declaration (spec2def or generate_import_lib) matched '$SpecFile' for target '$TargetName$TargetExtension'. Set ReactOSSpec2DefModuleName only when the upstream target has no declaration."
 }
 
 function Test-CMakeNoDebugExports([string]$SpecFile) {
