@@ -1,0 +1,16 @@
+<Project DefaultTargets="GenerateReactOSUtf16ProjectFiles" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <KundowsRoot>$(MSBuildThisFileDirectory)..\..\</KundowsRoot>
+    <Platform>x64</Platform>
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+  <Import Project="..\ReactOSUtf16.targets" />
+  <ItemGroup>
+    <ReactOSUtf16 Include="$(FixtureRoot)\input.INI">
+      <Arguments>"$(FixtureRoot)\input.INI" "$(FixtureRoot)\explicit.destination" $(BomOption)</Arguments>
+      <Outputs>$(FixtureRoot)\explicit.destination</Outputs>
+      <OutputDirectory>$(FixtureRoot)</OutputDirectory>
+    </ReactOSUtf16>
+  </ItemGroup>
+  <Target Name="ResolveProjectReferences" />
+</Project>

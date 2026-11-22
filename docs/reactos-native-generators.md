@@ -58,3 +58,16 @@ No source-tree lookup or implicit assembler invocation remains in bin2c.
 Build/ImportReactOSGenerators.ps1 -Generator Bin2c -Check
 Build/Tests/Bin2c.Tests.ps1 -MSBuild <path-to-MSBuild.exe>
 ```
+
+## UTF-16 conversion
+
+Theme and URLMON projects preserve each evaluated input, destination, and BOM
+option. Their native targets depend on the actual input and output files;
+there is no filename guessing, existing-output skip, or project success stamp.
+ISO packaging also invokes the original utf16le tool rather than a second
+managed-text conversion implementation.
+
+```powershell
+Build/ImportReactOSGenerators.ps1 -Generator Utf16 -Check
+Build/Tests/Utf16.Tests.ps1 -MSBuild <path-to-MSBuild.exe>
+```

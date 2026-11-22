@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet("BootSector", "Bin2c")]
+    [ValidateSet("BootSector", "Bin2c", "Utf16")]
     [string]$Generator = "BootSector",
     [switch]$Check
 )
@@ -125,6 +125,28 @@ function Get-Bin2cItems([object]$Record, [string]$Directory, [switch]$ReferenceO
     }
     return $document
 }
+function Get-Utf16Items([object]$Record, [string]$Directory) {
+    $document = [xml]"<Project xmlns='$namespace'/>"
+    foreach ($configuration in $Record.Configurations.PSObject.Properties) {
+        $steps = @($configuration.Value.PendingGenerationSteps | Where-Object { $_.HostTools -contains "utf16le" })
+        if (-not $steps.Count) { continue }
+        $group = $document.CreateElement("ItemGroup", $namespace)
+        $group.SetAttribute("Label", "ReactOSUtf16")
+        $group.SetAttribute("Condition", "'`$(Configuration)|`$(Platform)'=='$($configuration.Name)'")
+        foreach ($step in $steps) {
+            $arguments = @(Split-Command $step.ReferenceCommand | Select-Object -Skip 1)
+            $output = Convert-Path $step.Outputs[0] $Directory
+            Add-Item $document $group "ReactOSUtf16" (Convert-Path $arguments[0] $Directory) @{
+                Arguments = (@($arguments | ForEach-Object { Convert-Argument $_ $Directory }) -join " ")
+                Outputs = $output
+                OutputDirectory = $output.Substring(0, $output.LastIndexOf("\"))
+            }
+        }
+        Add-HostReference $document $group "Utf16le" "72E88580-2F35-49BF-93A1-385C67978FA1"
+        $null = $document.DocumentElement.AppendChild($group)
+    }
+    return $document
+}
 function Update-Project([string]$Path, [xml]$Items, [string]$Label) {
     $settings = [Xml.XmlWriterSettings]::new()
     $settings.Indent = $true
@@ -162,8 +184,10 @@ foreach ($project in Get-ChildItem -LiteralPath $projectRoot -Recurse -Filter "*
         # freeldr consumes Frldr16.vcxproj; do not repeat its producer.
         if ($record.Target -eq "freeldr") { continue }
         $items = Get-BootSectorItems $record $project.DirectoryName "PendingGenerationSteps"
-    } else {
+    } elseif ($Generator -eq "Bin2c") {
         $items = Get-Bin2cItems $record $project.DirectoryName -ReferenceOnly:($record.Target -in @("lib_hal_legacy", "lib_hal_pc98", "lib_hal_xbox"))
+    } else {
+        $items = Get-Utf16Items $record $project.DirectoryName
     }
     if ($items.DocumentElement.ChildNodes.Count) { $projects++ }
     $changed += Update-Project $project.FullName $items "ReactOS$Generator"
@@ -172,10 +196,12 @@ if ($Generator -eq "BootSector") {
     $infrastructure = Get-Content (Join-Path $projectRoot "Infrastructure.json") -Raw | ConvertFrom-Json
     $items = Get-BootSectorItems $infrastructure.Targets.command $projectRoot "Steps"
     $changed += Update-Project (Join-Path $projectRoot "Subsystems\Mvdm\Dos\Command.vcxproj") $items "ReactOSBootSector"
-} else {
+    $projects++
+} elseif ($Generator -eq "Bin2c") {
     $directory = Join-Path $projectRoot "Hal\Halx86"
     $record = Get-Content (Join-Path $directory "Lib_Hal_Legacy.Migration.json") -Raw | ConvertFrom-Json
     $items = Get-Bin2cItems $record $directory
     $changed += Update-Project (Join-Path $directory "PciData.vcxproj") $items "ReactOSBin2c"
+    $projects++
 }
-"$Generator import: $($projects + 1) projects with recipes/references; $changed projects updated"
+"$Generator import: $projects projects with recipes/references; $changed projects updated"

@@ -917,6 +917,84 @@
       <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_stubs.c</Outputs>
     </ReactOSSpec2Def>
   </ItemGroup>
+  <ItemGroup Label="ReactOSUtf16" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReactOSUtf16 Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf</Outputs>
+    </ReactOSUtf16>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Utf16le\Utf16le.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{72E88580-2F35-49BF-93A1-385C67978FA1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSUtf16HostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSUtf16" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReactOSUtf16 Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf</Outputs>
+    </ReactOSUtf16>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Utf16le\Utf16le.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{72E88580-2F35-49BF-93A1-385C67978FA1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSUtf16HostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSUtf16" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ReactOSUtf16 Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf</Outputs>
+    </ReactOSUtf16>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Utf16le\Utf16le.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{72E88580-2F35-49BF-93A1-385C67978FA1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSUtf16HostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSUtf16" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReactOSUtf16 Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf</Outputs>
+    </ReactOSUtf16>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Utf16le\Utf16le.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{72E88580-2F35-49BF-93A1-385C67978FA1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSUtf16HostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSUtf16" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ReactOSUtf16 Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf</Outputs>
+    </ReactOSUtf16>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Utf16le\Utf16le.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{72E88580-2F35-49BF-93A1-385C67978FA1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSUtf16HostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Label="ReactOSUtf16" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ReactOSUtf16 Include="$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf">
+      <Arguments>"$(KundowsRoot)Upstream\ReactOS\Source\dll\win32\urlmon\urlmon.inf" "$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf"</Arguments>
+      <OutputDirectory>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon</OutputDirectory>
+      <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\dll\win32\urlmon\urlmon_utf16.inf</Outputs>
+    </ReactOSUtf16>
+    <ProjectReference Include="$(KundowsRoot)Upstream\ReactOS\Projects\HostTools\Utf16le\Utf16le.vcxproj">
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Project>{72E88580-2F35-49BF-93A1-385C67978FA1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetPlatform>Platform=$(ReactOSUtf16HostPlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

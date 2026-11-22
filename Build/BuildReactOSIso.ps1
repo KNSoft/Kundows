@@ -798,15 +798,9 @@ function Convert-ToUtf16File {
     )
 
     Assert-File $InputFile "UTF-16 input"
-    New-Item -ItemType Directory -Force -Path (Split-Path -Parent $OutputFile) | Out-Null
-    $reader = [IO.StreamReader]::new($InputFile, $true)
-    try {
-        $text = $reader.ReadToEnd()
-    }
-    finally {
-        $reader.Dispose()
-    }
-    [IO.File]::WriteAllText($OutputFile, $text, [Text.UnicodeEncoding]::new($false, $true))
+    $outputDirectory = Split-Path -Parent $OutputFile
+    New-Item -ItemType Directory -Force -Path $outputDirectory | Out-Null
+    Invoke-HostTool -Name "utf16le" -WorkingDirectory $outputDirectory -Arguments @($InputFile, $OutputFile)
 }
 
 function Write-ConcatenatedFile {

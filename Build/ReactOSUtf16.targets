@@ -1,25 +1,21 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ReactOSUtf16Enabled Condition="'$(ReactOSUtf16Enabled)' == ''">true</ReactOSUtf16Enabled>
-    <ReactOSUtf16Script Condition="'$(ReactOSUtf16Script)' == ''">$(KundowsRoot)Build\GenerateReactOSUtf16.ps1</ReactOSUtf16Script>
-    <ReactOSUtf16GeneratedRoot Condition="'$(ReactOSUtf16GeneratedRoot)' == ''">$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)</ReactOSUtf16GeneratedRoot>
-    <ReactOSUtf16ProjectStamp>$(IntDir)ReactOSUtf16\Project.stamp</ReactOSUtf16ProjectStamp>
+    <ReactOSUtf16HostPlatform>$(Platform)</ReactOSUtf16HostPlatform>
+    <ReactOSUtf16HostPlatform Condition="'$(Platform)' == 'ARM64' and ('$(PROCESSOR_ARCHITECTURE)' == 'AMD64' or '$(PROCESSOR_ARCHITEW6432)' == 'AMD64')">x64</ReactOSUtf16HostPlatform>
+    <ReactOSUtf16Tool>$(KundowsRoot)OutDir\HostTools\$(ReactOSUtf16HostPlatform)\$(Configuration)\utf16le.exe</ReactOSUtf16Tool>
   </PropertyGroup>
-
   <Target Name="GenerateReactOSUtf16ProjectFiles"
-          Condition="'$(ReactOSUtf16Enabled)' == 'true' and '$(ReactOSUtf16ProjectGeneration)' != 'false' and '@(None->WithMetadataValue('Filename','CMakeLists'))' != ''"
-          BeforeTargets="PrepareForBuild"
-          Inputs="$(MSBuildProjectFullPath);$(ReactOSUtf16Script);@(None)"
-          Outputs="$(ReactOSUtf16ProjectStamp)">
+          BeforeTargets="ClCompile;ResourceCompile;Lib;Link;Build"
+          DependsOnTargets="ResolveProjectReferences"
+          Condition="'@(ReactOSUtf16)' != ''"
+          Inputs="$(MSBuildProjectFullPath);$(MSBuildThisFileFullPath);$(ReactOSUtf16Tool);%(ReactOSUtf16.Identity)"
+          Outputs="%(ReactOSUtf16.Outputs)">
+    <MakeDir Directories="%(ReactOSUtf16.OutputDirectory)" />
+    <!-- utf16le reports ambiguous UTF-32 BOMs as "UTF Error" but returns 0.
+         Preserve the upstream exit status instead of MSBuild's text heuristic. -->
+    <Exec Command="&quot;$(ReactOSUtf16Tool)&quot; %(ReactOSUtf16.Arguments)" IgnoreStandardErrorWarningFormat="true" />
     <ItemGroup>
-      <ReactOSUtf16ProjectCMake Include="@(None->WithMetadataValue('Filename','CMakeLists'))">
-        <CMakeListFile>%(FullPath)</CMakeListFile>
-        <SourceDirectory>%(RootDir)%(Directory).</SourceDirectory>
-      </ReactOSUtf16ProjectCMake>
+      <FileWrites Include="%(ReactOSUtf16.Outputs)" />
     </ItemGroup>
-    <MakeDir Directories="$(IntDir)ReactOSUtf16\" />
-    <Exec Condition="'%(ReactOSUtf16ProjectCMake.CMakeListFile)' != ''"
-          Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(ReactOSUtf16Script)&quot; -SourceRoot &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -GeneratedRoot &quot;$(ReactOSUtf16GeneratedRoot)&quot; -CMakeListFile &quot;%(ReactOSUtf16ProjectCMake.CMakeListFile)&quot; -SourceDirectory &quot;%(ReactOSUtf16ProjectCMake.SourceDirectory)&quot;" />
-    <Touch Files="$(ReactOSUtf16ProjectStamp)" AlwaysCreate="true" />
   </Target>
 </Project>
