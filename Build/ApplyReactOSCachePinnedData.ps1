@@ -1,6 +1,7 @@
 param(
     [Parameter(Mandatory=$true)][string]$SourceDirectory,
-    [Parameter(Mandatory=$true)][string]$StateFile
+    [Parameter(Mandatory=$true)][string]$StateFile,
+    [string]$PatchFile = "$PSScriptRoot\Patches\ReactOS-cc-pinned-dirty.patch"
 )
 $ErrorActionPreference = "Stop"
 $source = (Resolve-Path -LiteralPath $SourceDirectory).Path
@@ -18,7 +19,7 @@ try {
     catch [Threading.AbandonedMutexException] { $acquired = $true }
     if (-not $acquired) { throw "Timed out waiting for the cache-pinning source patch lock" }
     & "$PSScriptRoot\ApplyReactOSPatches.ps1" -SourceDirectory $source `
-        -PatchFile "$PSScriptRoot\Patches\ReactOS-cc-pinned-dirty.patch" -StateFile $StateFile
+        -PatchFile $PatchFile -StateFile $StateFile
 } finally {
     if ($acquired) { $mutex.ReleaseMutex() }
     $mutex.Dispose()

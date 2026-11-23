@@ -5,7 +5,7 @@ param(
 )
 $ErrorActionPreference = "Stop"
 $text = [IO.File]::ReadAllText($Source)
-$functions = foreach ($name in $FunctionNames) {
+$functions = foreach ($name in ($FunctionNames -split ';')) {
     $pattern = '(?m)^(?:static\s+)?(?:VOID|BOOLEAN|NTSTATUS)\s+(?:NTAPI\s+)?' + [regex]::Escape($name) + '\s*\('
     $matches = [regex]::Matches($text, $pattern)
     if ($matches.Count -ne 1) { throw "Expected one production definition of $name" }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <ProjectName>CacheFlushCollisionTests</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <KundowsRoot>$([System.IO.Path]::GetFullPath('$(ProjectDir)..\..\'))</KundowsRoot>
+    <OutDir>$(KundowsRoot)OutDir\HostTests\$(Platform)\$(Configuration)\CacheFlushCollisionTests\</OutDir>
+    <IntDir>$(KundowsRoot)IntDir\HostTests\$(Platform)\$(Configuration)\CacheFlushCollisionTests\</IntDir>
+    <TargetName>CacheFlushCollisionTests</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+    <CacheSectionSource>$(KundowsRoot)Upstream\ReactOS\Source\ntoskrnl\mm\section.c</CacheSectionSource>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link><SubSystem>Console</SubSystem></Link>
+  </ItemDefinitionGroup>
+  <ItemGroup><ClCompile Include="CacheFlushCollisionTests.c" /></ItemGroup>
+  <Target Name="ExtractProductionCacheFlushFunction" BeforeTargets="ClCompile"
+          Inputs="$(CacheSectionSource);$(ProjectDir)ExtractCachePinnedData.ps1;$(MSBuildProjectFullPath)"
+          Outputs="$(IntDir)cache-flush-functions.inc">
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -File &quot;$(ProjectDir)ExtractCachePinnedData.ps1&quot; -Source &quot;$(CacheSectionSource)&quot; -Output &quot;$(IntDir)cache-flush-functions.inc&quot; -FunctionNames &quot;MmCheckDirtySegment;MmFlushSegment&quot;" />
+  </Target>
+  <Import Project="$(KundowsRoot)Build\ReactOSCacheFlush.targets" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
