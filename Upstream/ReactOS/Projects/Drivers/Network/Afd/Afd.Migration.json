@@ -492,7 +492,74 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "afd",
+        "Status": "Failed",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "8585e629c8cf49971a8c3fa29f0d129b76ca5681032bf4ff72c3225268c04e8c",
+        "MatchesCurrentProject": true,
+        "ExitCode": 1,
+        "DurationSeconds": 8.05,
+        "TimestampUtc": "2026-11-20T18:35:36.5090092Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Afd\\Afd.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Afd.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Afd.log",
+        "ErrorCodes": [
+          "LNK1120",
+          "LNK2001",
+          "MSB3073"
+        ],
+        "UniqueErrorCount": 857,
+        "ErrorSummary": [
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcCanIWrite [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcCopyRead [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcDeferWrite [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcFastCopyRead [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcFastMdlReadWait [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcFlushCache [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcGetDirtyPages [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcGetFileObjectFromBcb [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcGetFileObjectFromSectionPtrs [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcGetLsnForFileObject [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcInitializeCacheMap [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcMapData [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]"
+        ],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Afd/afd.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "afd",
@@ -1141,11 +1208,13 @@
     "Target": "afd",
     "Status": "Failed",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
+    "ProjectSHA256": "8585e629c8cf49971a8c3fa29f0d129b76ca5681032bf4ff72c3225268c04e8c",
+    "MatchesCurrentProject": true,
     "ExitCode": 1,
-    "DurationSeconds": 0.68,
-    "TimestampUtc": "2026-11-13T00:46:06.2131397Z",
+    "DurationSeconds": 8.05,
+    "TimestampUtc": "2026-11-20T18:35:36.5090092Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Afd\\Afd.vcxproj",
@@ -1154,23 +1223,34 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Afd.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Afd.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Afd.log",
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Afd.log",
     "ErrorCodes": [
-      "C1083"
+      "LNK1120",
+      "LNK2001",
+      "MSB3073"
     ],
-    "UniqueErrorCount": 1,
+    "UniqueErrorCount": 857,
     "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\network\\afd\\include\\afd.h(14,10): error C1083: Cannot open include file: 'ntifs.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Network\\Afd\\Afd.vcxproj]"
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcCanIWrite [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcCopyRead [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcDeferWrite [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcFastCopyRead [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcFastMdlReadWait [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcFlushCache [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcGetDirtyPages [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcGetFileObjectFromBcb [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcGetFileObjectFromSectionPtrs [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcGetLsnForFileObject [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcInitializeCacheMap [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "libntoskrnl_implib.def : error LNK2001: unresolved external symbol _stub_CcMapData [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]"
     ],
-    "ObservedMissingFiles": [
-      "ntifs.h"
-    ],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1189,10 +1269,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "124613f807657944bcf96a671bbca608de11c8c462ea9b9ea20a922e16caa278",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Afd/afd.sys"
   },
   "ProjectSHA256": "124613f807657944bcf96a671bbca608de11c8c462ea9b9ea20a922e16caa278",
   "SettingsReview": {

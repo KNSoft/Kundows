@@ -84,7 +84,7 @@
         "IndependentProjectBuild": true,
         "ExitCode": 1,
         "DurationSeconds": 0.69,
-        "TimestampUtc": "2026-11-13T00:46:34.9892590Z",
+        "TimestampUtc": "2026-11-13T00:46:34.989259Z",
         "MSBuildVersion": "18.11.1.51303",
         "Arguments": [
           "Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Floppy\\Floppy\\Floppy.vcxproj",
@@ -467,7 +467,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "floppy",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "ff98e565572504421f0d44130adfce30c7af66b293f3d887b441fcd6a09ebfb6",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 9.27,
+        "TimestampUtc": "2026-11-20T18:37:32.7938743Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Floppy\\Floppy\\Floppy.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Floppy.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Floppy.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Floppy/floppy.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "floppy",
@@ -1085,13 +1135,15 @@
   },
   "TrialBuild": {
     "Target": "floppy",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.69,
-    "TimestampUtc": "2026-11-13T00:46:34.9892590Z",
+    "ProjectSHA256": "ff98e565572504421f0d44130adfce30c7af66b293f3d887b441fcd6a09ebfb6",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 9.27,
+    "TimestampUtc": "2026-11-20T18:37:32.7938743Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Floppy\\Floppy\\Floppy.vcxproj",
@@ -1100,23 +1152,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Floppy.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Floppy.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Floppy.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\storage\\floppy\\floppy\\precomp.h(4,10): error C1083: Cannot open include file: 'wdm.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Floppy\\Floppy\\Floppy.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "wdm.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Floppy.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1135,10 +1181,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "3e3f50c2a9e03f2f094777b756984e8576fbabe47593ce3f34cfe2f285b67fa3",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Floppy/floppy.sys"
   },
   "ProjectSHA256": "3e3f50c2a9e03f2f094777b756984e8576fbabe47593ce3f34cfe2f285b67fa3",
   "SettingsReview": {

@@ -458,7 +458,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "pcnet",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "4a92a0f3af94c59aaff6ae4f14a69992756c2a7bdcfbc9f491c7598543646827",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 9.94,
+        "TimestampUtc": "2026-11-20T18:38:49.1124258Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Dd\\Pcnet\\Pcnet.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Pcnet.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Pcnet.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Pcnet/pcnet.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "pcnet",
@@ -1067,13 +1117,15 @@
   },
   "TrialBuild": {
     "Target": "pcnet",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.69,
-    "TimestampUtc": "2026-11-13T00:47:41.0325998Z",
+    "ProjectSHA256": "4a92a0f3af94c59aaff6ae4f14a69992756c2a7bdcfbc9f491c7598543646827",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 9.94,
+    "TimestampUtc": "2026-11-20T18:38:49.1124258Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Dd\\Pcnet\\Pcnet.vcxproj",
@@ -1082,23 +1134,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Pcnet.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Pcnet.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Pcnet.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\ddk\\ndis.h(39,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Network\\Dd\\Pcnet\\Pcnet.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntddk.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Pcnet.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1117,10 +1163,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "d6b3f60a0a7ed0f3474ff7d02582776ea6dfdff089a1fcbf7fb5c0be577d6708",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Pcnet/pcnet.sys"
   },
   "ProjectSHA256": "d6b3f60a0a7ed0f3474ff7d02582776ea6dfdff089a1fcbf7fb5c0be577d6708",
   "SettingsReview": {

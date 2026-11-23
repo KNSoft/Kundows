@@ -470,7 +470,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "e1000",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "e3dcaa7e6c58ca1cb1097329c8653b25da6b07b8b797037b5d65f9e03ef05289",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 9.25,
+        "TimestampUtc": "2026-11-20T18:37:19.6600206Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Dd\\E1000\\E1000.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\E1000.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/E1000.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/E1000/e1000.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "e1000",
@@ -1091,13 +1141,15 @@
   },
   "TrialBuild": {
     "Target": "e1000",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.69,
-    "TimestampUtc": "2026-11-13T00:46:32.1812861Z",
+    "ProjectSHA256": "e3dcaa7e6c58ca1cb1097329c8653b25da6b07b8b797037b5d65f9e03ef05289",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 9.25,
+    "TimestampUtc": "2026-11-20T18:37:19.6600206Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Dd\\E1000\\E1000.vcxproj",
@@ -1106,23 +1158,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\E1000.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\E1000.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/E1000.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\ddk\\ndis.h(39,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Network\\Dd\\E1000\\E1000.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntddk.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/E1000.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1141,10 +1187,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "8b3714b9ecdff72481c452746c0ca45e6e9235f90d73f3d61ba05a476d7b02c8",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/E1000/e1000.sys"
   },
   "ProjectSHA256": "8b3714b9ecdff72481c452746c0ca45e6e9235f90d73f3d61ba05a476d7b02c8",
   "SettingsReview": {

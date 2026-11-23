@@ -579,7 +579,58 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "tcpip",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "46ddc4489be521bd073392b995fa9a6a3758f206cfc59181e5d8ee4e37c126a4",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 16.74,
+        "TimestampUtc": "2026-11-20T18:39:14.3930413Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Tcpip\\Tcpip.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Tcpip.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Tcpip.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Tcpip/tcpip.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "tcpip",
@@ -1339,13 +1390,15 @@
   },
   "TrialBuild": {
     "Target": "tcpip",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.84,
-    "TimestampUtc": "2026-11-13T00:47:59.2205506Z",
+    "ProjectSHA256": "46ddc4489be521bd073392b995fa9a6a3758f206cfc59181e5d8ee4e37c126a4",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 16.74,
+    "TimestampUtc": "2026-11-20T18:39:14.3930413Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Tcpip\\Tcpip.vcxproj",
@@ -1354,23 +1407,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Tcpip.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Tcpip.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Tcpip.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\network\\tcpip\\include\\lwip\\arch\\cc.h(3,10): error C1083: Cannot open include file: 'wdm.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Network\\Tcpip\\Tcpip.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "wdm.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Tcpip.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1390,10 +1437,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "80d64d45e2735d6ea7f026c3a4d3f8a36f779bbadd930f5fe42416d954acfcb2",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Tcpip/tcpip.sys"
   },
   "ProjectSHA256": "80d64d45e2735d6ea7f026c3a4d3f8a36f779bbadd930f5fe42416d954acfcb2",
   "SettingsReview": {

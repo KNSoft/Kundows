@@ -464,7 +464,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "rtl8139",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "1a8e3e911384f545f4db150c23dc8be52af91b9a9993ae7cd8c2ebb2488750df",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 9.83,
+        "TimestampUtc": "2026-11-20T18:38:56.5990982Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Dd\\Rtl8139\\Rtl8139.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Rtl8139.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Rtl8139.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Rtl8139/rtl8139.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "rtl8139",
@@ -1079,13 +1129,15 @@
   },
   "TrialBuild": {
     "Target": "rtl8139",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.71,
-    "TimestampUtc": "2026-11-13T00:47:46.9973272Z",
+    "ProjectSHA256": "1a8e3e911384f545f4db150c23dc8be52af91b9a9993ae7cd8c2ebb2488750df",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 9.83,
+    "TimestampUtc": "2026-11-20T18:38:56.5990982Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Network\\Dd\\Rtl8139\\Rtl8139.vcxproj",
@@ -1094,23 +1146,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Rtl8139.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Rtl8139.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Rtl8139.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\ddk\\ndis.h(39,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Network\\Dd\\Rtl8139\\Rtl8139.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntddk.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Rtl8139.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1129,10 +1175,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "902605ff16916b59d59f1a5393bebc38617f9fb24cdb6710ab0148f764d0f069",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Rtl8139/rtl8139.sys"
   },
   "ProjectSHA256": "902605ff16916b59d59f1a5393bebc38617f9fb24cdb6710ab0148f764d0f069",
   "SettingsReview": {

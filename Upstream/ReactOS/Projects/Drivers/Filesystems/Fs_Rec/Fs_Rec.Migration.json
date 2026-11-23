@@ -481,7 +481,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "fs_rec",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "9af89ca2f1fb65614f6afe36b940eb824da306e92c495f4d54787b233c5cfca8",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 8.06,
+        "TimestampUtc": "2026-11-20T18:37:38.5925529Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Fs_Rec\\Fs_Rec.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Fs_Rec.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Fs_Rec.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Fs_Rec/fs_rec.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "fs_rec",
@@ -1109,13 +1159,15 @@
   },
   "TrialBuild": {
     "Target": "fs_rec",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.66,
-    "TimestampUtc": "2026-11-13T00:46:36.5388205Z",
+    "ProjectSHA256": "9af89ca2f1fb65614f6afe36b940eb824da306e92c495f4d54787b233c5cfca8",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 8.06,
+    "TimestampUtc": "2026-11-20T18:37:38.5925529Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Fs_Rec\\Fs_Rec.vcxproj",
@@ -1124,23 +1176,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Fs_Rec.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Fs_Rec.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Fs_Rec.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\filesystems\\fs_rec\\fs_rec.h(13,10): error C1083: Cannot open include file: 'ntifs.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Fs_Rec\\Fs_Rec.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntifs.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Fs_Rec.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1159,10 +1205,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "21a1ada04d6f8afba512a2f4e930b20b61f346be54b3ac94238878d3195f11bf",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Fs_Rec/fs_rec.sys"
   },
   "ProjectSHA256": "21a1ada04d6f8afba512a2f4e930b20b61f346be54b3ac94238878d3195f11bf",
   "SettingsReview": {

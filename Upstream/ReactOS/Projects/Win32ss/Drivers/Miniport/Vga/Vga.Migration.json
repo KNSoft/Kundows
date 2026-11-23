@@ -450,7 +450,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "vga",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "7367033cec51856868022045b7a4b059ee54f1692c4bb1c07df9766fe86a2edb",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 6.87,
+        "TimestampUtc": "2026-11-20T18:39:52.8458794Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Miniport\\Vga\\Vga.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Vga.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Vga.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Vga/vga.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "vga",
@@ -1047,13 +1097,15 @@
   },
   "TrialBuild": {
     "Target": "vga",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.64,
-    "TimestampUtc": "2026-11-13T00:48:07.5941341Z",
+    "ProjectSHA256": "7367033cec51856868022045b7a4b059ee54f1692c4bb1c07df9766fe86a2edb",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 6.87,
+    "TimestampUtc": "2026-11-20T18:39:52.8458794Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Miniport\\Vga\\Vga.vcxproj",
@@ -1062,23 +1114,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Vga.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Vga.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Vga.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\win32ss\\drivers\\miniport\\vga\\vgamp.h(26,10): error C1083: Cannot open include file: 'ntdef.h': No such file or directory [Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Miniport\\Vga\\Vga.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntdef.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Vga.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1097,10 +1143,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "35f5f18ce3091aa89d0402409c19f7ef5dfebf26e6b265f9e0038eef711d1a5d",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Vga/vga.sys"
   },
   "ProjectSHA256": "35f5f18ce3091aa89d0402409c19f7ef5dfebf26e6b265f9e0038eef711d1a5d",
   "SettingsReview": {

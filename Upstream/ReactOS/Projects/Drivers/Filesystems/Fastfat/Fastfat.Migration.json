@@ -562,7 +562,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "fastfat",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "e645c4e8192fc248523f3c9dd10beb2d28c622a4fd4e9aebca641ef07f1a2130",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 11.39,
+        "TimestampUtc": "2026-11-20T18:37:31.0592779Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Fastfat\\Fastfat.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Fastfat.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Fastfat.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Fastfat/fastfat.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "fastfat",
@@ -1283,13 +1333,15 @@
   },
   "TrialBuild": {
     "Target": "fastfat",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.74,
-    "TimestampUtc": "2026-11-13T00:46:33.8695153Z",
+    "ProjectSHA256": "e645c4e8192fc248523f3c9dd10beb2d28c622a4fd4e9aebca641ef07f1a2130",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 11.39,
+    "TimestampUtc": "2026-11-20T18:37:31.0592779Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Fastfat\\Fastfat.vcxproj",
@@ -1298,23 +1350,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Fastfat.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Fastfat.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Fastfat.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\filesystems\\fastfat\\fatprocs.h(28,10): error C1083: Cannot open include file: 'ntifs.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Fastfat\\Fastfat.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntifs.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Fastfat.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1333,10 +1379,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "4d3a93eb3a2bee0823ec310bf14fd46cd07561c2d1c5bb0c560e60eaa3ea63c9",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Fastfat/fastfat.sys"
   },
   "ProjectSHA256": "4d3a93eb3a2bee0823ec310bf14fd46cd07561c2d1c5bb0c560e60eaa3ea63c9",
   "SettingsReview": {

@@ -486,7 +486,58 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "ifmon",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "98ef9e53ad9f0756fc67e6ccae6838efa002c740dbb9089501bec1551825a6a5",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 20.5,
+        "TimestampUtc": "2026-11-20T18:37:59.0348286Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Ifmon\\Ifmon.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Ifmon.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Ifmon.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Ifmon/ifmon.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "ifmon",
@@ -1135,13 +1186,15 @@
   },
   "TrialBuild": {
     "Target": "ifmon",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 1.02,
-    "TimestampUtc": "2026-11-13T00:46:42.5256735Z",
+    "ProjectSHA256": "98ef9e53ad9f0756fc67e6ccae6838efa002c740dbb9089501bec1551825a6a5",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 20.5,
+    "TimestampUtc": "2026-11-20T18:37:59.0348286Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Ifmon\\Ifmon.vcxproj",
@@ -1150,23 +1203,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Ifmon.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Ifmon.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Ifmon.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\psdk\\minwindef.h(171,10): error C1083: Cannot open include file: 'winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Ifmon\\Ifmon.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "winnt.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Ifmon.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1186,10 +1233,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "664a7991a37a63426c87d1f5d0f6fd93a99ff8003bef1972d0950619b7a3020a",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Ifmon/ifmon.dll"
   },
   "ProjectSHA256": "664a7991a37a63426c87d1f5d0f6fd93a99ff8003bef1972d0950619b7a3020a",
   "SettingsReview": {

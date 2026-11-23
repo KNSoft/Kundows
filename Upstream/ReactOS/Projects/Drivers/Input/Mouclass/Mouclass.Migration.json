@@ -492,7 +492,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "mouclass",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "5b705d6c9c076eac3ab0ca622e3b3f56e98e695ff02f24f44c9f0c3a4281d570",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 9.32,
+        "TimestampUtc": "2026-11-20T18:38:09.6600398Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Input\\Mouclass\\Mouclass.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Mouclass.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Mouclass.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Mouclass/mouclass.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "mouclass",
@@ -1139,15 +1189,15 @@
   },
   "TrialBuild": {
     "Target": "mouclass",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ProjectSHA256": "63089bd004598593574d086be01fdc6af828b10d1dadaddf9d8987a8a72a3a20",
+    "ProjectSHA256": "5b705d6c9c076eac3ab0ca622e3b3f56e98e695ff02f24f44c9f0c3a4281d570",
     "MatchesCurrentProject": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.63,
-    "TimestampUtc": "2026-11-15T12:01:40.2021223Z",
+    "ExitCode": 0,
+    "DurationSeconds": 9.32,
+    "TimestampUtc": "2026-11-20T18:38:09.6600398Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Input\\Mouclass\\Mouclass.vcxproj",
@@ -1156,23 +1206,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Mouclass.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Mouclass.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Mouclass.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\input\\mouclass\\mouclass.h(4,10): error C1083: Cannot open include file: 'ntifs.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Input\\Mouclass\\Mouclass.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntifs.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Mouclass.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1191,8 +1235,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Mouclass/mouclass.sys"
   },
   "MigrationIssues": [
     {

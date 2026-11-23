@@ -65,7 +65,7 @@
         "IndependentProjectBuild": true,
         "ExitCode": 1,
         "DurationSeconds": 0.77,
-        "TimestampUtc": "2026-11-13T00:47:26.2583120Z",
+        "TimestampUtc": "2026-11-13T00:47:26.258312Z",
         "MSBuildVersion": "18.11.1.51303",
         "Arguments": [
           "Upstream\\ReactOS\\Projects\\Drivers\\Hid\\Mouhid\\Mouhid.vcxproj",
@@ -412,7 +412,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "mouhid",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "9c506e7fb49071ce45c769808b453c92e629cedad5d3c8e592954dec9d18631e",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 9.73,
+        "TimestampUtc": "2026-11-20T18:38:10.8093591Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Hid\\Mouhid\\Mouhid.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Mouhid.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Mouhid.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Mouhid/mouhid.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "mouhid",
@@ -976,13 +1026,15 @@
   },
   "TrialBuild": {
     "Target": "mouhid",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.77,
-    "TimestampUtc": "2026-11-13T00:47:26.2583120Z",
+    "ProjectSHA256": "9c506e7fb49071ce45c769808b453c92e629cedad5d3c8e592954dec9d18631e",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 9.73,
+    "TimestampUtc": "2026-11-20T18:38:10.8093591Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Hid\\Mouhid\\Mouhid.vcxproj",
@@ -991,23 +1043,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Mouhid.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Mouhid.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Mouhid.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\hid\\mouhid\\mouhid.h(4,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Hid\\Mouhid\\Mouhid.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntddk.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Mouhid.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1026,10 +1072,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "81ff9324fccd477a803c3386604aeccf6e8b1390aa54d5b20eacbe3ac6136ec5",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Mouhid/mouhid.sys"
   },
   "ProjectSHA256": "81ff9324fccd477a803c3386604aeccf6e8b1390aa54d5b20eacbe3ac6136ec5",
   "SettingsReview": {

@@ -65,7 +65,7 @@
         "IndependentProjectBuild": true,
         "ExitCode": 1,
         "DurationSeconds": 0.7,
-        "TimestampUtc": "2026-11-13T00:46:11.1052200Z",
+        "TimestampUtc": "2026-11-13T00:46:11.10522Z",
         "MSBuildVersion": "18.11.1.51303",
         "Arguments": [
           "Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Port\\Buslogic\\Buslogic.vcxproj",
@@ -412,7 +412,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "buslogic",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "2dbdb16cc9674ee4edcdd244cd14a48e668c19a12cc1e8a683b9d402106d8038",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 11.87,
+        "TimestampUtc": "2026-11-20T18:35:55.4020098Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Port\\Buslogic\\Buslogic.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Buslogic.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Buslogic.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Buslogic/buslogic.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "buslogic",
@@ -980,13 +1030,15 @@
   },
   "TrialBuild": {
     "Target": "buslogic",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.7,
-    "TimestampUtc": "2026-11-13T00:46:11.1052200Z",
+    "ProjectSHA256": "2dbdb16cc9674ee4edcdd244cd14a48e668c19a12cc1e8a683b9d402106d8038",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 11.87,
+    "TimestampUtc": "2026-11-20T18:35:55.4020098Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Port\\Buslogic\\Buslogic.vcxproj",
@@ -995,23 +1047,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Buslogic.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Buslogic.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Buslogic.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\storage\\port\\buslogic\\BusLogic958.h(39,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Port\\Buslogic\\Buslogic.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntddk.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Buslogic.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1030,10 +1076,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "c109fff94dc6af051dd01e8d343b34bb5d0d71af2d93b9a0f744197bfe17971e",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Buslogic/buslogic.sys"
   },
   "ProjectSHA256": "c109fff94dc6af051dd01e8d343b34bb5d0d71af2d93b9a0f744197bfe17971e",
   "SettingsReview": {

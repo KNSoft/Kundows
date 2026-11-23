@@ -439,7 +439,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "nfs41_driver",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "4222e6c21981caa4d9c544ff89e83452faa93d992bfb8fe697fc07fc08ecdac6",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 16.51,
+        "TimestampUtc": "2026-11-20T18:38:35.3182284Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Nfs\\Nfs41_Driver.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Nfs41_Driver.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Nfs41_Driver.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Nfs41_Driver/nfs41_driver.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "nfs41_driver",
@@ -1054,13 +1104,15 @@
   },
   "TrialBuild": {
     "Target": "nfs41_driver",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.82,
-    "TimestampUtc": "2026-11-13T00:47:35.1494706Z",
+    "ProjectSHA256": "4222e6c21981caa4d9c544ff89e83452faa93d992bfb8fe697fc07fc08ecdac6",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 16.51,
+    "TimestampUtc": "2026-11-20T18:38:35.3182284Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Nfs\\Nfs41_Driver.vcxproj",
@@ -1069,23 +1121,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Nfs41_Driver.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Nfs41_Driver.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Nfs41_Driver.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\ddk\\rx.h(5,10): error C1083: Cannot open include file: 'ntifs.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Nfs\\Nfs41_Driver.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntifs.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Nfs41_Driver.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1104,10 +1150,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "d6cfbb1bda9502b98b52e342b6280785320f3468faf4c8a5fa4041e082c463e9",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Nfs41_Driver/nfs41_driver.sys"
   },
   "ProjectSHA256": "d6cfbb1bda9502b98b52e342b6280785320f3468faf4c8a5fa4041e082c463e9",
   "SettingsReview": {

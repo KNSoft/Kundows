@@ -466,7 +466,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "msfs",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "fe24270b25e9f1c09d3ba955f4aee31518683a9b71605e558739e7ade442868e",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 7.88,
+        "TimestampUtc": "2026-11-20T18:38:16.0950448Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Msfs\\Msfs.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Msfs.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Msfs.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Msfs/msfs.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "msfs",
@@ -1079,13 +1129,15 @@
   },
   "TrialBuild": {
     "Target": "msfs",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.65,
-    "TimestampUtc": "2026-11-13T00:47:27.8801375Z",
+    "ProjectSHA256": "fe24270b25e9f1c09d3ba955f4aee31518683a9b71605e558739e7ade442868e",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 7.88,
+    "TimestampUtc": "2026-11-20T18:38:16.0950448Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Msfs\\Msfs.vcxproj",
@@ -1094,23 +1146,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Msfs.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Msfs.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Msfs.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\filesystems\\msfs\\msfs.h(13,10): error C1083: Cannot open include file: 'ntifs.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Msfs\\Msfs.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntifs.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Msfs.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1129,10 +1175,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "712a7eafa7384baa06b1f3be4cbf2a4c436b80f54361deb263b64eaa63cce39e",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Msfs/msfs.sys"
   },
   "ProjectSHA256": "712a7eafa7384baa06b1f3be4cbf2a4c436b80f54361deb263b64eaa63cce39e",
   "SettingsReview": {

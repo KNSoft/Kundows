@@ -457,7 +457,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "pcmcia",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "0a1eebdda58f2b6b61f9f34726457073ae5bdf730e27724e10b83dc1b177af74",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 8.05,
+        "TimestampUtc": "2026-11-20T18:38:47.2029254Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Bus\\Pcmcia\\Pcmcia.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Pcmcia.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Pcmcia.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Pcmcia/pcmcia.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "pcmcia",
@@ -1061,13 +1111,15 @@
   },
   "TrialBuild": {
     "Target": "pcmcia",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.68,
-    "TimestampUtc": "2026-11-13T00:47:40.9347536Z",
+    "ProjectSHA256": "0a1eebdda58f2b6b61f9f34726457073ae5bdf730e27724e10b83dc1b177af74",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 8.05,
+    "TimestampUtc": "2026-11-20T18:38:47.2029254Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Bus\\Pcmcia\\Pcmcia.vcxproj",
@@ -1076,23 +1128,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Pcmcia.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Pcmcia.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Pcmcia.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\bus\\pcmcia\\pcmcia.h(4,10): error C1083: Cannot open include file: 'wdm.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Bus\\Pcmcia\\Pcmcia.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "wdm.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Pcmcia.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1111,10 +1157,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "f1b8bc8fd20e62e0c349546d40b3ba643f552aa0434461d6fd20c664432999ae",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Pcmcia/pcmcia.sys"
   },
   "ProjectSHA256": "f1b8bc8fd20e62e0c349546d40b3ba643f552aa0434461d6fd20c664432999ae",
   "SettingsReview": {

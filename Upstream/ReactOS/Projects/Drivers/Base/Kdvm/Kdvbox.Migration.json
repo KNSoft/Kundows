@@ -341,7 +341,59 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "kdvbox",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "22f6962fca4df8a5568a86476bc0d421c06c2be3bb761e3ed4c71b1ac7a47214",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 10.42,
+        "TimestampUtc": "2026-11-20T18:38:00.3373761Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Base\\Kdvm\\Kdvbox.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Kdvbox.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Kdvbox.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Architecture-specific assembly preprocessing",
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Kdvbox/kdvbox.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "kdvbox",
@@ -487,13 +539,15 @@
   },
   "TrialBuild": {
     "Target": "kdvbox",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.82,
-    "TimestampUtc": "2026-11-13T00:46:54.1708916Z",
+    "ProjectSHA256": "22f6962fca4df8a5568a86476bc0d421c06c2be3bb761e3ed4c71b1ac7a47214",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 10.42,
+    "TimestampUtc": "2026-11-20T18:38:00.3373761Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Base\\Kdvm\\Kdvbox.vcxproj",
@@ -502,25 +556,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Kdvbox.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Kdvbox.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Kdvbox.log",
-    "ErrorCodes": [
-      "A1000",
-      "MSB3721"
-    ],
-    "UniqueErrorCount": 2,
-    "ErrorSummary": [
-      "MASM : fatal error A1000: cannot open file : Upstream\\ReactOS\\Projects\\Drivers\\Base\\Kdvm\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\drivers\\base\\kdvm\\asm\\kdvbox_asm_kdvbox_asm.asm [Upstream\\ReactOS\\Projects\\Drivers\\Base\\Kdvm\\Kdvbox.vcxproj]",
-      "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Microsoft\\VC\\v180\\BuildCustomizations\\masm.targets(70,5): error MSB3721: 命令“ml.exe /c /nologo /Zi /Fo\"Upstream\\ReactOS\\Projects\\..\\..\\..\\OutDir\\Intermediate\\Win32\\Debug\\Kdvbox\\kdvbox_asm_kdvbox_asm.obj\" /D\"__REACTOS__\" /D\"__RELFILE__=__FILE__\" /D\"_SBCS\" /D\"DBG=1\" /D\"_SEH_ENABLE_TRACE\" /D\"WINVER=0x502\" /D\"_WIN32_IE=0x603\" /D\"_WIN32_WINNT=0x502\" /D\"_WIN32_WINDOWS=0x502\" /D\"_SETUPAPI_VER=0x502\" /D\"MINGW_HAS_SECURE_API=1\" /D\"D3D_UMD_INTERFACE_VERSION=0x000C\" /D\"DXGKDDI_INTERFACE_VERSION=0x1052\" /D\"DLL_EXPORT_VERSION=0x502\" /D\"_M_IX86\" /D\"_X86_\" /D\"__i386__\" /D\"i386\" /D\"_NEW_DELETE_OPERATORS_\" /D\"USE_COMPILER_EXCEPTIONS\" /D\"_USE_32BIT_TIME_T\" /D\"WIN32\" /D\"_WINDOWS\" /D\"__STDC__=1\" /D\"__RUNTIME_CHECKS__\" /D\"LANGUAGE_EN_US\" /D\"CMAKE_INTDIR=\"Debug\"\" /I \"Upstream\\ReactOS\\Projects\\Drivers\\Base\\Kdvm\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\drivers\\base\\kdvm\" /I \"Upstream\\ReactOS\\Projects\\Drivers\\Base\\Kdvm\\..\\..\\..\\..\\Source\\drivers\\base\\kdvm\" /I \"Upstream\\ReactOS\\Projects\\Drivers\\Base\\Kdvm\\..\\..\\..\\..\\Source\\sdk\\include\" /I \"Upstream\\ReactOS\\Projects\\Drivers\\Base\\Kdvm\\..\\..\\..\\..\\Source\\sdk\\include\\crt\" /I \"Upstream\\ReactOS\\Pr [see full log]"
-    ],
-    "ObservedMissingFiles": [
-      "OutDir/Build/Generated/Win32/Debug/drivers/base/kdvm/asm/kdvbox_asm_kdvbox_asm.asm"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Kdvbox.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -541,10 +587,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "2e5e2d9f711b12999af96df4417c1f1c6c3f9e19bad42a50b5fcf5319a13c360",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Kdvbox/kdvbox.dll"
   },
   "ProjectSHA256": "2e5e2d9f711b12999af96df4417c1f1c6c3f9e19bad42a50b5fcf5319a13c360",
   "SettingsReview": {

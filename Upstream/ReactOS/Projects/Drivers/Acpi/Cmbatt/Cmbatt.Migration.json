@@ -498,7 +498,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "cmbatt",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "be98726685e018807767b9a0dae77e946daf2fe90c83866d7569ab65d29d6e4a",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 14.62,
+        "TimestampUtc": "2026-11-20T18:36:03.1183982Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Acpi\\Cmbatt\\Cmbatt.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Cmbatt.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Cmbatt.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Cmbatt/cmbatt.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "cmbatt",
@@ -1151,15 +1201,15 @@
   },
   "TrialBuild": {
     "Target": "cmbatt",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ProjectSHA256": "6555d324e074c5e83e1a665214c4a94f88c0ea370cff6d0b7bad7ae1f8960af7",
+    "ProjectSHA256": "be98726685e018807767b9a0dae77e946daf2fe90c83866d7569ab65d29d6e4a",
     "MatchesCurrentProject": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.71,
-    "TimestampUtc": "2026-11-15T12:01:36.4029426Z",
+    "ExitCode": 0,
+    "DurationSeconds": 14.62,
+    "TimestampUtc": "2026-11-20T18:36:03.1183982Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Acpi\\Cmbatt\\Cmbatt.vcxproj",
@@ -1168,23 +1218,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Cmbatt.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Cmbatt.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Cmbatt.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\acpi\\cmbatt\\cmbatt.h(12,10): error C1083: Cannot open include file: 'wdm.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Acpi\\Cmbatt\\Cmbatt.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "wdm.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Cmbatt.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1203,8 +1247,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Cmbatt/cmbatt.sys"
   },
   "MigrationIssues": [
     {

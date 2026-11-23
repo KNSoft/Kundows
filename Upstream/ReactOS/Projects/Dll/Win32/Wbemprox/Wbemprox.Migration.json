@@ -683,7 +683,60 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "wbemprox",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "e6b6a85325d6aecbc35a6bd247ae49dff55e7ee1be46e3b91db72b21b0f506e7",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 28.53,
+        "TimestampUtc": "2026-11-20T18:40:23.4786912Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Wbemprox\\Wbemprox.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Wbemprox.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Wbemprox.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "bison",
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "d3d_idl_headers",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Wbemprox/wbemprox.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "wbemprox",
@@ -1576,15 +1629,15 @@
   },
   "TrialBuild": {
     "Target": "wbemprox",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ProjectSHA256": "3bcdee44cb0cb9a48b4a012136401bb81d5f8b914e773936a7d58672e5f6c4ef",
+    "ProjectSHA256": "e6b6a85325d6aecbc35a6bd247ae49dff55e7ee1be46e3b91db72b21b0f506e7",
     "MatchesCurrentProject": true,
-    "ExitCode": 1,
-    "DurationSeconds": 1.09,
-    "TimestampUtc": "2026-11-15T12:01:48.3820419Z",
+    "ExitCode": 0,
+    "DurationSeconds": 28.53,
+    "TimestampUtc": "2026-11-20T18:40:23.4786912Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Wbemprox\\Wbemprox.vcxproj",
@@ -1593,23 +1646,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Wbemprox.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Wbemprox.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Wbemprox.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\wine\\winnt.h(4,10): error C1083: Cannot open include file: 'psdk/winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Wbemprox\\Wbemprox.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "psdk/winnt.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Wbemprox.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "bison",
       "geninc",
@@ -1631,8 +1678,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Wbemprox/wbemprox.dll"
   },
   "MigrationIssues": [
     {

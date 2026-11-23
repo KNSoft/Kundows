@@ -81,7 +81,7 @@
         "IndependentProjectBuild": true,
         "ExitCode": 1,
         "DurationSeconds": 0.65,
-        "TimestampUtc": "2026-11-13T00:48:08.4153180Z",
+        "TimestampUtc": "2026-11-13T00:48:08.415318Z",
         "MSBuildVersion": "18.11.1.51303",
         "Arguments": [
           "Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Watchdog\\Watchdog.vcxproj",
@@ -467,7 +467,58 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "watchdog",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "3781fd64ff5f13fa55b393a93c5a2b5c0e0dfbc4fcd6c18fe92d5113b9504708",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 8.31,
+        "TimestampUtc": "2026-11-20T18:40:01.1596558Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Watchdog\\Watchdog.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Watchdog.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Watchdog.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Watchdog/watchdog.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "watchdog",
@@ -1096,13 +1147,15 @@
   },
   "TrialBuild": {
     "Target": "watchdog",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.65,
-    "TimestampUtc": "2026-11-13T00:48:08.4153180Z",
+    "ProjectSHA256": "3781fd64ff5f13fa55b393a93c5a2b5c0e0dfbc4fcd6c18fe92d5113b9504708",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 8.31,
+    "TimestampUtc": "2026-11-20T18:40:01.1596558Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Watchdog\\Watchdog.vcxproj",
@@ -1111,23 +1164,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Watchdog.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Watchdog.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Watchdog.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\win32ss\\drivers\\watchdog\\watchdog.c(2,10): error C1083: Cannot open include file: 'ntifs.h': No such file or directory [Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Watchdog\\Watchdog.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntifs.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Watchdog.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1147,10 +1194,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "a52929efa8996619307ceb1fac2bc90c92005c17a28699fc35ae28a0fa870415",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Watchdog/watchdog.sys"
   },
   "ProjectSHA256": "a52929efa8996619307ceb1fac2bc90c92005c17a28699fc35ae28a0fa870415",
   "SettingsReview": {

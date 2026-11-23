@@ -482,7 +482,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "usbxhci",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "6e4647a323631821b2f010b75f1cbe1c158282f68fa91b6da93df1001f46a138",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 19.79,
+        "TimestampUtc": "2026-11-20T18:39:58.1812925Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Usb\\Usbxhci\\Usbxhci.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Usbxhci.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Usbxhci.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Usbxhci/usbxhci.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "usbxhci",
@@ -1140,13 +1190,15 @@
   },
   "TrialBuild": {
     "Target": "usbxhci",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 1.21,
-    "TimestampUtc": "2026-11-13T00:48:05.0382452Z",
+    "ProjectSHA256": "6e4647a323631821b2f010b75f1cbe1c158282f68fa91b6da93df1001f46a138",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 19.79,
+    "TimestampUtc": "2026-11-20T18:39:58.1812925Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Usb\\Usbxhci\\Usbxhci.vcxproj",
@@ -1155,25 +1207,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Usbxhci.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Usbxhci.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Usbxhci.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 2,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\usb\\usbxhci\\xhcidrv.h(10,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Usb\\Usbxhci\\Usbxhci.vcxproj]",
-      "Upstream\\ReactOS\\Source\\drivers\\usb\\usbxhci\\xhcientry.cpp(8,10): error C1083: Cannot open include file: 'ntifs.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Usb\\Usbxhci\\Usbxhci.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntddk.h",
-      "ntifs.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Usbxhci.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1192,10 +1236,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "7e6e511a75af247080ff058c6140bd6c9b7cfdee35df79f01bb5943329b46569",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Usbxhci/usbxhci.sys"
   },
   "ProjectSHA256": "7e6e511a75af247080ff058c6140bd6c9b7cfdee35df79f01bb5943329b46569",
   "SettingsReview": {

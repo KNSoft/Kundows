@@ -514,7 +514,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "cmipci",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "70dfef803bee3321dcde724f05761db477a918c794b1023a6443f1b74c81db89",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 14.92,
+        "TimestampUtc": "2026-11-20T18:36:04.7430914Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Wdm\\Audio\\Drivers\\CMIDriver\\Cmipci.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Cmipci.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Cmipci.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Cmipci/cmipci.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "cmipci",
@@ -1199,15 +1249,15 @@
   },
   "TrialBuild": {
     "Target": "cmipci",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ProjectSHA256": "fe3509cc4e5aa7f38bb1e6e4686ac997da0ef916f7feccde47ade54df2498c92",
+    "ProjectSHA256": "70dfef803bee3321dcde724f05761db477a918c794b1023a6443f1b74c81db89",
     "MatchesCurrentProject": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.86,
-    "TimestampUtc": "2026-11-15T12:01:36.5604768Z",
+    "ExitCode": 0,
+    "DurationSeconds": 14.92,
+    "TimestampUtc": "2026-11-20T18:36:04.7430914Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Wdm\\Audio\\Drivers\\CMIDriver\\Cmipci.vcxproj",
@@ -1216,23 +1266,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Cmipci.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Cmipci.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Cmipci.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\wdm\\audio\\drivers\\CMIDriver\\precomp.h(4,10): error C1083: Cannot open include file: 'wdm.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Wdm\\Audio\\Drivers\\CMIDriver\\Cmipci.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "wdm.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Cmipci.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1251,8 +1295,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Cmipci/cmipci.sys"
   },
   "MigrationIssues": [
     {

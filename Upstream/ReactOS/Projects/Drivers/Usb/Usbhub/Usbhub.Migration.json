@@ -96,7 +96,7 @@
         "MatchesCurrentProject": true,
         "ExitCode": 1,
         "DurationSeconds": 0.72,
-        "TimestampUtc": "2026-11-15T12:01:46.8147020Z",
+        "TimestampUtc": "2026-11-15T12:01:46.814702Z",
         "MSBuildVersion": "18.11.1.51303",
         "Arguments": [
           "Upstream\\ReactOS\\Projects\\Drivers\\Usb\\Usbhub\\Usbhub.vcxproj",
@@ -509,7 +509,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "usbhub",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "d32170ce44cf01520c3730769f81b45ffb0d6ff01f08d702130b575bf37770b2",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 13.58,
+        "TimestampUtc": "2026-11-20T18:39:38.3856720Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Usb\\Usbhub\\Usbhub.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Usbhub.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Usbhub.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Usbhub/usbhub.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "usbhub",
@@ -1181,15 +1231,15 @@
   },
   "TrialBuild": {
     "Target": "usbhub",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ProjectSHA256": "5f02040b3f4b797b7c8789d0e9d80321c54068269aab5ce143154f9ff406e2a8",
+    "ProjectSHA256": "d32170ce44cf01520c3730769f81b45ffb0d6ff01f08d702130b575bf37770b2",
     "MatchesCurrentProject": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.72,
-    "TimestampUtc": "2026-11-15T12:01:46.8147020Z",
+    "ExitCode": 0,
+    "DurationSeconds": 13.58,
+    "TimestampUtc": "2026-11-20T18:39:38.3856720Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Usb\\Usbhub\\Usbhub.vcxproj",
@@ -1198,23 +1248,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Usbhub.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Usbhub.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Usbhub.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\usb\\usbhub\\usbhub.h(11,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Usb\\Usbhub\\Usbhub.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntddk.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Usbhub.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1233,8 +1277,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Usbhub/usbhub.sys"
   },
   "MigrationIssues": [
     {

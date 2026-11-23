@@ -541,7 +541,60 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "d3d8",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "7921491354118377dfdd34271f547e70d23d6e606d10fad1a1f9ed359441d423",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 22.14,
+        "TimestampUtc": "2026-11-20T18:36:25.4817081Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3d8\\D3d8.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\D3d8.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/D3d8.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "d3d_idl_headers",
+          "psdk",
+          "wineheaders",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/D3d8/d3d8.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "d3d8",
@@ -1275,13 +1328,15 @@
   },
   "TrialBuild": {
     "Target": "d3d8",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 1.08,
-    "TimestampUtc": "2026-11-13T00:46:19.0884534Z",
+    "ProjectSHA256": "7921491354118377dfdd34271f547e70d23d6e606d10fad1a1f9ed359441d423",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 22.14,
+    "TimestampUtc": "2026-11-20T18:36:25.4817081Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3d8\\D3d8.vcxproj",
@@ -1290,23 +1345,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\D3d8.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\D3d8.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/D3d8.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\wine\\winnt.h(4,10): error C1083: Cannot open include file: 'psdk/winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3d8\\D3d8.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "psdk/winnt.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/D3d8.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1328,10 +1377,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "a6d25dae7e89836cac8749b7181d03986c521348be49c093dade7b77dcd0b74d",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/D3d8/d3d8.dll"
   },
   "ProjectSHA256": "a6d25dae7e89836cac8749b7181d03986c521348be49c093dade7b77dcd0b74d",
   "SettingsReview": {

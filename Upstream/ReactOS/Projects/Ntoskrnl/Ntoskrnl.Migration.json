@@ -2595,7 +2595,60 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "ntoskrnl",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "dceb4ec3eb8cc37fdbaf4f6e54047458a7402fdaf8d0c140e5ca6be3e92e2cac",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 54.32,
+        "TimestampUtc": "2026-11-20T16:16:22.0210109Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Ntoskrnl\\Ntoskrnl.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Ntoskrnl.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Ntoskrnl.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Architecture-specific assembly preprocessing",
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Native ARM64 assembler option reconciliation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Ntoskrnl/ntoskrnl.exe"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "ntoskrnl",
@@ -3545,7 +3598,60 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "ntoskrnl",
+        "Status": "Succeeded",
+        "Configuration": "Release",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "dceb4ec3eb8cc37fdbaf4f6e54047458a7402fdaf8d0c140e5ca6be3e92e2cac",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 26.76,
+        "TimestampUtc": "2026-11-20T16:17:53.4921468Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Ntoskrnl\\Ntoskrnl.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Release",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Release\\Ntoskrnl.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Release/Ntoskrnl.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Architecture-specific assembly preprocessing",
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Native ARM64 assembler option reconciliation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Release/Ntoskrnl/ntoskrnl.exe"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "ntoskrnl",
@@ -5084,15 +5190,15 @@
   },
   "TrialBuild": {
     "Target": "ntoskrnl",
-    "Status": "Failed",
-    "Configuration": "Debug",
-    "Platform": "Win32",
+    "Status": "Succeeded",
+    "Configuration": "Release",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ProjectSHA256": "9d6260019ddb88b268e69010e83a5343713f5f56c936e17568b6a90bb8d5422e",
+    "ProjectSHA256": "dceb4ec3eb8cc37fdbaf4f6e54047458a7402fdaf8d0c140e5ca6be3e92e2cac",
     "MatchesCurrentProject": true,
-    "ExitCode": 1,
-    "DurationSeconds": 1.03,
-    "TimestampUtc": "2026-11-15T12:01:43.2885565Z",
+    "ExitCode": 0,
+    "DurationSeconds": 26.76,
+    "TimestampUtc": "2026-11-20T16:17:53.4921468Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Ntoskrnl\\Ntoskrnl.vcxproj",
@@ -5100,26 +5206,18 @@
       "/m:1",
       "/nologo",
       "/verbosity:quiet",
-      "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Configuration=Release",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Ntoskrnl.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Release\\Ntoskrnl.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Ntoskrnl.log",
-    "ErrorCodes": [
-      "A1000",
-      "MSB3721"
-    ],
-    "UniqueErrorCount": 2,
-    "ErrorSummary": [
-      "MASM : fatal error A1000: cannot open file : Upstream\\ReactOS\\Projects\\Ntoskrnl\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\ntoskrnl\\asm\\ctxswitch_ntoskrnl_asm.asm [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Ntoskrnl.vcxproj]",
-      "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Microsoft\\VC\\v180\\BuildCustomizations\\masm.targets(70,5): error MSB3721: 命令“ml.exe /c /nologo /Zi /Fo\"Upstream\\ReactOS\\Projects\\..\\..\\..\\OutDir\\Intermediate\\Win32\\Debug\\Ntoskrnl\\ctxswitch_ntoskrnl_asm.obj\" /D\"__REACTOS__\" /D\"__RELFILE__=__FILE__\" /D\"_SBCS\" /D\"DBG=1\" /D\"_SEH_ENABLE_TRACE\" /D\"WINVER=0x502\" /D\"_WIN32_IE=0x603\" /D\"_WIN32_WINNT=0x502\" /D\"_WIN32_WINDOWS=0x502\" /D\"_SETUPAPI_VER=0x502\" /D\"MINGW_HAS_SECURE_API=1\" /D\"D3D_UMD_INTERFACE_VERSION=0x000C\" /D\"DXGKDDI_INTERFACE_VERSION=0x1052\" /D\"DLL_EXPORT_VERSION=0x502\" /D\"_M_IX86\" /D\"_X86_\" /D\"__i386__\" /D\"i386\" /D\"_NEW_DELETE_OPERATORS_\" /D\"USE_COMPILER_EXCEPTIONS\" /D\"_USE_32BIT_TIME_T\" /D\"WIN32\" /D\"_WINDOWS\" /D\"__STDC__=1\" /D\"__RUNTIME_CHECKS__\" /D\"LANGUAGE_EN_US\" /D\"_NTOSKRNL_\" /D\"_NTSYSTEM_\" /D\"NTDDI_VERSION=0x05020400\" /D\"_WINKD_\" /D\"NTKRNLVISTA\" /D\"CMAKE_INTDIR=\"Debug\"\" /I \"Upstream\\ReactOS\\Projects\\Ntoskrnl\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\ntoskrnl\" /I \"Upstream\\ReactOS\\Projects\\Ntoskrnl\\..\\..\\Source\\ntoskrnl\" /I \"Upstream\\ReactOS\\Projects\\Ntoskrnl\\..\\..\\Source\\sdk\\include\" /I \"Upstream\\ReactOS\\Projects\\Ntoskrnl\\..\\..\\Source\\sdk\\include\\crt\" /I \"Upstrea [see full log]"
-    ],
-    "ObservedMissingFiles": [
-      "OutDir/Build/Generated/Win32/Debug/ntoskrnl/asm/ctxswitch_ntoskrnl_asm.asm"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Release/Ntoskrnl.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -5141,8 +5239,8 @@
       "Native ARM64 assembler option reconciliation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Release/Ntoskrnl/ntoskrnl.exe"
   },
   "MigrationIssues": [
     {

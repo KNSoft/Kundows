@@ -470,7 +470,58 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "localui",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "3248b7da1eb38e47816c40d1a4b49987d9cf6aa73e92eb5e625705bae82a8ecb",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 15.48,
+        "TimestampUtc": "2026-11-20T18:38:14.5180914Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Win32ss\\Printing\\Monitors\\Localmon\\Ui\\Localui.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Localui.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Localui.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Localui/localui.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "localui",
@@ -1099,13 +1150,15 @@
   },
   "TrialBuild": {
     "Target": "localui",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.89,
-    "TimestampUtc": "2026-11-13T00:47:20.5650472Z",
+    "ProjectSHA256": "3248b7da1eb38e47816c40d1a4b49987d9cf6aa73e92eb5e625705bae82a8ecb",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 15.48,
+    "TimestampUtc": "2026-11-20T18:38:14.5180914Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Win32ss\\Printing\\Monitors\\Localmon\\Ui\\Localui.vcxproj",
@@ -1114,23 +1167,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Localui.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Localui.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Localui.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\wine\\winnt.h(4,10): error C1083: Cannot open include file: 'psdk/winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Win32ss\\Printing\\Monitors\\Localmon\\Ui\\Localui.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "psdk/winnt.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Localui.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1150,10 +1197,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "1b751a638921cced8c9ca08004dce4a5d8ff8b22981daf4d7852b662affb99dc",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Localui/localui.dll"
   },
   "ProjectSHA256": "1b751a638921cced8c9ca08004dce4a5d8ff8b22981daf4d7852b662affb99dc",
   "SettingsReview": {

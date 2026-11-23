@@ -990,7 +990,59 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "shell32",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "ebb978b57716afc88f04bd81fe3661e6811139a23beafadae36a5454c36ac7e8",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 87.89,
+        "TimestampUtc": "2026-11-20T18:40:22.7190002Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Shell32\\Shell32.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Shell32.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Shell32.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "stdole2",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Shell32/shell32.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "shell32",
@@ -2265,15 +2317,15 @@
   },
   "TrialBuild": {
     "Target": "shell32",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ProjectSHA256": "c6e127d4708b24128f2827227d74384647cc8eaeace21e0da0f0da8390b7573e",
+    "ProjectSHA256": "ebb978b57716afc88f04bd81fe3661e6811139a23beafadae36a5454c36ac7e8",
     "MatchesCurrentProject": true,
-    "ExitCode": 1,
-    "DurationSeconds": 1.57,
-    "TimestampUtc": "2026-11-15T12:01:46.3216323Z",
+    "ExitCode": 0,
+    "DurationSeconds": 87.89,
+    "TimestampUtc": "2026-11-20T18:40:22.7190002Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Shell32\\Shell32.vcxproj",
@@ -2282,23 +2334,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Shell32.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Shell32.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Shell32.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\psdk\\minwindef.h(171,10): error C1083: Cannot open include file: 'winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Shell32\\Shell32.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "winnt.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Shell32.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -2319,8 +2365,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Shell32/shell32.dll"
   },
   "MigrationIssues": [
     {

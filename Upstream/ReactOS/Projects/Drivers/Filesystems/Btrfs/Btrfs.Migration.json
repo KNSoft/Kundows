@@ -666,7 +666,59 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "btrfs",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "a422fc15f52737192eed294044525cbe8928cd8552a26ff2042a1eb74935f8e7",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 19.98,
+        "TimestampUtc": "2026-11-20T18:36:03.3327155Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Btrfs\\Btrfs.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Btrfs.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Btrfs.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Architecture-specific assembly preprocessing",
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Btrfs/btrfs.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "btrfs",
@@ -1452,13 +1504,15 @@
   },
   "TrialBuild": {
     "Target": "btrfs",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.85,
-    "TimestampUtc": "2026-11-13T00:46:11.0467451Z",
+    "ProjectSHA256": "a422fc15f52737192eed294044525cbe8928cd8552a26ff2042a1eb74935f8e7",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 19.98,
+    "TimestampUtc": "2026-11-20T18:36:03.3327155Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Btrfs\\Btrfs.vcxproj",
@@ -1467,25 +1521,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Btrfs.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Btrfs.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Btrfs.log",
-    "ErrorCodes": [
-      "A1000",
-      "MSB3721"
-    ],
-    "UniqueErrorCount": 2,
-    "ErrorSummary": [
-      "MASM : fatal error A1000: cannot open file : Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Btrfs\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\drivers\\filesystems\\btrfs\\asm\\crc32c_btrfs_asm.asm [Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Btrfs\\Btrfs.vcxproj]",
-      "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Microsoft\\VC\\v180\\BuildCustomizations\\masm.targets(70,5): error MSB3721: 命令“ml.exe /c /nologo /Zi /Fo\"Upstream\\ReactOS\\Projects\\..\\..\\..\\OutDir\\Intermediate\\Win32\\Debug\\Btrfs\\crc32c_btrfs_asm.obj\" /D\"__REACTOS__\" /D\"__RELFILE__=__FILE__\" /D\"_SBCS\" /D\"DBG=1\" /D\"_SEH_ENABLE_TRACE\" /D\"WINVER=0x502\" /D\"_WIN32_IE=0x603\" /D\"_WIN32_WINNT=0x502\" /D\"_WIN32_WINDOWS=0x502\" /D\"_SETUPAPI_VER=0x502\" /D\"MINGW_HAS_SECURE_API=1\" /D\"D3D_UMD_INTERFACE_VERSION=0x000C\" /D\"DXGKDDI_INTERFACE_VERSION=0x1052\" /D\"DLL_EXPORT_VERSION=0x502\" /D\"_M_IX86\" /D\"_X86_\" /D\"__i386__\" /D\"i386\" /D\"_NEW_DELETE_OPERATORS_\" /D\"USE_COMPILER_EXCEPTIONS\" /D\"_USE_32BIT_TIME_T\" /D\"WIN32\" /D\"_WINDOWS\" /D\"__STDC__=1\" /D\"__RUNTIME_CHECKS__\" /D\"LANGUAGE_EN_US\" /D\"__KERNEL__\" /D\"CMAKE_INTDIR=\"Debug\"\" /I \"Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Btrfs\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\drivers\\filesystems\\btrfs\" /I \"Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Btrfs\\..\\..\\..\\..\\Source\\drivers\\filesystems\\btrfs\" /I \"Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Btrfs\\..\\..\\..\\..\\Source\\sdk\\include\" /I \"Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Btrfs\\.. [see full log]"
-    ],
-    "ObservedMissingFiles": [
-      "OutDir/Build/Generated/Win32/Debug/drivers/filesystems/btrfs/asm/crc32c_btrfs_asm.asm"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Btrfs.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1506,10 +1552,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "a532291d61da79bbc70a794166a6dc89500cce351f8f0445fcc12b23bd97f6e6",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Btrfs/btrfs.sys"
   },
   "ProjectSHA256": "a532291d61da79bbc70a794166a6dc89500cce351f8f0445fcc12b23bd97f6e6",
   "SettingsReview": {

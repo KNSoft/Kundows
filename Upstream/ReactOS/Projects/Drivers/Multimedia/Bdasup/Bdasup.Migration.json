@@ -81,7 +81,7 @@
         "IndependentProjectBuild": true,
         "ExitCode": 1,
         "DurationSeconds": 0.69,
-        "TimestampUtc": "2026-11-13T00:46:09.3958200Z",
+        "TimestampUtc": "2026-11-13T00:46:09.39582Z",
         "MSBuildVersion": "18.11.1.51303",
         "Arguments": [
           "Upstream\\ReactOS\\Projects\\Drivers\\Multimedia\\Bdasup\\Bdasup.vcxproj",
@@ -475,7 +475,58 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "bdasup",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "89a359c972cf5d935fe6cb0730c65856f51960092c1a0836de585f3a84c172ce",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 11.5,
+        "TimestampUtc": "2026-11-20T18:35:39.6934201Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Multimedia\\Bdasup\\Bdasup.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Bdasup.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Bdasup.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Bdasup/bdasup.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "bdasup",
@@ -1116,13 +1167,15 @@
   },
   "TrialBuild": {
     "Target": "bdasup",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.69,
-    "TimestampUtc": "2026-11-13T00:46:09.3958200Z",
+    "ProjectSHA256": "89a359c972cf5d935fe6cb0730c65856f51960092c1a0836de585f3a84c172ce",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 11.5,
+    "TimestampUtc": "2026-11-20T18:35:39.6934201Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Multimedia\\Bdasup\\Bdasup.vcxproj",
@@ -1131,23 +1184,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Bdasup.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Bdasup.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Bdasup.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\multimedia\\bdasup\\precomp.h(3,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Multimedia\\Bdasup\\Bdasup.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntddk.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Bdasup.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1167,10 +1214,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "466207d387d7db919d239453f2a984ce8b52bf0235fde09ce08df889aab79730",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Bdasup/bdasup.sys"
   },
   "ProjectSHA256": "466207d387d7db919d239453f2a984ce8b52bf0235fde09ce08df889aab79730",
   "SettingsReview": {

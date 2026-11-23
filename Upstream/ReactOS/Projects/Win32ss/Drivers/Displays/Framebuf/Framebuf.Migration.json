@@ -481,7 +481,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "framebuf",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "efda0924459d5cce7698e73da2b77537d0f6e36ee40fb157c0a32943b2cc511f",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 8.68,
+        "TimestampUtc": "2026-11-20T18:37:38.5224485Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Displays\\Framebuf\\Framebuf.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Framebuf.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Framebuf.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Framebuf/framebuf.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "framebuf",
@@ -1131,13 +1181,15 @@
   },
   "TrialBuild": {
     "Target": "framebuf",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.69,
-    "TimestampUtc": "2026-11-13T00:46:35.9977563Z",
+    "ProjectSHA256": "efda0924459d5cce7698e73da2b77537d0f6e36ee40fb157c0a32943b2cc511f",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 8.68,
+    "TimestampUtc": "2026-11-20T18:37:38.5224485Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Displays\\Framebuf\\Framebuf.vcxproj",
@@ -1146,23 +1198,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Framebuf.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Framebuf.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Framebuf.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\psdk\\minwindef.h(171,10): error C1083: Cannot open include file: 'winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Win32ss\\Drivers\\Displays\\Framebuf\\Framebuf.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "winnt.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Framebuf.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1181,10 +1227,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "7ddd15242c1180110c19b415deffd90e7b64c0eb901dcfe868e0359710b7c84c",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Framebuf/framebuf.dll"
   },
   "ProjectSHA256": "7ddd15242c1180110c19b415deffd90e7b64c0eb901dcfe868e0359710b7c84c",
   "SettingsReview": {

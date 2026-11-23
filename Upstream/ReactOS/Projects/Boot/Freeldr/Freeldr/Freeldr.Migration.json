@@ -357,7 +357,61 @@
         }
       ],
       "PerSourceProperties": [],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "freeldr",
+        "Status": "NoArtifact",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "1fe4ca434ae11faa38842838f3c1d070ceeae3fbdf10b3cd57ca2f2e34aea4dc",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 11.51,
+        "TimestampUtc": "2026-11-20T16:16:47.9455516Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Freeldr\\Freeldr.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Freeldr.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Freeldr.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "obj2bin",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Architecture-specific assembly preprocessing",
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Raw boot binary conversion; utility project has no native generation recipe yet",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": false,
+        "Artifact": null
+      },
       "MigratedProperties": {
         "General": {},
         "Midl": {
@@ -502,11 +556,13 @@
     "Target": "freeldr",
     "Status": "NoArtifact",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
+    "ProjectSHA256": "1fe4ca434ae11faa38842838f3c1d070ceeae3fbdf10b3cd57ca2f2e34aea4dc",
+    "MatchesCurrentProject": true,
     "ExitCode": 0,
-    "DurationSeconds": 0.41,
-    "TimestampUtc": "2026-11-13T00:46:35.8050206Z",
+    "DurationSeconds": 11.51,
+    "TimestampUtc": "2026-11-20T16:16:47.9455516Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Boot\\Freeldr\\Freeldr\\Freeldr.vcxproj",
@@ -515,13 +571,13 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Freeldr.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Freeldr.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Freeldr.log",
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Freeldr.log",
     "ErrorCodes": [],
     "UniqueErrorCount": 0,
     "ErrorSummary": [],
@@ -549,9 +605,7 @@
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
     "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "7a068b6a56fdd551a0328a73a803f732815c7370c7eb9007d5245ecee80e65bb",
-    "MatchesCurrentProject": true
+    "Artifact": null
   },
   "ProjectSHA256": "7a068b6a56fdd551a0328a73a803f732815c7370c7eb9007d5245ecee80e65bb",
   "SettingsReview": {

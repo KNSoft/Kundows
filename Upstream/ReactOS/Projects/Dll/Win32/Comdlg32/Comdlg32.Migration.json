@@ -649,7 +649,58 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "comdlg32",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "b8e6ce1cb5ba5a2d53c2fe7aeb6890097f5e442f850642d56a290347bbca9609",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 44.7,
+        "TimestampUtc": "2026-11-20T18:36:40.1092664Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Comdlg32\\Comdlg32.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Comdlg32.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Comdlg32.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Comdlg32/comdlg32.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "comdlg32",
@@ -1502,15 +1553,15 @@
   },
   "TrialBuild": {
     "Target": "comdlg32",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ProjectSHA256": "a9e89d116d1afd873d8e26395e6cca467d714b51adff439d0aa86b87a60ef969",
+    "ProjectSHA256": "b8e6ce1cb5ba5a2d53c2fe7aeb6890097f5e442f850642d56a290347bbca9609",
     "MatchesCurrentProject": true,
-    "ExitCode": 1,
-    "DurationSeconds": 1.19,
-    "TimestampUtc": "2026-11-15T12:01:36.8986342Z",
+    "ExitCode": 0,
+    "DurationSeconds": 44.7,
+    "TimestampUtc": "2026-11-20T18:36:40.1092664Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Dll\\Win32\\Comdlg32\\Comdlg32.vcxproj",
@@ -1519,23 +1570,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Comdlg32.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Comdlg32.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Comdlg32.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 1,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\sdk\\include\\wine\\winnt.h(4,10): error C1083: Cannot open include file: 'psdk/winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Win32\\Comdlg32\\Comdlg32.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "psdk/winnt.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Comdlg32.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1555,8 +1600,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Comdlg32/comdlg32.dll"
   },
   "MigrationIssues": [
     {

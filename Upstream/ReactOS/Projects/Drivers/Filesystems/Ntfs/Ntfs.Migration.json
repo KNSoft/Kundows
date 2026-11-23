@@ -476,7 +476,57 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "ntfs",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "080bab39136ec7b0186b45f55d6f30311563e8ec9709c964758058aeb8a89113",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 10.33,
+        "TimestampUtc": "2026-11-20T18:38:30.8913228Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Ntfs\\Ntfs.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Ntfs.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Ntfs.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Ntfs/ntfs.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "ntfs",
@@ -1105,13 +1155,15 @@
   },
   "TrialBuild": {
     "Target": "ntfs",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.95,
-    "TimestampUtc": "2026-11-13T00:47:36.9299986Z",
+    "ProjectSHA256": "080bab39136ec7b0186b45f55d6f30311563e8ec9709c964758058aeb8a89113",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 10.33,
+    "TimestampUtc": "2026-11-20T18:38:30.8913228Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Ntfs\\Ntfs.vcxproj",
@@ -1120,26 +1172,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Ntfs.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Ntfs.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Ntfs.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 3,
-    "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\filesystems\\ntfs\\ntfs.h(4,10): error C1083: Cannot open include file: 'ntifs.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Ntfs\\Ntfs.vcxproj]",
-      "Upstream\\ReactOS\\Source\\drivers\\filesystems\\ntfs\\fastio.c(28,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Ntfs\\Ntfs.vcxproj]",
-      "Upstream\\ReactOS\\Source\\drivers\\filesystems\\ntfs\\rw.c(30,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Filesystems\\Ntfs\\Ntfs.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "ntddk.h",
-      "ntifs.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Ntfs.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1158,10 +1201,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "80e471c9eaa3fc1aac10647a968cd11187c4a244f4309a01ba5a12fe2c05d674",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Ntfs/ntfs.sys"
   },
   "ProjectSHA256": "80e471c9eaa3fc1aac10647a968cd11187c4a244f4309a01ba5a12fe2c05d674",
   "SettingsReview": {

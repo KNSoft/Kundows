@@ -471,7 +471,58 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "ntprint",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "e51f858c3a00a4161b7f9d7d00edb0140fd160b308ba7683acb320112c4931fd",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 16.43,
+        "TimestampUtc": "2026-11-20T18:38:41.5809007Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Win32ss\\Printing\\Base\\Ntprint\\Ntprint.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Ntprint.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Ntprint.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Ntprint/ntprint.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "ntprint",
@@ -1095,13 +1146,15 @@
   },
   "TrialBuild": {
     "Target": "ntprint",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 0.8,
-    "TimestampUtc": "2026-11-13T00:47:37.7405095Z",
+    "ProjectSHA256": "e51f858c3a00a4161b7f9d7d00edb0140fd160b308ba7683acb320112c4931fd",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 16.43,
+    "TimestampUtc": "2026-11-20T18:38:41.5809007Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Win32ss\\Printing\\Base\\Ntprint\\Ntprint.vcxproj",
@@ -1110,25 +1163,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Ntprint.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Ntprint.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Ntprint.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 2,
-    "ErrorSummary": [
-      "OutDir\\Build\\Generated\\Win32\\Debug\\win32ss\\printing\\base\\ntprint\\ntprint_stubs.c(1,1): error C1083: Cannot open source file: 'Upstream\\ReactOS\\Projects\\Win32ss\\Printing\\Base\\Ntprint\\..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\win32ss\\printing\\base\\ntprint\\ntprint_stubs.c': No such file or directory [Upstream\\ReactOS\\Projects\\Win32ss\\Printing\\Base\\Ntprint\\Ntprint.vcxproj]",
-      "Upstream\\ReactOS\\Source\\sdk\\include\\wine\\winnt.h(4,10): error C1083: Cannot open include file: 'psdk/winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Win32ss\\Printing\\Base\\Ntprint\\Ntprint.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "OutDir/Build/Generated/Win32/Debug/win32ss/printing/base/ntprint/ntprint_stubs.c",
-      "psdk/winnt.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Ntprint.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "geninc",
       "hpp",
@@ -1148,10 +1193,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "408b018277393090cfaed8f3006605ea137aeaa521bf452dbf80cda46547c18f",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Ntprint/ntprint.dll"
   },
   "ProjectSHA256": "408b018277393090cfaed8f3006605ea137aeaa521bf452dbf80cda46547c18f",
   "SettingsReview": {

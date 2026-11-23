@@ -633,7 +633,62 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "d3dcompiler_43",
+        "Status": "Succeeded",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "20265466dbfb339e31be6396b554a090f338f5e9052db31a36236fd7499f7c42",
+        "MatchesCurrentProject": true,
+        "ExitCode": 0,
+        "DurationSeconds": 21.56,
+        "TimestampUtc": "2026-11-20T18:37:10.3996987Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3dcompiler_43\\D3dcompiler_43.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\D3dcompiler_43.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/D3dcompiler_43.log",
+        "ErrorCodes": [],
+        "UniqueErrorCount": 0,
+        "ErrorSummary": [],
+        "ObservedMissingFiles": [],
+        "RequiredHostTools": [
+          "bison",
+          "flex",
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "d3d_idl_headers",
+          "psdk",
+          "wineheaders",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Custom source/header/resource generation; recipes are recorded per configuration",
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/D3dcompiler_43/d3dcompiler_43.dll"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "d3dcompiler_43",
@@ -1451,13 +1506,15 @@
   },
   "TrialBuild": {
     "Target": "d3dcompiler_43",
-    "Status": "Failed",
+    "Status": "Succeeded",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
-    "ExitCode": 1,
-    "DurationSeconds": 1.08,
-    "TimestampUtc": "2026-11-13T00:46:20.7264175Z",
+    "ProjectSHA256": "20265466dbfb339e31be6396b554a090f338f5e9052db31a36236fd7499f7c42",
+    "MatchesCurrentProject": true,
+    "ExitCode": 0,
+    "DurationSeconds": 21.56,
+    "TimestampUtc": "2026-11-20T18:37:10.3996987Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3dcompiler_43\\D3dcompiler_43.vcxproj",
@@ -1466,29 +1523,17 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\D3dcompiler_43.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\D3dcompiler_43.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/D3dcompiler_43.log",
-    "ErrorCodes": [
-      "C1083"
-    ],
-    "UniqueErrorCount": 4,
-    "ErrorSummary": [
-      "OutDir\\Build\\Generated\\Win32\\Debug\\dll\\directx\\wine\\d3dcompiler_43\\asmshader.tab.c(1,1): error C1083: Cannot open source file: 'Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3dcompiler_43\\..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\dll\\directx\\wine\\d3dcompiler_43\\asmshader.tab.c': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3dcompiler_43\\D3dcompiler_43.vcxproj]",
-      "OutDir\\Build\\Generated\\Win32\\Debug\\dll\\directx\\wine\\d3dcompiler_43\\asmshader.yy.c(1,1): error C1083: Cannot open source file: 'Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3dcompiler_43\\..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\dll\\directx\\wine\\d3dcompiler_43\\asmshader.yy.c': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3dcompiler_43\\D3dcompiler_43.vcxproj]",
-      "OutDir\\Build\\Generated\\Win32\\Debug\\dll\\directx\\wine\\d3dcompiler_43\\d3dcompiler_43_stubs.c(1,1): error C1083: Cannot open source file: 'Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3dcompiler_43\\..\\..\\..\\..\\..\\..\\..\\OutDir\\Build\\Generated\\Win32\\Debug\\dll\\directx\\wine\\d3dcompiler_43\\d3dcompiler_43_stubs.c': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3dcompiler_43\\D3dcompiler_43.vcxproj]",
-      "Upstream\\ReactOS\\Source\\sdk\\include\\wine\\winnt.h(4,10): error C1083: Cannot open include file: 'psdk/winnt.h': No such file or directory [Upstream\\ReactOS\\Projects\\Dll\\Directx\\Wine\\D3dcompiler_43\\D3dcompiler_43.vcxproj]"
-    ],
-    "ObservedMissingFiles": [
-      "OutDir/Build/Generated/Win32/Debug/dll/directx/wine/d3dcompiler_43/asmshader.tab.c",
-      "OutDir/Build/Generated/Win32/Debug/dll/directx/wine/d3dcompiler_43/asmshader.yy.c",
-      "OutDir/Build/Generated/Win32/Debug/dll/directx/wine/d3dcompiler_43/d3dcompiler_43_stubs.c",
-      "psdk/winnt.h"
-    ],
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/D3dcompiler_43.log",
+    "ErrorCodes": [],
+    "UniqueErrorCount": 0,
+    "ErrorSummary": [],
+    "ObservedMissingFiles": [],
     "RequiredHostTools": [
       "bison",
       "flex",
@@ -1512,10 +1557,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "7da7377f955db5b310075602ba1d2b4d85460461ba9b8388b06951034546f0bd",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/D3dcompiler_43/d3dcompiler_43.dll"
   },
   "ProjectSHA256": "7da7377f955db5b310075602ba1d2b4d85460461ba9b8388b06951034546f0bd",
   "SettingsReview": {

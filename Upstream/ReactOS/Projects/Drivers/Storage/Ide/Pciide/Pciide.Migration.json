@@ -408,7 +408,65 @@
           ]
         }
       ],
-      "TrialBuild": "NotAttempted",
+      "TrialBuild": {
+        "Target": "pciide",
+        "Status": "Failed",
+        "Configuration": "Debug",
+        "Platform": "x64",
+        "IndependentProjectBuild": true,
+        "ProjectSHA256": "3761990c38faa2b1f173e736a04f461333e858122413ee83c730dde6918ef4ee",
+        "MatchesCurrentProject": true,
+        "ExitCode": 1,
+        "DurationSeconds": 10.38,
+        "TimestampUtc": "2026-11-20T18:38:46.7650754Z",
+        "MSBuildVersion": "18.11.1.51303",
+        "Arguments": [
+          "Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Ide\\Pciide\\Pciide.vcxproj",
+          "/t:Build",
+          "/m:1",
+          "/nologo",
+          "/verbosity:quiet",
+          "/p:Configuration=Debug",
+          "/p:Platform=x64",
+          "/p:BuildProjectReferences=false",
+          "/p:CL_MPCount=1",
+          "/p:PreferredUILang=en-US",
+          "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Pciide.log;Encoding=UTF-8;Verbosity=normal"
+        ],
+        "Log": "OutDir/ModuleBuildLogs/x64/Debug/Pciide.log",
+        "ErrorCodes": [
+          "LNK1104",
+          "MSB3073"
+        ],
+        "UniqueErrorCount": 2,
+        "ErrorSummary": [
+          "LINK : fatal error LNK1104: cannot open file 'OutDir\\Build\\Generated\\x64\\Debug\\ntoskrnl\\libntoskrnl_stubs.obj' [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+          "Build\\ReactOSSpec2Def.targets(124,5): error MSB3073: 命令“\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe\" /LIB /NOLOGO /MACHINE:x64 /DEF:\"OutDir\\Build\\Generated\\x64\\Debug\\ntoskrnl\\libntoskrnl_implib.def\" /OUT:\"OutDir\\Build\\Generated\\x64\\Debug\\ntoskrnl\\libntoskrnl_tmp.lib\" \"OutDir\\Build\\Generated\\x64\\Debug\\ntoskrnl\\libntoskrnl_stubs.obj\"”已退出，代码为 1104。 [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]"
+        ],
+        "ObservedMissingFiles": [
+          "OutDir/Build/Generated/x64/Debug/ntoskrnl/libntoskrnl_stubs.obj"
+        ],
+        "RequiredHostTools": [
+          "geninc",
+          "hpp",
+          "spec2def",
+          "utf16le",
+          "widl"
+        ],
+        "RequiredInfrastructure": [
+          "asm",
+          "bugcodes",
+          "psdk",
+          "xdk"
+        ],
+        "PendingBuildInfrastructure": [
+          "Export/import-library or IDL generation",
+          "Host tool implementations and invocation",
+          "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
+        ],
+        "ArtifactExists": true,
+        "Artifact": "OutDir/x64/Debug/Pciide/pciide.sys"
+      },
       "MigratedProperties": {
         "General": {
           "TargetName": "pciide",
@@ -970,11 +1028,13 @@
     "Target": "pciide",
     "Status": "Failed",
     "Configuration": "Debug",
-    "Platform": "Win32",
+    "Platform": "x64",
     "IndependentProjectBuild": true,
+    "ProjectSHA256": "3761990c38faa2b1f173e736a04f461333e858122413ee83c730dde6918ef4ee",
+    "MatchesCurrentProject": true,
     "ExitCode": 1,
-    "DurationSeconds": 0.67,
-    "TimestampUtc": "2026-11-13T00:47:40.8502482Z",
+    "DurationSeconds": 10.38,
+    "TimestampUtc": "2026-11-20T18:38:46.7650754Z",
     "MSBuildVersion": "18.11.1.51303",
     "Arguments": [
       "Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Ide\\Pciide\\Pciide.vcxproj",
@@ -983,22 +1043,24 @@
       "/nologo",
       "/verbosity:quiet",
       "/p:Configuration=Debug",
-      "/p:Platform=Win32",
+      "/p:Platform=x64",
       "/p:BuildProjectReferences=false",
       "/p:CL_MPCount=1",
       "/p:PreferredUILang=en-US",
-      "/flp:LogFile=OutDir\\ModuleBuildLogs\\Win32\\Debug\\Pciide.log;Encoding=UTF-8;Verbosity=normal"
+      "/flp:LogFile=OutDir\\ModuleBuildLogs\\x64\\Debug\\Pciide.log;Encoding=UTF-8;Verbosity=normal"
     ],
-    "Log": "OutDir/ModuleBuildLogs/Win32/Debug/Pciide.log",
+    "Log": "OutDir/ModuleBuildLogs/x64/Debug/Pciide.log",
     "ErrorCodes": [
-      "C1083"
+      "LNK1104",
+      "MSB3073"
     ],
-    "UniqueErrorCount": 1,
+    "UniqueErrorCount": 2,
     "ErrorSummary": [
-      "Upstream\\ReactOS\\Source\\drivers\\storage\\ide\\pciide\\pciide.h(1,10): error C1083: Cannot open include file: 'ntddk.h': No such file or directory [Upstream\\ReactOS\\Projects\\Drivers\\Storage\\Ide\\Pciide\\Pciide.vcxproj]"
+      "LINK : fatal error LNK1104: cannot open file 'OutDir\\Build\\Generated\\x64\\Debug\\ntoskrnl\\libntoskrnl_stubs.obj' [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]",
+      "Build\\ReactOSSpec2Def.targets(124,5): error MSB3073: 命令“\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe\" /LIB /NOLOGO /MACHINE:x64 /DEF:\"OutDir\\Build\\Generated\\x64\\Debug\\ntoskrnl\\libntoskrnl_implib.def\" /OUT:\"OutDir\\Build\\Generated\\x64\\Debug\\ntoskrnl\\libntoskrnl_tmp.lib\" \"OutDir\\Build\\Generated\\x64\\Debug\\ntoskrnl\\libntoskrnl_stubs.obj\"”已退出，代码为 1104。 [Upstream\\ReactOS\\Projects\\Ntoskrnl\\Libntoskrnl.vcxproj]"
     ],
     "ObservedMissingFiles": [
-      "ntddk.h"
+      "OutDir/Build/Generated/x64/Debug/ntoskrnl/libntoskrnl_stubs.obj"
     ],
     "RequiredHostTools": [
       "geninc",
@@ -1018,10 +1080,8 @@
       "Host tool implementations and invocation",
       "Shared generated headers/resources; see RequiredInfrastructure and Infrastructure.json"
     ],
-    "ArtifactExists": false,
-    "Artifact": null,
-    "ProjectSHA256": "7433dc1bff2ff3837e088489da444a4c465d14992d4d5c58a9fb3bf166d7d956",
-    "MatchesCurrentProject": true
+    "ArtifactExists": true,
+    "Artifact": "OutDir/x64/Debug/Pciide/pciide.sys"
   },
   "ProjectSHA256": "7433dc1bff2ff3837e088489da444a4c465d14992d4d5c58a9fb3bf166d7d956",
   "SettingsReview": {
