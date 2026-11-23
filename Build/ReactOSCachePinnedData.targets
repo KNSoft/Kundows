@@ -1,0 +1,5 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="ApplyReactOSCachePinnedDataPatch" BeforeTargets="PrepareForBuild">
+    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(KundowsRoot)Build\ApplyReactOSCachePinnedData.ps1&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -StateFile &quot;$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-cc-pinned-dirty.state&quot;" />
+  </Target>
+</Project>

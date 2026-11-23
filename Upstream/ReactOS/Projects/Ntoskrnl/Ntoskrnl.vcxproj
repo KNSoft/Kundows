@@ -2733,6 +2733,7 @@
       <Outputs>$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\ntoskrnl.def;$(KundowsRoot)OutDir\Build\Generated\$(Platform)\$(Configuration)\ntoskrnl\ntoskrnl_stubs.c</Outputs>
     </ReactOSSpec2Def>
   </ItemGroup>
+  <Import Project="$(KundowsRoot)Build\ReactOSCachePinnedData.targets" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" Condition="'$(Platform)'!='ARM64'" />

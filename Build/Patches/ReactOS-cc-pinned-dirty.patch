@@ -1,0 +1,40 @@
+diff --git a/ntoskrnl/cc/pin.c b/ntoskrnl/cc/pin.c
+--- a/ntoskrnl/cc/pin.c
++++ b/ntoskrnl/cc/pin.c
+@@ -555,6 +555,8 @@ CcSetDirtyPinnedData (
+ 
+     CCTRACE(CC_API_DEBUG, "Bcb=%p Lsn=%p\n", Bcb, Lsn);
+ 
++    iBcb->Dirty = TRUE;
++
+     /* Tell Mm */
+     MmMakeSegmentDirty(Vacb->SharedCacheMap->FileObject->SectionObjectPointer,
+                        iBcb->PFCB.MappedFileOffset.QuadPart,
+@@ -592,6 +594,15 @@ CcUnpinDataForThread (
+ 
+     CCTRACE(CC_API_DEBUG, "Bcb=%p ResourceThreadId=%lu\n", Bcb, ResourceThreadId);
+ 
++    /*
++     * Callers may mark pinned data dirty before modifying it. A concurrent
++     * flush can clean the VACB and segment in the meantime, so publish the
++     * completed changes again before releasing the caller's pin.
++     * Keep the BCB flag set for other outstanding pins and repin references.
++     */
++    if (iBcb->Dirty)
++        CcSetDirtyPinnedData(Bcb, NULL);
++
+     if (iBcb->PinCount != 0)
+     {
+         ExReleaseResourceForThreadLite(&iBcb->Lock, ResourceThreadId);
+diff --git a/ntoskrnl/include/internal/cc.h b/ntoskrnl/include/internal/cc.h
+--- a/ntoskrnl/include/internal/cc.h
++++ b/ntoskrnl/include/internal/cc.h
+@@ -237,6 +237,8 @@ typedef struct _INTERNAL_BCB
+     ULONG PinCount;
+     CSHORT RefCount; /* (At offset 0x34 on WinNT4) */
+     LIST_ENTRY BcbEntry;
++    /* A pre-dirtied buffer can still be modified until it is unpinned. */
++    BOOLEAN Dirty;
+ } INTERNAL_BCB, *PINTERNAL_BCB;
+ 
+ typedef struct _LAZY_WRITER
