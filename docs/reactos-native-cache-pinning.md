@@ -57,7 +57,7 @@ window and its correction. A passing fresh installation is supporting runtime
 evidence, not proof that this was the only possible source of disk corruption.
 
 Fresh, serial-disconnected tests of the first corrected revision reached
-graphical Setup in both Debug configurations, but both Release installations
+responsive installed desktops in both Debug configurations, but both Release installations
 failed their first disk boot. Read-only inspection still found a truncated
 Win32 SYSTEM chain and mismatching x64 FAT mirrors. The pinning correction is
 therefore **not** accepted as a complete fix for the installation failures.
