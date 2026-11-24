@@ -1,3 +1,8 @@
+Optional runtime fix (--image-fixes); evidence on ReactOS 1103f43a0c0. Writeback can
+clear dirty state between marking a pinned buffer dirty and updating it.
+Tests on the original pin.c functions reproduce the lost update; they do
+not establish that it caused the observed installation-disk corruption.
+
 diff --git a/ntoskrnl/cc/pin.c b/ntoskrnl/cc/pin.c
 --- a/ntoskrnl/cc/pin.c
 +++ b/ntoskrnl/cc/pin.c

@@ -1,3 +1,7 @@
+Experimental ARM64 build profile; evidence on ReactOS 1103f43a0c0. Adds missing NTDLL
+and RTL code for that target; two dispatcher entries are still breakpoint
+stubs. Successful linking does not establish ARM64 runtime support.
+
 diff --git a/dll/ntdll/dispatch/arm64/stubs_asm.s b/dll/ntdll/dispatch/arm64/stubs_asm.s
 new file mode 100644
 index 00000000000..c10d5765347

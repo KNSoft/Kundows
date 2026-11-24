@@ -1,5 +1,0 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Target Name="ApplyReactOSCacheFlushPatch" BeforeTargets="PrepareForBuild">
-    <Exec Command="pwsh.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File &quot;$(KundowsRoot)Build\ApplyReactOSCachePinnedData.ps1&quot; -SourceDirectory &quot;$(KundowsRoot)Upstream\ReactOS\Source&quot; -PatchFile &quot;$(KundowsRoot)Build\Patches\ReactOS-mm-flush-collision.patch&quot; -StateFile &quot;$(KundowsRoot)OutDir\Build\Generated\ReactOSPatches\ReactOS-mm-flush-collision.state&quot;" />
-  </Target>
-</Project>

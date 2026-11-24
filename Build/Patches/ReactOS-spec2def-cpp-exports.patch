@@ -1,3 +1,7 @@
+Default build-tool fix for ReactOS 1103f43a0c0. Win32 MSVC links msvcrt20
+with the original spec2def output, but only 11 of 437 decorated C++ exports
+retain their exact names and ordinals. With this patch all 437 match.
+
 diff --git a/sdk/tools/spec2def/spec2def.c b/sdk/tools/spec2def/spec2def.c
 index 2ab25d9f96d..2a648f4245a 100644
 --- a/sdk/tools/spec2def/spec2def.c

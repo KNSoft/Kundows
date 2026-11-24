@@ -1,3 +1,8 @@
+Optional runtime fix (--image-fixes); evidence on ReactOS 1103f43a0c0. Controlled tests
+on the original MM functions reproduce an older write overwriting newer
+data and a flush returning with I/O still pending. Their role in the
+observed installation-disk corruption has not been established.
+
 diff --git a/ntoskrnl/mm/section.c b/ntoskrnl/mm/section.c
 --- a/ntoskrnl/mm/section.c
 +++ b/ntoskrnl/mm/section.c

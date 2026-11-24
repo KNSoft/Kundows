@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup><Filter Include="Source Files"><UniqueIdentifier>{8F3C4E68-7B6A-4D33-9A77-DBB5680E4D8C}</UniqueIdentifier></Filter></ItemGroup>
-  <ItemGroup><ClCompile Include="$(KundowsRoot)Upstream\ReactOS\Source\sdk\tools\spec2def\spec2def.c"><Filter>Source Files</Filter></ClCompile></ItemGroup>
-</Project>

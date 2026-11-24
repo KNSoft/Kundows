@@ -1,0 +1,149 @@
+@echo off
+setlocal EnableExtensions DisableDelayedExpansion
+set "kw_root=%~dp0"
+set "kw_target=all"
+if /i "%~1"=="--bootcd" (
+    set "kw_target=bootcd"
+    shift /1
+)
+if /i "%~1"=="/?" goto help
+if /i "%~1"=="--help" goto help
+set "kw_platform=%~1"
+if not defined kw_platform set "kw_platform=x64"
+if /i "%kw_platform%"=="x64" (
+    set "kw_platform=x64"
+    set "kw_arch=amd64"
+    set "kw_vcarch=x64"
+) else if /i "%kw_platform%"=="Win32" (
+    set "kw_platform=Win32"
+    set "kw_arch=i386"
+    set "kw_vcarch=x64_x86"
+) else if /i "%kw_platform%"=="ARM64" (
+    set "kw_platform=ARM64"
+    set "kw_arch=arm64"
+    set "kw_vcarch=x64_arm64"
+) else goto badargs
+set "kw_config=%~2"
+if not defined kw_config set "kw_config=Debug"
+if /i "%kw_config%"=="Release" (set "kw_config=Release") else if /i "%kw_config%"=="Debug" (set "kw_config=Debug") else goto badargs
+if not "%~3"=="" if /i not "%~3"=="--image-fixes" goto badargs
+if not "%~4"=="" goto badargs
+
+set "kw_src=%kw_root%Upstream\ReactOS\Source"
+set "kw_out=%kw_root%OutDir\%kw_arch%\%kw_config%"
+set "kw_iso=%kw_root%OutDir\bootcd-%kw_platform%-%kw_config%.iso"
+if not "%kw_src: =%"=="%kw_src%" goto spaces
+if "%kw_target%"=="bootcd" if not exist "%kw_out%\build.ninja" goto unprepared
+
+rem Use the RosBE host programs, without entering its MinGW compiler shell.
+set "kw_be=%ROSBE_ROOT%"
+if not defined kw_be set "kw_be=%_ROSBE_BASEDIR%"
+if not defined kw_be call :registeredRosBE HKCU
+if not defined kw_be call :registeredRosBE HKLM /reg:32
+if not defined kw_be call :registeredRosBE HKLM /reg:64
+if not defined kw_be for %%R in (RosBE.cmd) do set "kw_be=%%~dp$PATH:R"
+if not defined kw_be set "kw_be=%SystemDrive%\RosBE"
+for %%R in ("%kw_be%") do set "kw_be=%%~fR"
+for %%F in (RosBE.cmd bin\ninja.exe bin\bison.exe bin\flex.exe bin\m4.exe share\bison\skeletons\yacc.c) do if not exist "%kw_be%\%%F" (
+    echo Missing RosBE file "%kw_be%\%%F". Set ROSBE_ROOT to the installation directory. 1>&2
+    exit /b 1
+)
+
+set "kw_vs="
+set "PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer;%PATH%"
+for /f "delims=" %%V in ('vswhere.exe -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath') do set "kw_vs=%%V"
+if not defined kw_vs (
+    echo Install Visual Studio with MSVC x86/x64 tools and a Windows SDK. 1>&2
+    exit /b 1
+)
+call "%kw_vs%\VC\Auxiliary\Build\vcvarsall.bat" %kw_vcarch% || exit /b 1
+set "kw_cmake=%kw_be%\bin\cmake.exe"
+if not exist "%kw_cmake%" set "kw_cmake=%kw_vs%\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
+if not exist "%kw_cmake%" (
+    echo CMake missing from RosBE and Visual Studio. Install C++ CMake tools for Windows. 1>&2
+    exit /b 1
+)
+set "PATH=%kw_be%\bin;%PATH%"
+for %%R in ("%kw_be%") do (
+    set "M4=%%~fsR\bin\m4.exe"
+    set "BISON_PKGDATADIR=%%~fsR\share\bison"
+)
+
+if not exist "%kw_src%\.git" git -C "%kw_root%." submodule update --init -- Upstream/ReactOS/Source || exit /b 1
+set "kw_pin="
+set "kw_head="
+for /f %%R in ('git -C "%kw_root%." rev-parse :Upstream/ReactOS/Source') do set "kw_pin=%%R"
+for /f %%R in ('git -C "%kw_src%" rev-parse HEAD') do set "kw_head=%%R"
+if not defined kw_pin exit /b 1
+if /i not "%kw_pin%"=="%kw_head%" (
+    echo ReactOS is at %kw_head%; expected %kw_pin%. Check local edits before updating the submodule. 1>&2
+    exit /b 1
+)
+
+set "kw_patches=spec2def-cpp-exports"
+if "%kw_arch%"=="arm64" set "kw_patches=%kw_patches% arm64-ntdll"
+if /i "%~3"=="--image-fixes" set "kw_patches=%kw_patches% kd-auto-probe rtc-periodic cc-pinned-dirty mm-flush-collision"
+set "kw_pending="
+for %%P in (%kw_patches%) do call :queuePatch %%P || exit /b 1
+if defined kw_pending (
+    if "%kw_target%"=="bootcd" goto unprepared
+    git -C "%kw_src%" apply --whitespace=nowarn %kw_pending% || exit /b 1
+)
+
+echo ReactOS %kw_head%   MSVC %kw_arch% %kw_config%   target: %kw_target%
+echo RosBE: "%kw_be%"   CMake: "%kw_cmake%"
+echo Output: "%kw_out%"
+if exist "%kw_out%\CMakeCache.txt" (
+    for %%L in ("CMAKE_HOME_DIRECTORY:INTERNAL=%kw_src:\=/%" "CMAKE_GENERATOR:INTERNAL=Ninja" "ARCH:STRING=%kw_arch%" "CMAKE_BUILD_TYPE:STRING=%kw_config%" "CMAKE_TOOLCHAIN_FILE:FILEPATH=%kw_src:\=/%/toolchain-msvc.cmake") do (
+        findstr /i /l /x /c:"%%~L" "%kw_out%\CMakeCache.txt" >nul || goto wrongcache
+    )
+)
+if not exist "%kw_out%\build.ninja" (
+    "%kw_cmake%" -S "%kw_src%" -B "%kw_out%" -G Ninja "-DCMAKE_MAKE_PROGRAM:FILEPATH=%kw_be%\bin\ninja.exe" "-DCMAKE_TOOLCHAIN_FILE:FILEPATH=%kw_src%\toolchain-msvc.cmake" "-DARCH:STRING=%kw_arch%" "-DCMAKE_BUILD_TYPE:STRING=%kw_config%" || exit /b 1
+)
+"%kw_cmake%" --build "%kw_out%" --target %kw_target% || exit /b 1
+if "%kw_target%"=="bootcd" (
+    if not exist "%kw_out%\bootcd.iso" (
+        echo Missing upstream image: "%kw_out%\bootcd.iso" 1>&2
+        exit /b 1
+    )
+    move /y "%kw_out%\bootcd.iso" "%kw_iso%" >nul || exit /b 1
+    echo BootCD: "%kw_iso%"
+)
+exit /b 0
+
+:registeredRosBE
+set "kw_uninstall="
+for /f "tokens=1,2,*" %%A in ('reg query "%~1\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ReactOS Build Environment" /v UninstallString %~2 2^>nul') do if /i "%%A"=="UninstallString" set "kw_uninstall=%%C"
+if not defined kw_uninstall exit /b 0
+set "kw_uninstall=%kw_uninstall:"=%"
+for %%U in ("%kw_uninstall%") do if exist "%%~dpURosBE.cmd" set "kw_be=%%~dpU."
+exit /b 0
+
+:queuePatch
+set "kw_patch=%kw_root%Build\Patches\ReactOS-%~1.patch"
+if not exist "%kw_patch%" (
+    echo Missing patch "%kw_patch%". 1>&2
+    exit /b 1
+)
+git -C "%kw_src%" apply --quiet --reverse --check --whitespace=nowarn "%kw_patch%" && exit /b 0
+set "kw_pending=%kw_pending% "%kw_patch%""
+exit /b 0
+
+:wrongcache
+echo Incompatible CMake cache in "%kw_out%". Move this directory aside and run Build.cmd again. 1>&2
+exit /b 1
+:unprepared
+echo Run Build.cmd with the same arguments first to prepare "%kw_out%". 1>&2
+exit /b 1
+:spaces
+echo ReactOS requires a checkout path without spaces. 1>&2
+exit /b 1
+:badargs
+call :help
+exit /b 2
+:help
+echo Usage: Build.cmd   [x64^|Win32^|ARM64] [Debug^|Release] [--image-fixes]
+echo        MakeISO.cmd [x64^|Win32^|ARM64] [Debug^|Release] [--image-fixes]
+echo Defaults: x64 Debug. Build tree: OutDir\amd64\Debug. BootCD: OutDir\bootcd-x64-Debug.iso
+exit /b 0

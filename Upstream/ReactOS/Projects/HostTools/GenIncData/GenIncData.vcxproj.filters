@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup><Filter Include="Source Files"><UniqueIdentifier>{0E1E5C79-DC6B-4AC8-A85D-15D21D02B6CB}</UniqueIdentifier></Filter><Filter Include="Migration"><UniqueIdentifier>{A61F58E8-6502-41E5-9AB9-6D5B5DB7E795}</UniqueIdentifier></Filter></ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="$(KundowsRoot)Upstream\ReactOS\Source\sdk\include\asm\genincdata.c"><Filter>Source Files</Filter></ClCompile>
-    <None Include="GenIncData.Migration.json"><Filter>Migration</Filter></None>
-  </ItemGroup>
-</Project>

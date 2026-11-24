@@ -1,3 +1,8 @@
+Optional debugger transport change (--image-fixes); evidence on ReactOS 1103f43a0c0.
+Persistent UART errors can trap the original packet-leader loop. Returning
+to the caller fixes that defect; the shorter discovery window and changed
+polling interval are separate policy choices for virtual serial ports.
+
 diff --git a/drivers/base/kdcom/kdcom.c b/drivers/base/kdcom/kdcom.c
 --- a/drivers/base/kdcom/kdcom.c
 +++ b/drivers/base/kdcom/kdcom.c
