@@ -106,11 +106,16 @@ The unmodified rule is unchanged at `4fbbefd614b`. The
 The generated x64 Debug and Win32 Release projects both reference that PE
 as an input to the concatenation rule. The UEFI loader uses a separate rule.
 
-With Visual Studio 2026, a clean x64 Debug **Build Solution** completed
+The current default x64 Debug BootCD completed a fresh FAT installation
+on Hyper-V Gen 1 and booted from the installed disk to an interactive
+desktop. See the [tested ISO hash, first disk boot and Ctrl+Alt+Del
+screenshots](docs/bootcd-display.md#hyper-v-gen-1).
+
+With Visual Studio 2026, the initial clean x64 Debug **Build Solution** completed
 with 1,366 projects built and no failures. `MakeISO.cmd` then produced a
 256,901,120-byte BootCD containing both El Torito entries. Its BIOS loader
 matched `frldr16.bin` (2,048 bytes) plus the linked PE (372,224 bytes); its
-EFI loader matched `uefildr.efi` (488,448 bytes). In a VirtualBox BIOS guest
+EFI loader matched `uefildr.efi` (488,448 bytes). In the earlier VirtualBox BIOS test,
 the COM1 banner appears before kernel entry; the same build subsequently
 started copying files with no serial port. On VirtualBox EFI64, the text-mode
 fix restored a readable Setup language page. See the [comparison with the
