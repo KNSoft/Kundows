@@ -88,7 +88,7 @@ if /i not "%kw_pin%"=="%kw_head%" (
     exit /b 1
 )
 
-set "kw_patches=spec2def-cpp-exports freeldr-target-file generated-header-deps vs-media-deps blue-vbox-vbe"
+set "kw_patches=spec2def-cpp-exports freeldr-target-file generated-header-deps vs-media-deps blue-vbox-vbe io-sync-status"
 if "%kw_arch%"=="arm64" set "kw_patches=%kw_patches% arm64-ntdll arm64-vs-host-tools"
 if /i "%~3"=="--image-fixes" set "kw_patches=%kw_patches% kd-auto-probe rtc-periodic cc-pinned-dirty mm-flush-collision"
 set "kw_pending="

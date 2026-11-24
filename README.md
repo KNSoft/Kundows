@@ -49,8 +49,11 @@ and the following issues:
   Solution** leaves image assembly to explicit targets. When building the
   BootCD, the hive projects wait for the shared registry INF producer.
 - [VBoxVGA text mode](Build/Patches/ReactOS-blue-vbox-vbe.patch): on the
-  VirtualBox VGA adapter, Setup releases the firmware framebuffer's scanline
-  pitch while it owns the VGA text console.
+  VirtualBox VGA adapter, Setup switches from the firmware framebuffer to
+  VGA text mode with the correct row width.
+- [File information I/O](Build/Patches/ReactOS-io-sync-status.patch):
+  complete inline query/set requests before returning their stack-based
+  status blocks. Debug Setup exercises this path while copying files.
 
 `ARM64` requires the ARM64 MSVC tools. It applies the experimental NTDLL port
 and [builds the host tools for Win32](Build/Patches/ReactOS-arm64-vs-host-tools.patch)

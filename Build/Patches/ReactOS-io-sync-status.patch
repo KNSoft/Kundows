@@ -1,0 +1,128 @@
+Complete synchronous kernel file-information requests before returning their
+stack-resident status blocks. Use the same deferred-completion path as the
+native query/set services; pending I/O still waits on the appropriate event.
+On 4fbbefd614b, x64 Debug FAT installation with the historical image fixes
+stopped in the MSVC stack check after a late I/O completion during section
+creation. The saved IRP status destination overlapped the reported guard.
+
+diff --git a/ntoskrnl/io/iomgr/iofunc.c b/ntoskrnl/io/iomgr/iofunc.c
+index 64b692ea2aa..d436587252b 100644
+--- a/ntoskrnl/io/iomgr/iofunc.c
++++ b/ntoskrnl/io/iomgr/iofunc.c
+@@ -656,7 +656,7 @@ IopQueryDeviceInformation(IN PFILE_OBJECT FileObject,
+                           OUT PULONG ReturnedLength,
+                           IN BOOLEAN File)
+ {
+-    IO_STATUS_BLOCK IoStatusBlock;
++    IO_STATUS_BLOCK IoStatusBlock = {0};
+     PIRP Irp;
+     PDEVICE_OBJECT DeviceObject;
+     PIO_STACK_LOCATION StackPtr;
+@@ -700,7 +700,7 @@ IopQueryDeviceInformation(IN PFILE_OBJECT FileObject,
+     Irp->UserIosb = &IoStatusBlock;
+     Irp->UserEvent = (LocalEvent) ? &Event : NULL;
+     Irp->Flags = (LocalEvent) ? IRP_SYNCHRONOUS_API : 0;
+-    Irp->Flags |= IRP_BUFFERED_IO;
++    Irp->Flags |= IRP_BUFFERED_IO | IRP_DEFER_IO_COMPLETION;
+     Irp->AssociatedIrp.SystemBuffer = Information;
+     Irp->Tail.Overlay.Thread = PsGetCurrentThread();
+ 
+@@ -724,39 +724,11 @@ IopQueryDeviceInformation(IN PFILE_OBJECT FileObject,
+         StackPtr->Parameters.QueryVolume.Length = Length;
+     }
+ 
+-    /* Queue the IRP */
+-    IopQueueIrpToThread(Irp);
+-
+-    /* Call the Driver */
+-    Status = IoCallDriver(DeviceObject, Irp);
+-
+-    /* Check if this was synch I/O */
+-    if (!LocalEvent)
+-    {
+-        /* Check if the request is pending */
+-        if (Status == STATUS_PENDING)
+-        {
+-            /* Wait on the file object */
+-            Status = KeWaitForSingleObject(&FileObject->Event,
+-                                           Executive,
+-                                           KernelMode,
+-                                           (FileObject->Flags &
+-                                            FO_ALERTABLE_IO) != 0,
+-                                           NULL);
+-            if (Status == STATUS_ALERTED)
+-            {
+-                /* Abort the operation */
+-                IopAbortInterruptedIrp(&FileObject->Event, Irp);
+-            }
+-
+-            /* Get the final status */
+-            Status = FileObject->FinalStatus;
+-        }
+-
+-        /* Release the file lock */
+-        IopUnlockFileObject(FileObject);
+-    }
+-    else if (Status == STATUS_PENDING)
++    /* Finish an inline completion while the local IOSB is still alive. */
++    Status = IopPerformSynchronousRequest(DeviceObject, Irp, FileObject,
++                                          TRUE, KernelMode, !LocalEvent,
++                                          IopOtherTransfer);
++    if (LocalEvent && Status == STATUS_PENDING)
+     {
+         /* Wait on the local event and get the final status */
+         KeWaitForSingleObject(&Event,
+@@ -1360,7 +1332,7 @@ IoSetInformation(IN PFILE_OBJECT FileObject,
+     Irp->UserIosb = &IoStatusBlock;
+     Irp->UserEvent = (LocalEvent) ? &Event : NULL;
+     Irp->Flags = (LocalEvent) ? IRP_SYNCHRONOUS_API : 0;
+-    Irp->Flags |= IRP_BUFFERED_IO;
++    Irp->Flags |= IRP_BUFFERED_IO | IRP_DEFER_IO_COMPLETION;
+     Irp->AssociatedIrp.SystemBuffer = FileInformation;
+     Irp->Tail.Overlay.Thread = PsGetCurrentThread();
+ 
+@@ -1373,39 +1345,11 @@ IoSetInformation(IN PFILE_OBJECT FileObject,
+     StackPtr->Parameters.SetFile.FileInformationClass = FileInformationClass;
+     StackPtr->Parameters.SetFile.Length = Length;
+ 
+-    /* Queue the IRP */
+-    IopQueueIrpToThread(Irp);
+-
+-    /* Call the Driver */
+-    Status = IoCallDriver(DeviceObject, Irp);
+-
+-    /* Check if this was synch I/O */
+-    if (!LocalEvent)
+-    {
+-        /* Check if the request is pending */
+-        if (Status == STATUS_PENDING)
+-        {
+-            /* Wait on the file object */
+-            Status = KeWaitForSingleObject(&FileObject->Event,
+-                                           Executive,
+-                                           KernelMode,
+-                                           (FileObject->Flags &
+-                                            FO_ALERTABLE_IO) != 0,
+-                                           NULL);
+-            if (Status == STATUS_ALERTED)
+-            {
+-                /* Abort the operation */
+-                IopAbortInterruptedIrp(&FileObject->Event, Irp);
+-            }
+-
+-            /* Get the final status */
+-            Status = FileObject->FinalStatus;
+-        }
+-
+-        /* Release the file lock */
+-        IopUnlockFileObject(FileObject);
+-    }
+-    else if (Status == STATUS_PENDING)
++    /* Finish an inline completion while the local IOSB is still alive. */
++    Status = IopPerformSynchronousRequest(DeviceObject, Irp, FileObject,
++                                          TRUE, KernelMode, !LocalEvent,
++                                          IopOtherTransfer);
++    if (LocalEvent && Status == STATUS_PENDING)
+     {
+         /* Wait on the local event and get the final status */
+         KeWaitForSingleObject(&Event,
