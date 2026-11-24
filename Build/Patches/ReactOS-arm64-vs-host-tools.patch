@@ -1,0 +1,27 @@
+ARM64 VS solutions on x64 Windows: build the host utilities for the Win32
+toolchain selected by upstream's amd64_x86 vcvars shim. At 4fbbefd614b,
+setup_host_tools() generated -AARM64 for the child CMake configure: the VS
+generator inherited the target platform despite the shim. With -AWin32 the
+host-tools build completed and spec2def.exe had PE machine type 0x014c.
+
+diff --git a/sdk/cmake/host-tools.cmake b/sdk/cmake/host-tools.cmake
+--- a/sdk/cmake/host-tools.cmake
++++ b/sdk/cmake/host-tools.cmake
+@@ -99,7 +99,17 @@ function(setup_host_tools)
+         set(HOST_BUILD_TYPE Debug)
+     endif()
+ 
++    if(MSVC_IDE AND HOST_ARCH STREQUAL "amd64" AND ARCH STREQUAL "arm64")
++        # Match the Win32 host-tools shim rather than inheriting -A ARM64.
++        set(_host_generator
++            CMAKE_GENERATOR "${CMAKE_GENERATOR}"
++            CMAKE_GENERATOR_INSTANCE "${CMAKE_GENERATOR_INSTANCE}"
++            CMAKE_GENERATOR_TOOLSET "${CMAKE_GENERATOR_TOOLSET}"
++            CMAKE_GENERATOR_PLATFORM Win32)
++    endif()
++
+     ExternalProject_Add(host-tools
++        ${_host_generator}
+         SOURCE_DIR ${REACTOS_SOURCE_DIR}
+         PREFIX ${REACTOS_BINARY_DIR}/host-tools
+         BINARY_DIR ${REACTOS_BINARY_DIR}/host-tools/bin

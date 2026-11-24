@@ -1,0 +1,56 @@
+Defer media assembly to explicit targets in Visual Studio, and order the
+hive projects after the shared registry INF producer. At 4fbbefd614b the
+x64 Debug IDE selected livecd and CAB/hive projects outside ALL_BUILD.
+During a clean solution build several projects regenerated the same INFs;
+bootcd_hives failed with a sharing violation. Retain file dependencies for
+incremental builds and the bootcd target's upstream packaging commands.
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -381,6 +381,18 @@ else()
+     # Create {bootcd, bootcdregtest, livecd}.lst
+     create_iso_lists()
+ 
++    # VS can select a non-ALL target merely because another utility uses it.
++    # Keep image assembly available by name, as with the single-config build.
++    if(MSVC_IDE)
++        foreach(_media_target IN ITEMS
++                bootcd bootcdregtest livecd reactos_cab reactos_cab_inf
++                registry_inf bootcd_hives livecd_hives bcd_hive efisys)
++            if(TARGET ${_media_target})
++                set_property(TARGET ${_media_target} PROPERTY EXCLUDE_FROM_DEFAULT_BUILD TRUE)
++            endif()
++        endforeach()
++    endif()
++
+     file(MAKE_DIRECTORY ${REACTOS_BINARY_DIR}/sdk/include/reactos)
+ 
+     add_dependency_footer()
+diff --git a/sdk/cmake/CMakeMacros.cmake b/sdk/cmake/CMakeMacros.cmake
+--- a/sdk/cmake/CMakeMacros.cmake
++++ b/sdk/cmake/CMakeMacros.cmake
+@@ -827,6 +827,7 @@ function(create_registry_hives)
+ 
+     add_custom_target(bootcd_hives
+         DEPENDS ${CMAKE_BINARY_DIR}/boot/bootdata/SETUPREG.HIV)
++    add_dependencies(bootcd_hives registry_inf)
+ 
+     add_cd_file(
+         FILE ${CMAKE_BINARY_DIR}/boot/bootdata/SETUPREG.HIV
+@@ -865,6 +866,7 @@ function(create_registry_hives)
+                 ${CMAKE_BINARY_DIR}/boot/bootdata/default
+                 ${CMAKE_BINARY_DIR}/boot/bootdata/sam
+                 ${CMAKE_BINARY_DIR}/boot/bootdata/security)
++    add_dependencies(livecd_hives registry_inf)
+ 
+     add_cd_file(
+         FILE ${CMAKE_BINARY_DIR}/boot/bootdata/system
+@@ -885,6 +887,7 @@ function(create_registry_hives)
+ 
+         add_custom_target(bcd_hive
+             DEPENDS ${CMAKE_BINARY_DIR}/boot/bootdata/BCD)
++        add_dependencies(bcd_hive registry_inf)
+ 
+         add_cd_file(
+             FILE ${CMAKE_BINARY_DIR}/boot/bootdata/BCD

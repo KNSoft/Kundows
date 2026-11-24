@@ -3,54 +3,69 @@
 ## Build
 
 Install Git, [RosBE for Windows](https://reactos.org/wiki/Build_Environment)
-and Visual Studio with the MSVC C++ x86/x64 tools and a Windows SDK. From a
-regular **cmd.exe** on x64 Windows, in a checkout whose path has no spaces:
+and Visual Studio 2026 with the C++ desktop workload, **C++ CMake tools for
+Windows**, and a Windows SDK. From a regular **cmd.exe** on x64 Windows, in
+a checkout whose path has no spaces:
 
 ```bat
+Configure.cmd
 Build.cmd
 MakeISO.cmd
 ```
 
-Both commands default to **x64 Debug**. Binaries and the CMake build tree go
-in `OutDir\<arch>\<configuration>` (`OutDir\amd64\Debug` by default). The
-final image is `OutDir\bootcd-<platform>-<configuration>.iso`, for example
-`OutDir\bootcd-x64-Debug.iso`. Use the same platform and configuration for
-both commands. Run `Build.cmd /?` for arguments.
+All three commands default to **x64 Debug**. After `Configure.cmd`, open
+`OutDir\amd64\Debug\REACTOS.slnx` and choose **Build Solution**, or run
+`Build.cmd`. `MakeISO.cmd` publishes `OutDir\bootcd-x64-Debug.iso`.
 
-- `Build.cmd` initializes the pinned ReactOS submodule if missing, checks its
-  revision, applies the selected patches, and builds upstream `all` using
-  CMake, the `Ninja` generator, and `toolchain-msvc.cmake`. Upstream builds
-  its host tools and generates parsers with Bison/Flex. Ninja handles
-  incremental builds and CMake regeneration.
-- `MakeISO.cmd` builds the **upstream `bootcd` target** in the same tree and
-  moves the finished `bootcd.iso` to its final name under `OutDir`. Upstream
-  owns the hives, CAB, file lists, boot images, `mkisofs` and `isohybrid`
-  invocations.
-- RosBE is located via `ROSBE_ROOT`, the active RosBE installation, the
-  installer registry entry, `RosBE.cmd` on `PATH`, or `%SystemDrive%\RosBE`.
-  The scripts use its Ninja, Bison, Flex, M4 and Bison data with the MSVC
-  environment set by `vcvarsall`. CMake comes from `RosBE\bin\cmake.exe`
-  when installed there; otherwise install **C++ CMake tools for Windows** in
-  VS for its bundled CMake. No global environment changes are required.
+Each `Configure.cmd <platform> <configuration>` generates **one independent
+solution for that pair**, on demand. For example, `Configure.cmd Win32 Release`
+generates `OutDir\i386\Release\REACTOS.slnx`. Pass `Win32 Release` to the
+other two commands to use that solution. ARM64 uses `OutDir\arm64`. ReactOS
+uses `ARCH` and `CMAKE_BUILD_TYPE` at configure time, including for kernel
+debugging and runtime checks. The generated solution exposes only the
+configuration matching those settings. Move an old Ninja tree aside before
+configuring VS in the same directory.
+
+- `Configure.cmd` initializes/checks the pinned submodule, applies the
+  selected patches, sets up MSVC and RosBE, then runs VS's bundled CMake
+  with the `Visual Studio 18 2026` generator and `toolchain-msvc.cmake`.
+  Both host and target parser builds use RosBE's Bison, Flex and M4. RosBE
+  is located via `ROSBE_ROOT`, the active environment, the installer registry
+  entry, `RosBE.cmd` on `PATH`, or `%SystemDrive%\RosBE`.
+- `Build.cmd` invokes `devenv.com REACTOS.slnx /Build` with the selected
+  configuration and platform. It uses the same solution as the IDE.
+- `MakeISO.cmd` builds upstream `bootcd` in **that same VS build tree**. CMake
+  and the ReactOS host tools own the file lists, hives, CAB and boot images.
+  The finished ISO is moved to `OutDir\bootcd-<platform>-<configuration>.iso`.
 
 ### Patch selection
 
-`x64` and `Win32` use the `spec2def` export fix. `ARM64` also applies the
-experimental NTDLL port and requires the ARM64 MSVC tools. `--image-fixes`
-adds the KD, RTC, CC and MM changes investigated for particular runtime
-scenarios. The evidence and its limits are recorded before the first diff
+The default patches fix `spec2def` exports, the PC BIOS FreeLdr PE path, and
+two clean-build issues:
+
+- [Generated headers](Build/Patches/ReactOS-generated-header-deps.patch):
+  lwIP must wait for `wdm.h` and the static PathCch library for `wtypes.h`.
+- [Media targets](Build/Patches/ReactOS-vs-media-deps.patch): **Build
+  Solution** leaves image assembly to explicit targets. When building the
+  BootCD, the hive projects wait for the shared registry INF producer.
+
+`ARM64` requires the ARM64 MSVC tools. It applies the experimental NTDLL port
+and [builds the host tools for Win32](Build/Patches/ReactOS-arm64-vs-host-tools.patch)
+so they run on the x64 build machine. `Configure.cmd x64 Debug --image-fixes`
+adds the KD, RTC, CC and MM changes investigated for particular runtime scenarios.
+The evidence and its limits are recorded before the first diff
 in each patch. The old parser-snapshot adapter is unnecessary with RosBE.
 
-Patches apply to the submodule working tree. Repeating a build recognizes
-already-applied patches. Conflicts fail the build. The scripts do not remove
-edits or previously selected optional patches; use a clean pinned source
-tree when switching back to a smaller patch set.
+Patches apply to the shared submodule working tree. `Configure.cmd`
+recognizes already-applied patches and stops on conflicts. Use a clean
+pinned source tree when switching back to a smaller patch set; configuring
+another solution does not remove edits or previously selected patches.
 
-### Why Ninja for a bootable ISO?
+### Visual Studio and the boot image
 
 The [ReactOS build guide, VSSolution section](https://reactos.org/wiki/Building_ReactOS#VSSolution_(Visual_Studio))
-recommends Ninja for a bootable ISO. `VSSolution` is a **CMake generator**;
-MSVC is the compiler and works with Ninja. Building `all` only builds binaries.
+recommends Ninja for a bootable ISO. Here a small upstream-source patch
+corrects a known defect in the VS-generated PC BIOS loader.
 See [`boot/boot_images.cmake`](Upstream/ReactOS/Source/boot/boot_images.cmake)
 for `bootcd` and [`create_iso_lists`](Upstream/ReactOS/Source/sdk/cmake/CMakeMacros.cmake)
 for how the lists and CAB dependencies are created.
@@ -71,10 +86,24 @@ file and a missing second file, the command returned success and wrote only
 the first file. In the retained upstream build, `freeldr.sys` was
 byte-identical to the 2,048-byte prefix alone. In the old Kundows build it
 was byte-identical to the prefix plus the 173,568-byte PE (175,616 bytes).
-This rule is unchanged at `4fbbefd614b`. It demonstrates one failure mode;
-it does not diagnose every configuration or the independent UEFI boot path.
+The unmodified rule is unchanged at `4fbbefd614b`. The
+[FreeLdr patch](Build/Patches/ReactOS-freeldr-target-file.patch) uses
+`$<TARGET_FILE:freeldr_pe>` to get the linked PE for the active configuration.
+The generated x64 Debug and Win32 Release projects both reference that PE
+as an input to the concatenation rule. The UEFI loader uses a separate rule.
 
-The x64 Release build with the default patch set at `4fbbefd614b` produced a 241,172,480-byte
+With Visual Studio 2026, a clean x64 Debug **Build Solution** completed
+with 1,366 projects built and no failures. `MakeISO.cmd` then produced a
+256,901,120-byte BootCD containing both El Torito entries. Its BIOS loader
+matched `frldr16.bin` (2,048 bytes) plus the linked PE (372,224 bytes); its
+EFI loader matched `uefildr.efi` (488,448 bytes). In a diskless VirtualBox
+BIOS guest, FreeLdr displayed its menu; selecting text-mode Setup led to a
+COM1 debugger prompt. A UEFI guest reached Setup language selection, with
+visible text-mode display corruption. Win32 Release was checked through
+FreeLdr (2,048 + 143,360 bytes), and ARM64 Debug through solution generation
+and the native host-tools build.
+
+The previous **Ninja** x64 Release build at `4fbbefd614b` produced a 241,172,480-byte
 BootCD with the upstream `bootcd` target. Its El Torito catalog contains BIOS
 and EFI boot entries. The packaged `loader/freeldr.sys` (175,616 bytes) and
 `efi/boot/bootx64.efi` (207,360 bytes) matched the expected build outputs
@@ -109,4 +138,4 @@ Rules:
 - Use uppercase scopes; use `:` for sub-scopes, such as `[NTDLL:LDR]`.
 - Use one commit for one change.
 - Use an imperative summary without a period; explain why in the commit body.
-- Add a new scope to `Scopes.json` when needed.
+- Add a new scope to [docs/Scopes.json](docs/Scopes.json) when needed.

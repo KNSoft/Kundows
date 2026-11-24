@@ -1,0 +1,19 @@
+PC BIOS FreeLdr (i386/amd64): concatenate the PE from the linker output for
+the active configuration. Convert its path for the host shell after CMake
+evaluates the target expression. At 1103f43a0c0 the x64 VS Release build
+produced a 2,048-byte freeldr.sys (prefix only) instead of 175,616 bytes:
+copy /B can succeed when its second input is missing. The affected rule is
+unchanged at 4fbbefd614b. This does not alter the separate EFI loader.
+
+diff --git a/boot/freeldr/freeldr/pcat.cmake b/boot/freeldr/freeldr/pcat.cmake
+--- a/boot/freeldr/freeldr/pcat.cmake
++++ b/boot/freeldr/freeldr/pcat.cmake
+@@ -250,7 +250,7 @@ if(NOT ARCH STREQUAL "arm")
+     concatenate_files(
+         ${CMAKE_CURRENT_BINARY_DIR}/freeldr.sys
+         ${CMAKE_CURRENT_BINARY_DIR}/frldr16.bin
+-        ${CMAKE_CURRENT_BINARY_DIR}/$<TARGET_FILE_NAME:freeldr_pe>)
++        $<SHELL_PATH:$<TARGET_FILE:freeldr_pe>>)
+     add_custom_target(freeldr ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/freeldr.sys)
+ else()
+     add_custom_target(freeldr ALL DEPENDS freeldr_pe)
