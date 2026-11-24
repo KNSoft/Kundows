@@ -29,6 +29,11 @@ debugging and runtime checks. The generated solution exposes only the
 configuration matching those settings. Move an old Ninja tree aside before
 configuring VS in the same directory.
 
+Configure sets `DLL_EXPORT_VERSION=0x600` for the target system. Re-run
+`Configure.cmd` on existing `0x502` trees before using Build or MakeISO.
+See the [export-level comparison](Notes/DLL-Export-Version/README.md) for
+what this enables and why a larger value is not necessarily more compatible.
+
 - `Configure.cmd` initializes/checks the pinned submodule, applies the
   selected patches, sets up MSVC and RosBE, then runs VS's bundled CMake
   with the `Visual Studio 18 2026` generator and `toolchain-msvc.cmake`.
@@ -109,7 +114,7 @@ The unmodified rule is unchanged at `4fbbefd614b`. The
 The generated x64 Debug and Win32 Release projects both reference that PE
 as an input to the concatenation rule. The UEFI loader uses a separate rule.
 
-The current default x64 Debug BootCD completed a fresh FAT installation
+The earlier `0x502` x64 Debug BootCD completed a fresh FAT installation
 on Hyper-V Gen 1 and booted from the installed disk to an interactive
 desktop. See the [tested ISO hash, first disk boot and Ctrl+Alt+Del
 screenshots](Notes/BootCD-x64-Setup/README.md#hyper-v-gen-1).

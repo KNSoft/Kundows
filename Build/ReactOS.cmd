@@ -32,12 +32,16 @@ set "kw_out=%kw_root%OutDir\%kw_arch%\%kw_config%"
 set "kw_iso=%kw_root%OutDir\bootcd-%kw_platform%-%kw_config%.iso"
 set "kw_solution=%kw_out%\REACTOS.slnx"
 set "kw_generator=Visual Studio 18 2026"
+set "kw_export_version=0x600"
 set "kw_vs="
 if not "%kw_src: =%"=="%kw_src%" goto spaces
 if exist "%kw_out%\build.ninja" goto wrongcache
 if exist "%kw_out%\CMakeCache.txt" (
     for %%L in ("CMAKE_HOME_DIRECTORY:INTERNAL=%kw_src:\=/%" "CMAKE_TOOLCHAIN_FILE:FILEPATH=%kw_src:\=/%/toolchain-msvc.cmake" "CMAKE_GENERATOR:INTERNAL=%kw_generator%" "CMAKE_GENERATOR_PLATFORM:INTERNAL=%kw_platform%" "ARCH:STRING=%kw_arch%" "CMAKE_CONFIGURATION_TYPES:STRING=%kw_config%" "CMAKE_BUILD_TYPE:STRING=%kw_config%") do (
         findstr /i /l /x /c:"%%~L" "%kw_out%\CMakeCache.txt" >nul || goto wrongcache
+    )
+    if not "%kw_stage%"=="Configure" (
+        findstr /i /l /x /c:"DLL_EXPORT_VERSION:STRING=%kw_export_version%" "%kw_out%\CMakeCache.txt" >nul || goto unprepared
     )
     for /f "tokens=1,* delims==" %%I in ('findstr /b /l /c:"CMAKE_GENERATOR_INSTANCE:" "%kw_out%\CMakeCache.txt"') do set "kw_vs=%%J"
 ) else if not "%kw_stage%"=="Configure" goto unprepared
@@ -103,6 +107,7 @@ rem The host-tools ExternalProject is first configured by the IDE, in a fresh en
 "%kw_cmake%" -S "%kw_src%" -B "%kw_out%" -G "%kw_generator%" -A "%kw_platform%" ^
     "-DCMAKE_GENERATOR_INSTANCE:STRING=%kw_vs:\=/%" "-DCMAKE_TOOLCHAIN_FILE:FILEPATH=%kw_src%\toolchain-msvc.cmake" ^
     "-DARCH:STRING=%kw_arch%" "-DCMAKE_CONFIGURATION_TYPES:STRING=%kw_config%" "-DCMAKE_BUILD_TYPE:STRING=%kw_config%" ^
+    "-DDLL_EXPORT_VERSION:STRING=%kw_export_version%" ^
     "-DBISON_EXECUTABLE:FILEPATH=%kw_bison%" "-DFLEX_EXECUTABLE:FILEPATH=%kw_flex%" ^
     "-DCMAKE_HOST_TOOLS_EXTRA_ARGS:STRING=-DBISON_EXECUTABLE:FILEPATH=%kw_bison%;-DFLEX_EXECUTABLE:FILEPATH=%kw_flex%" || exit /b 1
 if not exist "%kw_solution%" (
