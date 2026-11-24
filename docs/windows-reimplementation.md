@@ -44,7 +44,11 @@ guest、host 还是 hypervisor。
 
 ## Hyper-V 验证
 
-需要确认完整功能时，按需使用虚拟机验证。
+Windows 宿主上的来宾验证使用 **Hyper-V**。如果普通 PowerShell 执行
+`Get-VM` 时提示权限不足，用 `Start-Process powershell.exe -Verb RunAs`
+通过 UAC 打开管理员 PowerShell，再在其中操作 Hyper-V，不要改用 VirtualBox。
+对照主干的安装结果时使用相同的固件和虚拟硬件：主干 x64 安装基线是
+第一代（BIOS）、1 个虚拟 CPU、固定 1 GiB 内存、无网卡、串口断开。
 
 ### 初始化
 
