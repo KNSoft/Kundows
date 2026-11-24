@@ -1,8 +1,10 @@
 # x64 BootCD: Setup display and hard-disk installation
 
-The [Hyper-V installation](#hyper-v-gen-1) uses the same virtual hardware
-as the pre-rework x64 Debug installation. The separate display comparison
-below records an adapter-specific text-mode issue.
+This note records two findings from the CMake/MSVC rework on ReactOS
+`4fbbefd614b`: the VBoxVGA text corruption also occurred on the earlier
+`1103f43a0c0` image, while the [Hyper-V installation](#hyper-v-gen-1)
+exposed separate boot and file-copy problems. For the current test procedure,
+see [Hyper-V verification](../../windows-reimplementation.md#hyper-v-验证).
 
 ## Historical VBoxVGA comparison
 
@@ -15,8 +17,7 @@ The CMake/VS control is the default x64 Debug ISO from `973eafc` (SHA-256
 The original captures used VirtualBox 7.1.10, one CPU, 1 GiB of RAM,
 VBoxVGA, an IDE DVD, no network, no serial ports and no hard disk. After
 selecting **ReactOS Setup (Text Mode)**, the visible language page was
-compared with the VGA and VBE state and the text-memory view. For ongoing
-install-to-desktop validation, use the [Hyper-V procedure](windows-reimplementation.md#hyper-v-验证).
+compared with the VGA and VBE state and the text-memory view.
 
 | Media | Firmware | VGA state / text-memory view | Visible result |
 | --- | --- | --- | --- |
@@ -33,14 +34,14 @@ registers, but the emulated display still fetched rows using the graphics
 pitch. This explains why the language list was present in guest memory
 and nevertheless unreadable on screen.
 
-The [driver patch](../Build/Patches/ReactOS-blue-vbox-vbe.patch) detects
+The [driver patch](../../../Build/Patches/ReactOS-blue-vbox-vbe.patch) detects
 the VBoxVGA PCI adapter (`80ee:beef`, VGA class, I/O decoding enabled) and
 disables the extended mode while `blue.sys` owns the text console. In the
 published x64 Debug test image (`209008C7335C311DB636E128418DE58A240506D5E5B61AAE452E54EB35B7C57C`),
 `info vga` reported `cbLine: 0x280`, versus `0xc80` before the fix.
 
-[Before: clipped language page](images/vbox-efi-text-before.png) ·
-[After: readable language page](images/vbox-efi-text-after.png)
+[Before: clipped language page](Images/vbox-efi-text-before.png) ·
+[After: readable language page](Images/vbox-efi-text-after.png)
 
 ## Hard-disk installation
 
@@ -53,18 +54,18 @@ the initial Setup process had exited with `STATUS_BREAKPOINT`. With the
 four historical `--image-fixes`, another installation stopped in a kernel
 runtime check. In that dump, the file-information IRP's completion status
 block overlapped the stack guard reported by `KiDeliverApc`. The
-[I/O fix](../Build/Patches/ReactOS-io-sync-status.patch) uses the I/O
+[I/O fix](../../../Build/Patches/ReactOS-io-sync-status.patch) uses the I/O
 manager's deferred-completion path to finish inline requests before the
 status block goes out of scope. Pending requests retain their event waits.
 MSVC Debug runtime checks remained enabled.
 
 ### Hyper-V Gen 1
 
-Use the x64 mainline settings: 1 vCPU, fixed 1 GiB RAM, no NIC or COM
-connection, and a fresh 8 GiB IDE VHDX. Start with the hard disk first so
-a blank disk falls back to the DVD. Select **ReactOS Setup (Text Mode)**,
-confirm the empty disk and **FAT (Quick Format)**, and install the MBR
-and VBR. A separate answer floppy was attached, but Setup still needed
+The test used the x64 mainline settings: 1 vCPU, fixed 1 GiB RAM, no NIC
+or COM connection, and a fresh 8 GiB IDE VHDX. The hard disk was first
+in the boot order, so the blank disk fell back to the DVD. In **ReactOS
+Setup (Text Mode)** we selected **FAT (Quick Format)** and installed the
+MBR and VBR. A separate answer floppy was attached, but Setup still needed
 keyboard input in both the text and graphical stages.
 
 With the pinned-cache fix enabled and the MM change still optional, the
@@ -76,9 +77,9 @@ FreeLdr menu, graphical Setup, and Explorer. After a guest-initiated
 shutdown, a cold start with **both DVD and floppy empty** reached the
 desktop again. A guest Ctrl+Alt+Del opened the ReactOS Security dialog.
 
-[First hard-disk boot](images/hyperv-x64-debug-disk-boot.png) ·
-[Cold-boot desktop](images/hyperv-x64-debug-desktop.png) ·
-[Response to Ctrl+Alt+Del](images/hyperv-x64-debug-security.png)
+[First hard-disk boot](Images/hyperv-x64-debug-disk-boot.png) ·
+[Cold-boot desktop](Images/hyperv-x64-debug-desktop.png) ·
+[Response to Ctrl+Alt+Del](Images/hyperv-x64-debug-security.png)
 
 After another clean shutdown, a read-only disk copy yielded all 1,110 files
 under `\ReactOS` (198,183,396 bytes). All 785 installed `.exe`, `.dll`,
@@ -95,7 +96,7 @@ MSVC runtime checks and kernel debugging were enabled. All 878 checked
 binary and CAB paths in the generated BootCD file list matched their
 inputs byte for byte, including Setup, both kernels, both HALs and `kdcom.dll`.
 Text Setup completed. On the first hard-disk boot, [FreeLdr asserted in
-`FatReadFile`](images/hyperv-x64-fat-chain-before.png) (`fat.c:1395`).
+`FatReadFile`](Images/hyperv-x64-fat-chain-before.png) (`fat.c:1395`).
 Before powering off the guest we saved it
 and inspected a read-only disk copy. The two FAT32 tables differed.
 `system32\hal.dll` was 403,456 bytes but its chain had one 4,096-byte

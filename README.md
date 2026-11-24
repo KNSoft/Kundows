@@ -1,5 +1,7 @@
 # Kundows
 
+See [Docs](Docs/README.md) for the development guide and technical notes.
+
 ## Build
 
 Install Git, [RosBE for Windows](https://reactos.org/wiki/Build_Environment)
@@ -109,7 +111,7 @@ as an input to the concatenation rule. The UEFI loader uses a separate rule.
 The current default x64 Debug BootCD completed a fresh FAT installation
 on Hyper-V Gen 1 and booted from the installed disk to an interactive
 desktop. See the [tested ISO hash, first disk boot and Ctrl+Alt+Del
-screenshots](docs/bootcd-display.md#hyper-v-gen-1).
+screenshots](Docs/Notes/BootCD-x64-Setup/README.md#hyper-v-gen-1).
 
 With Visual Studio 2026, the initial clean x64 Debug **Build Solution** completed
 with 1,366 projects built and no failures. `MakeISO.cmd` then produced a
@@ -119,7 +121,7 @@ EFI loader matched `uefildr.efi` (488,448 bytes). In the earlier VirtualBox BIOS
 the COM1 banner appears before kernel entry; the same build subsequently
 started copying files with no serial port. On VirtualBox EFI64, the text-mode
 fix restored a readable Setup language page. See the [comparison with the
-pre-rework ISO and screenshots](docs/bootcd-display.md). Win32 Release was checked through
+pre-rework ISO and screenshots](Docs/Notes/BootCD-x64-Setup/README.md#historical-vboxvga-comparison). Win32 Release was checked through
 FreeLdr (2,048 + 143,360 bytes), and ARM64 Debug through solution generation
 and the native host-tools build.
 
@@ -158,4 +160,4 @@ Rules:
 - Use uppercase scopes; use `:` for sub-scopes, such as `[NTDLL:LDR]`.
 - Use one commit for one change.
 - Use an imperative summary without a period; explain why in the commit body.
-- Add a new scope to [docs/Scopes.json](docs/Scopes.json) when needed.
+- Add a new scope to [Docs/Scopes.json](Docs/Scopes.json) when needed.
