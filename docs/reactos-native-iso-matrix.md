@@ -52,6 +52,9 @@ Both UP and MP kernels were rebuilt in every configuration before repackaging.
 
 ## Installed-system validation
 
+See the [Hyper-V guest debugging guide](hyperv-guest-debugging.md) for the
+background screenshot/input methods, shutdown provenance, and diagnostic pitfalls.
+
 Three current images completed fresh, serial-disconnected installation and
 reached responsive installed desktops, including guest Ctrl+Alt+Del:
 
