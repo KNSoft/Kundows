@@ -55,3 +55,17 @@ For a newer application, identify its missing import, verify the
 implementation and its host/kernel dependencies, and run an application or
 behavioral test. Use a separate build tree for wider export-level experiments
 so that DLLs and import libraries from different levels cannot be mixed.
+
+## Installed guest at `0x600`
+
+The stock-branded x64 Debug solution built 1,419 projects with zero failures.
+The BootCD (`9E2A967AE0004DE2785E42D976FA951A26519A220AC30EA020D862BB5BFC3DCB`)
+contained the measured 1,812 `ntdll` and 1,227 `kernel32` exports. On Hyper-V
+Gen 1 it completed a blank-disk FAT installation, rebooted through graphical
+Setup and reached a desktop that responded to guest Ctrl+Alt+Del.
+
+A native x64 program on a separate read-only test CD statically imported
+`kernel32!GetTickCount64`. The installed loader resolved the import and
+the returned count advanced across `Sleep(250)`.
+
+![Installed 0x600 guest reporting that GetTickCount64 advanced](Images/tickcount64-hyperv.png)
