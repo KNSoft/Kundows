@@ -40,14 +40,17 @@ configuring VS in the same directory.
 
 ### Patch selection
 
-The default patches fix `spec2def` exports, the PC BIOS FreeLdr PE path, and
-two clean-build issues:
+The default patches fix `spec2def` exports, the PC BIOS FreeLdr PE path,
+and the following issues:
 
 - [Generated headers](Build/Patches/ReactOS-generated-header-deps.patch):
   lwIP must wait for `wdm.h` and the static PathCch library for `wtypes.h`.
 - [Media targets](Build/Patches/ReactOS-vs-media-deps.patch): **Build
   Solution** leaves image assembly to explicit targets. When building the
   BootCD, the hive projects wait for the shared registry INF producer.
+- [VBoxVGA text mode](Build/Patches/ReactOS-blue-vbox-vbe.patch): on the
+  VirtualBox VGA adapter, Setup releases the firmware framebuffer's scanline
+  pitch while it owns the VGA text console.
 
 `ARM64` requires the ARM64 MSVC tools. It applies the experimental NTDLL port
 and [builds the host tools for Win32](Build/Patches/ReactOS-arm64-vs-host-tools.patch)
@@ -96,10 +99,11 @@ With Visual Studio 2026, a clean x64 Debug **Build Solution** completed
 with 1,366 projects built and no failures. `MakeISO.cmd` then produced a
 256,901,120-byte BootCD containing both El Torito entries. Its BIOS loader
 matched `frldr16.bin` (2,048 bytes) plus the linked PE (372,224 bytes); its
-EFI loader matched `uefildr.efi` (488,448 bytes). In a diskless VirtualBox
-BIOS guest, FreeLdr displayed its menu; selecting text-mode Setup led to a
-COM1 debugger prompt. A UEFI guest reached Setup language selection, with
-visible text-mode display corruption. Win32 Release was checked through
+EFI loader matched `uefildr.efi` (488,448 bytes). In a VirtualBox BIOS guest
+the COM1 banner appears before kernel entry; the same build subsequently
+started copying files with no serial port. On VirtualBox EFI64, the text-mode
+fix restored a readable Setup language page. See the [comparison with the
+pre-rework ISO and screenshots](docs/bootcd-display.md). Win32 Release was checked through
 FreeLdr (2,048 + 143,360 bytes), and ARM64 Debug through solution generation
 and the native host-tools build.
 

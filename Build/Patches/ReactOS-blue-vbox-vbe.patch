@@ -1,0 +1,134 @@
+PC text-mode Setup on VirtualBox VGA (PCI 80ee:beef): suspend extended VBE
+scanout while blue.sys owns the legacy console, and re-enable a borrowed
+framebuffer on release. On VirtualBox 7.1.10 EFI64, x64 Debug images from
+1103f43a0c0 and 4fbbefd614b showed the same clipped Setup screen: VGA was
+80x50 but the enabled 800x600x32 VBE pitch decoded 400 columns. Disabling
+VBE on this adapter restored 80 columns and a readable language page.
+
+diff --git a/drivers/setup/blue/blue.c b/drivers/setup/blue/blue.c
+index 06e498d8208..0db73e51c1f 100644
+--- a/drivers/setup/blue/blue.c
++++ b/drivers/setup/blue/blue.c
+@@ -28,6 +28,8 @@ typedef struct _DEVICE_EXTENSION
+     PUCHAR  VideoMemory;    /* Pointer to video memory */
+     SIZE_T  VideoMemorySize;
+     BOOLEAN Enabled;
++    BOOLEAN VBoxVga;
++    USHORT SavedVbeEnable;
+     PUCHAR  ScreenBuffer;   /* Pointer to screenbuffer */
+     SIZE_T  ScreenBufferSize;
+     ULONG   CursorSize;
+@@ -303,6 +305,70 @@ ScrInbvCleanup(VOID)
+ 
+ /* FUNCTIONS **************************************************************/
+ 
++/* VBoxVGA exposes its legacy VGA decode on PCI bus 0, function 0. */
++static BOOLEAN
++ScrHasVBoxVga(VOID)
++{
++#if defined(_M_IX86) || defined(_M_AMD64)
++    PCI_COMMON_CONFIG Config;
++    PCI_SLOT_NUMBER Slot = {0};
++    ULONG Device;
++    const ULONG Length = FIELD_OFFSET(PCI_COMMON_CONFIG, CacheLineSize);
++
++    for (Device = 0; Device < PCI_MAX_DEVICES; ++Device)
++    {
++        Slot.u.bits.DeviceNumber = Device;
++        if (HalGetBusDataByOffset(PCIConfiguration, 0, Slot.u.AsULONG,
++                                  &Config, 0, Length) == Length &&
++            Config.VendorID == 0x80EE && Config.DeviceID == 0xBEEF &&
++            Config.BaseClass == PCI_CLASS_DISPLAY_CTLR &&
++            Config.SubClass == PCI_SUBCLASS_VID_VGA_CTLR &&
++            (Config.Command & PCI_ENABLE_IO_SPACE))
++        {
++            return TRUE;
++        }
++    }
++#endif
++    return FALSE;
++}
++
++#define VBOX_VBE_INDEX_PORT    ((PUSHORT)0x01CE)
++#define VBOX_VBE_DATA_PORT     ((PUSHORT)0x01CF)
++#define VBOX_VBE_INDEX_ENABLE  4
++#define VBOX_VBE_ENABLED       0x01
++#define VBOX_VBE_NOCLEARMEM    0x80
++
++/* VBoxVGA's extended pitch overrides the VGA CRTC even in text mode.
++ * Give the framebuffer back to INBV when relinquishing the console. */
++static VOID
++ScrVBoxTextMode(PDEVICE_EXTENSION DeviceExtension, BOOLEAN Acquire)
++{
++    USHORT SavedIndex, Enable;
++
++    if (!DeviceExtension->VBoxVga || (!Acquire && !DeviceExtension->SavedVbeEnable))
++        return;
++
++    SavedIndex = READ_PORT_USHORT(VBOX_VBE_INDEX_PORT);
++    WRITE_PORT_USHORT(VBOX_VBE_INDEX_PORT, VBOX_VBE_INDEX_ENABLE);
++    Enable = READ_PORT_USHORT(VBOX_VBE_DATA_PORT);
++    if (Acquire)
++    {
++        if (Enable & VBOX_VBE_ENABLED)
++        {
++            DeviceExtension->SavedVbeEnable = Enable;
++            WRITE_PORT_USHORT(VBOX_VBE_DATA_PORT, 0);
++        }
++    }
++    else
++    {
++        if (!(Enable & VBOX_VBE_ENABLED))
++            WRITE_PORT_USHORT(VBOX_VBE_DATA_PORT,
++                              DeviceExtension->SavedVbeEnable | VBOX_VBE_NOCLEARMEM);
++        DeviceExtension->SavedVbeEnable = 0;
++    }
++    WRITE_PORT_USHORT(VBOX_VBE_INDEX_PORT, SavedIndex);
++}
++
+ static VOID
+ FASTCALL
+ ScrSetRegisters(const VGA_REGISTERS *Registers)
+@@ -417,6 +483,7 @@ ScrAcquireOwnership(
+ 
+     _disable();
+ 
++    ScrVBoxTextMode(DeviceExtension, TRUE);
+     ScrSetRegisters(&VidpMode3Regs);
+ 
+     /* Disable screen and enable palette access */
+@@ -555,7 +622,10 @@ ScrResetScreen(
+             /* Get a pointer to the video memory */
+             DeviceExtension->VideoMemorySize = DeviceExtension->Rows * DeviceExtension->Columns * 2;
+             if (DeviceExtension->VideoMemorySize == 0)
++            {
++                ScrVBoxTextMode(DeviceExtension, FALSE);
+                 return FALSE; // STATUS_INVALID_VIEW_SIZE; STATUS_MAPPED_FILE_SIZE_ZERO;
++            }
+ 
+             /* Map the video memory */
+             BaseAddress.QuadPart = VIDMEM_BASE;
+@@ -564,6 +634,7 @@ ScrResetScreen(
+             if (!DeviceExtension->VideoMemory)
+             {
+                 DeviceExtension->VideoMemorySize = 0;
++                ScrVBoxTextMode(DeviceExtension, FALSE);
+                 return FALSE; // STATUS_NONE_MAPPED; STATUS_NOT_MAPPED_VIEW; STATUS_CONFLICTING_ADDRESSES;
+             }
+ 
+@@ -659,6 +730,7 @@ ScrResetScreen(
+                               DeviceExtension->VideoMemorySize);
+             }
+         }
++        ScrVBoxTextMode(DeviceExtension, FALSE);
+     }
+ 
+     return TRUE; // STATUS_SUCCESS;
+@@ -1596,6 +1668,7 @@ DriverEntry(
+     Status = IoCreateSymbolicLink(&SymlinkName, &DeviceName);
+     if (NT_SUCCESS(Status))
+     {
++        ((PDEVICE_EXTENSION)DeviceObject->DeviceExtension)->VBoxVga = ScrHasVBoxVga();
+         /* By default disable the screen (but don't touch INBV: ResetDisplayParametersDeviceExtension is still NULL) */
+         ScrResetScreen(DeviceObject->DeviceExtension, TRUE, FALSE);
+         /* Now set ResetDisplayParametersDeviceExtension to enable synchronizing with INBV */
