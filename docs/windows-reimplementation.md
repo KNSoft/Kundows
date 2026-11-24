@@ -44,9 +44,9 @@ guest、host 还是 hypervisor。
 
 ## Hyper-V 验证
 
-Windows 宿主上的来宾验证使用 **Hyper-V**。如果普通 PowerShell 执行
-`Get-VM` 时提示权限不足，用 `Start-Process powershell.exe -Verb RunAs`
-通过 UAC 打开管理员 PowerShell，再在其中操作 Hyper-V，不要改用 VirtualBox。
+Windows 宿主上的来宾验证只用 **Hyper-V**。如果普通 PowerShell 执行
+`Get-VM` 时提示权限不足，用 `Start-Process powershell.exe -Verb RunAs -WindowStyle Hidden`
+通过 UAC 在后台运行验证脚本。用 Hyper-V CIM 接口取帧和发送来宾按键，不占用宿主窗口焦点。
 对照主干的安装结果时使用相同的固件和虚拟硬件：主干 x64 安装基线是
 第一代（BIOS）、1 个虚拟 CPU、固定 1 GiB 内存、无网卡、串口断开。
 
@@ -73,6 +73,11 @@ disposable fixture 的 VM 允许 agent 自主启动、修改、重启、调试�
 运行前确认逻辑角色和干净 checkpoint，恢复基线后使用隔离目录部署测试内容。
 测试中按需收集 guest 和 Hyper-V 两侧的状态。涉及磁盘破坏性操作时使用独立
 VHDX，并确认 host 挂载和 guest 磁盘身份，不能只依赖磁盘编号。
+
+验证安装盘时，让空白 IDE 硬盘位于 DVD 之前。选择文本安装和 FAT 快速格式化，
+确认复制完成后出现的是**硬盘**的 FreeLdr 菜单。图形安装最终重启后，弹出 DVD 和
+软盘，保存桌面截图，再通过来宾 `Msvm_Keyboard.TypeCtrlAltDel` 发送安全注意序列，
+保存安全对话框截图。两张图共同验证桌面能够接收输入。
 
 结束后清理本次运行创建的对象，恢复对应 checkpoint，并重新确认 VM、磁盘和
 checkpoint 状态。
