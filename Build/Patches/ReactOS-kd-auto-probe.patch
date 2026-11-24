@@ -1,7 +1,10 @@
-Optional debugger transport change (--image-fixes); evidence on ReactOS 1103f43a0c0.
-Persistent UART errors can trap the original packet-leader loop. Returning
-to the caller fixes that defect; the shorter discovery window and changed
-polling interval are separate policy choices for virtual serial ports.
+Bound serial KD discovery before the first debugger acknowledgement. Keep
+connected retries and never time out exception packets. On 4fbbefd614b, a
+Hyper-V Gen 1 x64 Debug BootCD with the RTC but not the KD change was
+still polling an unattached COM1 after 220 s. Its saved PC matched
+kdcom!Cp16550ReadLsr+0x52 in the KdpReceivePacketLeader receive path.
+Pacing empty reads and shortening initial discovery addresses this delay;
+the separate line-error fix prevents unbounded packet-leader polling.
 
 diff --git a/drivers/base/kdcom/kdcom.c b/drivers/base/kdcom/kdcom.c
 --- a/drivers/base/kdcom/kdcom.c

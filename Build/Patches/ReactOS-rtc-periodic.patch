@@ -1,7 +1,9 @@
-Optional Hyper-V workaround (--image-fixes); evidence on ReactOS 1103f43a0c0. RTC
-calibration stalled in the native image and advanced when the divider was
-reloaded after unmasking the interrupt. The same failure has not been
-confirmed with an unmodified upstream image on that VM configuration.
+Start the x86 APIC HAL's RTC periodic divider after installing its handler
+and unmasking the interrupt. On 4fbbefd614b, a Hyper-V Gen 1 x64 Debug
+BootCD with the serial KD but not the RTC change was in hal!HalpInitializeTsc+0xbc,
+waiting for four RTC calibration samples. The saved instruction bytes
+matched this ISO's unmodified HAL. With the divider reloaded after unmask,
+Setup advanced on the same VM, as previously observed on 1103f43a0c0.
 
 diff --git a/hal/halx86/apic/tsc.c b/hal/halx86/apic/tsc.c
 --- a/hal/halx86/apic/tsc.c
