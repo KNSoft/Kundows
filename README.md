@@ -59,11 +59,14 @@ and the following issues:
   initial wait for an unattached debugger, and start the APIC HAL's periodic
   clock after the interrupt route is ready. Both waits were observed in
   saved Hyper-V x64 Debug guest CPU states.
+- [Pinned cache writes](Build/Patches/ReactOS-cc-pinned-dirty.patch):
+  preserve a dirty buffer's final modifications even if writeback runs
+  between the filesystem marking the buffer dirty and releasing its pin.
 
 `ARM64` requires the ARM64 MSVC tools. It applies the experimental NTDLL port
 and [builds the host tools for Win32](Build/Patches/ReactOS-arm64-vs-host-tools.patch)
 so they run on the x64 build machine. `Configure.cmd x64 Debug --image-fixes`
-also applies the cache-manager and memory-manager writeback changes.
+also applies the memory-manager flush-collision change.
 The evidence and its limits are recorded before the first diff
 in each patch. The old parser-snapshot adapter is unnecessary with RosBE.
 

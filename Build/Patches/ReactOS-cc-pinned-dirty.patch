@@ -1,7 +1,10 @@
-Optional runtime fix (--image-fixes); evidence on ReactOS 1103f43a0c0. Writeback can
-clear dirty state between marking a pinned buffer dirty and updating it.
-Tests on the original pin.c functions reproduce the lost update; they do
-not establish that it caused the observed installation-disk corruption.
+Keep a pinned buffer's dirty intent through unpin: writeback can clear
+both cache and segment dirty state before the caller modifies the buffer.
+In nine controlled cases using pin.c from 4fbbefd614b, the original code
+failed nine checks and the patched code failed none. On a separate Hyper-V
+x64 Debug installation without the CC/MM fixes, the FAT mirrors differed
+and the installed HAL's chain had only one of its 99 required clusters.
+The failed disk alone does not establish the interleaving that caused it.
 
 diff --git a/ntoskrnl/cc/pin.c b/ntoskrnl/cc/pin.c
 --- a/ntoskrnl/cc/pin.c

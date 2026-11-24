@@ -88,9 +88,9 @@ if /i not "%kw_pin%"=="%kw_head%" (
     exit /b 1
 )
 
-set "kw_patches=spec2def-cpp-exports freeldr-target-file generated-header-deps vs-media-deps blue-vbox-vbe io-sync-status kd-auto-probe rtc-periodic"
+set "kw_patches=spec2def-cpp-exports freeldr-target-file generated-header-deps vs-media-deps blue-vbox-vbe io-sync-status kd-auto-probe rtc-periodic cc-pinned-dirty"
 if "%kw_arch%"=="arm64" set "kw_patches=%kw_patches% arm64-ntdll arm64-vs-host-tools"
-if /i "%~3"=="--image-fixes" set "kw_patches=%kw_patches% cc-pinned-dirty mm-flush-collision"
+if /i "%~3"=="--image-fixes" set "kw_patches=%kw_patches% mm-flush-collision"
 set "kw_pending="
 for %%P in (%kw_patches%) do call :queuePatch %%P || exit /b 1
 if defined kw_pending (
