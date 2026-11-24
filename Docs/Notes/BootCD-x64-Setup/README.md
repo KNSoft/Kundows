@@ -40,8 +40,9 @@ disables the extended mode while `blue.sys` owns the text console. In the
 published x64 Debug test image (`209008C7335C311DB636E128418DE58A240506D5E5B61AAE452E54EB35B7C57C`),
 `info vga` reported `cbLine: 0x280`, versus `0xc80` before the fix.
 
-[Before: clipped language page](Images/vbox-efi-text-before.png) ·
-[After: readable language page](Images/vbox-efi-text-after.png)
+| Before the fix | After the fix |
+| --- | --- |
+| ![Setup language page with clipped text](Images/vbox-efi-text-before.png) | ![Readable Setup language page in 80-column mode](Images/vbox-efi-text-after.png) |
 
 ## Hard-disk installation
 
@@ -77,9 +78,17 @@ FreeLdr menu, graphical Setup, and Explorer. After a guest-initiated
 shutdown, a cold start with **both DVD and floppy empty** reached the
 desktop again. A guest Ctrl+Alt+Del opened the ReactOS Security dialog.
 
-[First hard-disk boot](Images/hyperv-x64-debug-disk-boot.png) ·
-[Cold-boot desktop](Images/hyperv-x64-debug-desktop.png) ·
-[Response to Ctrl+Alt+Del](Images/hyperv-x64-debug-security.png)
+**First hard-disk boot**
+
+![FreeLdr menu on the installed disk](Images/hyperv-x64-debug-disk-boot.png)
+
+**Cold boot with the DVD and floppy drives empty**
+
+![ReactOS desktop after booting from the installed disk](Images/hyperv-x64-debug-desktop.png)
+
+**Response to Ctrl+Alt+Del**
+
+![ReactOS Security dialog opened by the guest keystroke](Images/hyperv-x64-debug-security.png)
 
 After another clean shutdown, a read-only disk copy yielded all 1,110 files
 under `\ReactOS` (198,183,396 bytes). All 785 installed `.exe`, `.dll`,
@@ -95,8 +104,11 @@ the CC/MM changes, produced a BootCD
 MSVC runtime checks and kernel debugging were enabled. All 878 checked
 binary and CAB paths in the generated BootCD file list matched their
 inputs byte for byte, including Setup, both kernels, both HALs and `kdcom.dll`.
-Text Setup completed. On the first hard-disk boot, [FreeLdr asserted in
-`FatReadFile`](Images/hyperv-x64-fat-chain-before.png) (`fat.c:1395`).
+Text Setup completed. On the first hard-disk boot, FreeLdr asserted in
+`FatReadFile` (`fat.c:1395`).
+
+![FreeLdr assertion reporting a premature end of the FAT cluster chain](Images/hyperv-x64-fat-chain-before.png)
+
 Before powering off the guest we saved it
 and inspected a read-only disk copy. The two FAT32 tables differed.
 `system32\hal.dll` was 403,456 bytes but its chain had one 4,096-byte
