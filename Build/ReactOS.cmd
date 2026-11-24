@@ -92,11 +92,15 @@ if /i not "%kw_pin%"=="%kw_head%" (
     exit /b 1
 )
 
-set "kw_patches=spec2def-cpp-exports freeldr-target-file generated-header-deps vs-media-deps blue-vbox-vbe io-sync-status kd-auto-probe rtc-periodic cc-pinned-dirty"
-if "%kw_arch%"=="arm64" set "kw_patches=%kw_patches% arm64-ntdll arm64-vs-host-tools"
-if /i "%~3"=="--image-fixes" set "kw_patches=%kw_patches% mm-flush-collision"
 set "kw_pending="
-for %%P in (%kw_patches%) do call :queuePatch %%P || exit /b 1
+for %%P in (spec2def-cpp-exports freeldr-target-file generated-header-deps vs-media-deps) do call :queuePatch BuildSystem %%P || exit /b 1
+for %%P in (blue-vbox-vbe io-sync-status kd-auto-probe rtc-periodic cc-pinned-dirty) do call :queuePatch Runtime %%P || exit /b 1
+if "%kw_arch%"=="arm64" (
+    for %%P in (arm64-ntdll arm64-vs-host-tools) do call :queuePatch ARM64 %%P || exit /b 1
+)
+if /i "%~3"=="--image-fixes" (
+    call :queuePatch Runtime mm-flush-collision || exit /b 1
+)
 if defined kw_pending (
     git -C "%kw_src%" apply --whitespace=nowarn %kw_pending% || exit /b 1
 )
@@ -140,7 +144,7 @@ for %%U in ("%kw_uninstall%") do if exist "%%~dpURosBE.cmd" set "kw_be=%%~dpU."
 exit /b 0
 
 :queuePatch
-set "kw_patch=%kw_root%Build\Patches\ReactOS-%~1.patch"
+set "kw_patch=%kw_root%Upstream\ReactOS\Patches\%~1\ReactOS-%~2.patch"
 if not exist "%kw_patch%" (
     echo Missing patch "%kw_patch%". 1>&2
     exit /b 1

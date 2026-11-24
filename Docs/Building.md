@@ -48,33 +48,39 @@ what this enables and why a larger value is not necessarily more compatible.
 
 ### Patch selection
 
-The default patches fix `spec2def` exports, the PC BIOS FreeLdr PE path,
-and the following issues:
+Kundows keeps its [ReactOS patches](../Upstream/ReactOS/Patches/) next to
+the pinned `Source` submodule. `BuildSystem` covers the toolchain, generated
+projects and media assembly; `Runtime` covers the running system and its
+drivers; `ARM64` contains fixes selected only for that target.
 
-- [Generated headers](../Build/Patches/ReactOS-generated-header-deps.patch):
+The default set includes the [`spec2def` export fix](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-spec2def-cpp-exports.patch),
+the [PC BIOS FreeLdr PE path fix](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-freeldr-target-file.patch),
+and the following:
+
+- [Generated headers](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-generated-header-deps.patch):
   lwIP must wait for `wdm.h` and the static PathCch library for `wtypes.h`.
-- [Media targets](../Build/Patches/ReactOS-vs-media-deps.patch): **Build
+- [Media targets](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-vs-media-deps.patch): **Build
   Solution** leaves image assembly to explicit targets. When building the
   BootCD, the hive projects wait for the shared registry INF producer.
-- [VBoxVGA text mode](../Build/Patches/ReactOS-blue-vbox-vbe.patch): on the
+- [VBoxVGA text mode](../Upstream/ReactOS/Patches/Runtime/ReactOS-blue-vbox-vbe.patch): on the
   VirtualBox VGA adapter, Setup switches from the firmware framebuffer to
   VGA text mode with the correct row width.
-- [File information I/O](../Build/Patches/ReactOS-io-sync-status.patch):
+- [File information I/O](../Upstream/ReactOS/Patches/Runtime/ReactOS-io-sync-status.patch):
   complete inline query/set requests before returning their stack-based
   status blocks. Debug Setup exercises this path while copying files.
-- [Serial debugger discovery](../Build/Patches/ReactOS-kd-auto-probe.patch) and
-  [RTC initialization](../Build/Patches/ReactOS-rtc-periodic.patch): bound the
+- [Serial debugger discovery](../Upstream/ReactOS/Patches/Runtime/ReactOS-kd-auto-probe.patch) and
+  [RTC initialization](../Upstream/ReactOS/Patches/Runtime/ReactOS-rtc-periodic.patch): bound the
   initial wait for an unattached debugger, and start the APIC HAL's periodic
   clock after the interrupt route is ready. Both waits were observed in
   saved Hyper-V x64 Debug guest CPU states.
-- [Pinned cache writes](../Build/Patches/ReactOS-cc-pinned-dirty.patch):
+- [Pinned cache writes](../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-pinned-dirty.patch):
   preserve a dirty buffer's final modifications even if writeback runs
   between the filesystem marking the buffer dirty and releasing its pin.
 
-`ARM64` requires the ARM64 MSVC tools. It applies the experimental NTDLL port
-and [builds the host tools for Win32](../Build/Patches/ReactOS-arm64-vs-host-tools.patch)
+`ARM64` requires the ARM64 MSVC tools. It applies the [experimental NTDLL port](../Upstream/ReactOS/Patches/ARM64/ReactOS-arm64-ntdll.patch)
+and [builds the host tools for Win32](../Upstream/ReactOS/Patches/ARM64/ReactOS-arm64-vs-host-tools.patch)
 so they run on the x64 build machine. `Configure.cmd x64 Debug --image-fixes`
-also applies the memory-manager flush-collision change.
+also applies the [memory-manager flush-collision fix](../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-collision.patch).
 The evidence and its limits are recorded before the first diff
 in each patch. The old parser-snapshot adapter is unnecessary with RosBE.
 
@@ -109,7 +115,7 @@ the first file. In the retained upstream build, `freeldr.sys` was
 byte-identical to the 2,048-byte prefix alone. In the old Kundows build it
 was byte-identical to the prefix plus the 173,568-byte PE (175,616 bytes).
 The unmodified rule is unchanged at `4fbbefd614b`. The
-[FreeLdr patch](../Build/Patches/ReactOS-freeldr-target-file.patch) uses
+[FreeLdr patch](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-freeldr-target-file.patch) uses
 `$<TARGET_FILE:freeldr_pe>` to get the linked PE for the active configuration.
 The generated x64 Debug and Win32 Release projects both reference that PE
 as an input to the concatenation rule. The UEFI loader uses a separate rule.
@@ -141,8 +147,7 @@ byte for byte. These are image-content checks, not a guest boot test.
 
 - ReactOS is at `Upstream\ReactOS\Source`.
 - Its baseline is the Git submodule pointer.
-- Do not commit changes to the ReactOS submodule; put Kundows changes in
-  `Build\Patches`.
+- Keep Kundows changes in `Upstream\ReactOS\Patches`, outside the submodule.
 - Keep the ReactOS submodule at an explicit upstream commit and apply the
   Kundows patch set when preparing a build.
 - When synchronizing upstream, advance the gitlink, check patch applicability
