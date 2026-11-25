@@ -1,0 +1,22 @@
+case	installed	exit	output (escaped bytes)	candidate	exit	output (escaped bytes)
+sort-eof	DIFF	0	alph\r\nzebra\r\n	PASS	0	alpha\r\nzebra\r\n
+sort-single	DIFF	0	\r\n	PASS	0	Q\r\n
+sort-crlf	PASS	0	alpha\r\nzebra\r\n	PASS	0	alpha\r\nzebra\r\n
+sort-reverse	PASS	0	dog\r\nant\r\n	PASS	0	dog\r\nant\r\n
+sort-empty	PASS	0	<empty>	PASS	0	<empty>
+find-prefix	DIFF	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\nred fox\r\nredred\r\n
+find-suffix	DIFF	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\ntired\r\nredred\r\n
+find-whole	DIFF	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\n
+find-both	DIFF	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\n
+find-invert	DIFF	1	<empty>	PASS	0	tired\r\nred fox\r\nredred\r\n
+find-nohit	DIFF	0	tired\r\n	PASS	1	<empty>
+find-any	PASS	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\ntired\r\nred fox\r\nredred\r\n
+where-dir	DIFF	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n	PASS	0	C:\HVQA\Scope\review.qa\r\n
+where-var	DIFF	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n	PASS	0	C:\HVQA\Scope\review.qa\r\n
+where-pathvar	DIFF	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n	PASS	0	C:\HVQA\Scope\review.qa\r\n
+where-quiet	DIFF	0	<empty>	PASS	1	<empty>
+where-default	PASS	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n	PASS	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n
+note-lf-majority	DIFF	0	A\rB\rC\rD\rE!	PASS	0	A\nB\nC\nD\nE!
+note-cr-majority	PASS	0	A\rB\rC\rD\rE!	PASS	0	A\rB\rC\rD\rE!
+note-crlf-majority	PASS	0	A\r\nB\r\nC\r\nD\r\nE!	PASS	0	A\r\nB\r\nC\r\nD\r\nE!
+note-cr-lf-tie	PASS	0	A\rB\rC\rD\rE!	PASS	0	A\rB\rC\rD\rE!

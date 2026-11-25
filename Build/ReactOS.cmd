@@ -95,6 +95,7 @@ if /i not "%kw_pin%"=="%kw_head%" (
 set "kw_pending="
 for %%P in (spec2def-cpp-exports freeldr-target-file generated-header-deps vs-media-deps) do call :queuePatch BuildSystem %%P || exit /b 1
 for %%P in (blue-vbox-vbe io-sync-status kd-auto-probe rtc-periodic cc-pinned-dirty) do call :queuePatch Runtime %%P || exit /b 1
+for %%P in (cc-duplicate-bcb mm-flush-status fastfat-clean-after-flush user-init-unlock monitor-relation-completion sort-eof where-scoped notepad-majority-eol) do call :queuePatch Runtime %%P || exit /b 1
 if "%kw_arch%"=="arm64" (
     for %%P in (arm64-ntdll arm64-vs-host-tools) do call :queuePatch ARM64 %%P || exit /b 1
 )

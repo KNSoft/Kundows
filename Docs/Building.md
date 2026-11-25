@@ -76,6 +76,23 @@ and the following:
 - [Pinned cache writes](../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-pinned-dirty.patch):
   preserve a dirty buffer's final modifications even if writeback runs
   between the filesystem marking the buffer dirty and releasing its pin.
+- [Duplicate cache pins](../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-duplicate-bcb.patch)
+  lock the BCB being returned and dispose of the losing allocation.
+- [Section flush errors](../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-status.patch)
+  reach the cache manager; a failed page remains dirty for retry. The global
+  cache flush gives other views a turn without retrying a persistent error indefinitely.
+- [FAT clean state](../Upstream/ReactOS/Patches/Runtime/ReactOS-fastfat-clean-after-flush.patch):
+  an unsuccessful filesystem flush does not authorize marking the volume clean.
+- [USER initialization](../Upstream/ReactOS/Patches/Runtime/ReactOS-user-init-unlock.patch)
+  releases the exclusive USER lock on the GDI failure exit.
+- [Monitor target query](../Upstream/ReactOS/Patches/Runtime/ReactOS-monitor-relation-completion.patch):
+  read the result from a completed, caller-owned PnP request. In the saved
+  Hyper-V crash the VGA request already had a valid result but its completion
+  APC had not delivered it when win32k used the pointer.
+- [SORT](../Upstream/ReactOS/Patches/Runtime/ReactOS-sort-eof.patch) preserves an
+  unterminated last record; [WHERE](../Upstream/ReactOS/Patches/Runtime/ReactOS-where-scoped.patch)
+  respects explicitly scoped searches; [Notepad](../Upstream/ReactOS/Patches/Runtime/ReactOS-notepad-majority-eol.patch)
+  honors a strict LF plurality in mixed files. See the [regression results](Notes/HyperV-Desktop-QA/Review/Verified.md).
 
 `ARM64` requires the ARM64 MSVC tools. It applies the [experimental NTDLL port](../Upstream/ReactOS/Patches/ARM64/ReactOS-arm64-ntdll.patch)
 and [builds the host tools for Win32](../Upstream/ReactOS/Patches/ARM64/ReactOS-arm64-vs-host-tools.patch)

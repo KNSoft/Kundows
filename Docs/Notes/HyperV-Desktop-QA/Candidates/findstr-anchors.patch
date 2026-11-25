@@ -1,0 +1,62 @@
+Honor FINDSTR /B, /E and /X when matching plain text on a short line.
+At 4fbbefd614b argument parsing records the flags but find_str uses
+strstr unconditionally. Windows /X red does not match tired; /E red
+does match redred. This does not add regular expressions, multi-pattern
+matching or whole-line buffering for long input.
+The installed x64 Hyper-V build matched one of seven ordinary-word cases;
+this candidate matched all seven, including /V and the not-found exit code.
+
+diff --git a/base/applications/findstr/findstr.c b/base/applications/findstr/findstr.c
+index bec50d53300..81d2d41ed7b 100644
+--- a/base/applications/findstr/findstr.c
++++ b/base/applications/findstr/findstr.c
+@@ -40,6 +40,24 @@
+ /* Symbol definition */
+ #define MAX_STR 1024
+ 
++static int
++matches_line(const char *line, const char *pattern, int at_start, int at_end)
++{
++  size_t length, pattern_length;
++
++  if (at_start && at_end)
++    return strcmp(line, pattern) == 0;
++  if (at_start)
++    return strncmp(line, pattern, strlen(pattern)) == 0;
++  if (at_end)
++    {
++      length = strlen(line);
++      pattern_length = strlen(pattern);
++      return length >= pattern_length &&
++             memcmp(line + (length - pattern_length), pattern, pattern_length) == 0;
++    }
++  return strstr(line, pattern) != NULL;
++}
+ 
+ /* This function prints out all lines containing a substring.  There are some
+  * conditions that may be passed to the function.
+@@ -54,7 +72,7 @@ find_str (char *sz, FILE *p, int invert_search,
+ {
+   int i, length;
+   long line_number = 0, total_lines = 0;
+-  char *c, temp_str[MAX_STR], this_line[MAX_STR];
++  char temp_str[MAX_STR], this_line[MAX_STR];
+ 
+   /* Convert to upper if needed */
+   if (ignore_case)
+@@ -87,13 +105,8 @@ find_str (char *sz, FILE *p, int invert_search,
+ 	    }
+ 	}
+ 
+-      /* Locate the substring */
+-
+-      /* strstr() returns a pointer to the first occurrence in the
+-       string of the substring */
+-      c = strstr (temp_str, sz);
+-
+-      if ( ((invert_search) ? (c == NULL) : (c != NULL)) )
++      if (matches_line(temp_str, sz, at_start || exact_match, at_end || exact_match)
++          != invert_search)
+ 	{
+ 	  if (!count_lines)
+ 	    {

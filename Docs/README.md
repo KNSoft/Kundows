@@ -7,6 +7,9 @@
 ## Notes
 
 - [x64 BootCD: Setup display and hard-disk installation](Notes/BootCD-x64-Setup/README.md)
+- [Choosing the Windows DLL export level](Notes/DLL-Export-Version/README.md)
+- [Hyper-V desktop QA: installation evidence and application regressions](Notes/HyperV-Desktop-QA/README.md)
+- [Writeback, locking and FAT clean-state fixes: decisions and regression checks](Notes/HyperV-Desktop-QA/Review/Verified.md)
 
 Keep a note when it explains a decision or records evidence useful for a future
 regression. Use one directory per topic, with a `README.md` and any supporting
