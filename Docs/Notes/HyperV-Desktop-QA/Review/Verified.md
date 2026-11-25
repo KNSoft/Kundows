@@ -1,6 +1,6 @@
 # 哪些缺陷已经修复
 
-本页为 `2c9046e` 的验证基线，保留 G1 与随后出现的 G4 两个原始现场；**当前 G4 修复与同盘复测**另见[显示器列表完成](MonitorList.md)。
+本页为 `2c9046e` 的验证基线，保留 G1 与随后出现的 G4 两个原始现场。后续验证见 [G4 显示器列表完成](MonitorList.md) 和 [C2 整卷刷写](../FatTrace/FlushBoundary.md)。
 
 ReactOS `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，x64 MSVC。下表统计的是**同一套宿主功能用例在修改前、修改后的结果**。它们执行从对应版本提取的生产函数，驱动写入、内存分配和锁的外部边界可控。原始 Hyper-V 故障盘的证据见[安装记录](../README.md#安装故障首次硬盘启动灰屏或蓝屏)。
 
@@ -49,7 +49,7 @@ ReactOS `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，x64 MSVC。下表统计的�
 | 项目 | 本轮可以确认的部分 | 为什么未接入 |
 | --- | --- | --- |
 | G2，视频端口的目标对象 | 原故障的 `\Driver\vga` 扩展确实同时持有 FDO 和一个不同的非空 PDO，`NextDeviceObject` 等于后者；返回关系却引用 FDO。[固定版分派用例](Checks/video.c)还覆盖了传统无 PDO 和分配失败分支。 | 只改成 `PhysicalDeviceObject` 会破坏无 PDO 适配器；主显示对象与次显示对象的挂接条件也不同。给主栈返回真 PDO 会实际启用同步 BusRelations 失效及重枚举，仍缺这项行为变化的端到端验证。 |
-| C2，FAT 脏页寿命 | [真实 pin、unpin、FatFlushFat](Checks/bcb.c)：保持最后一个 pin 时，模拟目标收到 1 次写入；先解除最后一个 pin 时，刷表返回 `0`，目标收到 **0 次**，页仍脏。 | 已确认“没有 BCB 就已写完”在本版不成立。尚未选择在 CC 保留脏 BCB，还是显式同步 FAT 范围。保留 BCB 会改变引用和缓存回收；直接按页补调 `CcFlushCache` 则可能反复刷 256 KiB 的整个视图，还需验证写回中的页、元数据锁顺序和大 FAT 的开销。没有改 `PIN_IF_BCB` 的通用语义。 |
+| C2，FAT 脏页寿命 | [真实 pin、unpin、FatFlushFat](Checks/bcb.c)：保持最后一个 pin 时，模拟目标收到 1 次写入；先解除最后一个 pin 时，刷表返回 `0`，目标收到 **0 次**，页仍脏。 | 后续已在实际 Hyper-V 来宾确认两份扇区在成功刷卷后仍过期，[整卷路径已修复并回归](../FatTrace/FlushBoundary.md)。单文件刷写等直接调用方仍待单独核实。 |
 
 ## 本机 Windows 对照
 

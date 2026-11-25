@@ -1,0 +1,398 @@
+Disposable x64 Debug 8 GiB Hyper-V fixture, after fat-mirror-probe.patch.
+Observe the FAT32 dirty map and the result of the real pin lookup; copy a
+sector only while the caller has already pinned that page. Record classpnp
+packet completions overlapping either FAT. The test installer
+opens the target volume, flushes it immediately after copying PALAI.TTF, and
+reads both sectors via a read-only whole-disk handle. It then allocates a
+128 MiB named file, locates a complete FAT sector in a different cache view,
+and measures a second flush with the same read-only disk handle. Its two
+report files are created after the measured reads. No fault injection.
+These observer and installer changes are only for the independent test ISO.
+
+diff --git a/drivers/filesystems/fastfat/deviosup.c b/drivers/filesystems/fastfat/deviosup.c
+--- a/drivers/filesystems/fastfat/deviosup.c
++++ b/drivers/filesystems/fastfat/deviosup.c
+@@ -16,4 +16,5 @@
+ #include "fatprocs.h"
+ #include "kwtrace.inc"
++#include "kwphase.inc"
+ 
+ //
+diff --git a/drivers/filesystems/fastfat/flush.c b/drivers/filesystems/fastfat/flush.c
+--- a/drivers/filesystems/fastfat/flush.c
++++ b/drivers/filesystems/fastfat/flush.c
+@@ -16,4 +16,6 @@
+ 
+ #include "fatprocs.h"
++VOID KwPoint(PVCB,PIRP_CONTEXT,ULONG,ULONG,ULONG,NTSTATUS,PVOID);
++extern ULONG KwOtherVbo;
+ 
+ //
+@@ -403,5 +405,7 @@
+             //
+ 
++            KwPoint(Vcb, IrpContext, 8, 0, 0, 0, NULL);
+             Status = FatFlushVolume( IrpContext, Vcb, Flush );
++            KwPoint(Vcb, IrpContext, 9, 0, 0, Status, NULL);
+ 
+             //
+@@ -426,5 +430,7 @@
+                     !FlagOn(Vcb->VcbState, VCB_STATE_FLAG_MOUNTED_DIRTY)) {
+ 
++                    KwPoint(Vcb, IrpContext, 12, 0, 0, Status, NULL);
+                     FatMarkVolume( IrpContext, Vcb, VolumeClean );
++                    KwPoint(Vcb, IrpContext, 13, 0, 0, Status, NULL);
+                     ClearFlag( Vcb->VcbState, VCB_STATE_FLAG_VOLUME_DIRTY );
+                 }
+@@ -451,5 +457,7 @@
+         }
+ 
++        if (VcbAcquired) KwPoint(Vcb, IrpContext, 14, 0, 0, Status, NULL);
+         FatUnpinRepinnedBcbs( IrpContext );
++        if (VcbAcquired) KwPoint(Vcb, IrpContext, 15, 0, 0, Status, NULL);
+ 
+     } _SEH2_FINALLY {
+@@ -889,5 +897,6 @@
+         NumberOfPages = ( FatReservedBytes(&Vcb->Bpb) +
+                           FatBytesPerFat(&Vcb->Bpb) +
+-                          (PAGE_SIZE - 1) ) / PAGE_SIZE;
++                           (PAGE_SIZE - 1) ) / PAGE_SIZE;
++        KwPoint(Vcb, IrpContext, 3, 0, 0, 0, NULL);
+ 
+ 
+@@ -905,4 +914,10 @@
+                                &DontCare )) {
+ 
++                    if (Offset.LowPart == ((16384+311*512) & ~(PAGE_SIZE-1)))
++                        KwPoint(Vcb, IrpContext, 5, 0, 0, 0,
++                                (PUCHAR)DontCare+((16384+311*512) % PAGE_SIZE));
++                    if (KwOtherVbo && Offset.LowPart == (KwOtherVbo & ~(PAGE_SIZE-1)))
++                        KwPoint(Vcb, IrpContext, 25, KwOtherVbo, 0, 0,
++                                (PUCHAR)DontCare+KwOtherVbo % PAGE_SIZE);
+                     CcSetDirtyPinnedData( Bcb, NULL );
+                     CcRepinBcb( Bcb );
+@@ -914,4 +929,8 @@
+                         ReturnStatus = Iosb.Status;
+                     }
++                } else if (Offset.LowPart == ((16384+311*512) & ~(PAGE_SIZE-1))) {
++                    KwPoint(Vcb, IrpContext, 4, 0, 0, 0, NULL);
++                } else if (KwOtherVbo && Offset.LowPart == (KwOtherVbo & ~(PAGE_SIZE-1))) {
++                    KwPoint(Vcb, IrpContext, 24, KwOtherVbo, 0, 0, NULL);
+                 }
+ 
+@@ -957,4 +976,5 @@
+     }
+ 
++    KwPoint(Vcb, IrpContext, 6, 0, 0, ReturnStatus, NULL);
+     return ReturnStatus;
+ }
+@@ -1007,5 +1027,7 @@
+     //
+ 
++    KwPoint(Vcb, IrpContext, 1, FlushType, 0, 0, NULL);
+     Status = FatFlushDirectory( IrpContext, Vcb->RootDcb, FlushType );
++    KwPoint(Vcb, IrpContext, 2, FlushType, 0, Status, NULL);
+ 
+     if (!NT_SUCCESS(Status)) {
+@@ -1029,4 +1051,5 @@
+     //
+ 
++    KwPoint(Vcb, IrpContext, 7, FlushType, 0, ReturnStatus, NULL);
+     if (FlagOn(Vcb->VcbState, VCB_STATE_FLAG_REMOVABLE_MEDIA) &&
+         !FlagOn(Vcb->VcbState, VCB_STATE_FLAG_BOOT_OR_PAGING_FILE)) {
+diff --git a/drivers/filesystems/fastfat/allocsup.c b/drivers/filesystems/fastfat/allocsup.c
+--- a/drivers/filesystems/fastfat/allocsup.c
++++ b/drivers/filesystems/fastfat/allocsup.c
+@@ -15,4 +15,6 @@
+ 
+ #include "fatprocs.h"
++VOID KwPoint(PVCB,PIRP_CONTEXT,ULONG,ULONG,ULONG,NTSTATUS,PVOID);
++extern ULONG KwOtherVbo;
+ 
+ //
+@@ -4018,4 +4020,6 @@
+                 *PinnedFatEntry32 = FatEntry;
+             }
++            if (FatIndex / 128 == 311)
++                KwPoint(Vcb, IrpContext, 11, FatIndex, *PinnedFatEntry32, 0, NULL);
+ 
+ #ifdef ALPHA
+@@ -4419,4 +4423,21 @@
+ 
+                     *(FatEntry-1) = FAT_CLUSTER_LAST;
++                }
++                if (StartingFatIndex <= 39935 && FinalCluster >= 39808) {
++                    ULONG Watch = FatReservedBytes(&Vcb->Bpb) + 311 * 512;
++                    ULONG N = Watch / PAGE_SIZE - StartOffsetInVolume / PAGE_SIZE;
++                    KwPoint(Vcb, IrpContext, 10, StartingFatIndex, FinalCluster, 0,
++                            (PUCHAR)SavedBcbs[N][1] + Watch % PAGE_SIZE);
++                }
++                if (ChainTogether) {
++                    ULONG Index = 69632;
++                    if (StartingFatIndex <= Index && Index+128 <= FinalCluster) {
++                        ULONG Watch = FatReservedBytes(&Vcb->Bpb) + Index*4;
++                        ULONG N = Watch/PAGE_SIZE - StartOffsetInVolume/PAGE_SIZE;
++                        if (!KwOtherVbo) KwOtherVbo = Watch;
++                        if (KwOtherVbo == Watch)
++                            KwPoint(Vcb, IrpContext, 30, Index, FinalCluster, 0,
++                                    (PUCHAR)SavedBcbs[N][1] + Watch % PAGE_SIZE);
++                    }
+                 }
+ 
+diff --git a/drivers/storage/class/classpnp/xferpkt.c b/drivers/storage/class/classpnp/xferpkt.c
+--- a/drivers/storage/class/classpnp/xferpkt.c
++++ b/drivers/storage/class/classpnp/xferpkt.c
+@@ -928,4 +928,13 @@
+ 
+ 
++typedef struct {
++    ULONGLONG Clock, Offset, Fdo, Lower, OriginalIrp, ReturnedBytes;
++    ULONG Length, SrbBytes, SrbStatus, IoStatus;
++} KW_PACKET;
++static KW_PACKET KwDiskRows[8192];
++static struct {
++    UCHAR Magic[16]; volatile LONG Count; ULONG Reserved; PVOID Self, Records;
++} KwDiskLog = { "KW-CLASS-4FBB-1", 0, 0, &KwDiskLog, KwDiskRows };
++
+ NTSTATUS
+ NTAPI /* ReactOS Change: GCC Does not support STDCALL by default */
+@@ -942,4 +951,22 @@
+ 
+     UNREFERENCED_PARAMETER(NullFdo);
++    if (pkt->CompleteOriginalIrpWhenLastPacketCompletes &&
++        IoGetCurrentIrpStackLocation(pkt->OriginalIrp)->MajorFunction == IRP_MJ_WRITE) {
++        ULONGLONG O = pkt->TargetLocationCopy.QuadPart;
++        ULONG L = pkt->BufLenCopy;
++        if (O < 9436160+8371200 && O+L > 1064960) {
++            LONG N = InterlockedIncrement(&KwDiskLog.Count);
++            if ((ULONG)N <= RTL_NUMBER_OF(KwDiskRows)) {
++                KW_PACKET *R = &KwDiskRows[N-1];
++                R->Clock = KeQueryPerformanceCounter(NULL).QuadPart;
++                R->Fdo = (ULONG_PTR)pkt->Fdo;
++                R->Lower = (ULONG_PTR)fdoExt->CommonExtension.LowerDeviceObject;
++                R->OriginalIrp = (ULONG_PTR)pkt->OriginalIrp;
++                R->Offset = O; R->Length = L; R->SrbBytes = SrbGetDataTransferLength(pkt->Srb);
++                R->SrbStatus = pkt->Srb->SrbStatus; R->IoStatus = Irp->IoStatus.Status;
++                R->ReturnedBytes = Irp->IoStatus.Information;
++            }
++        }
++    }
+ 
+     /*
+diff --git a/base/setup/usetup/usetup.c b/base/setup/usetup/usetup.c
+--- a/base/setup/usetup/usetup.c
++++ b/base/setup/usetup/usetup.c
+@@ -3136,4 +3136,5 @@
+ }
+ 
++#include "kwvolume.inc"
+ static UINT
+ CALLBACK
+@@ -3201,4 +3202,5 @@
+             {
+                 static PCSTR s_pszCopying = NULL; /* Cached for speed */
++                KwBoundary(FilePathInfo->Target, TRUE);
+ 
+                 /* Display copy message */
+@@ -3235,4 +3237,9 @@
+         case SPFILENOTIFY_ENDCOPY:
+         {
++            if (Notification == SPFILENOTIFY_ENDCOPY) {
++                FilePathInfo = (PFILEPATHS_W)Param1;
++                if (NT_SUCCESS((NTSTATUS)FilePathInfo->Win32Error))
++                    KwBoundary(FilePathInfo->Target, FALSE);
++            }
+             CopyContext->CompletedOperations++;
+ 
+diff --git a/drivers/filesystems/fastfat/kwphase.inc b/drivers/filesystems/fastfat/kwphase.inc
+new file mode 100644
+--- /dev/null
++++ b/drivers/filesystems/fastfat/kwphase.inc
+@@ -0,0 +1,47 @@
++/* Disposable observation of the 8 GiB FAT32 Hyper-V fixture. */
++typedef struct {
++    ULONG Kind, WriteSequence, McbRuns, Dirty311, Arg, Value, Sample, Status;
++    ULONGLONG Clock, Thread, IrpContext, Target;
++} KW_PHASE;
++C_ASSERT(sizeof(KW_PHASE)==64);
++static KW_PHASE KwPhases[2048];
++ULONG KwOtherVbo;
++static UCHAR KwMapped[256][512];
++static struct {
++    UCHAR Magic[16]; volatile LONG Count, Samples;
++    PVOID Self, Records, Sectors;
++} KwPhaseLog = { "KW-PHASE-4FBB-1", 0, 0, &KwPhaseLog, KwPhases, KwMapped };
++
++VOID KwPoint(PVCB V, PIRP_CONTEXT C, ULONG Kind, ULONG Arg, ULONG Value,
++             NTSTATUS Status, PVOID Mapped)
++{
++    LONG Slot;
++    LBO Lbo;
++    KW_PHASE *P;
++    if (V->AllocationSupport.FatIndexBitSize != 32 || V->Bpb.BytesPerSector != 512 ||
++        V->Bpb.Fats != 2 || FatReservedBytes(&V->Bpb) != 16384 ||
++        FatBytesPerFat(&V->Bpb) != 8371200) return;
++    Slot = InterlockedIncrement(&KwPhaseLog.Count);
++    if ((ULONG)Slot > RTL_NUMBER_OF(KwPhases)) return;
++    P = &KwPhases[Slot-1];
++    P->Kind = Kind;
++    P->Clock = KeQueryPerformanceCounter(NULL).QuadPart;
++    P->Thread = (ULONG_PTR)PsGetCurrentThreadId();
++    P->IrpContext = (ULONG_PTR)C;
++    P->Target = (ULONG_PTR)V->TargetDeviceObject;
++    P->WriteSequence = KwLog.Sequence;
++    P->McbRuns = FsRtlNumberOfRunsInLargeMcb(&V->DirtyFatMcb);
++    P->Dirty311 = FatLookupMcbEntry(V, &V->DirtyFatMcb, Kind >= 20 ? KwOtherVbo : 16384+311*512, &Lbo, NULL, NULL) && Lbo != 0;
++    P->Arg = Arg;
++    P->Value = Value;
++    P->Status = Status;
++    if (Mapped) {
++        LONG S = InterlockedIncrement(&KwPhaseLog.Samples);
++        if ((ULONG)S <= RTL_NUMBER_OF(KwMapped)) {
++            RtlCopyMemory(KwMapped[S-1], Mapped, 512);
++            P->Sample = S;
++        }
++    }
++    if (KwOtherVbo && Kind < 20 && Kind != 4 && Kind != 5 && Kind != 10 && Kind != 11)
++        KwPoint(V,C,Kind+20,KwOtherVbo,Value,Status,NULL);
++}
+diff --git a/base/setup/usetup/kwvolume.inc b/base/setup/usetup/kwvolume.inc
+new file mode 100644
+--- /dev/null
++++ b/base/setup/usetup/kwvolume.inc
+@@ -0,0 +1,135 @@
++/* One-disk 4fbb x64 QA install: allocate a named file and measure two
++ * flushes. Whole-disk access is read-only; create the reports afterwards. */
++static HANDLE KwDisk, KwVolume;
++static struct {
++    UCHAR Magic[16];
++    NTSTATUS OpenDisk, OpenVolume, Flush, FlushIosb, Reads[4];
++    ULONG Counts[4];
++    ULONGLONG Tid, Ticks[6];
++    UCHAR Data[4][512];
++} KwResult = { "KW-USER-4FBB-V1" };
++static DECLSPEC_ALIGN(4096) UCHAR KwReadBuffer[4096];
++
++static NTSTATUS KwOpen(PCWSTR Path, ACCESS_MASK Access, ULONG Flags, PHANDLE Handle)
++{
++    UNICODE_STRING Name;
++    OBJECT_ATTRIBUTES Oa;
++    IO_STATUS_BLOCK Io;
++    RtlInitUnicodeString(&Name, Path);
++    InitializeObjectAttributes(&Oa, &Name, OBJ_CASE_INSENSITIVE, NULL, NULL);
++    return NtOpenFile(Handle, Access | SYNCHRONIZE, &Oa, &Io,
++                      FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
++                      Flags | FILE_SYNCHRONOUS_IO_NONALERT);
++}
++static VOID KwDiskRead(ULONG Slot)
++{
++    LARGE_INTEGER Pos, Clock;
++    IO_STATUS_BLOCK Io = {0};
++    Pos.QuadPart = (Slot & 1) ? 9595392 : 1224192;
++    NtQueryPerformanceCounter(&Clock, NULL);
++    KwResult.Ticks[Slot < 2 ? Slot : Slot+2] = Clock.QuadPart;
++    KwResult.Reads[Slot] = KwDisk ?
++        NtReadFile(KwDisk, NULL, NULL, NULL, &Io, KwReadBuffer, 512, &Pos, NULL) :
++        STATUS_INVALID_HANDLE;
++    KwResult.Counts[Slot] = (ULONG)Io.Information;
++    if (NT_SUCCESS(KwResult.Reads[Slot]) && Io.Information == 512)
++        RtlCopyMemory(KwResult.Data[Slot], KwReadBuffer, 512);
++}
++static VOID KwFarCheck(VOID)
++{
++    static struct {
++        UCHAR Magic[16]; NTSTATUS Create, Eof, Extents, Flush, Iosb, Reads[4];
++        ULONG Chosen, First, End, Counts[4]; ULONGLONG Ticks[6];
++        UCHAR Data[4][512];
++    } F = { "KW-FAR-4FBB-V1" };
++    struct { ULONG Count; LARGE_INTEGER Start; struct { LARGE_INTEGER Next, Lcn; } E[32]; } Ext;
++    IO_STATUS_BLOCK Io = {0};
++    FILE_END_OF_FILE_INFORMATION Eof;
++    OBJECT_ATTRIBUTES Oa;
++    UNICODE_STRING Path;
++    HANDLE File = NULL, Log;
++    LARGE_INTEGER Start = {0}, Clock;
++    ULONG I, Vcn;
++    if (!KwDisk || !KwVolume) return;
++    RtlInitUnicodeString(&Path,L"\\Device\\Harddisk0\\Partition1\\KWALLOC.BIN");
++    InitializeObjectAttributes(&Oa,&Path,OBJ_CASE_INSENSITIVE,NULL,NULL);
++    F.Create=NtCreateFile(&File,FILE_READ_DATA|FILE_WRITE_DATA|SYNCHRONIZE,&Oa,&Io,NULL,
++                         FILE_ATTRIBUTE_NORMAL,FILE_SHARE_READ|FILE_SHARE_WRITE,FILE_CREATE,FILE_SYNCHRONOUS_IO_NONALERT,NULL,0);
++    if (!NT_SUCCESS(F.Create)) goto report;
++    Eof.EndOfFile.QuadPart=128LL*1024*1024;
++    F.Eof=NtSetInformationFile(File,&Io,&Eof,sizeof(Eof),FileEndOfFileInformation);
++    if (!NT_SUCCESS(F.Eof)) goto report;
++    F.Extents=NtFsControlFile(File,NULL,NULL,NULL,&Io,FSCTL_GET_RETRIEVAL_POINTERS,&Start,sizeof(Start),&Ext,sizeof(Ext));
++    if (!NT_SUCCESS(F.Extents) || Ext.Count>RTL_NUMBER_OF(Ext.E)) goto report;
++    Vcn=Ext.Start.LowPart;
++    for (I=0;I<Ext.Count;++I) {
++        ULONG First=Ext.E[I].Lcn.LowPart+2;
++        ULONG Last=First+Ext.E[I].Next.LowPart-Vcn-1;
++        ULONG Wanted=69632; /* same sector as the pinned allocation sample */
++        if (First<=Wanted && Wanted+128<=Last) {F.Chosen=Wanted;F.First=First;F.End=Last;break;}
++        Vcn=Ext.E[I].Next.LowPart;
++    }
++    if (!F.Chosen) goto report;
++    for (I=0;I<4;++I) {
++        LARGE_INTEGER Pos;
++        if (I==2) {
++            NtQueryPerformanceCounter(&Clock,NULL);F.Ticks[2]=Clock.QuadPart;
++            F.Flush=NtFlushBuffersFile(KwVolume,&Io);F.Iosb=Io.Status;
++            NtQueryPerformanceCounter(&Clock,NULL);F.Ticks[3]=Clock.QuadPart;
++        }
++        Pos.QuadPart=1064960 + F.Chosen*4 + (I%2)*8371200;
++        NtQueryPerformanceCounter(&Clock,NULL);F.Ticks[I<2?I:I+2]=Clock.QuadPart;
++        F.Reads[I]=NtReadFile(KwDisk,NULL,NULL,NULL,&Io,KwReadBuffer,512,&Pos,NULL);
++        F.Counts[I]=(ULONG)Io.Information;
++        if (NT_SUCCESS(F.Reads[I]) && Io.Information==512) RtlCopyMemory(F.Data[I],KwReadBuffer,512);
++    }
++report:
++    if (File) NtClose(File);
++    RtlInitUnicodeString(&Path,L"\\Device\\Harddisk0\\Partition1\\KWFAR.BIN");
++    InitializeObjectAttributes(&Oa,&Path,OBJ_CASE_INSENSITIVE,NULL,NULL);
++    if (NT_SUCCESS(NtCreateFile(&Log,FILE_WRITE_DATA|SYNCHRONIZE,&Oa,&Io,NULL,
++                                FILE_ATTRIBUTE_NORMAL,FILE_SHARE_READ,FILE_CREATE,FILE_SYNCHRONOUS_IO_NONALERT,NULL,0))) {
++        NtWriteFile(Log,NULL,NULL,NULL,&Io,&F,sizeof(F),NULL,NULL);NtClose(Log);
++    }
++}
++static VOID KwBoundary(PCWSTR Name, BOOLEAN Before)
++{
++    static BOOLEAN Started;
++    UNICODE_STRING Path;
++    OBJECT_ATTRIBUTES Oa;
++    IO_STATUS_BLOCK Io = {0};
++    HANDLE Log;
++    NTSTATUS S;
++    LARGE_INTEGER Clock;
++    PCWSTR Leaf = wcsrchr(Name, L'\\');
++    if (_wcsicmp(Leaf ? Leaf+1 : Name, L"palai.ttf") ||
++        !USetupData.DestinationRootPath.Buffer ||
++        (_wcsicmp(USetupData.DestinationRootPath.Buffer, L"\\Device\\Harddisk0\\Partition1\\") &&
++         _wcsicmp(USetupData.DestinationRootPath.Buffer, L"\\Device\\HarddiskVolume1\\"))) return;
++    if (Before) {
++        if (Started) return;
++        Started = TRUE;
++        KwResult.Tid = (ULONG_PTR)NtCurrentTeb()->ClientId.UniqueThread;
++        KwResult.OpenDisk = KwOpen(L"\\Device\\Harddisk0\\Partition0", FILE_READ_DATA,
++                                   FILE_NO_INTERMEDIATE_BUFFERING, &KwDisk);
++        KwResult.OpenVolume = KwOpen(L"\\Device\\Harddisk0\\Partition1", FILE_READ_DATA|FILE_WRITE_DATA, 0, &KwVolume);
++        KwDiskRead(0); KwDiskRead(1);
++    } else if (Started) {
++        NtQueryPerformanceCounter(&Clock, NULL); KwResult.Ticks[2] = Clock.QuadPart;
++        KwResult.Flush = KwVolume ? NtFlushBuffersFile(KwVolume, &Io) : STATUS_INVALID_HANDLE;
++        KwResult.FlushIosb = Io.Status;
++        NtQueryPerformanceCounter(&Clock, NULL); KwResult.Ticks[3] = Clock.QuadPart;
++        KwDiskRead(2); KwDiskRead(3);
++        KwFarCheck();
++        if (KwVolume) NtClose(KwVolume);
++        if (KwDisk) NtClose(KwDisk);
++        RtlInitUnicodeString(&Path, L"\\Device\\Harddisk0\\Partition1\\KWFLUSH.BIN");
++        InitializeObjectAttributes(&Oa, &Path, OBJ_CASE_INSENSITIVE, NULL, NULL);
++        S = NtCreateFile(&Log, FILE_WRITE_DATA|SYNCHRONIZE, &Oa, &Io, NULL,
++                         FILE_ATTRIBUTE_NORMAL, FILE_SHARE_READ, FILE_CREATE, FILE_SYNCHRONOUS_IO_NONALERT, NULL, 0);
++        if (NT_SUCCESS(S)) {
++            NtWriteFile(Log, NULL, NULL, NULL, &Io, &KwResult, sizeof(KwResult), NULL, NULL);
++            NtClose(Log);
++        }
++    }
++}

@@ -83,6 +83,10 @@ and the following:
   cache flush gives other views a turn without retrying a persistent error indefinitely.
 - [FAT clean state](../Upstream/ReactOS/Patches/Runtime/ReactOS-fastfat-clean-after-flush.patch):
   an unsuccessful filesystem flush does not authorize marking the volume clean.
+- [FAT whole-volume flush](../Upstream/ReactOS/Patches/Runtime/ReactOS-fastfat-volume-dirty-runs.patch):
+  flush the FAT ranges still dirty after the last cache pin was released. In the
+  [Hyper-V before/after comparison](Notes/HyperV-Desktop-QA/FatTrace/FlushBoundary.md),
+  both copies of a newly allocated chain were stale after a successful flush before the fix.
 - [USER initialization](../Upstream/ReactOS/Patches/Runtime/ReactOS-user-init-unlock.patch)
   releases the exclusive USER lock on the GDI failure exit.
 - [Monitor target query](../Upstream/ReactOS/Patches/Runtime/ReactOS-monitor-relation-completion.patch):

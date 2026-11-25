@@ -11,7 +11,7 @@ p = argparse.ArgumentParser(description=__doc__)
 p.add_argument("source", type=Path)
 p.add_argument("--stock", action="store_true", help="read the pinned Git blobs")
 p.add_argument("--mm-only", action="store_true", help="pair patched MM with stock CC; negative control for writeback")
-p.add_argument("--suite", choices=("writeback", "bcb", "fat", "user", "relation", "ioctl", "monitor-list", "video", "collision"), action="append")
+p.add_argument("--suite", choices=("writeback", "bcb", "fat", "fat-volume", "user", "relation", "ioctl", "monitor-list", "video", "collision"), action="append")
 args = p.parse_args()
 if args.mm_only:
     if args.stock or args.suite not in (None, ["writeback"]):
@@ -76,6 +76,11 @@ def generate(suite, out):
         b = whole.index("case UserVolumeOpen:", a)
         data = defs(fat, [("FatFlushCompletionRoutine", "NTSTATUS NTAPI")]) + whole[:a] + whole[b:]
         data += defs("drivers/filesystems/fastfat/shutdown.c", [("FatCommonShutdown", "NTSTATUS")])
+    elif suite == "fat-volume":
+        data = defs("ntoskrnl/fsrtl/largemcb.c", [("FsRtlGetNextBaseMcbEntry", "BOOLEAN NTAPI"),
+                                                ("FsRtlGetNextLargeMcbEntry", "BOOLEAN NTAPI")])
+        data += defs("drivers/filesystems/fastfat/fsctrl.c", [("FatGetNextMcbEntry", "BOOLEAN")])
+        data += defs(fat, [("FatFlushFat", "NTSTATUS"), ("FatFlushVolume", "NTSTATUS")])
     elif suite == "user":
         data = defs("win32ss/user/ntuser/ntuser.c", [("NtUserInitialize", "NTSTATUS APIENTRY")])
     elif suite == "relation":
@@ -99,7 +104,7 @@ def generate(suite, out):
 
 if __name__ == "__main__":
     failed = 0
-    suites = ["writeback", "bcb", "fat", "user", "relation", "video", "ioctl"]
+    suites = ["writeback", "bcb", "fat", "fat-volume", "user", "relation", "video", "ioctl"]
     if "EngpQueryMonitorList(" in read("win32ss/gdi/eng/device.c"):
         suites.append("monitor-list")
     for suite in args.suite or suites:
