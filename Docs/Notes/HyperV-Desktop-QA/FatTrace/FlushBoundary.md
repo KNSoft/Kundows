@@ -1,5 +1,7 @@
 # C2：整卷刷写返回成功，两份 FAT 仍是旧扇区
 
+本页保留 FastFAT C2 workaround 的历史验证。后续已定位 CC 根因并完成候选测试，[按修复点整理](../Review/CcOwnership.md#按修复点整理)为 CC-only，撤下 C2；用户要求仅作本地提交，不把本页的旧介质测试写成新介质的验证。
+
 固定 ReactOS `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，Hyper-V Gen 1，x64 Debug，1 vCPU / 1 GiB / 8 GiB IDE。在独立诊断介质上，安装程序完成一次普通文件分配，再对目标卷调用 `NtFlushBuffersFile`。**修前，调用和 IOSB 均为 `STATUS_SUCCESS`，紧接着绕过文件系统对两份 FAT 的读取都返回了旧值。** 这说明问题能到达调用方；只在安装结束时比较两份 FAT，会漏掉这段时间窗口。
 
 这个现象也已用[同一个独立 Win32 EXE](../ApiTests/README.md)在无探针的系统上复核：Windows 通过，ReactOS 修前失败，只换修后的 `fastfat.sys` 后通过。
@@ -8,7 +10,9 @@
 
 ReactOS 的[第三方清单](../../../../Upstream/ReactOS/Source/media/doc/3rd%20Party%20Files.txt#L117-L121)把本驱动列为 Microsoft FastFAT，来源为 `Windows-driver-samples` 的 `16022c5`。[导入提交 `0daa5547d98`](https://github.com/reactos/reactos/commit/0daa5547d98)记录了对 NT 5.2 的移植；[`23b7c7b8234`](https://github.com/reactos/reactos/commit/23b7c7b8234)将其选为正式 FAT 驱动。比对[微软对应版本的 `FatFlushFat`](https://github.com/microsoft/Windows-driver-samples/blob/16022c5/filesys/fastfat/flush.c#L794)和 ReactOS 固定版 `4fbbefd614b`：忽略空白和结构化异常处理宏的拼写后，FAT12/16/32 的 pin 扫描逻辑一致。
 
-关键是扫描的前提。微软源码注释只针对这个特殊的卷元数据流：没有 BCB（固定缓冲区的控制块）就假定后台已把那段写完。[`PIN_IF_BCB` 的公开文档](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ccpinread)只规定已有 BCB 才固定，未命中并不是通用的磁盘写入完成通知。ReactOS 的 [`CcpFindBcb` / `CcpDereferenceBcb`](../../../../Upstream/ReactOS/Source/ntoskrnl/cc/pin.c) 对 pin 查找要求 `PinCount > 0`，最后一个引用释放时可移除 BCB；脏状态另记在缓存视图和 MM 页上。未打本库补丁的固定版也有这两条规则。来宾直接记录到了**同一扇区 pin 未命中、`DirtyFatMcb` 仍脏**。因此可以把本次漏刷定位在 FastFAT 的假设与 ReactOS 缓存实现的交界处；Windows 的盘面结果验证了行为，不能单凭它断言 Windows 内部一定以哪种方式保留或刷掉 BCB。
+关键是扫描的前提。微软源码注释只针对这个特殊的卷元数据流：没有 BCB（固定缓冲区的控制块）就假定后台已把那段写完。[`PIN_IF_BCB` 的公开文档](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ccpinread)只规定已有 BCB 才固定，未命中并不是通用的磁盘写入完成通知。当时 ReactOS 的 `CcpFindBcb` / `CcpDereferenceBcb` 对 pin 查找要求 `PinCount > 0`，最后一个引用释放时可移除 BCB；脏状态另记在缓存视图和 MM 页上。未打本库补丁的固定版也有这两条规则。来宾直接记录到了**同一扇区 pin 未命中、`DirtyFatMcb` 仍脏**。因此可以把本次漏刷定位在 FastFAT 的假设与 ReactOS 缓存实现的交界处；Windows 的盘面结果验证了行为，不能单凭它断言 Windows 内部一定以哪种方式保留或刷掉 BCB。
+
+后续[CC 生命周期调查](CcLifetime.md)已在独立 EXE 的同一次来宾运行中抓到：最后一个 repin 引用归零时，脏 BCB 被摘链；刷卷查询相同整页时没有任何重叠记录。Windows 匹配符号的离线控制流则存在零 pin、仍脏时保留 BCB 并重新命中的路径。动态来宾记录、跨系统 API 结果和 Windows 静态分支在该文中分别列出，不混为同一次实测。
 
 ## 为什么需要两个扇区
 
@@ -41,7 +45,7 @@ ReactOS 的[第三方清单](../../../../Upstream/ReactOS/Source/media/doc/3rd%2
 
 ## 修复范围
 
-[补丁](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-fastfat-volume-dirty-runs.patch)保留原有 pin / repin 刷表。只在 `FatFlushVolume` 的刷表步骤成功后，从 `DirtyFatMcb` 取首个实际脏区间（第 0 项为保留区空洞）。把该区间交给 `CcFlushCache`；分页写仍负责在镜像完成后移除记录。每次重新取首项，因一次缓存写可能连带清掉同视图的其他区间。空表不发出 I/O；稀疏的大 FAT 不需要为了这个补刷再全表读入。
+[历史补丁](../../../../Upstream/ReactOS/Patches/Retired/ReactOS-fastfat-volume-dirty-runs.patch)保留原有 pin / repin 刷表。只在 `FatFlushVolume` 的刷表步骤成功后，从 `DirtyFatMcb` 取首个实际脏区间（第 0 项为保留区空洞）。把该区间交给 `CcFlushCache`；分页写仍负责在镜像完成后移除记录。每次重新取首项，因一次缓存写可能连带清掉同视图的其他区间。空表不发出 I/O；稀疏的大 FAT 不需要为了这个补刷再全表读入。
 
 MCB 查询返回时已释放它的互斥锁，调用 CC 时没有新增元数据锁或持有 BCB。记录上次请求的 64 位结束位置：如果 CC 报成功却仍看见已请求的区间（例如写入尚未完成），返回 `STATUS_DEVICE_BUSY`，保留记录供下次刷卷；不在原卷锁下循环等待。实际的 CC 写错误直接保留。已有的 F1 补丁决定刷卷失败时不能标清洁。其他 `FatFlushFat` 调用方、缓存管理器通用 pin 行为及可选 MM 重叠写补丁不在本次改动内。
 
@@ -65,13 +69,13 @@ Win32 Release 的 `fastfat.sys` 已链接。ARM64 Debug 的 Configure 和 fastfa
 
 ## 复核
 
-在同树的默认修复集上，仅为测试 ISO 叠加 [`fat-mirror-probe.patch`](fat-mirror-probe.patch) 和 [`flush-boundary-probe.patch`](flush-boundary-probe.patch)。修前保留其余默认补丁，只撤去 `fastfat-volume-dirty-runs`。用同一个空盘检查点跑文本安装，回收关机留证窗口的 `closed.vmrs`，从只读盘副本取 `KWFLUSH.BIN` 和 `KWFAR.BIN`，分别命名为 `boundary.bin`、`far.bin`。在 x64 Windows SDK 环境运行：
+在当时的同树默认修复集上，仅为测试 ISO 叠加 [`fat-mirror-probe.patch`](fat-mirror-probe.patch) 和 [`flush-boundary-probe.patch`](flush-boundary-probe.patch)。修前保留其余默认补丁，只撤去 `fastfat-volume-dirty-runs`。不能将已改 CC 所有权的新队列直接当作该历史修前基线。用同一个空盘检查点跑文本安装，回收关机留证窗口的 `closed.vmrs`，从只读盘副本取 `KWFLUSH.BIN` 和 `KWFAR.BIN`，分别命名为 `boundary.bin`、`far.bin`。在 x64 Windows SDK 环境运行：
 
 ```text
 python read-boundary.py <取样目录> --provider <x64-vmsavedstatedumpprovider.dll>
 ```
 
-读取器核对内存中活动表的自指针、镜像表封闭标志、实际驱动、线程、用户调用窗口、缓存样本与所读扇区。`ticks` 是相对当次系统调用入口的来宾时钟，不与宿主 ETW 时钟直接相减。用 [`fat-volume.c`](../Review/Checks/fat-volume.c) 在 MSVC 运行 `run.py <源码目录> --suite fat-volume`；用 `--stock` 读取固定 Git 对象。它执行真实 `FatFlushFat`、`FatFlushVolume`、MCB 取区间和稀疏枚举，缓存和镜像完成边界由宿主用例控制。
+读取器核对内存中活动表的自指针、镜像表封闭标志、实际驱动、线程、用户调用窗口、缓存样本与所读扇区。`ticks` 是相对当次系统调用入口的来宾时钟，不与宿主 ETW 时钟直接相减。历史用例保存为 [`fat-volume-legacy.c`](../Review/Checks/fat-volume-legacy.c)，运行 `run.py <历史源码目录> --suite fat-volume-legacy`；用 `--stock` 读取固定 Git 对象。它执行真实 `FatFlushFat`、`FatFlushVolume`、MCB 取区间和稀疏枚举，缓存和镜像完成边界由宿主用例控制；不应要求已撤掉 C2 的新源码继续通过专为该 workaround 编写的断言。
 
 原始证据在 `OutDir/FatBoundary-Aligned-4fbb`、`OutDir/FatBoundary-Fixed-4fbb`，各有 `closed.vmrs`、ETL、两份安装程序报告和离线盘面摘要。两轮 `far.bin` 的 SHA-256 分别为 `64584F4508C4DDDC1DA22160F11E5AD994B8B5B6F6C3AEC1BDD915988123BEEC`、`847D61A37952EE7BEE61AA26FE5DFFDA7C6C9ECA107A63DE883B1195EBAB0212`。
 

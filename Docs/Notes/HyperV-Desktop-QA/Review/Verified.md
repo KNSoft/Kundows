@@ -2,13 +2,15 @@
 
 本页为 `2c9046e` 的验证基线，保留 G1 与随后出现的 G4 两个原始现场。后续验证见 [G4 显示器列表完成](MonitorList.md) 和 [C2 整卷刷写](../FatTrace/FlushBoundary.md)。
 
+CC 补丁已[按修复点整理](CcOwnership.md#按修复点整理)：C1 和 premark 修复并入 `cc-bcb-ownership`，撤下 FastFAT C2，F1 / M1 保留。用户要求仅作本地提交；下面的旧基线分数和介质记录仍按原测试版本解释。
+
 ReactOS `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，x64 MSVC。下表统计的是**同一套宿主功能用例在修改前、修改后的结果**。它们执行从对应版本提取的生产函数，驱动写入、内存分配和锁的外部边界可控。原始 Hyper-V 故障盘的证据见[安装记录](../README.md#安装故障首次硬盘启动灰屏或蓝屏)。
 
 | 默认补丁 | 原版 → 修后 | 用例验证的行为 |
 | --- | ---: | --- |
 | [G1：显示器目标关系请求的完成](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-monitor-relation-completion.patch) | 7/8 → 8/8 | 内联完成但交付 IOSB 的 APC 延迟时，仍能读到正确对象。另测正常内联、pending 返回前/后完成、错误、取消与分配失败。 |
 | [M1：MM/CC 写回状态](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-status.patch) | 8/21 → 21/21 | 返回具体 I/O 错误，失败页保留脏位；范围部分成功、重新变脏、页换出、显式刷盘、后台和关机刷盘分别检查。 |
-| [C1：重复 BCB 的所有权](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-duplicate-bcb.patch) | 5/12 → 12/12 | 在两次查找之间发布已有 BCB；共享/独占固定都锁住返回的对象，不能等待时正确放弃。内存分配、页驻留失败和非固定映射也核对引用。 |
+| [C1：重复 BCB 的所有权（原独立补丁）](../../../../Upstream/ReactOS/Patches/Retired/ReactOS-cc-duplicate-bcb.patch) | 5/12 → 12/12 | 在两次查找之间发布已有 BCB；共享/独占固定都锁住返回的对象，不能等待时正确放弃。内存分配、页驻留失败和非固定映射也核对引用。 |
 | [F1：FAT 卷清洁标记](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-fastfat-clean-after-flush.patch) | 6/10 → 10/10 | 文件系统已经返回失败时，普通卷刷盘不发出 `VolumeClean`、不清内存脏位；关机跳过 purge 和标清洁，仍向下层发关机请求。挂载时已脏、成功及关机异常路径均有对照。 |
 | [G3：USER 初始化解锁](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-user-init-unlock.patch) | 4/5 → 5/5 | GDI 返回假时不调用 `UserInitialize`，走公共 `UserLeave`，原错误码不变。已注册、power 失败、USER 失败和完全成功均保持原行为。 |
 
@@ -49,13 +51,14 @@ ReactOS `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，x64 MSVC。下表统计的�
 | 项目 | 本轮可以确认的部分 | 为什么未接入 |
 | --- | --- | --- |
 | G2，视频端口的目标对象 | 原故障的 `\Driver\vga` 扩展确实同时持有 FDO 和一个不同的非空 PDO，`NextDeviceObject` 等于后者；返回关系却引用 FDO。[固定版分派用例](Checks/video.c)还覆盖了传统无 PDO 和分配失败分支。 | 只改成 `PhysicalDeviceObject` 会破坏无 PDO 适配器；主显示对象与次显示对象的挂接条件也不同。给主栈返回真 PDO 会实际启用同步 BusRelations 失效及重枚举，仍缺这项行为变化的端到端验证。 |
-| C2，FAT 脏页寿命 | [真实 pin、unpin、FatFlushFat](Checks/bcb.c)：保持最后一个 pin 时，模拟目标收到 1 次写入；先解除最后一个 pin 时，刷表返回 `0`，目标收到 **0 次**，页仍脏。 | 后续已在实际 Hyper-V 来宾确认两份扇区在成功刷卷后仍过期，[整卷路径已修复并回归](../FatTrace/FlushBoundary.md)。单文件刷写等直接调用方仍待单独核实。 |
+| C2，FAT 脏页寿命 | [真实 pin、unpin、FatFlushFat](Checks/bcb.c)：保持最后一个 pin 时，模拟目标收到 1 次写入；先解除最后一个 pin 时，刷表返回 `0`，目标收到 **0 次**，页仍脏。后续[来宾 CC 跟踪](../FatTrace/CcLifetime.md)确认最后 repin 释放时仍脏的 BCB 被摘链。 | [原整卷 workaround 已回归](../FatTrace/FlushBoundary.md)。后续 [CC-only 候选](CcOwnership.md)通过 54 项内核检查和三次真实卷卸载；已整理为 CC-only 队列，尚未发布或验证新介质。单文件刷写等其他直接调用方仍不一并宣布修复。 |
 
 ## 本机 Windows 对照
 
 用 Windows SDK **CDB 离线打开系统映像**，加载微软公开 PDB。没有接管宿主内核，也没有从 Windows 复制实现代码。主机版本与单个系统组件的版本号不是同一件事。
 
 - `fastfat.sys` **10.0.26100.9974**，SHA-256 `C046046AE5D4A5C5DEFC63237B07F8027DD059D83660D90AC431348C90676D39`。`FatFlushFat` 的调用表同样含 `CcPinRead` → `CcSetDirtyPinnedData` → `CcRepinBcb` → `CcUnpinData` → `CcUnpinRepinnedBcb`。`ntoskrnl.exe` 同版本的 `CcUnpinDataForThread` 可走 `CcUnpinFileDataEx`，这不证明 Windows 会像 ReactOS 一样在最后一次 unpin 就丢掉脏 BCB。
+- [CC 后续对照](../FatTrace/CcLifetime.md)进一步核对 `CcUnpinFileDataEx` 的模式和脏位分支：Windows 可在最后 pin 归零、BCB 仍脏时释放映射但保留 BCB 链，pin 查找也不要求原先的 `PinCount > 0`。这是离线映像的控制流，不是 Windows 同次 EXE 的动态观测。
 - 此 Windows 版本的 `FatCommonShutdown` 在 `FatFlushVolume` 返回后重新读取卷标志，再决定是否 purge / `FatMarkVolume`，此处没有检查刚返回的 `NTSTATUS`。**F1 是本库针对已观察到的 ReactOS 返回错误路径的保守策略，不是声称 Windows 有相同的检查或损坏表现。** 核对命令：`cdb -z %SystemRoot%\System32\drivers\fastfat.sys -c ".reload /f; lmvm fastfat; uf /c fastfat!FatFlushFat; uf fastfat!FatCommonShutdown; q"`（设置微软公开符号路径）。
 - `win32kbase.sys` **10.0.26100.9974** 的 `EngDeviceIoControl` 调用 `GreDeviceIoControlImpl`，其调用表包含 `IoBuildDeviceIoControlRequest`、`IofCallDriver` 和 `KeWaitForSingleObject`。仅此不足以推断 Windows 的调用上下文或完成时序。
 

@@ -1,0 +1,54 @@
+CAUSALITY EXPERIMENT ONLY. Not a Runtime fix or a general BCB lifetime policy.
+Apply after cc-lifetime-probe.patch, on disposable x64 Debug test installations.
+Retain only the observer-selected dirty BCB while its VACB is also marked dirty;
+allow CcpFindBcb to find that selected BCB with zero pins. Keep pre-C2 FastFAT.
+The exact predicate is a fixture filter, NOT a modified-no-write classification.
+This deliberately lacks lazy-write retirement, purge/unmount integration and
+concurrent writeback generations; VACB.Dirty is not a safe general release test.
+Do not enable outside the isolated causality test. See CcLifetime.md.
+With the same EXE and FastFAT: observer 0/128 per FAT, find-only 0/128,
+keep-only 0/128, both 128/128. Executed private SMP kernel for both:
+7D6222618A4D395EAE0E4D4221089DC6A1B6247EA1D68F370340EBAF336FB99F.
+
+diff --git a/ntoskrnl/cc/pin.c b/ntoskrnl/cc/pin.c
+--- a/ntoskrnl/cc/pin.c
++++ b/ntoskrnl/cc/pin.c
+@@ -46,6 +46,11 @@
+ {
+     return Map->FileSize.QuadPart == 3675648 && Map->PinAccess &&
+            (ULONGLONG)Start <= KW_CC_WATCH && KW_CC_WATCH - (ULONGLONG)Start < Length;
++}
++static BOOLEAN KwCcKeepBcb(PINTERNAL_BCB B)
++{
++    return KwCcRange(B->Vacb->SharedCacheMap,B->PFCB.MappedFileOffset.QuadPart,
++                     B->PFCB.MappedLength) && B->Dirty && B->Vacb->Dirty;
+ }
+ static VOID KwCcEvent(PROS_SHARED_CACHE_MAP Map, PINTERNAL_BCB B, ULONG Kind, ULONG Flags,
+                       LONGLONG Start, ULONG Length, ULONG Overlap, ULONG Cover)
+@@ -108,7 +113,7 @@
+             (Bcb->PFCB.MappedFileOffset.QuadPart + Bcb->PFCB.MappedLength) >=
+             (FileOffset->QuadPart + Length))
+         {
+-            if ((Pinned && Bcb->PinCount > 0) || (!Pinned && Bcb->PinCount == 0))
++            if ((Pinned && (Bcb->PinCount > 0 || KwCcKeepBcb(Bcb))) || (!Pinned && Bcb->PinCount == 0))
+             {
+                 Found = TRUE;
+                 break;
+@@ -131,7 +136,7 @@
+     KeAcquireSpinLock(&SharedCacheMap->BcbSpinLock, &OldIrql);
+     RefCount = --Bcb->RefCount;
+     KwCcB(Bcb,6,0);
+-    if (RefCount == 0)
++    if (RefCount == 0 && !KwCcKeepBcb(Bcb))
+     {
+         KwCcB(Bcb,9,0);
+         RemoveEntryList(&Bcb->BcbEntry);
+@@ -720,7 +725,7 @@
+     }
+ 
+     KeAcquireSpinLock(&SharedCacheMap->BcbSpinLock, &OldIrql);
+-    if (--iBcb->RefCount == 0)
++    if (--iBcb->RefCount == 0 && !KwCcKeepBcb(iBcb))
+     {
+         KwCcB(iBcb,8,WriteThrough);
+         RemoveEntryList(&iBcb->BcbEntry);

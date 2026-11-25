@@ -78,6 +78,6 @@ Debug 入口的 CPU 快照位于 `kdcom.dll!Cp16550ReadLsr+0x52`；栈上的可�
 
 这是最初只修字体链的对照。后续的[默认 Debug 重放](FatTrace/DebugReplay.md)从异常消息和实参依次确认了分页文件、备用注册表文件和字体的坏链。处理三项后的故障盘副本已完成安装并冷启动到桌面；本页的 21 项应用成绩仍取自**另一块未经修盘的新装磁盘**。
 
-上游有症状相关的 [CORE-17172](https://jira.reactos.org/browse/CORE-17172)（真机第三阶段 FAT32 损坏）和已解决的 [CORE-17587](https://jira.reactos.org/browse/CORE-17587)（旧版 x86）。两份报告的环境和停止码不等同于本例，反馈前应先核对是否共因。交给上游时应注明使用的是 Kundows 镜像，列出本库已有的内核补丁；特别是 [CC 缓存写回修复](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-pinned-dirty.patch)已启用，[MM 可选修复](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-collision.patch)未启用。
+上游有症状相关的 [CORE-17172](https://jira.reactos.org/browse/CORE-17172)（真机第三阶段 FAT32 损坏）和已解决的 [CORE-17587](https://jira.reactos.org/browse/CORE-17587)（旧版 x86）。两份报告的环境和停止码不等同于本例，反馈前应先核对是否共因。交给上游时应注明使用的是 Kundows 镜像，列出本库已有的内核补丁；特别是当时的 [CC 缓存写回修复](../../../Upstream/ReactOS/Patches/Retired/ReactOS-cc-pinned-dirty.patch)已启用，[MM 可选修复](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-collision.patch)未启用。后续补丁已[按修复点整理](Review/CcOwnership.md#按修复点整理)，不要用当前队列反推旧故障盘包含的修复。
 
 后续已在**文本安装完成、首次进入图形阶段前**保留只读样本，对照两份 FAT、目录要求的链长和 CAB 中的字体，见[修后验证](Review/Verified.md)。新一轮已取得[同批镜像写入的提交内容、完成状态及读回](FatTrace/README.md)，并将原盘差异收窄到第 311 扇区；受追踪的新安装没有重现历史分歧。

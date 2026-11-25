@@ -74,6 +74,7 @@ typedef struct { BOOLEAN (*AcquireForLazyWrite)(void*,BOOLEAN); void (*ReleaseFr
 typedef struct Map {
     File *FileObject; LARGE_INTEGER FileSize,ValidDataLength; ULONG Flags,OpenCount;
     Callbacks *Callbacks; void *LazyWriteContext; int FlushCacheLock;
+    BOOLEAN RetainDirtyBcbs;
 } Map;
 typedef struct { Map *SharedCacheMap; LARGE_INTEGER FileOffset; LIST_ENTRY DirtyVacbListEntry; int Dirty,refs; } Vacb,ROS_VACB,*PROS_VACB;
 static LIST_ENTRY DirtyVacbListHead;
@@ -111,6 +112,10 @@ static void lazyRelease(void *c) { --acquired; }
 static Callbacks callbacks={lazyAcquire,lazyRelease};
 static Vacb *CcRosLookupVacb(Map *m,LONGLONG pos) { if(!lookup) return NULL; Vacb *v=&views[pos/VACB_MAPPING_GRANULARITY]; ++v->refs; return v; }
 #define CcRosReleaseVacb(m,v,d,mp) (--(v)->refs)
+/* This suite has no BCBs. The separate ownership suite executes these helpers
+ * in full; here retain the normal-stream boundary used by the M1 checks. */
+static BOOLEAN CcpBeginBcbFlush(Vacb *v,PULONGLONG g) { ASSERT(!v->SharedCacheMap->RetainDirtyBcbs); *g=0; return TRUE; }
+static BOOLEAN CcpCompleteBcbFlush(Vacb *v,ULONGLONG g,NTSTATUS s) { ASSERT(!v->SharedCacheMap->RetainDirtyBcbs); return FALSE; }
 #include "writeback.inc"
 
 static void reset(void)

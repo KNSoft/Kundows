@@ -38,3 +38,11 @@
 还有一个容易误判的入口：在此固定版本，`FlushViewOfFile` 调 `NtFlushVirtualMemory`；底层 [`MmFlushVirtualMemory`](../../../../Upstream/ReactOS/Source/ntoskrnl/mm/ARM3/virtual.c) 是返回成功的桩。单独断言这个 Win32 API 返回 `TRUE`，不能证明 M1 的 `MmFlushSegment` 错误传播。已有的[生产函数回归](../Review/Verified.md)和跨系统 Win32 行为测试回答的是不同问题。
 
 F1 还有一个参照边界：这是 ReactOS 在文件系统已报错时保留卷脏状态的策略。[本机 Windows 符号对照](../Review/Verified.md#本机-windows-对照)并未证明 Windows 关机路径作相同的状态判断。即使有可控的失败磁盘，也应先记录 Windows 的实际结果，而不是把某个内部脏位预设成 Windows 的契约。
+
+## 真实卷卸载 / 重新挂载
+
+[`fatcycle.c`](fatcycle.c) 使用同一标记的 512 MiB FAT32 测试夹具；拒绝系统盘，物理磁盘只读。在 x64 MSVC 环境运行 `build-cycle.cmd`，产物 `OutDir/ApiTests/fatcycle.exe`，在一次性来宾里执行 `fatcycle.exe X:`。
+
+每轮写自己的 8 MiB 模式文件：打开文件时锁卷应被拒绝；关闭后锁卷、`FSCTL_DISMOUNT_VOLUME`，确认旧卷句柄不再 mounted，再由路径重新挂载并逐字节核对全部内容、EOF、卷与设备身份。重复三轮；只删除自己创建的文件。不是把关闭文件句柄或关机当成卸载。
+
+CC-only 候选上已完成的[实测和锁审查](../Review/CcOwnership.md)单独记录。它与本页原 `fatflush.exe` 测量互补：后者核对成功刷卷**返回后立即**的两份 FAT；卸载后读回不能替代那条时间边界。

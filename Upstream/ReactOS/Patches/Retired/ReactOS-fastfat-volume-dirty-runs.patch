@@ -1,3 +1,7 @@
+Historical C2 workaround, replaced by Runtime/ReactOS-cc-bcb-ownership.patch.
+Not selected by Configure.cmd. FastFAT keeps its original FAT scan.
+The independent fastfat-clean-after-flush (F1) patch remains active.
+
 Finish a whole-volume flush when the last FAT pin has been released.
 On 4fbbefd614b x64 Debug, a successful NtFlushBuffersFile left both copies
 of FAT32 sector 544 at their old contents. All four uncached whole-disk

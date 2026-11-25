@@ -1,0 +1,137 @@
+Diagnostic only: x64 Debug, ReactOS 4fbbefd614b plus the default CC patches.
+Observe the marked 512 MiB KWFATQA fixture used by ApiTests/fatflush.exe.
+Record the selected FAT page's pins, dirty flags, references and list lookups
+in a bounded table in kernel RAM. No added I/O or changes to CC decisions.
+Keep pre-C2 fastfat.sys for the negative control. Capture saved guest RAM
+after the EXE's readback; decode with read-cc-lifetime.py. Not in any build queue.
+Evidence and limitations: CcLifetime.md. This is not a BCB-retention fix.
+
+diff --git a/ntoskrnl/cc/pin.c b/ntoskrnl/cc/pin.c
+--- a/ntoskrnl/cc/pin.c
++++ b/ntoskrnl/cc/pin.c
+@@ -30,6 +30,58 @@
+ ULONG CcPinReadWait = 0;
+ ULONG CcPinReadNoWait = 0;
+ ULONG CcPinMappedDataCount = 0;
++
++/* Isolated x64 Debug observer for the 512 MiB FAT32 test VHD. No I/O. */
++typedef struct {
++    ULONG Kind, Flags, Refs, Pins, Dirty, ViewDirty, Offset, Length, Overlap, Cover;
++    ULONGLONG Clock, Map, Bcb, Tid;
++    CHAR Image[16];
++} KW_CC_EVENT;
++C_ASSERT(sizeof(KW_CC_EVENT) == 88);
++static KW_CC_EVENT KwCcEvents[1024];
++static struct { UCHAR Magic[16]; volatile LONG Count; ULONG Pad; PVOID Self, Rows; } KwCcLog =
++    { "KW-CC-LIFE-V1", 0, 0, &KwCcLog, KwCcEvents };
++#define KW_CC_WATCH 3435520ULL
++static BOOLEAN KwCcRange(PROS_SHARED_CACHE_MAP Map, LONGLONG Start, ULONG Length)
++{
++    return Map->FileSize.QuadPart == 3675648 && Map->PinAccess &&
++           (ULONGLONG)Start <= KW_CC_WATCH && KW_CC_WATCH - (ULONGLONG)Start < Length;
++}
++static VOID KwCcEvent(PROS_SHARED_CACHE_MAP Map, PINTERNAL_BCB B, ULONG Kind, ULONG Flags,
++                      LONGLONG Start, ULONG Length, ULONG Overlap, ULONG Cover)
++{
++    LONG N;
++    KW_CC_EVENT *R;
++    if (!KwCcRange(Map,Start,Length)) return;
++    N=InterlockedIncrement(&KwCcLog.Count);
++    if ((ULONG)N>RTL_NUMBER_OF(KwCcEvents)) return;
++    R=&KwCcEvents[N-1]; R->Kind=Kind; R->Flags=Flags;
++    R->Clock=KeQueryPerformanceCounter(NULL).QuadPart;
++    R->Map=(ULONG_PTR)Map; R->Bcb=(ULONG_PTR)B; R->Tid=(ULONG_PTR)PsGetCurrentThreadId();
++    C_ASSERT(sizeof(PsGetCurrentProcess()->ImageFileName) >= 15);
++    RtlCopyMemory(R->Image,PsGetCurrentProcess()->ImageFileName,15);
++    R->Offset=(ULONG)Start; R->Length=Length; R->Overlap=Overlap; R->Cover=Cover;
++    if (B) {
++        R->Refs=B->RefCount; R->Pins=B->PinCount; R->Dirty=B->Dirty; R->ViewDirty=B->Vacb->Dirty;
++    }
++}
++#define KwCcB(B,K,F) KwCcEvent((B)->Vacb->SharedCacheMap,B,K,F, \
++    (B)->PFCB.MappedFileOffset.QuadPart,(B)->PFCB.MappedLength,0,0)
++/* The caller holds BcbSpinLock. Count overlapping and fully covering BCBs
++ * without rejecting records whose PinCount has reached zero. */
++static VOID KwCcLookup(PROS_SHARED_CACHE_MAP Map,PINTERNAL_BCB Found,LONGLONG Start,ULONG Size,ULONG Flags)
++{
++    PLIST_ENTRY E;
++    ULONG Overlap=0,Cover=0;
++    if (!KwCcRange(Map,Start,Size)) return;
++    for (E=Map->BcbList.Flink;E!=&Map->BcbList;E=E->Flink) {
++        PINTERNAL_BCB B=CONTAINING_RECORD(E,INTERNAL_BCB,BcbEntry);
++        LONGLONG A=B->PFCB.MappedFileOffset.QuadPart, Z=A+B->PFCB.MappedLength;
++        if (A<Start+Size && Z>Start) ++Overlap;
++        if (A<=Start && Z>=Start+Size) ++Cover;
++    }
++    KwCcEvent(Map,Found,1,Flags,Start,Size,Overlap,Cover);
++}
+ 
+ /* FUNCTIONS *****************************************************************/
+ 
+@@ -78,8 +130,10 @@
+ 
+     KeAcquireSpinLock(&SharedCacheMap->BcbSpinLock, &OldIrql);
+     RefCount = --Bcb->RefCount;
++    KwCcB(Bcb,6,0);
+     if (RefCount == 0)
+     {
++        KwCcB(Bcb,9,0);
+         RemoveEntryList(&Bcb->BcbEntry);
+         KeReleaseSpinLock(&SharedCacheMap->BcbSpinLock, OldIrql);
+ 
+@@ -234,6 +288,7 @@
+ 
+     KeAcquireSpinLock(&SharedCacheMap->BcbSpinLock, &OldIrql);
+     NewBcb = CcpFindBcb(SharedCacheMap, FileOffset, Length, TRUE);
++    KwCcLookup(SharedCacheMap, NewBcb, FileOffset->QuadPart, Length, Flags);
+ 
+     if (NewBcb != NULL)
+     {
+@@ -310,6 +365,7 @@
+ 
+     if (Result)
+     {
++        KwCcB(NewBcb,2,Flags);
+         *Bcb = &NewBcb->PFCB;
+         *Buffer = (PVOID)((ULONG_PTR)NewBcb->Vacb->BaseAddress + VacbOffset);
+     }
+@@ -566,6 +622,7 @@
+     {
+         CcRosMarkDirtyVacb(Vacb);
+     }
++    KwCcB(iBcb,3,0);
+ }
+ 
+ 
+@@ -609,6 +666,7 @@
+         iBcb->PinCount--;
+     }
+ 
++    KwCcB(iBcb,5,0);
+     CcpDereferenceBcb(iBcb->Vacb->SharedCacheMap, iBcb);
+ }
+ 
+@@ -625,6 +683,7 @@
+     CCTRACE(CC_API_DEBUG, "Bcb=%p\n", Bcb);
+ 
+     iBcb->RefCount++;
++    KwCcB(iBcb,4,0);
+ }
+ 
+ /*
+@@ -646,6 +705,7 @@
+     SharedCacheMap = iBcb->Vacb->SharedCacheMap;
+     IoStatus->Status = STATUS_SUCCESS;
+ 
++    KwCcB(iBcb,7,WriteThrough);
+     if (WriteThrough)
+     {
+         CcFlushCache(iBcb->Vacb->SharedCacheMap->FileObject->SectionObjectPointer,
+@@ -662,6 +722,7 @@
+     KeAcquireSpinLock(&SharedCacheMap->BcbSpinLock, &OldIrql);
+     if (--iBcb->RefCount == 0)
+     {
++        KwCcB(iBcb,8,WriteThrough);
+         RemoveEntryList(&iBcb->BcbEntry);
+         KeReleaseSpinLock(&SharedCacheMap->BcbSpinLock, OldIrql);
+ 

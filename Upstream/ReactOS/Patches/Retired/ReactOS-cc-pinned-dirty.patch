@@ -1,3 +1,6 @@
+Historical patch, superseded by Runtime/ReactOS-cc-bcb-ownership.patch.
+Not selected by Configure.cmd. Retained for old evidence and migration.
+
 Keep a pinned buffer's dirty intent through unpin: writeback can clear
 both cache and segment dirty state before the caller modifies the buffer.
 In nine controlled cases using pin.c from 4fbbefd614b, the original code

@@ -1,5 +1,6 @@
-/* Exercise the whole-volume API against a sparse model of FAT sectors on two
- * copies. Real flush and large-MCB traversal functions come from run.py. */
+/* Historical C2 workaround checks. These intentionally model missing BCBs.
+ * The active CC-only volume checks use real pin.c functions in cc-volume.inc.
+ * Real flush and large-MCB traversal functions come from run.py. */
 #include "checks.h"
 typedef ULONG VBO, *PVBO;
 typedef LONGLONG LBO, *PLBO;
@@ -23,9 +24,6 @@ enum { VcbGood=1, VCB_STATE_FLAG_WRITE_PROTECTED=1, VCB_STATE_FLAG_REMOVABLE_MED
 #define FsRtlIsNtstatusExpected(x) 0
 #define FatExceptionFilter(c,e) EXCEPTION_CONTINUE_SEARCH
 #define STATUS_FILE_INVALID ((NTSTATUS)0xc0000098)
-#ifndef STATUS_DEVICE_BUSY
-#define STATUS_DEVICE_BUSY ((NTSTATUS)0x80000011)
-#endif
 #define MCB_SCALE_LOG2 9
 
 static VCB v;

@@ -1,3 +1,6 @@
+Historical patch, superseded by Runtime/ReactOS-cc-bcb-ownership.patch.
+Not selected by Configure.cmd. Retained for old evidence and migration.
+
 Pin the BCB actually returned when a concurrent creator wins the lookup.
 Free the losing allocation even when a non-waiting acquire fails. Leave the
 incoming VACB reference with CcpPinData/CcMapData on every NULL return;

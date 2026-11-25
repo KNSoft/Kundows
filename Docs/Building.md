@@ -73,20 +73,15 @@ and the following:
   initial wait for an unattached debugger, and start the APIC HAL's periodic
   clock after the interrupt route is ready. Both waits were observed in
   saved Hyper-V x64 Debug guest CPU states.
-- [Pinned cache writes](../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-pinned-dirty.patch):
-  preserve a dirty buffer's final modifications even if writeback runs
-  between the filesystem marking the buffer dirty and releasing its pin.
-- [Duplicate cache pins](../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-duplicate-bcb.patch)
-  lock the BCB being returned and dispose of the losing allocation.
+- [BCB ownership](../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-bcb-ownership.patch):
+  combine dirty-intent publication and duplicate-pin cleanup with dirty BCB
+  retention, zero-pin lookup and retirement after stable successful writeback.
+  The original FastFAT scan can find pending metadata without a volume fallback.
 - [Section flush errors](../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-status.patch)
   reach the cache manager; a failed page remains dirty for retry. The global
   cache flush gives other views a turn without retrying a persistent error indefinitely.
 - [FAT clean state](../Upstream/ReactOS/Patches/Runtime/ReactOS-fastfat-clean-after-flush.patch):
   an unsuccessful filesystem flush does not authorize marking the volume clean.
-- [FAT whole-volume flush](../Upstream/ReactOS/Patches/Runtime/ReactOS-fastfat-volume-dirty-runs.patch):
-  flush the FAT ranges still dirty after the last cache pin was released. In the
-  [Hyper-V before/after comparison](Notes/HyperV-Desktop-QA/FatTrace/FlushBoundary.md),
-  both copies of a newly allocated chain were stale after a successful flush before the fix.
 - [USER initialization](../Upstream/ReactOS/Patches/Runtime/ReactOS-user-init-unlock.patch)
   releases the exclusive USER lock on the GDI failure exit.
 - [Monitor target query](../Upstream/ReactOS/Patches/Runtime/ReactOS-monitor-relation-completion.patch):
@@ -108,6 +103,13 @@ so they run on the x64 build machine. `Configure.cmd x64 Debug --image-fixes`
 also applies the [memory-manager flush-collision fix](../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-collision.patch).
 The evidence and its limits are recorded before the first diff
 in each patch. The old parser-snapshot adapter is unnecessary with RosBE.
+
+The cache changes are grouped by [repair point](../Upstream/ReactOS/Patches/README.md),
+not as successive rewrites of `pin.c`. The old two CC patches and FastFAT C2
+fallback are [retired](../Upstream/ReactOS/Patches/Retired/README.md); F1 remains.
+The queue reorganization is saved locally, not a newly released image. Prior
+CC-only guest tests are documented separately from validation of a newly
+packaged default image.
 
 Patches apply to the shared submodule working tree. `Configure.cmd`
 recognizes already-applied patches and stops on conflicts. Use a clean
