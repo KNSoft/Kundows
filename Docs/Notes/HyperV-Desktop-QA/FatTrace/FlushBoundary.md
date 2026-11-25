@@ -4,6 +4,12 @@
 
 这个现象也已用[同一个独立 Win32 EXE](../ApiTests/README.md)在无探针的系统上复核：Windows 通过，ReactOS 修前失败，只换修后的 `fastfat.sys` 后通过。
 
+## FastFAT 的来源与缓存层的关系
+
+ReactOS 的[第三方清单](../../../../Upstream/ReactOS/Source/media/doc/3rd%20Party%20Files.txt#L117-L121)把本驱动列为 Microsoft FastFAT，来源为 `Windows-driver-samples` 的 `16022c5`。[导入提交 `0daa5547d98`](https://github.com/reactos/reactos/commit/0daa5547d98)记录了对 NT 5.2 的移植；[`23b7c7b8234`](https://github.com/reactos/reactos/commit/23b7c7b8234)将其选为正式 FAT 驱动。比对[微软对应版本的 `FatFlushFat`](https://github.com/microsoft/Windows-driver-samples/blob/16022c5/filesys/fastfat/flush.c#L794)和 ReactOS 固定版 `4fbbefd614b`：忽略空白和结构化异常处理宏的拼写后，FAT12/16/32 的 pin 扫描逻辑一致。
+
+关键是扫描的前提。微软源码注释只针对这个特殊的卷元数据流：没有 BCB（固定缓冲区的控制块）就假定后台已把那段写完。[`PIN_IF_BCB` 的公开文档](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ccpinread)只规定已有 BCB 才固定，未命中并不是通用的磁盘写入完成通知。ReactOS 的 [`CcpFindBcb` / `CcpDereferenceBcb`](../../../../Upstream/ReactOS/Source/ntoskrnl/cc/pin.c) 对 pin 查找要求 `PinCount > 0`，最后一个引用释放时可移除 BCB；脏状态另记在缓存视图和 MM 页上。未打本库补丁的固定版也有这两条规则。来宾直接记录到了**同一扇区 pin 未命中、`DirtyFatMcb` 仍脏**。因此可以把本次漏刷定位在 FastFAT 的假设与 ReactOS 缓存实现的交界处；Windows 的盘面结果验证了行为，不能单凭它断言 Windows 内部一定以哪种方式保留或刷掉 BCB。
+
 ## 为什么需要两个扇区
 
 - **第 311 扇区，在第一个 256 KiB 缓存视图中。** 复制 `PALAI.TTF` 后立即刷卷。`FatFlushFat` 的 `PIN_IF_BCB` 未命中，`FatFlushVolume` 返回成功时，目标扇区仍在 `DirtyFatMcb` 里。一次带阶段记录的运行中，`FatMarkVolume(VolumeClean)` 进入时写序号为 236，离开时为 248；涵盖扇区的两次类驱动完成都在这段区间内。随后 `FatUnpinRepinnedBcbs` 前后序号未变。调用方读到的两份内容都和之前的固定页快照相同。这是**内部漏刷、返回之前被其他写入补齐**的对照。
