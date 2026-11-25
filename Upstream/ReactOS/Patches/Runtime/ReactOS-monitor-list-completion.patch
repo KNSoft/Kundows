@@ -1,0 +1,99 @@
+Return the completed array from the private buffered monitor-list IOCTL.
+Own the pointer-sized nonpaged system buffer and IRP until the port
+finishes; reject a missing or incomplete output before enumerating it.
+The other EngDeviceIoControl callers and their transfer methods retain
+their existing semantics. Apply after monitor-relation-completion.
+On a copy of the failed 4fbbefd614b x64 Hyper-V disk, changing only
+win32k.sys advanced the ordinary entry from the byte-count assertion
+to graphical setup without changing either FAT. Debug still stalled.
+Twelve x86 and x64 host checks cover transfer of the referenced list,
+inline/pending completion, cancellation, allocation failures and bad sizes.
+
+diff --git a/win32ss/gdi/eng/device.c b/win32ss/gdi/eng/device.c
+--- a/win32ss/gdi/eng/device.c
++++ b/win32ss/gdi/eng/device.c
+@@ -568,4 +568,59 @@
+ }
+ 
++/* IOCTL_VIDEO_ENUM_MONITOR_PDO is a private, pointer-sized METHOD_BUFFERED
++ * query. Keep its system buffer and IRP until the port has completed it. */
++static
++NTSTATUS
++EngpQueryMonitorList(
++    _In_ PDEVICE_OBJECT DeviceObject,
++    _Out_ PVIDEO_MONITOR_DEVICE *List)
++{
++    PIO_STACK_LOCATION Stack;
++    PVIDEO_MONITOR_DEVICE *Buffer;
++    PIRP Irp;
++    KEVENT Event;
++    NTSTATUS Status;
++
++    *List = NULL;
++    Irp = IoAllocateIrp(DeviceObject->StackSize, FALSE);
++    if (!Irp)
++        return STATUS_INSUFFICIENT_RESOURCES;
++
++    Buffer = ExAllocatePoolZero(NonPagedPool, sizeof(*Buffer), GDITAG_GDEVICE);
++    if (!Buffer)
++    {
++        IoFreeIrp(Irp);
++        return STATUS_INSUFFICIENT_RESOURCES;
++    }
++
++    KeInitializeEvent(&Event, SynchronizationEvent, FALSE);
++    Irp->Tail.Overlay.Thread = PsGetCurrentThread();
++    Irp->Flags = IRP_BUFFERED_IO;
++    Irp->AssociatedIrp.SystemBuffer = Buffer;
++    Irp->IoStatus.Status = STATUS_NOT_SUPPORTED;
++    Stack = IoGetNextIrpStackLocation(Irp);
++    Stack->MajorFunction = IRP_MJ_DEVICE_CONTROL;
++    Stack->Parameters.DeviceIoControl.IoControlCode = IOCTL_VIDEO_ENUM_MONITOR_PDO;
++    Stack->Parameters.DeviceIoControl.OutputBufferLength = sizeof(*Buffer);
++    IoSetCompletionRoutine(Irp, EngpCompleteTargetRelation, &Event, TRUE, TRUE, TRUE);
++
++    Status = IoCallDriver(DeviceObject, Irp);
++    if (Status == STATUS_PENDING)
++        KeWaitForSingleObject(&Event, Executive, KernelMode, FALSE, NULL);
++
++    Status = Irp->IoStatus.Status;
++    if (NT_SUCCESS(Status))
++    {
++        if (Irp->IoStatus.Information == sizeof(*Buffer) && *Buffer != NULL)
++            *List = *Buffer;
++        else
++            Status = STATUS_DEVICE_DATA_ERROR;
++    }
++
++    ExFreePoolWithTag(Buffer, GDITAG_GDEVICE);
++    IoFreeIrp(Irp);
++    return Status;
++}
++
+ NTSTATUS
+ NTAPI
+@@ -575,5 +630,5 @@
+     PDEVICE_RELATIONS pDeviceRelations;
+     PVIDEO_MONITOR_DEVICE pMonitorDevices;
+-    ULONG i, bytesWritten, monitorCount;
++    ULONG i, monitorCount;
+     NTSTATUS Status;
+     HANDLE hkRegistry;
+@@ -611,15 +666,10 @@
+ 
+     /* Now, get list of monitor PDOs */
+-    Status = EngDeviceIoControl(pGraphicsDevice->DeviceObject,
+-                                IOCTL_VIDEO_ENUM_MONITOR_PDO,
+-                                NULL, 0,
+-                                &pMonitorDevices, sizeof(pMonitorDevices),
+-                                &bytesWritten);
+-    if (Status != ERROR_SUCCESS)
++    Status = EngpQueryMonitorList(pGraphicsDevice->DeviceObject, &pMonitorDevices);
++    if (!NT_SUCCESS(Status))
+     {
+         ERR("EngDeviceIoControl(IOCTL_VIDEO_ENUM_MONITOR_PDO) failed with status 0x%08x\n", Status);
+         return Status;
+     }
+-    ASSERT(bytesWritten == sizeof(pMonitorDevices));
+ 
+     /* Count number of available monitors */

@@ -1,5 +1,7 @@
 # 哪些缺陷已经修复
 
+本页为 `2c9046e` 的验证基线，保留 G1 与随后出现的 G4 两个原始现场；**当前 G4 修复与同盘复测**另见[显示器列表完成](MonitorList.md)。
+
 ReactOS `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，x64 MSVC。下表统计的是**同一套宿主功能用例在修改前、修改后的结果**。它们执行从对应版本提取的生产函数，驱动写入、内存分配和锁的外部边界可控。原始 Hyper-V 故障盘的证据见[安装记录](../README.md#安装故障首次硬盘启动灰屏或蓝屏)。
 
 | 默认补丁 | 原版 → 修后 | 用例验证的行为 |
@@ -40,7 +42,7 @@ ReactOS `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，x64 MSVC。下表统计的�
 
 **G4 是紧接着的另一条 I/O 请求。** 第二次蓝屏的保存现场中，驱动是 `\Driver\vga`，调用参数是 `IOCTL_VIDEO_ENUM_MONITOR_PDO` (`0x230018`)，请求类型为 `IRP_MJ_DEVICE_CONTROL`。IO 控制助手的 IOSB、事件地址和输出槽同时与未交付的 IRP 匹配。驱动状态 `0`、报告 **8 字节**，系统缓冲区已有非空的列表指针；调用方却仍持有 `0xCCCCCCCCCCCCCCCC`，字节数为 `0xCCCCCCCC`。该 IRP 的完成 APC 仍在同一线程队列中。
 
-[缓冲 IOCTL 检查](Checks/ioctl.c)调用固定版 `EngDeviceIoControl` 和 `VideoPortEnumMonitorPdo`：正常内联和 pending 时得到列表及 8 字节；内联返回而推迟复制时，同样返回成功，却拿不到列表和字节数。**G4 暂不接入补丁。** G1 的 PnP 关系放在 `Irp->IoStatus.Information` 中；G4 还依赖 I/O 管理器把系统缓冲区复制到调用方并释放它。只拷贝状态或删掉长度断言仍会使用无效输出。修补通用 `EngDeviceIoControl` 还需验证各缓冲方式、错误传递、可警醒等待和 IRP/MDL 回收。
+[缓冲 IOCTL 检查](Checks/ioctl.c)调用固定版 `EngDeviceIoControl` 和 `VideoPortEnumMonitorPdo`：正常内联和 pending 时得到列表及 8 字节；内联返回而推迟复制时，同样返回成功，却拿不到列表和字节数。G1 的 PnP 关系放在 `Irp->IoStatus.Information` 中；原 G4 路径还依赖 I/O 管理器把系统缓冲区复制到调用方并释放它。只拷贝状态或删掉长度断言仍会使用无效输出。后续的[正式修法](MonitorList.md)限定在私有查询，通用 `EngDeviceIoControl` 的其他调用仍单独评估。
 
 ## 保留的调查项
 

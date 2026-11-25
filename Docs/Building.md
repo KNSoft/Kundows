@@ -89,6 +89,10 @@ and the following:
   read the result from a completed, caller-owned PnP request. In the saved
   Hyper-V crash the VGA request already had a valid result but its completion
   APC had not delivered it when win32k used the pointer.
+- [Monitor list query](../Upstream/ReactOS/Patches/Runtime/ReactOS-monitor-list-completion.patch):
+  keep the private buffered enumeration request and its output slot until the
+  port finishes. On the old failing disk this gets the ordinary boot entry to
+  [graphical setup without repairing the FAT](Notes/HyperV-Desktop-QA/Review/MonitorList.md).
 - [SORT](../Upstream/ReactOS/Patches/Runtime/ReactOS-sort-eof.patch) preserves an
   unterminated last record; [WHERE](../Upstream/ReactOS/Patches/Runtime/ReactOS-where-scoped.patch)
   respects explicitly scoped searches; [Notepad](../Upstream/ReactOS/Patches/Runtime/ReactOS-notepad-majority-eol.patch)

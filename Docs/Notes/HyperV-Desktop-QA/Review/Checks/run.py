@@ -11,7 +11,7 @@ p = argparse.ArgumentParser(description=__doc__)
 p.add_argument("source", type=Path)
 p.add_argument("--stock", action="store_true", help="read the pinned Git blobs")
 p.add_argument("--mm-only", action="store_true", help="pair patched MM with stock CC; negative control for writeback")
-p.add_argument("--suite", choices=("writeback", "bcb", "fat", "user", "relation", "ioctl", "video", "collision"), action="append")
+p.add_argument("--suite", choices=("writeback", "bcb", "fat", "user", "relation", "ioctl", "monitor-list", "video", "collision"), action="append")
 args = p.parse_args()
 if args.mm_only:
     if args.stock or args.suite not in (None, ["writeback"]):
@@ -89,13 +89,20 @@ def generate(suite, out):
     elif suite == "ioctl":
         data = defs("win32ss/drivers/videoprt/dispatch.c", [("VideoPortEnumMonitorPdo", "NTSTATUS")])
         data += defs("win32ss/gdi/eng/device.c", [("EngDeviceIoControl", "DWORD APIENTRY")])
+    elif suite == "monitor-list":
+        data = defs("win32ss/drivers/videoprt/dispatch.c", [("VideoPortEnumMonitorPdo", "NTSTATUS")])
+        data += defs("win32ss/gdi/eng/device.c", [("EngpCompleteTargetRelation", "NTSTATUS NTAPI"),
+                                                ("EngpQueryMonitorList", "NTSTATUS")])
     (out / (suite + ".inc")).write_text(data, encoding="utf-8")
     return HERE / (suite + ".c")
 
 
 if __name__ == "__main__":
     failed = 0
-    for suite in args.suite or ("writeback", "bcb", "fat", "user", "relation", "video", "ioctl"):
+    suites = ["writeback", "bcb", "fat", "user", "relation", "video", "ioctl"]
+    if "EngpQueryMonitorList(" in read("win32ss/gdi/eng/device.c"):
+        suites.append("monitor-list")
+    for suite in args.suite or suites:
         with tempfile.TemporaryDirectory(prefix="Kundows-check-") as tmp:
             out = Path(tmp)
             source = generate(suite, out)

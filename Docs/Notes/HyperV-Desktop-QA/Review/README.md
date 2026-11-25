@@ -1,6 +1,6 @@
 # 安装故障代码走查：显示器枚举与 FAT32 写回
 
-本页保留初次走查及单页用例。**后续结论**见[正式补丁、Windows 对照与修后复测](Verified.md)：G1、M1、C1、F1、G3 已接入。故障盘副本越过 G1 后遇到另一个缓冲 IOCTL 完成缺陷 G4；G2、C2、G4 保留调查。
+本页保留初次走查及单页用例。**后续结论**见[正式补丁、Windows 对照与修后复测](Verified.md)：G1、M1、C1、F1、G3 已接入；后续遇到的私有显示器列表查询 [G4 也已修复](MonitorList.md)。G2、C2 保留调查。
 
 基线为 ReactOS `4fbbefd614b`，对应[上次 Hyper‑V 安装现场](../README.md#安装故障首次硬盘启动灰屏或蓝屏)。这次分别追踪了**设备关系的生产者到消费者**，以及 **FAT32 脏扇区到缓存、页写回和卷清洁标记**。该版的 [FAT 识别器](../../../../Upstream/ReactOS/Source/drivers/filesystems/fs_rec/fat.c#L167)加载 `fastfat`；实际 x64 内核工程编入的是 [`ntoskrnl/cc`](../../../../Upstream/ReactOS/Source/ntoskrnl/ntos.cmake#L32)。
 
