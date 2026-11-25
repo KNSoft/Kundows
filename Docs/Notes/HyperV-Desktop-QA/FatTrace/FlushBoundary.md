@@ -2,6 +2,8 @@
 
 固定 ReactOS `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，Hyper-V Gen 1，x64 Debug，1 vCPU / 1 GiB / 8 GiB IDE。在独立诊断介质上，安装程序完成一次普通文件分配，再对目标卷调用 `NtFlushBuffersFile`。**修前，调用和 IOSB 均为 `STATUS_SUCCESS`，紧接着绕过文件系统对两份 FAT 的读取都返回了旧值。** 这说明问题能到达调用方；只在安装结束时比较两份 FAT，会漏掉这段时间窗口。
 
+这个现象也已用[同一个独立 Win32 EXE](../ApiTests/README.md)在无探针的系统上复核：Windows 通过，ReactOS 修前失败，只换修后的 `fastfat.sys` 后通过。
+
 ## 为什么需要两个扇区
 
 - **第 311 扇区，在第一个 256 KiB 缓存视图中。** 复制 `PALAI.TTF` 后立即刷卷。`FatFlushFat` 的 `PIN_IF_BCB` 未命中，`FatFlushVolume` 返回成功时，目标扇区仍在 `DirtyFatMcb` 里。一次带阶段记录的运行中，`FatMarkVolume(VolumeClean)` 进入时写序号为 236，离开时为 248；涵盖扇区的两次类驱动完成都在这段区间内。随后 `FatUnpinRepinnedBcbs` 前后序号未变。调用方读到的两份内容都和之前的固定页快照相同。这是**内部漏刷、返回之前被其他写入补齐**的对照。
