@@ -1,0 +1,25 @@
+Release the exclusive USER lock when GDI initialization fails in CSRSS.
+Use the existing exit; preserve STATUS_UNSUCCESSFUL and do not proceed to
+UserInitialize on this path. No change to CSRSS registration or retry.
+On 4fbbefd614b the GDI failure alone left an unmatched lock in five
+controlled NtUserInitialize paths (4/5 -> 5/5). The installation crash
+was in a different function; a font-chain error does not prove this exit ran.
+
+diff --git a/win32ss/user/ntuser/ntuser.c b/win32ss/user/ntuser/ntuser.c
+index a019ffb832a..4534a538493 100644
+--- a/win32ss/user/ntuser/ntuser.c
++++ b/win32ss/user/ntuser/ntuser.c
+@@ -207,10 +207,9 @@ NtUserInitialize(
+ 
+     /* Initialize various GDI stuff (DirectX, fonts, language ID etc.) */
+     if (!InitializeGreCSRSS())
+-        return STATUS_UNSUCCESSFUL;
+-
+-    /* Initialize USER */
+-    Status = UserInitialize();
++        Status = STATUS_UNSUCCESSFUL;
++    else
++        Status = UserInitialize();
+ 
+     /* Return */
+     UserLeave();

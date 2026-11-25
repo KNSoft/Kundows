@@ -1,0 +1,88 @@
+Complete win32k's target-device relation query before consuming its result.
+Use a caller-owned IRP; stop completion unwinding in the event callback,
+wait if pending, copy the final status/information and free the IRP once.
+On the failed 4fbbefd614b Hyper-V disk the request returned success with
+a Debug-fill relation pointer. Its matching VGA IRP held a valid one-object
+result and its completion APC was still queued on the faulting thread.
+Eight controlled completion cases pass, including inline success with
+deferred IOSB delivery. On a file-only disk copy the next failure is in
+buffered IOCTL copy-back, after this query. Does not repair the volume.
+
+diff --git a/win32ss/gdi/eng/device.c b/win32ss/gdi/eng/device.c
+index 81592b88f41..e2665616eb3 100644
+--- a/win32ss/gdi/eng/device.c
++++ b/win32ss/gdi/eng/device.c
+@@ -512,6 +512,18 @@ VideoPortCallout(
+     }
+ }
+ 
++static NTSTATUS NTAPI
++EngpCompleteTargetRelation(
++    _In_ PDEVICE_OBJECT DeviceObject,
++    _In_ PIRP Irp,
++    _In_ PVOID Context)
++{
++    UNREFERENCED_PARAMETER(DeviceObject);
++    UNREFERENCED_PARAMETER(Irp);
++    KeSetEvent((PKEVENT)Context, IO_NO_INCREMENT, FALSE);
++    return STATUS_MORE_PROCESSING_REQUIRED;
++}
++
+ /* Sends a TargetDeviceRelation request to PDO
+  * On success, caller needs to free pDeviceRelations with ExFreePool()
+  */
+@@ -524,42 +536,34 @@ EngpPnPTargetRelationRequest(
+     PIO_STACK_LOCATION IrpSp;
+     KEVENT Event;
+     PIRP pIrp;
+-    IO_STATUS_BLOCK Iosb;
+     NTSTATUS Status;
+ 
+-    /* Initialize an event */
++    *pDeviceRelations = NULL;
+     KeInitializeEvent(&Event, SynchronizationEvent, FALSE);
+ 
+-    /* Build IRP */
+-    pIrp = IoBuildSynchronousFsdRequest(IRP_MJ_PNP,
+-                                        pDeviceObject,
+-                                        NULL, 0,
+-                                        NULL,
+-                                        &Event,
+-                                        &Iosb);
++    /* Own this IRP until completion. The query must not depend on a
++     * special kernel APC copying a result into the caller's stack. */
++    pIrp = IoAllocateIrp(pDeviceObject->StackSize, FALSE);
+     if (!pIrp)
+         return STATUS_INSUFFICIENT_RESOURCES;
+ 
+-    /* Initialize IRP */
++    pIrp->Tail.Overlay.Thread = PsGetCurrentThread();
+     pIrp->IoStatus.Status = STATUS_NOT_SUPPORTED;
++    pIrp->IoStatus.Information = 0;
+     IrpSp = IoGetNextIrpStackLocation(pIrp);
++    IrpSp->MajorFunction = IRP_MJ_PNP;
+     IrpSp->MinorFunction = IRP_MN_QUERY_DEVICE_RELATIONS;
+     IrpSp->Parameters.QueryDeviceRelations.Type = TargetDeviceRelation;
++    IoSetCompletionRoutine(pIrp, EngpCompleteTargetRelation, &Event, TRUE, TRUE, TRUE);
+ 
+-    /* Call the driver */
+     Status = IoCallDriver(pDeviceObject, pIrp);
+-
+-    /* Wait if neccessary */
+     if (Status == STATUS_PENDING)
+-    {
+-        KeWaitForSingleObject(&Event, Executive, KernelMode, FALSE, 0);
+-        Status = Iosb.Status;
+-    }
++        KeWaitForSingleObject(&Event, Executive, KernelMode, FALSE, NULL);
+ 
+-    /* Return information to the caller about the operation. */
++    Status = pIrp->IoStatus.Status;
+     if (NT_SUCCESS(Status))
+-        *pDeviceRelations = (PDEVICE_RELATIONS)Iosb.Information;
+-
++        *pDeviceRelations = (PDEVICE_RELATIONS)pIrp->IoStatus.Information;
++    IoFreeIrp(pIrp);
+     return Status;
+ }
+ 
