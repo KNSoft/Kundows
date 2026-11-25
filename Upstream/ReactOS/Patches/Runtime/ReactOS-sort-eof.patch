@@ -1,0 +1,32 @@
+Preserve the final character when SORT reads an unterminated text line.
+At 4fbbefd614b every nonempty fgets result loses its last byte, even if
+there was no newline. Windows preserves a one-character last record.
+Scope: newline removal; record length limits and ordering are unchanged.
+In an installed x64 Debug Hyper-V guest the last word "alpha" became
+"alph"; the patched executable preserved it and passed all five SORT cases.
+
+diff --git a/base/applications/cmdutils/sort/sort.c b/base/applications/cmdutils/sort/sort.c
+index 3ecfc960b10..7d5ecc44288 100644
+--- a/base/applications/cmdutils/sort/sort.c
++++ b/base/applications/cmdutils/sort/sort.c
+@@ -91,6 +91,7 @@ int main(int argc, char **argv)
+     /* Option character pointer */
+     char *cp;
+     int i, nr;
++    size_t len;
+ 
+     sortcol = 0;
+     rev = 0;
+@@ -145,9 +146,10 @@ int main(int argc, char **argv)
+             break;
+         }
+ 
+-        if(strlen(temp))
++        len = strlen(temp);
++        if (len && temp[len - 1] == '\n')
+         {
+-            temp[strlen(temp) - 1] = '\0';
++            temp[len - 1] = '\0';
+         }
+ 
+         list[nr] = (char *) malloc(strlen(temp) + 1);

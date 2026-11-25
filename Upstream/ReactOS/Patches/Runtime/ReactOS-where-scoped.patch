@@ -1,0 +1,79 @@
+Restrict explicit WHERE path and environment-variable searches to the
+specified directories. On Windows a file only in the current directory
+does not satisfy /Q C:\Scope:name. At 4fbbefd614b WhereFindByDirs
+prepends the current directory even for an explicit scope. Preserve the
+implicit current-directory search for an unqualified pattern.
+On the same installed x64 guest, the explicit directory, $QADIR:, $PATH:
+and quiet not-found cases changed to match Windows; default lookup still passed (5/5).
+
+diff --git a/base/applications/cmdutils/where/where.c b/base/applications/cmdutils/where/where.c
+index f4f68a14944..5d21f5fc391 100644
+--- a/base/applications/cmdutils/where/where.c
++++ b/base/applications/cmdutils/where/where.c
+@@ -306,7 +306,7 @@ static BOOL WhereGetPathExt(strlist_t *ext_list)
+     return ret;
+ }
+ 
+-static BOOL WhereFindByDirs(LPCWSTR pattern, LPWSTR dirs)
++static BOOL WhereFindByDirs(LPCWSTR pattern, LPWSTR dirs, BOOL includeCurrentDir)
+ {
+     BOOL ret;
+     size_t cch;
+@@ -314,9 +314,12 @@ static BOOL WhereFindByDirs(LPCWSTR pattern, LPWSTR dirs)
+     LPWSTR dir, pch;
+     strlist_t dirlist = strlist_default;
+ 
+-    GetCurrentDirectoryW(_countof(szPath), szPath);
+-    if (!strlist_add(&dirlist, szPath))
+-        return FALSE; // out of memory
++    if (includeCurrentDir)
++    {
++        GetCurrentDirectoryW(_countof(szPath), szPath);
++        if (!strlist_add(&dirlist, szPath))
++            return FALSE; // out of memory
++    }
+ 
+     for (dir = wcstok(dirs, L";"); dir; dir = wcstok(NULL, L";"))
+     {
+@@ -346,12 +349,12 @@ static BOOL WhereFindByDirs(LPCWSTR pattern, LPWSTR dirs)
+     return ret;
+ }
+ 
+-static BOOL WhereFindByVar(LPCWSTR pattern, LPCWSTR name)
++static BOOL WhereFindByVar(LPCWSTR pattern, LPCWSTR name, BOOL includeCurrentDir)
+ {
+     LPWSTR value;
+     BOOL ret = WhereGetVariable(name, &value);
+     if (ret && value)
+-        ret = WhereFindByDirs(pattern, value);
++        ret = WhereFindByDirs(pattern, value, includeCurrentDir);
+     free(value);
+     return ret;
+ }
+@@ -394,7 +397,7 @@ static BOOL WhereDoPattern(LPWSTR pattern)
+                 WhereError(IDS_ENVPAT_WITH_R);
+                 return FALSE;
+             }
+-            ret = WhereFindByVar(pch, pattern + 1);
++            ret = WhereFindByVar(pch, pattern + 1, FALSE);
+         }
+         else // path:pattern
+         {
+@@ -408,7 +411,7 @@ static BOOL WhereDoPattern(LPWSTR pattern)
+                 WhereError(IDS_BAD_PATHPAT);
+                 return FALSE;
+             }
+-            ret = WhereFindByDirs(pch, pattern);
++            ret = WhereFindByDirs(pch, pattern, FALSE);
+         }
+     }
+     else if (s_pszRecursiveDir) // recursive
+@@ -424,7 +427,7 @@ static BOOL WhereDoPattern(LPWSTR pattern)
+     }
+     else // otherwise
+     {
+-        ret = WhereFindByVar(pattern, L"PATH");
++        ret = WhereFindByVar(pattern, L"PATH", TRUE);
+     }
+ 
+     if (!ret)

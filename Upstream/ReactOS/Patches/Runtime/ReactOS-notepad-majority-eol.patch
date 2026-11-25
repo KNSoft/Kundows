@@ -1,0 +1,21 @@
+Choose LF instead of an outnumbered CR in a mixed-newline Notepad file.
+At 4fbbefd614b three LFs and one CR select CR before the LF count is
+considered. Before 0a851eadcb7 the largest count won. Restore strict
+pluralities; retain the current tie behavior and output encodings.
+The installed x64 GUI saved all four separators as CR; the patched GUI saved
+them as LF after the same single-character edit. All three controls passed.
+
+diff --git a/base/applications/notepad/text.c b/base/applications/notepad/text.c
+index cf479fce52f..a6ffe110b8a 100644
+--- a/base/applications/notepad/text.c
++++ b/base/applications/notepad/text.c
+@@ -116,7 +116,8 @@ ProcessNewLinesAndNulls(HLOCAL *phLocal, LPWSTR *ppszText, SIZE_T *pcchText, EOL
+     }
+ 
+     /* Choose the newline code */
+-    if (adwEolnCount[EOLN_CR] > adwEolnCount[EOLN_CRLF])
++    if (adwEolnCount[EOLN_CR] > adwEolnCount[EOLN_CRLF] &&
++        adwEolnCount[EOLN_CR] >= adwEolnCount[EOLN_LF])
+         iEoln = EOLN_CR;
+     else if (adwEolnCount[EOLN_LF] > adwEolnCount[EOLN_CRLF])
+         iEoln = EOLN_LF;
