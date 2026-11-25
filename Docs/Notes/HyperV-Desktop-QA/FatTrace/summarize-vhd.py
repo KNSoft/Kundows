@@ -10,11 +10,12 @@ p.add_argument("tsv", type=Path)
 p.add_argument("geometry", type=Path, help="read-only FAT sample (fat_offset_in_volume, fat_length, sector_bytes)")
 p.add_argument("partition_offset", type=int, help="partition offset in bytes from the start of the virtual disk")
 p.add_argument("--guest", type=Path, help="same-boot guest writes.tsv, if available")
+p.add_argument("--entry", type=int, default=39907, help="FAT32 entry whose sector to follow (default: 39907)")
 args = p.parse_args()
 geo = json.loads(args.geometry.read_text(encoding="utf-8-sig"))
 length = geo["fat_length"]
 sector = geo["sector_bytes"]
-watch = (39907*4)//sector*sector
+watch = (args.entry*4)//sector*sector
 starts = [args.partition_offset + geo["fat_offset_in_volume"] + i*length for i in range(2)]
 assert sector == 512 and 0 <= watch < length
 pending, completed, errors = {}, [], []
@@ -51,7 +52,8 @@ for start in starts:
                     for s,e,io,srb,o,n in hits if o<=start+watch<o+n])
 result = dict(completed_activities=len(completed), missing_start=unmatched,
               missing_stop=len(pending), mismatched_descriptors=malformed,
-              recovery_error_events=len(errors), mirrors=mirrors, watched=watched)
+              recovery_error_events=len(errors), mirrors=mirrors,
+              watched_entry=args.entry, watched_sector=watch//sector, watched=watched)
 if args.guest:
     with args.guest.open(encoding="ascii", newline="") as f:
         guest = Counter((args.partition_offset+int(row["lbo"]),int(row["length"]))

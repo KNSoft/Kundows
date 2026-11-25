@@ -10,9 +10,9 @@
 | --- | --- |
 | 含 G1、不含 G4（上一轮重复两次） | 普通入口断言于 `EngpUpdateMonitorDevices` 的 `bytesWritten` 检查。 |
 | 含 G1、G4；普通入口 | [到达图形安装欢迎页](../Images/first-disk-after-g4-gui.png)。两份 FAT 逐字节与故障原样相同，仍差 29 项；损坏字体的活动链仍只有 1 簇。 |
-| 同一改动，另一个副本；默认 Debug，无宿主调试器 | 125 秒内仍灰屏。取样 CPU 在 `kdcom.dll+0x2222`。 |
+| 同一改动，另一个副本；默认 Debug，无宿主调试器 | 125 秒内仍灰屏。另一次从灰屏的 [KD 消息和 fastfat 调用参数](../FatTrace/DebugReplay.md)定位到 `\pagefile.sys` 的簇链断裂。 |
 
-对照只替换 `win32k.sys` 及该目录项的有效长度，复用原来的 612 簇，启动前校验原始 CAB 文件及两份 FAT 的哈希。G1 版 `win32k.sys` SHA-256 `05676C7324B1ECC98FF606A1BCC5EA16DFE134780A3C10EC4FBB14569C3BC3B1`，G4 版 `3AF4D4B8117742901DB85D3E6497DE9B1F73670D7235278723ACA198DF24BFCB`。欢迎页是这次坏盘验证的终点。
+对照只替换 `win32k.sys` 及该目录项的有效长度，复用原来的 612 簇，启动前校验原始 CAB 文件及两份 FAT 的哈希。G1 版 `win32k.sys` SHA-256 `05676C7324B1ECC98FF606A1BCC5EA16DFE134780A3C10EC4FBB14569C3BC3B1`，G4 版 `3AF4D4B8117742901DB85D3E6497DE9B1F73670D7235278723ACA198DF24BFCB`。只替换此文件的普通入口对照验证到安装欢迎页。
 
 [14 项回归](Checks/monitor-list.c)提取实际查询函数、完成例程和端口生产函数，检查内联、有/无子设备、pending 前/后完成、错误、取消及三处分配失败。用非空输出槽分别返回比指针少一字节、多一字节的长度，确认仅检查非空不足以通过用例。x64 / x86 MSVC 各 **14/14**，已有修复的 56 项也各自通过。复核：在 MSVC 开发者命令行运行 `python Docs\Notes\HyperV-Desktop-QA\Review\Checks\run.py Upstream\ReactOS\Source --suite monitor-list --suite ioctl`。四种配置的 18 / 19 / 20 / 21 个正式补丁已在临时 Git 索引中完整应用、逐个识别和逆序回退。
 

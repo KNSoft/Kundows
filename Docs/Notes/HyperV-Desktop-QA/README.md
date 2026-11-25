@@ -74,7 +74,7 @@ Debug 入口的 CPU 快照位于 `kdcom.dll!Cp16550ReadLsr+0x52`；栈上的可�
 | 普通 `ReactOS` | `STOP 0x1E` | [进入图形安装向导](Images/first-disk-repaired-gui.png)；此轮验证到欢迎页。 |
 | 默认 `ReactOS (Debug)`，无串口调试器 | 两次均未进入向导，灰屏 | 六分钟内仍未进入向导。 |
 
-这给出了普通启动项的实测恢复路径，但不能据此认定 Debug 灰屏已修好，也还不能定位最初写坏 FAT 的代码。完整安装到桌面、冷启动和 21 项应用测试用的是**另一块未经修盘的新装磁盘**。
+这是最初只修字体链的对照。后续的[默认 Debug 重放](FatTrace/DebugReplay.md)从异常消息和实参依次确认了分页文件、备用注册表文件和字体的坏链。处理三项后的故障盘副本已完成安装并冷启动到桌面；本页的 21 项应用成绩仍取自**另一块未经修盘的新装磁盘**。
 
 上游有症状相关的 [CORE-17172](https://jira.reactos.org/browse/CORE-17172)（真机第三阶段 FAT32 损坏）和已解决的 [CORE-17587](https://jira.reactos.org/browse/CORE-17587)（旧版 x86）。两份报告的环境和停止码不等同于本例，反馈前应先核对是否共因。交给上游时应注明使用的是 Kundows 镜像，列出本库已有的内核补丁；特别是 [CC 缓存写回修复](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-pinned-dirty.patch)已启用，[MM 可选修复](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-collision.patch)未启用。
 
