@@ -25,6 +25,7 @@ struct Packet {
 static Port port;
 static Device fdo={1,0,&port}, child;
 static VIDEO_PORT_CHILD_EXTENSION ext;
+static VIDEO_MONITOR_DEVICE malformed;
 static struct Packet packet;
 static int liveIrp, buffers, lists, signaling, waits, completed, timing, fail, thread;
 static NTSTATUS driver;
@@ -53,7 +54,13 @@ static NTSTATUS VideoPortEnumMonitorPdo(Device*,PVIDEO_MONITOR_DEVICE*,ULONG_PTR
 static void finish(void)
 {
     PIRP i=&packet; ASSERT(!completed++ && liveIrp && buffers);
-    if(driver==0 && fail!=4 && fail!=5)
+    if(fail==6 || fail==7) {
+        /* A non-null slot is not a valid transfer if the count is wrong.
+         * Use a token, not an allocation with ambiguous ownership. */
+        *(PVIDEO_MONITOR_DEVICE*)i->AssociatedIrp.SystemBuffer=&malformed;
+        i->IoStatus.Information=fail==6 ? sizeof(void*)-1 : sizeof(void*)+1;
+        i->IoStatus.Status=STATUS_SUCCESS;
+    } else if(driver==0 && fail!=4 && fail!=5)
         i->IoStatus.Status=VideoPortEnumMonitorPdo(&fdo,i->AssociatedIrp.SystemBuffer,&i->IoStatus.Information);
     else { i->IoStatus.Status=driver; i->IoStatus.Information=(fail==5)?sizeof(void*):0; }
     ASSERT(i->callback(NULL,i,i->context)==STATUS_MORE_PROCESSING_REQUIRED);
@@ -79,7 +86,7 @@ static void run(const char *name,int when,int failure,NTSTATUS result,int childr
     PVIDEO_MONITOR_DEVICE list=(PVIDEO_MONITOR_DEVICE)(ULONG_PTR)1;
     NTSTATUS s=EngpQueryMonitorList(&fdo,&list);
     int delivered=(expect==STATUS_SUCCESS ? (list && list[0].pdo==(children?&child:NULL) && !list[children].pdo && lists==1 && child.refs==children) : !list);
-    if(list && s==0) { if(children)--child.refs; --lists; free(list); }
+    if(list && s==0 && list!=&malformed) { if(children)--child.refs; --lists; free(list); }
     verdict(name,s==expect && delivered && !liveIrp && !buffers && !lists && !child.refs &&
                  waits==(!!when && failure!=1 && failure!=2) && signaling==completed);
 }
@@ -93,5 +100,7 @@ int main(void)
     run("no IRP",0,1,0,1,STATUS_INSUFFICIENT_RESOURCES); run("no system buffer",0,2,0,1,STATUS_INSUFFICIENT_RESOURCES);
     run("no producer list",2,3,0,1,STATUS_INSUFFICIENT_RESOURCES);
     run("short empty reply",0,4,0,1,STATUS_DEVICE_DATA_ERROR); run("missing result",0,5,0,1,STATUS_DEVICE_DATA_ERROR);
+    run("short non-null slot",0,6,0,0,STATUS_DEVICE_DATA_ERROR);
+    run("oversized non-null slot",2,7,0,0,STATUS_DEVICE_DATA_ERROR);
     return summary("G4 private monitor query");
 }

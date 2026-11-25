@@ -6,7 +6,7 @@ their existing semantics. Apply after monitor-relation-completion.
 On a copy of the failed 4fbbefd614b x64 Hyper-V disk, changing only
 win32k.sys advanced the ordinary entry from the byte-count assertion
 to graphical setup without changing either FAT. Debug still stalled.
-Twelve x86 and x64 host checks cover transfer of the referenced list,
+Fourteen x86 and x64 host checks cover transfer of the referenced list,
 inline/pending completion, cancellation, allocation failures and bad sizes.
 
 diff --git a/win32ss/gdi/eng/device.c b/win32ss/gdi/eng/device.c

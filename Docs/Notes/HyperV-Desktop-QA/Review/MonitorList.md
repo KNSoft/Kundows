@@ -14,6 +14,6 @@
 
 对照只替换 `win32k.sys` 及该目录项的有效长度，复用原来的 612 簇，启动前校验原始 CAB 文件及两份 FAT 的哈希。G1 版 `win32k.sys` SHA-256 `05676C7324B1ECC98FF606A1BCC5EA16DFE134780A3C10EC4FBB14569C3BC3B1`，G4 版 `3AF4D4B8117742901DB85D3E6497DE9B1F73670D7235278723ACA198DF24BFCB`。欢迎页是这次坏盘验证的终点。
 
-[12 项回归](Checks/monitor-list.c)提取实际查询函数、完成例程和端口生产函数，检查内联、有/无子设备、pending 前/后完成、错误、取消、三处不同的分配失败、短回复及空指针。x64 / x86 MSVC 各 **12/12**，已有修复的 56 项也各自通过。复核：在 MSVC 开发者命令行运行 `python Docs\Notes\HyperV-Desktop-QA\Review\Checks\run.py Upstream\ReactOS\Source --suite monitor-list --suite ioctl`。四种配置的 18 / 19 / 20 / 21 个正式补丁已在临时 Git 索引中完整应用、逐个识别和逆序回退。
+[14 项回归](Checks/monitor-list.c)提取实际查询函数、完成例程和端口生产函数，检查内联、有/无子设备、pending 前/后完成、错误、取消及三处分配失败。用非空输出槽分别返回比指针少一字节、多一字节的长度，确认仅检查非空不足以通过用例。x64 / x86 MSVC 各 **14/14**，已有修复的 56 项也各自通过。复核：在 MSVC 开发者命令行运行 `python Docs\Notes\HyperV-Desktop-QA\Review\Checks\run.py Upstream\ReactOS\Source --suite monitor-list --suite ioctl`。四种配置的 18 / 19 / 20 / 21 个正式补丁已在临时 Git 索引中完整应用、逐个识别和逆序回退。
 
 **正式镜像。** x64 Debug BootCD SHA-256 为 `1D6D0A0E27CFBD2B51CC2F73E655BC3C65B2005EE8567DE5D03A73558BA928BA`。默认 `Configure.cmd`、`Build.cmd`、`MakeISO.cmd` 同树完成，ISO 中的 `win32k.sys` 与上述坏盘测试的 G4 二进制一致，`kernel32.dll` / `ntdll.dll` 与此前核对过的 `0x600` 版逐字节相同。从空盘安装到桌面、正常关机、无介质冷启动、Explorer 和记事本重开均成功。文本安装后的 1121 个文件未见短链，51 个字体与 CAB 一致；安装版应用 15/21（其中三项已修应用 14/14），旁加载候选 21/21，测试工具错误 0。虚拟机已还原到空盘关机检查点。
