@@ -1,0 +1,171 @@
+Report the first failed section-page write and stop counting at that page.
+Preserve the page-out release boolean, the failed dirty page and retry.
+After the first failed VACB, bound the remaining attempts in the global CC
+pass by the current number of dirty views. This lets other views write and
+prevents an immediately requeued permanent error from spinning at shutdown.
+On 4fbbefd614b, 8/21 -> 21/21 controlled MM/CC checks passed, including a
+partial range, a healthy peer, explicit and background retries. Information
+keeps the existing page-based units. This is not evidence of which I/O, if
+any, failed on an installation disk. Serialization is a separate patch.
+
+diff --git a/ntoskrnl/cc/view.c b/ntoskrnl/cc/view.c
+index 9683c31d8af..6b14528399b 100644
+--- a/ntoskrnl/cc/view.c
++++ b/ntoskrnl/cc/view.c
+@@ -353,4 +353,6 @@ CcRosFlushDirtyPages (
+     PLIST_ENTRY current_entry;
+     NTSTATUS Status;
++    NTSTATUS FirstError = STATUS_SUCCESS;
++    ULONG AttemptsLeft = 0;
+     KIRQL OldIrql;
+     BOOLEAN FlushAll = (Target == MAXULONG);
+@@ -375,8 +377,11 @@ CcRosFlushDirtyPages (
+         BOOLEAN Locked;
+ 
++        if (!NT_SUCCESS(FirstError) && AttemptsLeft == 0)
++            break;
++
+         if (current_entry == &DirtyVacbListHead)
+         {
+             ASSERT(FlushAll);
+-            if (IsListEmpty(&DirtyVacbListHead))
++            if (!NT_SUCCESS(FirstError) || IsListEmpty(&DirtyVacbListHead))
+                 break;
+             current_entry = DirtyVacbListHead.Flink;
+@@ -454,8 +459,18 @@ CcRosFlushDirtyPages (
+             CcRosDeleteFileCache(SharedCacheMap->FileObject, SharedCacheMap, &OldIrql);
+ 
+-        if (!NT_SUCCESS(Status) && (Status != STATUS_END_OF_FILE) &&
+-            (Status != STATUS_MEDIA_WRITE_PROTECTED))
++        if (!NT_SUCCESS(FirstError))
++            --AttemptsLeft;
++
++        if (!NT_SUCCESS(Status))
+         {
+-            DPRINT1("CC: Failed to flush VACB.\n");
++            if (NT_SUCCESS(FirstError))
++            {
++                FirstError = Status;
++                /* A failed VACB is requeued at the tail. Give the other
++                 * dirty views a turn without retrying a bad disk forever. */
++                AttemptsLeft = CcTotalDirtyPages / (VACB_MAPPING_GRANULARITY / PAGE_SIZE);
++            }
++            if (Status != STATUS_END_OF_FILE && Status != STATUS_MEDIA_WRITE_PROTECTED)
++                DPRINT1("CC: Failed to flush VACB. Status: 0x%08lx\n", Status);
+         }
+         else
+@@ -489,5 +504,5 @@ CcRosFlushDirtyPages (
+ 
+     DPRINT("CcRosFlushDirtyPages() finished\n");
+-    return STATUS_SUCCESS;
++    return FirstError;
+ }
+ 
+diff --git a/ntoskrnl/mm/section.c b/ntoskrnl/mm/section.c
+index d429b6ac123..b6d9ad03bac 100644
+--- a/ntoskrnl/mm/section.c
++++ b/ntoskrnl/mm/section.c
+@@ -5115,4 +5115,13 @@ MmMakeSegmentDirty(
+ }
+ 
++static
++BOOLEAN
++MiCheckDirtySegment(
++    PMM_SECTION_SEGMENT Segment,
++    PLARGE_INTEGER Offset,
++    BOOLEAN ForceDirty,
++    BOOLEAN PageOut,
++    _Out_opt_ PNTSTATUS WriteStatus);
++
+ NTSTATUS
+ NTAPI
+@@ -5124,5 +5133,8 @@ MmFlushSegment(
+ {
+     LARGE_INTEGER FlushStart, FlushEnd;
+-    NTSTATUS Status;
++    NTSTATUS Status = STATUS_SUCCESS;
++
++    if (Iosb)
++        Iosb->Information = 0;
+ 
+     if (Offset)
+@@ -5131,10 +5143,7 @@ MmFlushSegment(
+         Status = RtlLongLongAdd(FlushStart.QuadPart, Length, &FlushEnd.QuadPart);
+         if (!NT_SUCCESS(Status))
+-            return Status;
++            goto Quit;
+     }
+ 
+-    if (Iosb)
+-        Iosb->Information = 0;
+-
+     PMM_SECTION_SEGMENT Segment = MiGrabDataSection(SectionObjectPointer);
+     if (!Segment)
+@@ -5175,5 +5184,7 @@ MmFlushSegment(
+         if (IS_DIRTY_SSE(Entry))
+         {
+-            MmCheckDirtySegment(Segment, &FlushStart, FALSE, FALSE);
++            MiCheckDirtySegment(Segment, &FlushStart, FALSE, FALSE, &Status);
++            if (!NT_SUCCESS(Status))
++                break;
+ 
+             if (Iosb)
+@@ -5188,19 +5199,19 @@ MmFlushSegment(
+ 
+ Quit:
+-    /* FIXME: Handle failures */
+     if (Iosb)
+-        Iosb->Status = STATUS_SUCCESS;
++        Iosb->Status = Status;
+ 
+-    return STATUS_SUCCESS;
++    return Status;
+ }
+ 
++static
+ _Requires_exclusive_lock_held_(Segment->Lock)
+ BOOLEAN
+-NTAPI
+-MmCheckDirtySegment(
++MiCheckDirtySegment(
+     PMM_SECTION_SEGMENT Segment,
+     PLARGE_INTEGER Offset,
+     BOOLEAN ForceDirty,
+-    BOOLEAN PageOut)
++    BOOLEAN PageOut,
++    _Out_opt_ PNTSTATUS WriteStatus)
+ {
+     ULONG_PTR Entry;
+@@ -5208,4 +5219,7 @@ MmCheckDirtySegment(
+     PFN_NUMBER Page;
+ 
++    if (WriteStatus)
++        *WriteStatus = STATUS_SUCCESS;
++
+     ASSERT(Segment->Locked);
+ 
+@@ -5331,4 +5345,6 @@ MmCheckDirtySegment(
+         if (!NT_SUCCESS(Status))
+         {
++            if (WriteStatus)
++                *WriteStatus = Status;
+             /* Damn, this failed. Consider this page as still dirty */
+             DPRINT1("MiWritePage FAILED: Status 0x%08x!\n", Status);
+@@ -5372,4 +5388,17 @@ MmCheckDirtySegment(
+ }
+ 
++_Requires_exclusive_lock_held_(Segment->Lock)
++BOOLEAN
++NTAPI
++MmCheckDirtySegment(
++    PMM_SECTION_SEGMENT Segment,
++    PLARGE_INTEGER Offset,
++    BOOLEAN ForceDirty,
++    BOOLEAN PageOut)
++{
++    /* Page-out callers need the release decision, not the I/O status. */
++    return MiCheckDirtySegment(Segment, Offset, ForceDirty, PageOut, NULL);
++}
++
+ /* This function is not used. It is left for future use, when per-process
+  * address space is considered. */

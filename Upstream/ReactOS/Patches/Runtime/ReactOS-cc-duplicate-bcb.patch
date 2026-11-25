@@ -1,0 +1,50 @@
+Pin the BCB actually returned when a concurrent creator wins the lookup.
+Free the losing allocation even when a non-waiting acquire fails. Leave the
+incoming VACB reference with CcpPinData/CcMapData on every NULL return;
+both callers already drop it. Successful new mappings still consume it.
+On 4fbbefd614b, 5/12 -> 12/12 controlled pin/map and cleanup cases passed.
+The fixture publishes a competing BCB between lookups; it does not require
+a particular scheduler or establish that Setup encountered this branch.
+
+diff --git a/ntoskrnl/cc/pin.c b/ntoskrnl/cc/pin.c
+index e37a1c97d6b..9594f955601 100644
+--- a/ntoskrnl/cc/pin.c
++++ b/ntoskrnl/cc/pin.c
+@@ -120,7 +120,7 @@ CcpGetAppropriateBcb(
+     iBcb = ExAllocateFromNPagedLookasideList(&iBcbLookasideList);
+     if (iBcb == NULL)
+     {
+-        CcRosReleaseVacb(SharedCacheMap, Vacb, FALSE, FALSE);
++        /* On failure the caller still owns its VACB reference. */
+         return NULL;
+     }
+ 
+@@ -150,11 +150,11 @@ CcpGetAppropriateBcb(
+         {
+             if (BooleanFlagOn(PinFlags, PIN_EXCLUSIVE))
+             {
+-                Result = ExAcquireResourceExclusiveLite(&iBcb->Lock, BooleanFlagOn(PinFlags, PIN_WAIT));
++                Result = ExAcquireResourceExclusiveLite(&DupBcb->Lock, BooleanFlagOn(PinFlags, PIN_WAIT));
+             }
+             else
+             {
+-                Result = ExAcquireSharedStarveExclusive(&iBcb->Lock, BooleanFlagOn(PinFlags, PIN_WAIT));
++                Result = ExAcquireSharedStarveExclusive(&DupBcb->Lock, BooleanFlagOn(PinFlags, PIN_WAIT));
+             }
+ 
+             if (Result)
+@@ -170,11 +170,11 @@ CcpGetAppropriateBcb(
+ 
+         if (DupBcb != NULL)
+         {
+-            /* Delete the loser */
++            /* The winner already owns a VACB reference. */
+             CcRosReleaseVacb(SharedCacheMap, Vacb, FALSE, FALSE);
+-            ExDeleteResourceLite(&iBcb->Lock);
+-            ExFreeToNPagedLookasideList(&iBcbLookasideList, iBcb);
+         }
++        ExDeleteResourceLite(&iBcb->Lock);
++        ExFreeToNPagedLookasideList(&iBcbLookasideList, iBcb);
+ 
+         /* Return the winner - no need to update buffer address, it's
+          * relative to the VACB, which is unchanged.

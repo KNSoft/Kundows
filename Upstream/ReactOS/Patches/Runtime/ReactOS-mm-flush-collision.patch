@@ -8,7 +8,7 @@ the interleaving that damaged a particular installation disk.
 diff --git a/ntoskrnl/mm/section.c b/ntoskrnl/mm/section.c
 --- a/ntoskrnl/mm/section.c
 +++ b/ntoskrnl/mm/section.c
-@@ -5172,6 +5172,15 @@ MmFlushSegment(
+@@ -5172,5 +5172,14 @@ MmFlushSegment(
      {
          ULONG_PTR Entry = MmGetPageEntrySectionSegment(Segment, &FlushStart);
  
@@ -23,7 +23,6 @@ diff --git a/ntoskrnl/mm/section.c b/ntoskrnl/mm/section.c
 +
          if (IS_DIRTY_SSE(Entry))
          {
-             MmCheckDirtySegment(Segment, &FlushStart, FALSE, FALSE);
 @@ -5214,6 +5223,18 @@ MmCheckDirtySegment(
      DPRINT("Checking segment for file %wZ at offset 0x%I64X.\n", &Segment->FileObject->FileName, Offset->QuadPart);
  

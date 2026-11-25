@@ -1,0 +1,49 @@
+Do not mark a FAT volume clean on an explicit filesystem flush error.
+Guard only the clean transition (and its shutdown purge). Keep timer/DPC
+cleanup, lower flush/shutdown notification and shutdown return policy.
+On 4fbbefd614b, 6/10 -> 10/10 controlled volume and shutdown cases passed:
+success, returned errors, mounted-dirty state and shutdown exceptions.
+This does not change delayed cleaning, check lower hardware durability,
+or repair an existing FAT mirror mismatch.
+
+diff --git a/drivers/filesystems/fastfat/flush.c b/drivers/filesystems/fastfat/flush.c
+index 42289bbd078..3cee425e117 100644
+--- a/drivers/filesystems/fastfat/flush.c
++++ b/drivers/filesystems/fastfat/flush.c
+@@ -419,10 +419,11 @@ Return Value:
+                 (VOID)KeRemoveQueueDpc( &Vcb->CleanVolumeDpc );
+ 
+                 //
+-                //  The volume is now clean, note it.
++                //  Only a successful filesystem flush can make the volume clean.
+                 //
+ 
+-                if (!FlagOn(Vcb->VcbState, VCB_STATE_FLAG_MOUNTED_DIRTY)) {
++                if (NT_SUCCESS(Status) &&
++                    !FlagOn(Vcb->VcbState, VCB_STATE_FLAG_MOUNTED_DIRTY)) {
+ 
+                     FatMarkVolume( IrpContext, Vcb, VolumeClean );
+                     ClearFlag( Vcb->VcbState, VCB_STATE_FLAG_VOLUME_DIRTY );
+diff --git a/drivers/filesystems/fastfat/shutdown.c b/drivers/filesystems/fastfat/shutdown.c
+index 52794ef117a..8e9b5103a74 100644
+--- a/drivers/filesystems/fastfat/shutdown.c
++++ b/drivers/filesystems/fastfat/shutdown.c
+@@ -215,7 +215,7 @@ Return Value:
+ 
+             _SEH2_TRY {
+ 
+-                (VOID)FatFlushVolume( IrpContext, Vcb, Flush );
++                NTSTATUS FlushStatus = FatFlushVolume( IrpContext, Vcb, Flush );
+ 
+                 //
+                 //  The volume is now clean, note it.  We purge the
+@@ -223,7 +223,8 @@ Return Value:
+                 //  clean incase there is a stale Bpb in the cache.
+                 //
+ 
+-                if (!FlagOn(Vcb->VcbState, VCB_STATE_FLAG_MOUNTED_DIRTY)) {
++                if (NT_SUCCESS(FlushStatus) &&
++                    !FlagOn(Vcb->VcbState, VCB_STATE_FLAG_MOUNTED_DIRTY)) {
+ 
+                     CcPurgeCacheSection( &Vcb->SectionObjectPointers,
+                                          NULL,
