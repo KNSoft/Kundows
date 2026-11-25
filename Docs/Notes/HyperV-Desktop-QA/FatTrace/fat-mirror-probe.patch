@@ -1,0 +1,175 @@
+Test medium only (4fbbefd614b x64 Debug); never select in Configure.
+Record the submission and driver completion of each FAT32 mirror child in
+fixed nonpaged memory. Sample one 512-byte FAT sector at submit (the sector
+containing cluster 39907). No per-write printing, on-disk log or control
+device. At shutdown hold the test VM for up to 90 seconds after the volume
+loop so the host can read the closed table from saved RAM. Observation can
+change timing; the samples are not a checksum of the device's final DMA.
+
+diff --git a/drivers/filesystems/fastfat/deviosup.c b/drivers/filesystems/fastfat/deviosup.c
+--- a/drivers/filesystems/fastfat/deviosup.c
++++ b/drivers/filesystems/fastfat/deviosup.c
+@@ -14,6 +14,7 @@
+ --*/
+ 
+ #include "fatprocs.h"
++#include "kwtrace.inc"
+ 
+ //
+ //  The Bug check file id for this module
+@@ -1689,6 +1690,7 @@
+ #endif
+ 
+     ULONG UnwindRunCount = 0;
++    ULONG KwGroup = 0, KwWatch = 0;
+ 
+     BOOLEAN ExceptionExpected = TRUE;
+ 
+@@ -1726,6 +1728,17 @@
+     Context->MasterIrp = MasterIrp;
+ 
+     IrpSp = IoGetCurrentIrpStackLocation( MasterIrp );
++    if (Wait && IrpSp->MajorFunction == IRP_MJ_WRITE &&
++        IrpSp->FileObject == Vcb->VirtualVolumeFile &&
++        Vcb->AllocationSupport.FatIndexBitSize == 32 &&
++        Vcb->Bpb.BytesPerSector == 512 && Vcb->Bpb.Fats == 2 &&
++        MultipleIrpCount == 2 && IoRuns[0].Vbo == IoRuns[1].Vbo &&
++        IoRuns[0].Lbo == IoRuns[0].Vbo &&
++        IoRuns[1].Lbo - IoRuns[0].Lbo == FatBytesPerFat(&Vcb->Bpb))
++    {
++        KwGroup = InterlockedIncrement(&KwLog.Groups);
++        KwWatch = FatReservedBytes(&Vcb->Bpb) + ((39907UL * 4) & ~511UL);
++    }
+ #ifndef __REACTOS__
+     IsAWrite = (IrpSp->MajorFunction == IRP_MJ_WRITE);
+     Length = IrpSp->Parameters.Read.Length;
+@@ -1800,6 +1813,7 @@
+             IrpSp->MajorFunction = IrpContext->MajorFunction;
+             IrpSp->Parameters.Read.Length = IoRuns[UnwindRunCount].ByteCount;
+             IrpSp->Parameters.Read.ByteOffset.QuadPart = IoRuns[UnwindRunCount].Vbo;
++            IrpSp->Parameters.Read.Key = 0; /* Private upper stack only. */
+ 
+             //
+             // Set up the completion routine address in our stack frame.
+@@ -1907,6 +1921,10 @@
+              UnwindRunCount++) {
+ 
+             Irp = IoRuns[UnwindRunCount].SavedIrp;
++
++            if (KwGroup)
++                IoGetCurrentIrpStackLocation(Irp)->Parameters.Write.Key =
++                    KwSubmit(KwGroup, UnwindRunCount, &IoRuns[UnwindRunCount], MasterIrp, KwWatch);
+ 
+             DebugDoit( FatIoCallDriverCount += 1);
+ 
+@@ -2454,6 +2472,7 @@
+     PIRP MasterIrp = Context->MasterIrp;
+ 
+     DebugTrace(+1, Dbg, "FatMultiSyncCompletionRoutine, Context = %p\n", Context );
++    KwComplete(Irp);
+ 
+     //
+     //  If we got an error (or verify required), remember it in the Irp
+diff --git a/drivers/filesystems/fastfat/shutdown.c b/drivers/filesystems/fastfat/shutdown.c
+--- a/drivers/filesystems/fastfat/shutdown.c
++++ b/drivers/filesystems/fastfat/shutdown.c
+@@ -14,6 +14,7 @@
+ --*/
+ 
+ #include "fatprocs.h"
++VOID KwEndCapture(VOID);
+ 
+ //
+ //  Local debug trace level
+@@ -305,6 +306,7 @@
+         IoDeleteDevice( FatDiskFileSystemDeviceObject);
+         IoDeleteDevice( FatCdromFileSystemDeviceObject);
+ 
++        KwEndCapture();
+         FatCompleteRequest( IrpContext, Irp, STATUS_SUCCESS );
+     } _SEH2_END;
+ 
+diff --git a/drivers/filesystems/fastfat/kwtrace.inc b/drivers/filesystems/fastfat/kwtrace.inc
+new file mode 100644
+--- /dev/null
++++ b/drivers/filesystems/fastfat/kwtrace.inc
+@@ -0,0 +1,79 @@
++/* Disposable x64 Debug installation probe. No control device or file I/O. */
++#if !DBG || !defined(_M_AMD64)
++#error This probe is only for the x64 Debug Hyper-V fixture
++#endif
++#define KW_SLOTS 32768
++#define KW_SAMPLES 256
++typedef struct _KW_MIRROR_WRITE {
++    ULONG Group, Mirror, Submit, Complete, Vbo, Lbo, Length, Sample;
++    NTSTATUS Status;
++    ULONG Reserved;
++    ULONGLONG Transferred;
++} KW_MIRROR_WRITE;
++C_ASSERT(sizeof(KW_MIRROR_WRITE) == 48);
++static KW_MIRROR_WRITE KwWrites[KW_SLOTS];
++static UCHAR KwPayloads[KW_SAMPLES][512];
++static struct {
++    UCHAR Magic[16];
++    volatile LONG Groups, Count, Sequence, Samples, Closed;
++    ULONG Reserved;
++    PVOID Self, Writes, Payloads;
++} KwLog = { "KW-FAT-TRACE-V1", 0, 0, 0, 0, 0, 0, &KwLog, KwWrites, KwPayloads };
++C_ASSERT(sizeof(KwLog) == 64);
++
++static ULONG
++KwSubmit(ULONG Group, ULONG Mirror, PIO_RUN Run, PIRP Master, ULONG WatchedVbo)
++{
++    LONG Slot = InterlockedIncrement(&KwLog.Count);
++    KW_MIRROR_WRITE *R;
++    if ((ULONG)Slot > KW_SLOTS) return 0;
++    R = &KwWrites[Slot - 1];
++    R->Group = Group;
++    R->Mirror = Mirror;
++    R->Vbo = Run->Vbo;
++    R->Lbo = Run->Lbo;
++    R->Length = Run->ByteCount;
++    if (WatchedVbo >= R->Vbo &&
++        (ULONGLONG)WatchedVbo + 512 <= (ULONGLONG)R->Vbo + R->Length)
++    {
++        ULONG Offset = Run->Offset + (WatchedVbo - R->Vbo);
++        LONG N = InterlockedIncrement(&KwLog.Samples);
++        if ((ULONG)N <= KW_SAMPLES && Master->MdlAddress &&
++            (ULONGLONG)Offset + 512 <= MmGetMdlByteCount(Master->MdlAddress))
++        {
++            PUCHAR Buf = MmGetSystemAddressForMdlSafe(Master->MdlAddress, NormalPagePriority);
++            if (Buf)
++            {
++                RtlCopyMemory(KwPayloads[N - 1], Buf + Offset, 512);
++                R->Sample = N;
++            }
++        }
++    }
++    R->Submit = InterlockedIncrement(&KwLog.Sequence);
++    return Slot;
++}
++
++static VOID
++KwComplete(PIRP Irp)
++{
++    ULONG Key = IoGetCurrentIrpStackLocation(Irp)->Parameters.Write.Key;
++    if (Key && Key <= KW_SLOTS)
++    {
++        KW_MIRROR_WRITE *R = &KwWrites[Key - 1];
++        R->Status = Irp->IoStatus.Status;
++        R->Transferred = Irp->IoStatus.Information;
++        R->Complete = InterlockedIncrement(&KwLog.Sequence);
++    }
++}
++
++VOID KwEndCapture(VOID)
++{
++    /* Host saves RAM during this bounded window, after the volume loop
++     * and after releasing the global resource. No delay during writes. */
++    if (KwLog.Count && !InterlockedCompareExchange(&KwLog.Closed, 1, 0))
++    {
++        LARGE_INTEGER Interval;
++        Interval.QuadPart = -90LL * 1000 * 1000 * 10;
++        KeDelayExecutionThread(KernelMode, FALSE, &Interval);
++    }
++}
