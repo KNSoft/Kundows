@@ -1,7 +1,6 @@
 # An inline file-information completion outlived its stack status block
 
-The display check ends at language selection. A separate BIOS test exercised
-file copying from the CD to a fresh 2.5 GiB IDE disk, using an answer floppy,
+A BIOS Setup test exercised file copying from the CD to a fresh 2.5 GiB IDE disk, using an answer floppy,
 FAT, one CPU, and no NIC or serial ports.
 
 On the pre-I/O-fix image, the no-option Debug installer stopped at 68%;
@@ -14,4 +13,4 @@ manager's deferred-completion path to finish inline requests before the
 status block goes out of scope. Pending requests retain their event waits.
 MSVC Debug runtime checks remained enabled.
 
-The [installed-disk control](../../Shared/BootCD/README.md#hyper-v-gen-1) exercised file copying with the change. A successful installation alone does not identify which IRP caused the earlier failure.
+A later installation exercised file copying with this change. A successful installation alone does not identify which IRP caused the earlier failure.

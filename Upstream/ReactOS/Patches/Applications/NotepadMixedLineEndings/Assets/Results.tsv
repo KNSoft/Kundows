@@ -1,0 +1,5 @@
+case	installed	exit	output (escaped bytes)	candidate	exit	output (escaped bytes)
+note-lf-majority	DIFF	0	A\rB\rC\rD\rE!	PASS	0	A\nB\nC\nD\nE!
+note-cr-majority	PASS	0	A\rB\rC\rD\rE!	PASS	0	A\rB\rC\rD\rE!
+note-crlf-majority	PASS	0	A\r\nB\r\nC\r\nD\r\nE!	PASS	0	A\r\nB\r\nC\r\nD\r\nE!
+note-cr-lf-tie	PASS	0	A\rB\rC\rD\rE!	PASS	0	A\rB\rC\rD\rE!

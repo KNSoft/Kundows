@@ -7,4 +7,4 @@ the interrupt sample count with four. The instruction bytes matched the CD's
 `hal.dll`, not `halmp.dll`. This and the [reciprocal KD control](../KdAutoProbe/README.md) isolate the waits without
 attaching a debugger or changing the blank disk or VM configuration.
 
-[RtcPeriodic.patch](RtcPeriodic.patch) starts the periodic divider after installing the handler and unmasking its interrupt. With both fixes, Setup advanced on the same VM. The [complete install](../../Shared/BootCD/README.md#boot-controls) included further patches; it is not an RTC-only acceptance test.
+[RtcPeriodic.patch](RtcPeriodic.patch) starts the periodic divider after installing the handler and unmasking its interrupt. With both fixes, Setup advanced on the same VM. The full installation also included other patches and did not test the RTC fix in isolation.

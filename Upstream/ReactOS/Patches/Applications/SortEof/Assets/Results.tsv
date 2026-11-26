@@ -1,0 +1,6 @@
+case	installed	exit	output (escaped bytes)	candidate	exit	output (escaped bytes)
+sort-eof	DIFF	0	alph\r\nzebra\r\n	PASS	0	alpha\r\nzebra\r\n
+sort-single	DIFF	0	\r\n	PASS	0	Q\r\n
+sort-crlf	PASS	0	alpha\r\nzebra\r\n	PASS	0	alpha\r\nzebra\r\n
+sort-reverse	PASS	0	dog\r\nant\r\n	PASS	0	dog\r\nant\r\n
+sort-empty	PASS	0	<empty>	PASS	0	<empty>

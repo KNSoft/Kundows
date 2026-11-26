@@ -22,4 +22,4 @@ The `CachePinnedDataTests.c` fixture from `26617bf` ran the production
 marking a pinned buffer dirty and the caller's update. It reported nine
 failed checks in nine cases before the CC change and none afterwards.
 
-**Open:** the first wrong write was not captured. The host interleaving and the [successful installation](../../Shared/BootCD/README.md#hyper-v-gen-1) do not establish that it occurred on this disk. The [29 missing font-chain entries](../FAT32InstallMirrorDivergence/README.md) were observed on a different installation.
+**Open:** the first wrong write was not captured. Neither the host test nor a later successful installation establishes that the same interleaving occurred on this disk. The [29 missing font-chain entries](../FAT32InstallMirrorDivergence/README.md) were observed on a different installation.

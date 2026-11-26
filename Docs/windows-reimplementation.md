@@ -86,4 +86,4 @@ checkpoint 状态。
 
 ### 记录结果
 
-把共用的安装步骤和夹具放在这里或[测试入口](../Upstream/ReactOS/Patches/Shared/README.md)。测试发现的问题按症状进入[问题索引](README.md#notes)：用同一输入记录修前、修后及 Windows 对照，注明观察的是来宾 API、宿主受控函数、调试器停点，还是关机后的盘面。一次运行遇到几个问题，可以共用证据，不必共用一篇结论。
+共用的来宾安装步骤见上文；[宿主 C 用例](../Upstream/ReactOS/Patches/Shared/README.md)从对应的问题目录运行。测试发现的问题按症状进入[问题索引](README.md#notes)：用同一输入记录修前、修后及 Windows 对照，注明观察的是来宾 API、宿主受控函数、调试器停点，还是关机后的盘面。整套镜像能进入桌面，不能单独证明某个补丁修复了故障。

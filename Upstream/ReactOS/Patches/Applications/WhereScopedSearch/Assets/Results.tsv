@@ -1,0 +1,6 @@
+case	installed	exit	output (escaped bytes)	candidate	exit	output (escaped bytes)
+where-dir	DIFF	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n	PASS	0	C:\HVQA\Scope\review.qa\r\n
+where-var	DIFF	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n	PASS	0	C:\HVQA\Scope\review.qa\r\n
+where-pathvar	DIFF	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n	PASS	0	C:\HVQA\Scope\review.qa\r\n
+where-quiet	DIFF	0	<empty>	PASS	1	<empty>
+where-default	PASS	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n	PASS	0	C:\HVQA\Work\review.qa\r\nC:\HVQA\Scope\review.qa\r\n

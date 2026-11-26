@@ -2,18 +2,16 @@
 
 - [Build guide](Building.md)
 - [Windows reimplementation and Hyper-V verification](windows-reimplementation.md)
-- [Regression test entry points](../Upstream/ReactOS/Patches/Shared/README.md)
+- [Running host C tests](../Upstream/ReactOS/Patches/Shared/README.md)
 - [Commit scopes](Scopes.json)
 
 ## Notes
 
-The [ReactOS patch directory](../Upstream/ReactOS/Patches/) is grouped by **BuildSystem**, **ARM64**, **Kernel**, **Graphics**, **Storage** and **Applications**. Each problem below links to its own directory; `Shared/` holds tools and records used by more than one problem.
-
-- [Historical x64 BootCD: shared installation controls](../Upstream/ReactOS/Patches/Shared/BootCD/README.md)
-- [Choosing the Windows DLL export level](../Upstream/ReactOS/Patches/BuildSystem/DLLExportVersion/README.md)
+The [ReactOS patch directory](../Upstream/ReactOS/Patches/) is grouped by **BuildSystem**, **ARM64**, **Kernel**, **Graphics**, **Storage** and **Applications**. Each problem below links to its own directory; `Shared/` holds the common host test tools.
 
 ### Build and toolchain
 
+- [Choosing the Windows DLL export level](../Upstream/ReactOS/Patches/BuildSystem/DLLExportVersion/README.md)
 - [Decorated C++ exports on Win32](../Upstream/ReactOS/Patches/BuildSystem/Spec2DefCppExports/README.md)
 - [FreeLdr missing the configuration-specific PE](../Upstream/ReactOS/Patches/BuildSystem/FreeLdrTargetFile/README.md)
 - [Generated headers missing during a parallel build](../Upstream/ReactOS/Patches/BuildSystem/GeneratedHeaderDeps/README.md)
@@ -51,7 +49,7 @@ The [ReactOS patch directory](../Upstream/ReactOS/Patches/) is grouped by **Buil
 - [Notepad chose CR when LF was the most frequent ending](../Upstream/ReactOS/Patches/Applications/NotepadMixedLineEndings/README.md)
 - [FINDSTR ignored line anchors](../Upstream/ReactOS/Patches/Applications/FindStrLineAnchors/README.md) — candidate rejected by long-line controls
 
-Start in the problem directory. Its `README.md` links the reproduction, investigation, fix or open question, and verification limits. Keep the main patch beside it; put debugger transcripts, screenshots and single-file cases directly in `Assets/`. Use `Tests/` for multi-file suites. Share original receipts and common runners once. Keep full dumps and disk images outside Git.
+Start in the problem directory. Its `README.md` links the reproduction, investigation, fix or open question, and verification limits. Keep the main patch beside it; put the issue's inputs, results, screenshots and single-file cases in `Assets/`. Use `Tests/` for multi-file suites. Keep full dumps and disk images outside Git.
 
 ## Commit messages
 

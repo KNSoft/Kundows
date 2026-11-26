@@ -1,0 +1,8 @@
+case	installed	exit	output (escaped bytes)	candidate	exit	output (escaped bytes)
+find-prefix	DIFF	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\nred fox\r\nredred\r\n
+find-suffix	DIFF	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\ntired\r\nredred\r\n
+find-whole	DIFF	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\n
+find-both	DIFF	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\n
+find-invert	DIFF	1	<empty>	PASS	0	tired\r\nred fox\r\nredred\r\n
+find-nohit	DIFF	0	tired\r\n	PASS	1	<empty>
+find-any	PASS	0	red\r\ntired\r\nred fox\r\nredred\r\n	PASS	0	red\r\ntired\r\nred fox\r\nredred\r\n
