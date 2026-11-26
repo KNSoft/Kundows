@@ -1,0 +1,34 @@
+{
+  "IDA host .9974": {
+    "sha256": "f6f275f67c7ef44fc2df2d828658fb31eaffd41018ac5a0fd9440e08d9912c30",
+    "exports": [
+      "CcPurgeCacheSection",
+      "CcSetFileSizes",
+      "CcSetFileSizesEx",
+      "CcUninitializeCacheMap"
+    ],
+    "wrapper": [
+      "sub",
+      "call CcSetFileSizesEx",
+      "add",
+      "ret"
+    ],
+    "method": "read-only PE export lookup and static public wrapper decode; no guest execution"
+  },
+  "archived WinDbg guest .9457": {
+    "sha256": "d90c69cfa925d42037ef1cdba3ff5b3f13cc14e16060938073b97e396fdde2f2",
+    "exports": [
+      "CcPurgeCacheSection",
+      "CcSetFileSizes",
+      "CcSetFileSizesEx",
+      "CcUninitializeCacheMap"
+    ],
+    "wrapper": [
+      "sub",
+      "call CcSetFileSizesEx",
+      "add",
+      "ret"
+    ],
+    "method": "read-only PE export lookup and static public wrapper decode; no guest execution"
+  }
+}

@@ -1,0 +1,538 @@
+diff --git a/ntoskrnl/cc/fs.c b/ntoskrnl/cc/fs.c
+index bec77be7972..84a3c0c10f6 100644
+--- a/ntoskrnl/cc/fs.c
++++ b/ntoskrnl/cc/fs.c
+@@ -152,28 +152,34 @@ CcIsThereDirtyData (
+ /*
+  * @unimplemented
+  */
+-BOOLEAN
+-NTAPI
+-CcPurgeCacheSection (
++static BOOLEAN
++CcpPurgeCacheSection (
+     IN PSECTION_OBJECT_POINTERS SectionObjectPointer,
+     IN PLARGE_INTEGER FileOffset OPTIONAL,
+     IN ULONG Length,
+-    IN BOOLEAN UninitializeCacheMaps)
++    IN BOOLEAN UninitializeCacheMaps,
++    IN BOOLEAN Truncate)
+ {
+     PROS_SHARED_CACHE_MAP SharedCacheMap;
+     PPRIVATE_CACHE_MAP PrivateCacheMap;
+     LONGLONG StartOffset;
+     LONGLONG EndOffset;
+-    LIST_ENTRY FreeList;
++    LIST_ENTRY FreeList, RetiredBcbs;
+     KIRQL OldIrql;
+     PLIST_ENTRY ListEntry;
+     PROS_VACB Vacb;
+     LONGLONG ViewEnd;
+     BOOLEAN Success;
++    PROS_VACB BoundaryView = NULL;
++    PVOID BoundaryPage = NULL;
+ 
+     CCTRACE(CC_API_DEBUG, "SectionObjectPointer=%p\n FileOffset=%p Length=%lu UninitializeCacheMaps=%d",
+         SectionObjectPointer, FileOffset, Length, UninitializeCacheMaps);
+ 
++    ASSERT(!Truncate || (FileOffset != NULL && Length == 0 && !UninitializeCacheMaps));
++    if (FileOffset && FileOffset->QuadPart < 0)
++        return FALSE;
++
+     /* Obtain the shared cache from the section */
+     SharedCacheMap = SectionObjectPointer->SharedCacheMap;
+     if (!SharedCacheMap)
+@@ -211,22 +217,54 @@ CcPurgeCacheSection (
+     }
+     else
+     {
+-        EndOffset = StartOffset + Length;
+-        ASSERT(EndOffset > StartOffset);
++        if (!NT_SUCCESS(RtlLongLongAdd(StartOffset, Length, &EndOffset)))
++            return FALSE;
+     }
+ 
+     /* Under the caller's exclusive purge contract, check before unlinking
+      * any views. A pending BCB no longer contributes to their refcounts. */
+-    if (!CcpCanPurgeBcbRange(SharedCacheMap, StartOffset, EndOffset))
++    if (!Truncate && !CcpCanPurgeBcbRange(SharedCacheMap, StartOffset, EndOffset))
+         return FALSE;
+ 
+     InitializeListHead(&FreeList);
++    InitializeListHead(&RetiredBcbs);
+ 
+     /* Assume success */
+     Success = TRUE;
+ 
+     OldIrql = KeAcquireQueuedSpinLock(LockQueueMasterLock);
+     KeAcquireSpinLockAtDpcLevel(&SharedCacheMap->CacheMapLock);
++    if (Truncate)
++    {
++        for (ListEntry = SharedCacheMap->CacheMapVacbListHead.Flink;
++             ListEntry != &SharedCacheMap->CacheMapVacbListHead; ListEntry = ListEntry->Flink)
++        {
++            Vacb = CONTAINING_RECORD(ListEntry, ROS_VACB, CacheMapVacbListEntry);
++            if (Vacb->FileOffset.QuadPart < StartOffset)
++            {
++                if (StartOffset - Vacb->FileOffset.QuadPart >= VACB_MAPPING_GRANULARITY)
++                    continue;
++                if (StartOffset % PAGE_SIZE)
++                    BoundaryView = Vacb;
++            }
++            if (CcRosVacbGetRefCount(Vacb) != (Vacb->Dirty ? 2U : 1U))
++            {
++                Success = FALSE;
++                goto unlock;
++            }
++        }
++        if (!CcpTruncateBcbs(SharedCacheMap, StartOffset, &RetiredBcbs))
++        {
++            Success = FALSE;
++            goto unlock;
++        }
++        if (BoundaryView)
++        {
++            CcRosVacbIncRefCount(BoundaryView);
++            BoundaryPage = (PUCHAR)BoundaryView->BaseAddress +
++                (ULONG)(ROUND_DOWN(StartOffset, PAGE_SIZE) - BoundaryView->FileOffset.QuadPart);
++        }
++    }
+     ListEntry = SharedCacheMap->CacheMapVacbListHead.Flink;
+     while (ListEntry != &SharedCacheMap->CacheMapVacbListHead)
+     {
+@@ -240,11 +278,12 @@ CcPurgeCacheSection (
+         {
+             continue;
+         }
+-        ViewEnd = min(Vacb->FileOffset.QuadPart + VACB_MAPPING_GRANULARITY,
+-                      SharedCacheMap->SectionSize.QuadPart);
+-        if (ViewEnd >= EndOffset)
++        if (!Truncate)
+         {
+-            break;
++            ViewEnd = min(Vacb->FileOffset.QuadPart + VACB_MAPPING_GRANULARITY,
++                          SharedCacheMap->SectionSize.QuadPart);
++            if (ViewEnd >= EndOffset)
++                break;
+         }
+ 
+         /* Still in use, it cannot be purged, fail
+@@ -269,9 +308,11 @@ CcPurgeCacheSection (
+         RemoveEntryList(&Vacb->CacheMapVacbListEntry);
+         InsertHeadList(&FreeList, &Vacb->CacheMapVacbListEntry);
+     }
++unlock:
+     KeReleaseSpinLockFromDpcLevel(&SharedCacheMap->CacheMapLock);
+     KeReleaseQueuedSpinLock(LockQueueMasterLock, OldIrql);
+ 
++    CcpFreeBcbList(&RetiredBcbs);
+     while (!IsListEmpty(&FreeList))
+     {
+         ULONG Refs;
+@@ -287,11 +328,51 @@ CcPurgeCacheSection (
+     /* Now make sure that Mm doesn't hold some pages here. */
+ purgeMm:
+     if (Success)
+-        Success = MmPurgeSegment(SectionObjectPointer, FileOffset, Length);
++        Success = MmPurgeSegment(SectionObjectPointer, FileOffset, Length, Truncate, BoundaryPage);
++    if (BoundaryPage)
++        CcRosVacbDecRefCount(BoundaryView);
+ 
+     return Success;
+ }
+ 
++BOOLEAN
++NTAPI
++CcPurgeCacheSection (
++    IN PSECTION_OBJECT_POINTERS SectionObjectPointer,
++    IN PLARGE_INTEGER FileOffset OPTIONAL,
++    IN ULONG Length,
++    IN BOOLEAN UninitializeCacheMaps)
++{
++    return CcpPurgeCacheSection(SectionObjectPointer, FileOffset, Length, UninitializeCacheMaps, FALSE);
++}
++
++/* Called under CacheMapLock. File sizes are supplied by the file system;
++ * the lowest suffix still to purge is separate from those sizes. */
++static VOID
++CcpNoteTruncate(PROS_SHARED_CACHE_MAP Map, LARGE_INTEGER Offset)
++{
++    if (!Map->TruncatePending || Offset.QuadPart < Map->TruncateOffset.QuadPart)
++        Map->TruncateOffset = Offset;
++    Map->TruncatePending = TRUE;
++}
++
++static BOOLEAN
++CcpFinishTruncate(PFILE_OBJECT FileObject, PROS_SHARED_CACHE_MAP Map,
++                  LARGE_INTEGER Offset)
++{
++    KIRQL OldIrql;
++    BOOLEAN Done;
++
++    if (!CcpPurgeCacheSection(FileObject->SectionObjectPointer, &Offset, 0, FALSE, TRUE))
++        return FALSE;
++
++    KeAcquireSpinLock(&Map->CacheMapLock, &OldIrql);
++    if (Map->TruncateOffset.QuadPart == Offset.QuadPart)
++        Map->TruncatePending = FALSE;
++    Done = !Map->TruncatePending;
++    KeReleaseSpinLock(&Map->CacheMapLock, OldIrql);
++    return Done;
++}
+ 
+ /*
+  * @implemented
+@@ -303,7 +384,8 @@ CcSetFileSizes (
+ {
+     KIRQL OldIrql;
+     PROS_SHARED_CACHE_MAP SharedCacheMap;
+-    LARGE_INTEGER OldSectionSize;
++    LARGE_INTEGER Tail;
++    BOOLEAN Purge;
+ 
+     CCTRACE(CC_API_DEBUG, "FileObject=%p FileSizes=%p\n",
+         FileObject, FileSizes);
+@@ -324,20 +406,28 @@ CcSetFileSizes (
+     if (SharedCacheMap == NULL)
+         return;
+ 
+-    /* Update the relevant fields */
+     KeAcquireSpinLock(&SharedCacheMap->CacheMapLock, &OldIrql);
+-    OldSectionSize = SharedCacheMap->SectionSize;
++    if (SharedCacheMap->TruncatePending &&
++        (FileSizes->AllocationSize.QuadPart > SharedCacheMap->SectionSize.QuadPart ||
++         FileSizes->FileSize.QuadPart > SharedCacheMap->TruncateOffset.QuadPart))
++    {
++        /* Do not replay an old discard against newly initialized data. */
++        KeReleaseSpinLock(&SharedCacheMap->CacheMapLock, OldIrql);
++        ExRaiseStatus(STATUS_UNABLE_TO_DELETE_SECTION);
++    }
++    if (FileSizes->AllocationSize.QuadPart < SharedCacheMap->SectionSize.QuadPart)
++        CcpNoteTruncate(SharedCacheMap, FileSizes->AllocationSize);
++    Purge = SharedCacheMap->TruncatePending;
++    Tail = SharedCacheMap->TruncateOffset;
+     SharedCacheMap->SectionSize = FileSizes->AllocationSize;
+     SharedCacheMap->FileSize = FileSizes->FileSize;
+     SharedCacheMap->ValidDataLength = FileSizes->ValidDataLength;
+     KeReleaseSpinLock(&SharedCacheMap->CacheMapLock, OldIrql);
+ 
+-    if (FileSizes->AllocationSize.QuadPart < OldSectionSize.QuadPart)
++    if (Purge)
+     {
+-        CcPurgeCacheSection(FileObject->SectionObjectPointer,
+-                            &FileSizes->AllocationSize,
+-                            0,
+-                            FALSE);
++        if (!CcpFinishTruncate(FileObject, SharedCacheMap, Tail))
++            ExRaiseStatus(STATUS_UNABLE_TO_DELETE_SECTION);
+     }
+     else
+     {
+@@ -375,6 +465,7 @@ CcUninitializeCacheMap (
+     NTSTATUS Status;
+     PROS_SHARED_CACHE_MAP SharedCacheMap;
+     KIRQL OldIrql;
++    BOOLEAN Purged = TRUE;
+ 
+     CCTRACE(CC_API_DEBUG, "FileObject=%p TruncateSize=%p UninitializeCompleteEvent=%p\n",
+         FileObject, TruncateSize, UninitializeCompleteEvent);
+@@ -382,17 +473,19 @@ CcUninitializeCacheMap (
+     if (TruncateSize != NULL &&
+         FileObject->SectionObjectPointer->SharedCacheMap != NULL)
+     {
++        LARGE_INTEGER Tail;
+         SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
+         KeAcquireSpinLock(&SharedCacheMap->CacheMapLock, &OldIrql);
+         if (SharedCacheMap->FileSize.QuadPart > TruncateSize->QuadPart)
+         {
+             SharedCacheMap->FileSize = *TruncateSize;
+         }
++        if (SharedCacheMap->ValidDataLength.QuadPart > TruncateSize->QuadPart)
++            SharedCacheMap->ValidDataLength = *TruncateSize;
++        CcpNoteTruncate(SharedCacheMap, *TruncateSize);
++        Tail = SharedCacheMap->TruncateOffset;
+         KeReleaseSpinLock(&SharedCacheMap->CacheMapLock, OldIrql);
+-        CcPurgeCacheSection(FileObject->SectionObjectPointer,
+-                            TruncateSize,
+-                            0,
+-                            FALSE);
++        Purged = CcpFinishTruncate(FileObject, SharedCacheMap, Tail);
+     }
+ 
+     Status = CcRosReleaseFileCache(FileObject);
+@@ -400,7 +493,7 @@ CcUninitializeCacheMap (
+     {
+         KeSetEvent(&UninitializeCompleteEvent->Event, IO_NO_INCREMENT, FALSE);
+     }
+-    return NT_SUCCESS(Status);
++    return Purged && NT_SUCCESS(Status);
+ }
+ 
+ BOOLEAN
+@@ -410,13 +503,17 @@ CcGetFileSizes (
+     IN PCC_FILE_SIZES FileSizes)
+ {
+     PROS_SHARED_CACHE_MAP SharedCacheMap;
++    KIRQL OldIrql;
+ 
+     SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
+ 
+     if (!SharedCacheMap)
+         return FALSE;
+ 
++    KeAcquireSpinLock(&SharedCacheMap->CacheMapLock, &OldIrql);
+     FileSizes->AllocationSize = SharedCacheMap->SectionSize;
+-    FileSizes->FileSize = FileSizes->ValidDataLength = SharedCacheMap->FileSize;
++    FileSizes->FileSize = SharedCacheMap->FileSize;
++    FileSizes->ValidDataLength = SharedCacheMap->ValidDataLength;
++    KeReleaseSpinLock(&SharedCacheMap->CacheMapLock, OldIrql);
+     return TRUE;
+ }
+diff --git a/ntoskrnl/cc/pin.c b/ntoskrnl/cc/pin.c
+index 74b5e693523..127a9799200 100644
+--- a/ntoskrnl/cc/pin.c
++++ b/ntoskrnl/cc/pin.c
+@@ -46,7 +46,7 @@ CcpFreeBcb(PINTERNAL_BCB Bcb)
+     ExFreeToNPagedLookasideList(&iBcbLookasideList, Bcb);
+ }
+ 
+-static VOID
++VOID
+ CcpFreeBcbList(PLIST_ENTRY List)
+ {
+     while (!IsListEmpty(List))
+@@ -115,8 +115,7 @@ CcpCanPurgeBcbRange(PROS_SHARED_CACHE_MAP Map, LONGLONG Start, LONGLONG End)
+     for (Entry = Map->BcbList.Flink; Entry != &Map->BcbList; Entry = Entry->Flink)
+     {
+         PINTERNAL_BCB Bcb = CONTAINING_RECORD(Entry, INTERNAL_BCB, BcbEntry);
+-        /* Purge unlinks entire views, and may see an already reduced section
+-         * size during truncate. Protect the unit that owns the dirty-list ref. */
++        /* An ordinary purge is allowed to fail. Do not discard ownership. */
+         LONGLONG View = ROUND_DOWN(Bcb->PFCB.MappedFileOffset.QuadPart, VACB_MAPPING_GRANULARITY);
+         if (Bcb->DirtyPending && View < End && Start - View < VACB_MAPPING_GRANULARITY)
+         {
+@@ -128,6 +127,63 @@ CcpCanPurgeBcbRange(PROS_SHARED_CACHE_MAP Map, LONGLONG Start, LONGLONG End)
+     return CanPurge;
+ }
+ 
++/* The FSD has already truncated the stream. Master and CacheMapLock exclude
++ * new view lookups; the caller checked the affected views for external refs.
++ * Validate the entire BCB pass before discarding any now-invalid suffix. */
++BOOLEAN
++CcpTruncateBcbs(PROS_SHARED_CACHE_MAP Map, LONGLONG Tail, PLIST_ENTRY Retired)
++{
++    PLIST_ENTRY Entry, Next;
++
++    if (!Map->RetainDirtyBcbs)
++        return TRUE;
++    KeAcquireSpinLockAtDpcLevel(&Map->BcbSpinLock);
++    if (Map->ActiveBcbFlushes)
++        goto busy;
++    for (Entry = Map->BcbList.Flink; Entry != &Map->BcbList; Entry = Entry->Flink)
++    {
++        PINTERNAL_BCB Bcb = CONTAINING_RECORD(Entry, INTERNAL_BCB, BcbEntry);
++        LONGLONG Start = Bcb->PFCB.MappedFileOffset.QuadPart;
++        if ((Start >= Tail || Tail - Start < Bcb->PFCB.MappedLength) &&
++            (Bcb->RefCount || Bcb->PinCount || Bcb->Vacb))
++            goto busy;
++    }
++    for (Entry = Map->BcbList.Flink; Entry != &Map->BcbList; Entry = Next)
++    {
++        PINTERNAL_BCB Bcb = CONTAINING_RECORD(Entry, INTERNAL_BCB, BcbEntry);
++        LONGLONG Start = Bcb->PFCB.MappedFileOffset.QuadPart;
++        Next = Entry->Flink;
++        if (Start < Tail)
++        {
++            ULONG LastPage;
++            if (Tail - Start >= Bcb->PFCB.MappedLength)
++                continue;
++            /* A BCB fits within one VACB. Include the last partial page;
++             * never republish or match bytes beyond the new record end. */
++            LastPage = (ULONG)((Tail - 1) % VACB_MAPPING_GRANULARITY) / PAGE_SIZE;
++            Bcb->PFCB.MappedLength = (ULONG)(Tail - Start);
++            C_ASSERT(VACB_MAPPING_GRANULARITY / PAGE_SIZE <= 64);
++            Bcb->PendingPages &= ~0ULL >> (63 - LastPage);
++        }
++        else
++        {
++            Bcb->PendingPages = 0;
++        }
++        Bcb->DirtyPending = Bcb->PendingPages != 0;
++        if (!Bcb->DirtyPending)
++        {
++            RemoveEntryList(Entry);
++            InsertTailList(Retired, Entry);
++        }
++    }
++    KeReleaseSpinLockFromDpcLevel(&Map->BcbSpinLock);
++    return TRUE;
++
++busy:
++    KeReleaseSpinLockFromDpcLevel(&Map->BcbSpinLock);
++    return FALSE;
++}
++
+ static
+ PINTERNAL_BCB
+ NTAPI
+diff --git a/ntoskrnl/include/internal/cc.h b/ntoskrnl/include/internal/cc.h
+index a101151fb14..b59d85758fe 100644
+--- a/ntoskrnl/include/internal/cc.h
++++ b/ntoskrnl/include/internal/cc.h
+@@ -201,6 +201,9 @@ typedef struct _ROS_SHARED_CACHE_MAP
+     BOOLEAN RetainDirtyBcbs;
+     BOOLEAN BcbWriteBehindDisabled; /* BcbSpinLock, synchronized with attribute changes */
+     ULONG ActiveBcbFlushes;
++    /* CacheMapLock: a failed tail purge must finish before regrowth. */
++    BOOLEAN TruncatePending;
++    LARGE_INTEGER TruncateOffset;
+ } ROS_SHARED_CACHE_MAP, *PROS_SHARED_CACHE_MAP;
+ 
+ #define READAHEAD_DISABLED 0x1
+@@ -326,6 +329,8 @@ NTSTATUS CcpFlushMetadata(PROS_VACB Vacb, LONGLONG Start, ULONG Length,
+                           BOOLEAN Lazy, PINTERNAL_BCB Repin, PIO_STATUS_BLOCK Io);
+ NTSTATUS CcpDeleteBcbs(PROS_SHARED_CACHE_MAP Map);
+ BOOLEAN CcpCanPurgeBcbRange(PROS_SHARED_CACHE_MAP Map, LONGLONG Start, LONGLONG End);
++BOOLEAN CcpTruncateBcbs(PROS_SHARED_CACHE_MAP Map, LONGLONG Tail, PLIST_ENTRY Retired);
++VOID CcpFreeBcbList(PLIST_ENTRY List);
+ 
+ NTSTATUS
+ CcRosFlushVacb(
+diff --git a/ntoskrnl/include/internal/mm.h b/ntoskrnl/include/internal/mm.h
+index 90977c576bf..675d554faca 100644
+--- a/ntoskrnl/include/internal/mm.h
++++ b/ntoskrnl/include/internal/mm.h
+@@ -1516,7 +1516,9 @@ NTAPI
+ MmPurgeSegment(
+     _In_ PSECTION_OBJECT_POINTERS SectionObjectPointer,
+     _In_opt_ PLARGE_INTEGER Offset,
+-    _In_ ULONG Length);
++    _In_ ULONG Length,
++    _In_ BOOLEAN Truncate,
++    _In_opt_ PVOID BoundaryPage);
+ 
+ BOOLEAN
+ NTAPI
+diff --git a/ntoskrnl/mm/section.c b/ntoskrnl/mm/section.c
+index b6d9ad03bac..2055d8cc128 100644
+--- a/ntoskrnl/mm/section.c
++++ b/ntoskrnl/mm/section.c
+@@ -4905,11 +4905,15 @@ NTAPI
+ MmPurgeSegment(
+     _In_ PSECTION_OBJECT_POINTERS SectionObjectPointer,
+     _In_opt_ PLARGE_INTEGER Offset,
+-    _In_ ULONG Length)
++    _In_ ULONG Length,
++    _In_ BOOLEAN Truncate,
++    _In_opt_ PVOID BoundaryPage)
+ {
+     LARGE_INTEGER PurgeStart, PurgeEnd;
+     PMM_SECTION_SEGMENT Segment;
++    PVOID RestartKey = NULL;
+ 
++    ASSERT(!Truncate || (Offset && !Length));
+     PurgeStart.QuadPart = Offset ? Offset->QuadPart : 0LL;
+     if (Length && Offset)
+     {
+@@ -4926,7 +4930,7 @@ MmPurgeSegment(
+ 
+     MmLockSectionSegment(Segment);
+ 
+-    if (!Length || !Offset)
++    if (!Truncate && (!Length || !Offset))
+     {
+         /* We must calculate the length for ourselves */
+         /* FIXME: All of this is suboptimal */
+@@ -4946,6 +4950,24 @@ MmPurgeSegment(
+     /* Find byte offset of the page to start */
+     PurgeStart.QuadPart = PAGE_ROUND_DOWN_64(PurgeStart.QuadPart);
+ 
++nextSlice:
++    if (Truncate)
++    {
++        /* Walk only allocated slices, in file-offset order. The last element
++         * by insertion order need not be the slice at the highest offset. */
++        PCACHE_SECTION_PAGE_TABLE Slice;
++        do
++        {
++            Slice = RtlEnumerateGenericTableWithoutSplaying(&Segment->PageTable, &RestartKey);
++            if (!Slice)
++                goto complete;
++            if (!NT_SUCCESS(RtlLongLongAdd(Slice->FileOffset.QuadPart,
++                                          _countof(Slice->PageEntries) * PAGE_SIZE,
++                                          &PurgeEnd.QuadPart)))
++                goto inUse;
++        } while (PurgeEnd.QuadPart <= PurgeStart.QuadPart);
++        PurgeStart.QuadPart = max(PurgeStart.QuadPart, Slice->FileOffset.QuadPart);
++    }
+     while (PurgeStart.QuadPart < PurgeEnd.QuadPart)
+     {
+         ULONG_PTR Entry = MmGetPageEntrySectionSegment(Segment, &PurgeStart);
+@@ -4967,6 +4989,10 @@ MmPurgeSegment(
+ 
+         if (IS_WRITE_SSE(Entry))
+         {
++            /* The writer may need an FSD resource held by the truncator.
++             * Defer to the recorded retry instead of waiting under it. */
++            if (Truncate)
++                goto inUse;
+             /* We're trying to purge an entry which is being written. Restart this loop iteration */
+             MmUnlockSectionSegment(Segment);
+             KeDelayExecutionThread(KernelMode, FALSE, &TinyTime);
+@@ -4974,12 +5000,33 @@ MmPurgeSegment(
+             continue;
+         }
+ 
++        if (Truncate && PurgeStart.QuadPart < Offset->QuadPart)
++        {
++            /* Keep the page containing the last valid byte and its dirty
++             * state. A single share is acceptable only if it is our own
++             * referenced system view of this very page. */
++            ULONG Skip = (ULONG)(Offset->QuadPart - PurgeStart.QuadPart);
++            PEPROCESS Process = PsGetCurrentProcess();
++            PUCHAR Base;
++            KIRQL Irql;
++            if (SHARE_COUNT_FROM_SSE(Entry) &&
++                (SHARE_COUNT_FROM_SSE(Entry) != 1 || !BoundaryPage ||
++                 !MmIsAddressValid(BoundaryPage) ||
++                 (MmGetPhysicalAddress(BoundaryPage).QuadPart >> PAGE_SHIFT) != PFN_FROM_SSE(Entry)))
++                goto inUse;
++            Base = MiMapPageInHyperSpace(Process, PFN_FROM_SSE(Entry), &Irql);
++            if (!Base)
++                goto inUse;
++            RtlZeroMemory(Base + Skip, PAGE_SIZE - Skip);
++            MiUnmapPageInHyperSpace(Process, Base, Irql);
++            PurgeStart.QuadPart += PAGE_SIZE;
++            continue;
++        }
++
+         if (SHARE_COUNT_FROM_SSE(Entry) > 0)
+         {
+             /* This page is currently in use. Bad luck */
+-            MmUnlockSectionSegment(Segment);
+-            MmDereferenceSegment(Segment);
+-            return FALSE;
++            goto inUse;
+         }
+ 
+         /* We can let this page go */
+@@ -4988,11 +5035,18 @@ MmPurgeSegment(
+ 
+         PurgeStart.QuadPart += PAGE_SIZE;
+     }
++    if (Truncate)
++        goto nextSlice;
+ 
+-    /* This page is currently in use. Bad luck */
++complete:
+     MmUnlockSectionSegment(Segment);
+     MmDereferenceSegment(Segment);
+     return TRUE;
++
++inUse:
++    MmUnlockSectionSegment(Segment);
++    MmDereferenceSegment(Segment);
++    return FALSE;
+ }
+ 
+ BOOLEAN

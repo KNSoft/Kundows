@@ -1,0 +1,51 @@
+{
+  "source": {
+    "upstream": "4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6",
+    "cleanX64Tree": "bd620b9b5a8c386e1bc981726bed3943425e4b74",
+    "activeTree": "6927ca698c770e93efaa21c41429baaad8f66318",
+    "ownershipSha256": "cca63c5ad3a5f7119f8def5e16743e6d7f5d431a70c4b42d0efb51df305797cc"
+  },
+  "host": {
+    "x64": [
+      "CC allocation shrink: 34/34 passed",
+      "M1: 21/21 passed",
+      "CC handoff ownership: 7/7 passed",
+      "C1: 12/12 passed",
+      "CC/FastFAT volume: 18/18 passed",
+      "pin: 1/1 passed",
+      "retry: 1/1 passed"
+    ],
+    "x64_x86": [
+      "CC allocation shrink: 34/34 passed",
+      "M1: 21/21 passed",
+      "CC handoff ownership: 7/7 passed",
+      "C1: 12/12 passed",
+      "CC/FastFAT volume: 18/18 passed",
+      "pin: 1/1 passed",
+      "retry: 1/1 passed"
+    ]
+  },
+  "patchQueues": [
+    "17 patches, ARM64=False, image-fixes=False: apply / recognize / reverse OK",
+    "18 patches, ARM64=False, image-fixes=True: apply / recognize / reverse OK",
+    "19 patches, ARM64=True, image-fixes=False: apply / recognize / reverse OK",
+    "20 patches, ARM64=True, image-fixes=True: apply / recognize / reverse OK",
+    "Cache ownership / write-error fixes: either order, standalone recognition and complete reverse OK"
+  ],
+  "cleanX64Debug": {
+    "summary": "Build: 1419 succeeded, 0 failed, 0 up-to-date, 14 skipped",
+    "inputSha256": "90460962499d6cac6c32d96e385e170d768ad7d73164be5e3b3f02c02ed3b7aa",
+    "buildLogSha256": "ba47db631a40d455c7554eaf23fa0e86e1879d3ca3bc90f398b24785eb280909",
+    "makeLogSha256": "129c8343898697ea5564c6bf622bfb2ef987819557cbb9f0207006c111843344",
+    "isoSha256": "2bffbc71fc69e84ccd1fc0c38e0150c44f2aa4709848de3bf6fb26f839508bc8",
+    "isoMembersMatchLinks": {
+      "system32/drivers/fastfat.sys": "fdad70928a7447d3f29e4d4140520613fb583b1c738f280153aac769aeb50fc7",
+      "system32/ntkrnlmp.exe": "6a2b8021f9f20f594478bd9b5acb0841c464470d51b848af7f228a5f5368b309",
+      "system32/ntoskrnl.exe": "80f8a97d54691a7edf6fa2bfd27d6f44b6613820bc39d39a2ae5931c8321f6bc"
+    }
+  },
+  "x86ReleaseKernels": {
+    "UP": "6000c36a283e7327a5272d6c55f154610dbab31bc0874d1270a6cab08080082a",
+    "MP": "ab9862009009ba418043d63fb82051ce36f0d0ac4d1a969651030d309d89dc0c"
+  }
+}

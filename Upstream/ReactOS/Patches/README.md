@@ -8,7 +8,7 @@ is not the application order. `BuildSystem`, `Runtime` and target-specific
 
 | Repair point | Active patch | Scope |
 | --- | --- | --- |
-| BCB ownership and lifetime | [cc-bcb-ownership](Runtime/ReactOS-cc-bcb-ownership.patch) | Premark publication, duplicate winner/loser ownership, zero-pin lookup, dirty retention, writeback generations, successful retirement and quiesced teardown |
+| BCB ownership and lifetime | [cc-bcb-ownership](Runtime/ReactOS-cc-bcb-ownership.patch) | Premark publication, metadata writeback, [file-size notifications, tail invalidation and cache-close events](../../../Docs/Notes/HyperV-Desktop-QA/Review/CcSizeCompatibility.md) |
 | Write errors and retry policy | [mm-flush-status](Runtime/ReactOS-mm-flush-status.patch) | Report MM write errors without losing dirty data; bound the CC dirty-view pass after an error |
 | FAT volume clean state | [fastfat-clean-after-flush](Runtime/ReactOS-fastfat-clean-after-flush.patch) | F1: an unsuccessful filesystem flush must not mark the volume clean |
 | Independent MM write collisions | [mm-flush-collision](Runtime/ReactOS-mm-flush-collision.patch) | Still optional, selected only by `--image-fixes`; not implied by the CC reservation |
@@ -32,6 +32,5 @@ rollback without editing the source checkout:
 python Docs/Notes/HyperV-Desktop-QA/Review/Checks/patch-sets.py
 ```
 
-The user requested a local commit only, without pushing. This reorganization
-is not a new released or VM-tested image. Prior guest evidence and the current integration
-boundary are recorded in [CcOwnership.md](../../../Docs/Notes/HyperV-Desktop-QA/Review/CcOwnership.md).
+For the Windows reference runs, candidate identity and guest checks, see
+[the CC size and close comparison](../../../Docs/Notes/HyperV-Desktop-QA/Review/CcSizeCompatibility.md).

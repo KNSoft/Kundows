@@ -42,10 +42,20 @@ static int volumeStudy(void)
     verdict("CC volume: active repin remains owned by caller",pass && ownerBalanced());
 
     volumeReset(32); b=ownerDirty();
+#ifdef KW_CC_HANDOFF
+    /* Historical same-thread shared pin/repin: try, never upgrade/wait. */
+    ownerBcb(b)->Lock.deny=1;
+    pass=volumeFlush()==STATUS_CANT_WAIT && !writes;
+    ownerBcb(b)->Lock.deny=0;
+    CcUnpinData(b);
+    verdict("CC volume: mismatched caller lock ordering fails without an early write",
+            pass && volumeFlush()==0 && writes==1 && ownerBalanced());
+#else
     pass=volumeFlush()==0 && writes==1 && ownerBcb(b)->Dirty && ownerBcb(b)->PinCount==1;
     CcUnpinData(b);
     pass &= view.Dirty && ownerFlush()==0 && writes==2 && ownerBalanced();
     verdict("CC volume: flush cannot consume active caller premark",pass);
+#endif
 
     volumeReset(12); b=ownerDirty(); CcUnpinData(b);
     verdict("CC volume: original FAT12 range scan",volumeFlush()==0 && writes==1 && ownerBalanced());
@@ -59,11 +69,20 @@ static int volumeStudy(void)
     verdict("CC volume: failed write survives and retry retires",pass);
 
     volumeReset(32); b=ownerDirty(); CcUnpinData(b);
+#ifdef KW_CC_HANDOFF
+    getFail=1;
+    /* Mapping failure raises; use ownerHit's exception boundary. */
+    pass=!ownerHit() && !refs && !writes;
+    getFail=0;
+    verdict("CC volume: remap fault before scan leaves retryable ownership",
+            pass && volumeFlush()==0 && writes==1 && ownerBalanced());
+#else
     ASSERT(CcpBeginBcbFlush(&view,&epoch));
     pass=volumeFlush()==STATUS_DEVICE_BUSY && !writes && view.Dirty && !frees;
     CcpCompleteBcbFlush(&view,epoch,STATUS_SUCCESS);
     pass &= volumeFlush()==0 && writes==1 && ownerBalanced();
     verdict("CC volume: colliding flush refuses early success",pass);
+#endif
 
     volumeReset(32); b=ownerDirty(); CcUnpinData(b); directoryStatus=STATUS_UNSUCCESSFUL;
     verdict("CC volume: directory error survives successful FAT write",
@@ -98,8 +117,12 @@ static int volumeStudy(void)
 
     volumeReset(32); volumeVcb.Bpb.Fat=3*PAGE_SIZE-512;
     volumeNewPage(0); volumeNewPage(PAGE_SIZE);
-    verdict("CC volume: one VACB completion retires multiple page records",
+    verdict("CC volume: two dirty page records in one VACB",
+#ifdef KW_CC_HANDOFF
+            volumeFlush()==0 && writes==2 && allocs==2 && ownerBalanced());
+#else
             volumeFlush()==0 && writes==1 && allocs==2 && ownerBalanced());
+#endif
 
     volumeReset(32); volumeVcb.Bpb.Fat=3*PAGE_SIZE-512;
     volumeNewPage(PAGE_SIZE);

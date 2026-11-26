@@ -1,0 +1,8 @@
+{
+  "candidate": "bafe7137bedcb0a2850bb34c50e08d2461bdb4b6841dcd752b41afbc85243f94",
+  "linked": {
+    "system32/drivers/fastfat.sys": "c2245222c4a0e073aa3830adb12877a67747835183b11dd8e6fe6dcf78bafa4d",
+    "system32/ntkrnlmp.exe": "c484983adf16203b95d4bea8d4197870a87a84d591454dfacaccb994c80d2e5b",
+    "system32/ntoskrnl.exe": "b4cca5b3af7f76e62bae0c489945958045621455843882606980a239e0930541"
+  }
+}

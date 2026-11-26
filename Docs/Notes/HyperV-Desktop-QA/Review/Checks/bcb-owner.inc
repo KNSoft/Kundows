@@ -39,6 +39,24 @@ static void ownerNewRange(void)
     ASSERT(CcPinRead(&file,&offset,PAGE_SIZE,PIN_WAIT,&b,&buffer));
     CcSetDirtyPinnedData(b,NULL); CcUnpinData(b);
 }
+#ifdef KW_CC_SPLIT_MAPPING
+static void *secondPin;
+static void ownerConcurrentHit(void)
+{
+    duringGet=NULL;
+    ASSERT(request(1,PIN_IF_BCB,&secondPin));
+}
+static void ownerFlushInsideGet(void)
+{
+    duringGet=NULL;
+    ASSERT(ownerFlush()==0 && !frees);
+}
+static void ownerPublishIdle(void)
+{
+    duringGet=NULL;
+    CcUnpinData(ownerDirty());
+}
+#endif
 static int ownershipStudy(void)
 {
     void *b=NULL,*mapped=NULL; ULONGLONG epoch;
@@ -132,5 +150,53 @@ static int ownershipStudy(void)
     pass &= ownerFlush()==0 && ownerBalanced();
     verdict("ownership: BCB created after the snapshot belongs to the next flush",pass);
 
+#ifdef KW_CC_SPLIT_MAPPING
+    ownerReset(); b=ownerDirty(); p=ownerBcb(b); CcUnpinData(b);
+    pass=!refs && !p->Vacb && p->SharedCacheMap==&map && p->DirtyPending;
+    getFail=1;
+    pass &= !request(1,PIN_IF_BCB,&b) && gets==2 && !refs && !p->RefCount && !p->Vacb && !frees;
+    getFail=0; duringGet=ownerConcurrentHit;
+    pass &= request(1,PIN_IF_BCB,&b) && secondPin==b && gets==4 && refs==1 && p->PinCount==2;
+    CcUnpinData(secondPin); pass &= refs==1;
+    CcUnpinData(b); pass &= !refs && !p->Vacb && ownerFlush()==0 && ownerBalanced();
+    verdict("split: failed remap and racing PIN_IF_BCB hits balance exactly one mapping",pass);
+
+    ownerReset(); b=ownerDirty(); CcUnpinData(b);
+    duringGet=ownerFlushInsideGet; getFail=1;
+    pass=!request(1,PIN_IF_BCB,&b) && writes==1 && ownerBalanced();
+    verdict("split: flush during failed remap retires on reservation rollback",pass);
+
+    ownerReset(); duringGet=ownerPublishIdle;
+    pass=request(1,PIN_WAIT,&b) && refs==1 && allocs==2 && frees==1;
+    CcUnpinData(b); pass &= !refs && ownerHit() && ownerFlush()==0 && ownerBalanced();
+    verdict("split: duplicate lookup adopts mapping into newly idle winner",pass);
+
+    ownerReset(); b=ownerDirty(); CcUnpinData(b);
+    {
+        Vacb other=view;
+        other.FileOffset.QuadPart=VACB_MAPPING_GRANULARITY;
+        ASSERT(CcpBeginBcbFlush(&other,&epoch)); CcpCompleteBcbFlush(&other,epoch,0);
+    }
+    pass=!refs && !frees && !CcpCanPurgeBcbRange(&map,0,PAGE_SIZE) &&
+         CcpCanPurgeBcbRange(&map,VACB_MAPPING_GRANULARITY,MAXLONGLONG);
+    pass &= ownerFlush()==0 && !ownerHit() && CcpCanPurgeBcbRange(&map,0,PAGE_SIZE) && ownerBalanced();
+    verdict("split: other view completion and rejected purge preserve pending ownership",pass);
+
+    ownerReset();
+    {
+        LARGE_INTEGER offset; void *buffer=NULL;
+        view.FileOffset.QuadPart=0x100000000LL + VACB_MAPPING_GRANULARITY;
+        offset.QuadPart=view.FileOffset.QuadPart+PAGE_SIZE;
+        ASSERT(CcPinRead(&file,&offset,PAGE_SIZE,PIN_WAIT,&b,&buffer));
+        p=ownerBcb(b); CcSetDirtyPinnedData(b,NULL); CcUnpinData(b);
+        pass=!refs && !p->Vacb && CcpCanPurgeBcbRange(&map,0,PAGE_SIZE);
+        offset.QuadPart+=512;
+        pass &= CcPinRead(&file,&offset,512,PIN_IF_BCB,&b,&buffer) &&
+                p==ownerBcb(b) && refs==1 && (ULONG_PTR)buffer==(ULONG_PTR)view.BaseAddress+PAGE_SIZE+512;
+        CcUnpinData(b);
+        ASSERT(CcpBeginBcbFlush(&view,&epoch)); CcpCompleteBcbFlush(&view,epoch,0);
+        verdict("split: subrange reacquires the correct 64-bit mapping",pass && ownerBalanced());
+    }
+#endif
     return summary("CC ownership");
 }

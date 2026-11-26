@@ -1,0 +1,23 @@
+**********************************************************************
+** Visual Studio 2026 Developer Command Prompt v18.11.4
+** Copyright (c) 2026 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64_x86'
+truncate.c
+dirty prefix survives; separate clean view and MM suffix removed: PASS
+overlapping owner clipped; partial-page prefix and dirty state retained: PASS
+regrowth keeps true VDL and does not restore discarded cache: PASS
+busy view: no BCB or view removed; caller sees the failed shrink: PASS
+refused regrowth does not publish larger sizes or extend: PASS
+same-size retry purges the outstanding tail: PASS
+partial MM refusal remains retryable: PASS
+distant sparse slice is purged without visiting the hole: PASS
+in-flight MM write can finish before retry: PASS
+different mapping of the boundary page is not modified: PASS
+in-flight metadata flush defers the shrink: PASS
+retry to offset zero retires the suffix: PASS
+ordinary purge preserves pending ownership: PASS
+uninitialize reports refused purge, releases cache and signals caller: PASS
+uninitialize honors a byte-sized tail: PASS
+uninitialize preserves release failure: PASS
+CC allocation shrink: 16/16 passed

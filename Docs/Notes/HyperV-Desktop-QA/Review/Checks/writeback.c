@@ -95,7 +95,7 @@ static void masterUnlock(void) { ASSERT(master==1); master=0; }
 #define KeReleaseGuardedMutex(p) (--*(p))
 #define CcRosVacbIncRefCount(v) (++(v)->refs)
 #define CcRosVacbDecRefCount(v) (--(v)->refs)
-#define CcRosDeleteFileCache(...) abort()
+#define CcRosDeleteFileCache(...) (abort(),STATUS_UNSUCCESSFUL)
 static BOOLEAN CcRosUnmarkDirtyVacb(Vacb *v,BOOLEAN lock)
 {
     if(!v->Dirty) return FALSE;
@@ -116,6 +116,7 @@ static Vacb *CcRosLookupVacb(Map *m,LONGLONG pos) { if(!lookup) return NULL; Vac
  * in full; here retain the normal-stream boundary used by the M1 checks. */
 static BOOLEAN CcpBeginBcbFlush(Vacb *v,PULONGLONG g) { ASSERT(!v->SharedCacheMap->RetainDirtyBcbs); *g=0; return TRUE; }
 static BOOLEAN CcpCompleteBcbFlush(Vacb *v,ULONGLONG g,NTSTATUS s) { ASSERT(!v->SharedCacheMap->RetainDirtyBcbs); return FALSE; }
+#define CcpFlushMetadata(...) (abort(), STATUS_UNSUCCESSFUL)
 #include "writeback.inc"
 
 static void reset(void)

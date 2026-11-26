@@ -1,5 +1,9 @@
 # 安装故障代码走查：显示器枚举与 FAT32 写回
 
+## 当前默认候选：`bd620b9b`
+
+[Windows 与 ReactOS 的文件尺寸、关闭事件和来宾对照](CcSizeCompatibility.md)。全新安装的 x64 ReactOS 与 Windows 对照驱动的 28 个字段一致；FAT32 普通文件、刷卷和三轮卸载重挂均通过。
+
 本页保留初次走查及单页用例。**后续结论**见[正式补丁、Windows 对照与修后复测](Verified.md)：G1、M1、C1、F1、G3 已接入；后续遇到的私有显示器列表查询 [G4 也已修复](MonitorList.md)。G2、C2 保留调查。
 
 基线为 ReactOS `4fbbefd614b`，对应[上次 Hyper‑V 安装现场](../README.md#安装故障首次硬盘启动灰屏或蓝屏)。这次分别追踪了**设备关系的生产者到消费者**，以及 **FAT32 脏扇区到缓存、页写回和卷清洁标记**。该版的 [FAT 识别器](../../../../Upstream/ReactOS/Source/drivers/filesystems/fs_rec/fat.c#L167)加载 `fastfat`；实际 x64 内核工程编入的是 [`ntoskrnl/cc`](../../../../Upstream/ReactOS/Source/ntoskrnl/ntos.cmake#L32)。

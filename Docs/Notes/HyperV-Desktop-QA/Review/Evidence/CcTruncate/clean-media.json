@@ -1,0 +1,11 @@
+{
+  "candidate": "98f8dd1d8d3a87efce875cb943fb04d0480baf4e77574335962edf28e3d4109c",
+  "iso": "066449f3cde3b88e4fbc7afcf6003f17894eec100894f8adea5baec92c8d97ef",
+  "linked": {
+    "system32/drivers/fastfat.sys": "a45d895d859f2d0d5ad90ef3ba7dcb7e7d26f25dfb7bd80764c3544a1eea5ce2",
+    "system32/ntkrnlmp.exe": "f1f6b7681d46daf28d4fde77afafe35ddeb5ce21a5808f1e77715a67c0e1163b",
+    "system32/ntoskrnl.exe": "6d627b65085e728692fec86c73567fd8ac1a3de26a5facac1b5fbed9678eb3e8"
+  },
+  "makeLog": "e0b22df60459e300ab7302e0b81ac74346e8ff449eeda5e27a359f6af87caee9",
+  "tested": "E:\\KNSoft\\Kundows\\OutDir\\CcTruncate-be9f26ff-01\\clean-x64\\test.iso"
+}

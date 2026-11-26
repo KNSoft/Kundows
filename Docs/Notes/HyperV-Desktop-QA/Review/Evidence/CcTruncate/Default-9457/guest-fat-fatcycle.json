@@ -1,0 +1,20 @@
+{
+  "fs": "FAT32",
+  "kernel": "10.0.26100.9457 (WinBuild.160101.0800)",
+  "tool": "fatcycle",
+  "sha": "A23813874929A716C49B6D43F18CB8F5E38342335469FE1ECE3EABBB270A2C27",
+  "time": "2026-11-26T11:20:13.6697299+08:00",
+  "rc": 0,
+  "stdout": [
+    "cycle=1 open-file-lock=rejected win32=5",
+    "cycle=1 lock=success dismount=success mounted-after=0 win32=21",
+    "cycle=1 remount=success verified-bytes=8388608 eof=match identity=match",
+    "cycle=2 open-file-lock=rejected win32=5",
+    "cycle=2 lock=success dismount=success mounted-after=0 win32=21",
+    "cycle=2 remount=success verified-bytes=8388608 eof=match identity=match",
+    "cycle=3 open-file-lock=rejected win32=5",
+    "cycle=3 lock=success dismount=success mounted-after=0 win32=21",
+    "cycle=3 remount=success verified-bytes=8388608 eof=match identity=match",
+    "PASS three real lock/dismount/remount cycles, 24 MiB byte-for-byte verified"
+  ]
+}

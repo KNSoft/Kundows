@@ -1,0 +1,27 @@
+{
+  "system": "sys.getwindowsversion(major=10, minor=0, build=26300, platform=2, service_pack='')",
+  "volume": "working-directory temporary files",
+  "results": [
+    {
+      "cut": 0,
+      "prefixExactAfterClose": true,
+      "lengthAfterRegrowth": 166400,
+      "prefixExactAfterRegrowth": true,
+      "newBytesAllZeroOnThisRun": true
+    },
+    {
+      "cut": 4096,
+      "prefixExactAfterClose": true,
+      "lengthAfterRegrowth": 166400,
+      "prefixExactAfterRegrowth": true,
+      "newBytesAllZeroOnThisRun": true
+    },
+    {
+      "cut": 4219,
+      "prefixExactAfterClose": true,
+      "lengthAfterRegrowth": 166400,
+      "prefixExactAfterRegrowth": true,
+      "newBytesAllZeroOnThisRun": true
+    }
+  ]
+}

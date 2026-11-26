@@ -12,7 +12,7 @@ p.add_argument("source", type=Path)
 p.add_argument("--stock", action="store_true", help="read the pinned Git blobs")
 p.add_argument("--mm-only", action="store_true", help="pair patched MM with stock CC; negative control for writeback")
 p.add_argument("--overlay", type=Path, help="read matching private candidate files before the source checkout")
-p.add_argument("--suite", choices=("writeback", "bcb", "bcb-life", "bcb-owner", "fat", "fat-volume", "fat-volume-legacy", "user", "relation", "ioctl", "monitor-list", "video", "collision"), action="append")
+p.add_argument("--suite", choices=("writeback", "bcb", "bcb-life", "bcb-owner", "truncate", "fat", "fat-volume", "fat-volume-legacy", "user", "relation", "ioctl", "monitor-list", "video", "collision"), action="append")
 args = p.parse_args()
 if args.mm_only:
     if args.stock or args.suite not in (None, ["writeback"]):
@@ -48,7 +48,8 @@ def generate(suite, out):
     mm = "ntoskrnl/mm/section.c"
     pin = "ntoskrnl/cc/pin.c"
     fat = "drivers/filesystems/fastfat/flush.c"
-    if suite == "fat-volume" and "CcpBeginBcbFlush(" in read(pin):
+    handoff = "CcpWriteMetadataPage(" in read(pin)
+    if suite == "fat-volume" and (handoff or "CcpBeginBcbFlush(" in read(pin)):
         source = generate("bcb", out)
         with (out / "bcb.inc").open("a", encoding="utf-8") as f:
             f.write(defs(fat, [("FatFlushVolume", "NTSTATUS")]))
@@ -68,20 +69,41 @@ def generate(suite, out):
             return out / "collision.c"
         data = defs("ntoskrnl/cc/view.c", [("CcRosFlushVacb", "NTSTATUS"),
                                  ("CcRosFlushDirtyPages", "NTSTATUS"), ("CcFlushCache", "VOID NTAPI")])
+    elif suite == "truncate":
+        data = defs(pin, [("CcpCanPurgeBcbRange", "BOOLEAN"), ("CcpTruncateBcbs", "BOOLEAN"),
+                          ("CcpFreeBcbList", "VOID")])
+        data += defs(mm, [("MmPurgeSegment", "BOOLEAN NTAPI")])
+        data += defs("ntoskrnl/cc/view.c", [("CcpSignalUninitializeEvents", "static VOID"),
+                     ("CcpReuseFileCache", "static PCACHE_UNINITIALIZE_EVENT"),
+                     ("CcRosDeleteFileCache", "static NTSTATUS"), ("CcpDereferenceCacheMap", "VOID"),
+                     ("CcRosUninitializeFileCache", "NTSTATUS")])
+        data += defs("ntoskrnl/cc/fs.c", [("CcpPurgeCacheSection", "static BOOLEAN"),
+                     ("CcPurgeCacheSection", "BOOLEAN NTAPI"), ("CcpNoteTruncate", "static VOID"),
+                     ("CcpFinishTruncate", "static NTSTATUS"), ("CcSetFileSizesEx", "NTSTATUS NTAPI"),
+                     ("CcpApplyCloseSize", "VOID"),
+                     ("CcSetFileSizes", "VOID NTAPI"),
+                     ("CcUninitializeCacheMap", "BOOLEAN NTAPI"), ("CcGetFileSizes", "BOOLEAN NTAPI")])
     elif suite == "bcb":
         extra = []
         if "CcpBeginBcbFlush(" in read(pin):
             extra = [("CcpFreeBcb","static VOID"), ("CcpFreeBcbList","static VOID"),
                      ("CcpBeginBcbFlush","BOOLEAN"), ("CcpCompleteBcbFlush","BOOLEAN")]
             extra.append(("CcpDeleteBcbs" if "CcpDeleteBcbs(" in read(pin) else "CcpPurgeBcbs","VOID"))
-        data = defs(pin, extra + [("CcpFindBcb", "PINTERNAL_BCB"), ("CcpDereferenceBcb", "VOID"),
-                   ("CcpGetAppropriateBcb", "PVOID"), ("CcSetDirtyPinnedData", "VOID NTAPI"),
+        if handoff:
+            extra = [("CcpFreeBcb","static VOID"), ("CcpFreeBcbList","static VOID"), ("CcpDeleteBcbs","NTSTATUS")]
+        extra += [("CcpFindBcb", "PINTERNAL_BCB"), ("CcpDereferenceBcb", "VOID")]
+        if "CcpReferenceBcb(" in read(pin):
+            extra += [("CcpReferenceBcb", "static NTSTATUS"), ("CcpCanPurgeBcbRange", "BOOLEAN")]
+        data = defs(pin, extra + [("CcpGetAppropriateBcb", "PVOID"), ("CcSetDirtyPinnedData", "VOID NTAPI"),
                    ("CcUnpinDataForThread", "VOID NTAPI"), ("CcUnpinData", "VOID NTAPI"),
                    ("CcpPinData", "BOOLEAN"), ("CcPinRead", "BOOLEAN NTAPI"),
                    ("CcMapData", "BOOLEAN NTAPI"), ("CcRepinBcb", "VOID NTAPI"),
                     ("CcUnpinRepinnedBcb", "VOID NTAPI")]) + defs(fat, [("FatFlushFat", "NTSTATUS")])
         if "CcpPurgeBcbs(" in read(pin):
             data += "\n#define CcpDeleteBcbs(map) CcpPurgeBcbs(map,0,MAXLONGLONG)\n"
+        if handoff:
+            text = read(pin)
+            data += text[text.index("typedef struct _CC_PAGE_OWNER"):text.index("static\nBOOLEAN\nCcpPinData(")]
     elif suite == "fat":
         text = read(fat)
         whole = definition(text, "FatCommonFlushBuffers", "NTSTATUS")
@@ -124,13 +146,20 @@ if __name__ == "__main__":
     suites = ["writeback", "bcb", "fat", "fat-volume", "user", "relation", "video", "ioctl"]
     if "EngpQueryMonitorList(" in read("win32ss/gdi/eng/device.c"):
         suites.append("monitor-list")
+    if "CcpFinishTruncate(" in read("ntoskrnl/cc/fs.c"):
+        suites.append("truncate")
     for suite in args.suite or suites:
         with tempfile.TemporaryDirectory(prefix="Kundows-check-") as tmp:
             out = Path(tmp)
             source = generate("bcb" if suite in ("bcb-life","bcb-owner") else suite, out)
             options = []
-            if source.stem == "bcb" and "CcpBeginBcbFlush(" in read("ntoskrnl/cc/pin.c"):
+            handoff = "CcpWriteMetadataPage(" in read("ntoskrnl/cc/pin.c")
+            if source.stem == "bcb" and (handoff or "CcpBeginBcbFlush(" in read("ntoskrnl/cc/pin.c")):
                 options.append("/DKW_CC_OWNERSHIP")
+                if handoff:
+                    options.append("/DKW_CC_HANDOFF")
+                if "CcpReferenceBcb(" in read("ntoskrnl/cc/pin.c"):
+                    options.append("/DKW_CC_SPLIT_MAPPING")
                 if suite == "fat-volume":
                     options.append("/DKW_CC_VOLUME")
             subprocess.run(["cl", "/nologo", "/W3", "/TC", "/MT", "/Od", "/I" + tmp] + options + [source],

@@ -1,0 +1,18 @@
+{
+  "fs": "FAT32",
+  "kernel": "10.0.26100.9457 (WinBuild.160101.0800)",
+  "tool": "fatflush",
+  "sha": "09C2AB157C56173FE0AD36DBA023A44D051DAC25A7A932FF7F29C459F407E986",
+  "time": "2026-11-26T11:20:13.4195967+08:00",
+  "rc": 0,
+  "stdout": [
+    "extent=7..73734 entry=69632 offsets=4484096,5002752 flush=success",
+    "initial FAT1 bytes=512 matching=0/128 zero=128",
+    "initial FAT2 bytes=512 matching=0/128 zero=128",
+    "before FAT1 bytes=512 matching=0/128 zero=128",
+    "before FAT2 bytes=512 matching=0/128 zero=128",
+    "after FAT1 bytes=512 matching=128/128 zero=0",
+    "after FAT2 bytes=512 matching=128/128 zero=0",
+    "PASS both FAT sectors contain the allocated chain"
+  ]
+}

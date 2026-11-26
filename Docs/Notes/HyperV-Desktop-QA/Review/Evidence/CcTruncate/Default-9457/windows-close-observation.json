@@ -1,0 +1,20 @@
+{
+  "kind": "rechecked archived native WinDbg result and two paired guest logs",
+  "kernel": "10.0.26100.9457",
+  "atObserverTimeout": {
+    "openCount": 0,
+    "dirtyPages": 0,
+    "uninitializeEventQueued": true,
+    "controllerReturn": "c00000b5"
+  },
+  "afterNormalCleanupAllowed": {
+    "controllerReturn": "00000000"
+  },
+  "sources": {
+    "relay-case1-cleanup-result.json": "712e05cdcba6eb9e23cd7772e7344e3edeaab4577b2cf2a6ac6137154ee44c38",
+    "win-case1-trace1-guest.txt": "562103967952c58646e41e229c71a5a9ed3dac769e81883e7b393d48ddced748",
+    "win-case1-v4b-guest.txt": "3393c6ee8f9f308f2af65e47e72db0470d2f8158a77f22ae367ee667e0eb35fe"
+  },
+  "interpretation": "A close event can remain pending even with no dirty pages; the controller waits for completion. These records contain neither the boolean return of that call nor multiple queued waiters.",
+  "thisRoundTracing": "A new observer on ordinary size operations did not capture a native internal purge failure or a multi-event return trace. File API results are recorded separately."
+}

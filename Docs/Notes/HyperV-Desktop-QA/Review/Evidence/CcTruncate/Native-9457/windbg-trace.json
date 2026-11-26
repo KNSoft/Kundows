@@ -1,0 +1,144 @@
+{
+  "source": "WinDbg MCP get_output_history, breakpoint in the test driver Record callback after public DDI returns",
+  "guestKernel": "10.0.26100.9457 (WinBuild.160101.0800)",
+  "driverSha256": "89be0809de48eaddb6eff779349e4c5b0aa82e71277bbd85ed0d30b66930bec3",
+  "historySha256": "c5dd25e2b81bdafda742d75e6672a909edb89e7f943357c522fc18970b08abbb",
+  "valuesInOrder": [
+    {
+      "name": "PeerPresent",
+      "valueHex": "00000001"
+    },
+    {
+      "name": "FirstReturn",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "FirstEventAtReturn",
+      "valueHex": "00000001"
+    },
+    {
+      "name": "PeerStillCached",
+      "valueHex": "00000001"
+    },
+    {
+      "name": "LastReturn",
+      "valueHex": "00000001"
+    },
+    {
+      "name": "LastEventAtReturn",
+      "valueHex": "00000001"
+    },
+    {
+      "name": "CloseStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "OpenFileStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "CreateSectionStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "MapStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "DataSectionPresent",
+      "valueHex": "00000001"
+    },
+    {
+      "name": "SharedCachePresent",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "MappedPrefixByte",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "UnchangedStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "PrefixViewBytes",
+      "valueHex": "00001000"
+    },
+    {
+      "name": "PrefixMayTruncate",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "MappedTailStatus",
+      "valueHex": "c0000435"
+    },
+    {
+      "name": "NextGrowthStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "SectionStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "OpenFileStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "CreateSectionStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "MapStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "SharedDataSectionPresent",
+      "valueHex": "00000001"
+    },
+    {
+      "name": "SharedCaseCachePresent",
+      "valueHex": "00000001"
+    },
+    {
+      "name": "MappedPrefixByte",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "SharedUnchangedStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "PrefixViewBytes",
+      "valueHex": "00001000"
+    },
+    {
+      "name": "PrefixMayTruncate",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "SharedTailStatus",
+      "valueHex": "c0000435"
+    },
+    {
+      "name": "SharedEofAfterRequest",
+      "valueHex": "00002000"
+    },
+    {
+      "name": "SharedNextGrowthStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "SharedEofAfterGrowth",
+      "valueHex": "00011f85"
+    },
+    {
+      "name": "SharedSectionStatus",
+      "valueHex": "00000000"
+    },
+    {
+      "name": "Finished",
+      "valueHex": "00000000"
+    }
+  ]
+}

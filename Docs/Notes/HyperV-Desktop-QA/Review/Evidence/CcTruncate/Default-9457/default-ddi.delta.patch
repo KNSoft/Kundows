@@ -1,0 +1,308 @@
+diff --git a/ntoskrnl/cc/fs.c b/ntoskrnl/cc/fs.c
+index 84a3c0c10f6..2bd5401445d 100644
+--- a/ntoskrnl/cc/fs.c
++++ b/ntoskrnl/cc/fs.c
+@@ -377,15 +377,17 @@ CcpFinishTruncate(PFILE_OBJECT FileObject, PROS_SHARED_CACHE_MAP Map,
+ /*
+  * @implemented
+  */
+-VOID NTAPI
+-CcSetFileSizes (
++NTSTATUS NTAPI
++CcSetFileSizesEx (
+     IN PFILE_OBJECT FileObject,
+     IN PCC_FILE_SIZES FileSizes)
+ {
+     KIRQL OldIrql;
+     PROS_SHARED_CACHE_MAP SharedCacheMap;
+-    LARGE_INTEGER Tail;
+-    BOOLEAN Purge;
++    LARGE_INTEGER Tail, OldFileSize;
++    CC_FILE_SIZES Sizes = *FileSizes;
++    BOOLEAN Grow, Purge;
++    NTSTATUS Status;
+ 
+     CCTRACE(CC_API_DEBUG, "FileObject=%p FileSizes=%p\n",
+         FileObject, FileSizes);
+@@ -399,41 +401,64 @@ CcSetFileSizes (
+ 
+     SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
+ 
+-    /*
+-     * It is valid to call this function on file objects that weren't
+-     * initialized for caching. In this case it's simple no-op.
+-     */
+-    if (SharedCacheMap == NULL)
+-        return;
++    if (SharedCacheMap == NULL || SharedCacheMap->Section == NULL)
++    {
++        PSECTION_OBJECT_POINTERS Pointers = FileObject->SectionObjectPointer;
++        if (!SharedCacheMap && Pointers->DataSectionObject == NULL)
++            return STATUS_SUCCESS;
++        if (Sizes.FileSize.QuadPart % PAGE_SIZE)
++        {
++            IO_STATUS_BLOCK IoStatus;
++            Status = MmFlushSegment(Pointers, &Sizes.FileSize, 1, &IoStatus);
++            if (!NT_SUCCESS(Status))
++                return Status;
++        }
++        return CcPurgeCacheSection(Pointers, &Sizes.FileSize, 0, FALSE) ?
++               STATUS_SUCCESS : STATUS_PURGE_FAILED;
++    }
+ 
+     KeAcquireSpinLock(&SharedCacheMap->CacheMapLock, &OldIrql);
+-    if (SharedCacheMap->TruncatePending &&
+-        (FileSizes->AllocationSize.QuadPart > SharedCacheMap->SectionSize.QuadPart ||
+-         FileSizes->FileSize.QuadPart > SharedCacheMap->TruncateOffset.QuadPart))
++    OldFileSize = SharedCacheMap->FileSize;
++    Grow = Sizes.AllocationSize.QuadPart > SharedCacheMap->SectionSize.QuadPart;
++    if (Grow)
+     {
+-        /* Do not replay an old discard against newly initialized data. */
++        LARGE_INTEGER NewSize = Sizes.AllocationSize;
+         KeReleaseSpinLock(&SharedCacheMap->CacheMapLock, OldIrql);
+-        ExRaiseStatus(STATUS_UNABLE_TO_DELETE_SECTION);
++        Status = MmExtendSection(SharedCacheMap->Section, &NewSize);
++        if (!NT_SUCCESS(Status))
++            ExRaiseStatus(FsRtlNormalizeNtstatus(Status, STATUS_UNEXPECTED_IO_ERROR));
++        KeAcquireSpinLock(&SharedCacheMap->CacheMapLock, &OldIrql);
+     }
+-    if (FileSizes->AllocationSize.QuadPart < SharedCacheMap->SectionSize.QuadPart)
+-        CcpNoteTruncate(SharedCacheMap, FileSizes->AllocationSize);
++    if (Sizes.FileSize.QuadPart < OldFileSize.QuadPart)
++        CcpNoteTruncate(SharedCacheMap, Sizes.FileSize);
+     Purge = SharedCacheMap->TruncatePending;
+     Tail = SharedCacheMap->TruncateOffset;
+-    SharedCacheMap->SectionSize = FileSizes->AllocationSize;
+-    SharedCacheMap->FileSize = FileSizes->FileSize;
+-    SharedCacheMap->ValidDataLength = FileSizes->ValidDataLength;
+-    KeReleaseSpinLock(&SharedCacheMap->CacheMapLock, OldIrql);
+-
+-    if (Purge)
++    if (Purge && Sizes.FileSize.QuadPart > Tail.QuadPart)
+     {
+-        if (!CcpFinishTruncate(FileObject, SharedCacheMap, Tail))
+-            ExRaiseStatus(STATUS_UNABLE_TO_DELETE_SECTION);
+-    }
+-    else
+-    {
+-        /* Extend our section object */
+-        MmExtendSection(SharedCacheMap->Section, &SharedCacheMap->SectionSize);
++        /* A past refusal is not a veto on growth. The FSD can already have
++         * initialized part of the new extent. Retry only beyond its VDL. */
++        Tail.QuadPart = max(Tail.QuadPart, Sizes.ValidDataLength.QuadPart);
++        SharedCacheMap->TruncateOffset = Tail;
+     }
++    SharedCacheMap->SectionSize = Sizes.AllocationSize;
++    SharedCacheMap->ValidDataLength = Sizes.ValidDataLength;
++    KeReleaseSpinLock(&SharedCacheMap->CacheMapLock, OldIrql);
++
++    Status = STATUS_SUCCESS;
++    if (Purge && !CcpFinishTruncate(FileObject, SharedCacheMap, Tail))
++        Status = STATUS_PURGE_FAILED;
++    KeAcquireSpinLock(&SharedCacheMap->CacheMapLock, &OldIrql);
++    SharedCacheMap->FileSize = Sizes.FileSize;
++    KeReleaseSpinLock(&SharedCacheMap->CacheMapLock, OldIrql);
++    return Status;
++}
++
++VOID NTAPI
++CcSetFileSizes (
++    IN PFILE_OBJECT FileObject,
++    IN PCC_FILE_SIZES FileSizes)
++{
++    (void)CcSetFileSizesEx(FileObject, FileSizes);
+ }
+ 
+ /*
+@@ -462,10 +487,9 @@ CcUninitializeCacheMap (
+     IN PLARGE_INTEGER TruncateSize OPTIONAL,
+     IN PCACHE_UNINITIALIZE_EVENT UninitializeCompleteEvent OPTIONAL)
+ {
+-    NTSTATUS Status;
+     PROS_SHARED_CACHE_MAP SharedCacheMap;
+     KIRQL OldIrql;
+-    BOOLEAN Purged = TRUE;
++    BOOLEAN Completed;
+ 
+     CCTRACE(CC_API_DEBUG, "FileObject=%p TruncateSize=%p UninitializeCompleteEvent=%p\n",
+         FileObject, TruncateSize, UninitializeCompleteEvent);
+@@ -485,15 +509,20 @@ CcUninitializeCacheMap (
+         CcpNoteTruncate(SharedCacheMap, *TruncateSize);
+         Tail = SharedCacheMap->TruncateOffset;
+         KeReleaseSpinLock(&SharedCacheMap->CacheMapLock, OldIrql);
+-        Purged = CcpFinishTruncate(FileObject, SharedCacheMap, Tail);
++        /* An unfinished tail belongs to the map; the public boolean
++         * distinguishes synchronous final teardown from deferred work. */
++        (void)CcpFinishTruncate(FileObject, SharedCacheMap, Tail);
+     }
+-
+-    Status = CcRosReleaseFileCache(FileObject);
+-    if (UninitializeCompleteEvent)
++    else if (TruncateSize && !TruncateSize->QuadPart &&
++             FileObject->SectionObjectPointer->DataSectionObject)
+     {
+-        KeSetEvent(&UninitializeCompleteEvent->Event, IO_NO_INCREMENT, FALSE);
++        (void)CcPurgeCacheSection(FileObject->SectionObjectPointer, TruncateSize, 0, FALSE);
+     }
+-    return Purged && NT_SUCCESS(Status);
++
++    /* This result reports synchronous final deletion. An event can be
++     * signalled later; neither the event nor this BOOLEAN is an I/O status. */
++    CcRosUninitializeFileCache(FileObject, UninitializeCompleteEvent, &Completed);
++    return Completed;
+ }
+ 
+ BOOLEAN
+diff --git a/ntoskrnl/cc/view.c b/ntoskrnl/cc/view.c
+index 765bea6518e..6da52e417e5 100644
+--- a/ntoskrnl/cc/view.c
++++ b/ntoskrnl/cc/view.c
+@@ -230,6 +230,19 @@ quit:
+     return Status;
+ }
+ 
++static VOID
++CcpSignalUninitializeEvents(PCACHE_UNINITIALIZE_EVENT Events)
++{
++    while (Events)
++    {
++        PCACHE_UNINITIALIZE_EVENT Event = Events;
++        Events = Event->Next;
++        Event->Next = NULL;
++        /* The waiter may reclaim its event as soon as it wakes. */
++        KeSetEvent(&Event->Event, IO_NO_INCREMENT, FALSE);
++    }
++}
++
+ static
+ NTSTATUS
+ CcRosDeleteFileCache (
+@@ -242,6 +255,7 @@ CcRosDeleteFileCache (
+ {
+     LIST_ENTRY LocalVacbList;
+     NTSTATUS FirstError = STATUS_SUCCESS;
++    PCACHE_UNINITIALIZE_EVENT Events;
+ 
+     ASSERT(SharedCacheMap);
+     ASSERT(SharedCacheMap == FileObject->SectionObjectPointer->SharedCacheMap);
+@@ -285,6 +299,8 @@ CcRosDeleteFileCache (
+     }
+ 
+     /* Make sure there is no trace anymore of this map */
++    Events = SharedCacheMap->UninitializeEvents;
++    SharedCacheMap->UninitializeEvents = NULL;
+     FileObject->SectionObjectPointer->SharedCacheMap = NULL;
+     RemoveEntryList(&SharedCacheMap->SharedCacheMapLinks);
+ 
+@@ -351,6 +367,8 @@ CcRosDeleteFileCache (
+ 
+     ExFreeToNPagedLookasideList(&SharedCacheMapLookasideList, SharedCacheMap);
+ 
++    CcpSignalUninitializeEvents(Events);
++
+     /* Acquire the lock again for our caller */
+     *OldIrql = KeAcquireQueuedSpinLock(LockQueueMasterLock);
+ 
+@@ -1373,8 +1391,10 @@ quit:
+ }
+ 
+ NTSTATUS
+-CcRosReleaseFileCache (
+-    PFILE_OBJECT FileObject)
++CcRosUninitializeFileCache (
++    PFILE_OBJECT FileObject,
++    PCACHE_UNINITIALIZE_EVENT Event,
++    PBOOLEAN Completed)
+ /*
+  * FUNCTION: Called by the file system when a handle to a file object
+  * has been closed.
+@@ -1384,6 +1404,7 @@ CcRosReleaseFileCache (
+     NTSTATUS Status = STATUS_SUCCESS;
+     PPRIVATE_CACHE_MAP PrivateMap;
+     PROS_SHARED_CACHE_MAP SharedCacheMap;
++    BOOLEAN Deleted = FALSE;
+ 
+     OldIrql = KeAcquireQueuedSpinLock(LockQueueMasterLock);
+ 
+@@ -1391,6 +1412,13 @@ CcRosReleaseFileCache (
+     {
+         SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
+ 
++        if (Event)
++        {
++            Event->Next = SharedCacheMap->UninitializeEvents;
++            SharedCacheMap->UninitializeEvents = Event;
++            Event = NULL;
++        }
++
+         /* Closing the handle, so kill the private cache map
+          * Before you event try to remove it from FO, always
+          * lock the master lock, to be sure not to race
+@@ -1422,13 +1450,27 @@ CcRosReleaseFileCache (
+             if (SharedCacheMap->OpenCount == 0)
+             {
+                 Status = CcRosDeleteFileCache(FileObject, SharedCacheMap, &OldIrql);
++                Deleted = TRUE;
+             }
+         }
+     }
+     KeReleaseQueuedSpinLock(LockQueueMasterLock, OldIrql);
++    if (Event)
++    {
++        Event->Next = NULL;
++        KeSetEvent(&Event->Event, IO_NO_INCREMENT, FALSE);
++    }
++    if (Completed)
++        *Completed = Deleted;
+     return Status;
+ }
+ 
++NTSTATUS
++CcRosReleaseFileCache(PFILE_OBJECT FileObject)
++{
++    return CcRosUninitializeFileCache(FileObject, NULL, NULL);
++}
++
+ NTSTATUS
+ CcRosInitializeFileCache (
+     PFILE_OBJECT FileObject,
+diff --git a/ntoskrnl/include/internal/cc.h b/ntoskrnl/include/internal/cc.h
+index b59d85758fe..d95a32cfadf 100644
+--- a/ntoskrnl/include/internal/cc.h
++++ b/ntoskrnl/include/internal/cc.h
+@@ -204,6 +204,8 @@ typedef struct _ROS_SHARED_CACHE_MAP
+     /* CacheMapLock: a failed tail purge must finish before regrowth. */
+     BOOLEAN TruncatePending;
+     LARGE_INTEGER TruncateOffset;
++    /* Master lock: notify detached requests after final cache teardown. */
++    PCACHE_UNINITIALIZE_EVENT UninitializeEvents;
+ } ROS_SHARED_CACHE_MAP, *PROS_SHARED_CACHE_MAP;
+ 
+ #define READAHEAD_DISABLED 0x1
+@@ -429,6 +431,13 @@ CcRosReleaseFileCache(
+     PFILE_OBJECT FileObject
+ );
+ 
++NTSTATUS
++CcRosUninitializeFileCache(
++    PFILE_OBJECT FileObject,
++    PCACHE_UNINITIALIZE_EVENT Event,
++    PBOOLEAN Completed
++);
++
+ VOID
+ NTAPI
+ CcShutdownSystem(VOID);
+diff --git a/ntoskrnl/ntoskrnl.spec b/ntoskrnl/ntoskrnl.spec
+index e1ce6963d35..99e0c0a8775 100644
+--- a/ntoskrnl/ntoskrnl.spec
++++ b/ntoskrnl/ntoskrnl.spec
+@@ -33,6 +33,7 @@
+ @ stdcall CcSetDirtyPageThreshold(ptr long)
+ @ stdcall CcSetDirtyPinnedData(ptr ptr)
+ @ stdcall CcSetFileSizes(ptr ptr)
++@ stdcall -version=0x600+ CcSetFileSizesEx(ptr ptr)
+ @ stdcall CcSetLogHandleForFile(ptr ptr ptr)
+ @ stdcall CcSetReadAheadGranularity(ptr long)
+ @ stdcall CcUninitializeCacheMap(ptr ptr ptr)

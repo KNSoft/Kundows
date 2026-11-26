@@ -1,0 +1,30 @@
+[
+  {
+    "arch": "amd64",
+    "cfg": "Debug",
+    "image": "ntoskrnl.exe",
+    "sha256": "8786d5e7ca950cdaac80ebe6a881a6b44c10c590e890c87f518982316257d92d",
+    "bytes": 3109376
+  },
+  {
+    "arch": "amd64",
+    "cfg": "Debug",
+    "image": "ntkrnlmp.exe",
+    "sha256": "645752862772f85812c97669366b03f7c103e2238191c4cd14d0af618fbb04b1",
+    "bytes": 3117056
+  },
+  {
+    "arch": "i386",
+    "cfg": "Release",
+    "image": "ntoskrnl.exe",
+    "sha256": "6dd4f7aac26c0219056b3bdbf8275c326031cc5ae1ee61447aa40ace50e41825",
+    "bytes": 1197568
+  },
+  {
+    "arch": "i386",
+    "cfg": "Release",
+    "image": "ntkrnlmp.exe",
+    "sha256": "94d4cfd09a2fb3c5df0ed5a1b60f082ea8e7380d14266de88b3e18782dfdd5aa",
+    "bytes": 1217536
+  }
+]

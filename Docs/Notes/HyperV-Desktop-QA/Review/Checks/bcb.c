@@ -14,18 +14,20 @@ typedef struct { ULONG depth; int deny; } Resource;
 typedef struct Map *PROS_SHARED_CACHE_MAP;
 typedef struct {
     PROS_SHARED_CACHE_MAP SharedCacheMap; void *BaseAddress; BOOLEAN Dirty;
-    LARGE_INTEGER FileOffset; BOOLEAN BcbFlushActive;
+    LARGE_INTEGER FileOffset; BOOLEAN BcbFlushActive; int MetadataIo;
 } Vacb, *PROS_VACB;
 typedef struct { PROS_SHARED_CACHE_MAP SharedCacheMap; } Section;
-typedef struct { Section *SectionObjectPointer; } File, *PFILE_OBJECT;
+typedef struct { Resource *PagingIoResource; } Header,*PFSRTL_COMMON_FCB_HEADER;
+static Header header;
+typedef struct { Section *SectionObjectPointer; Header *FsContext; } File, *PFILE_OBJECT;
 typedef struct Map {
     LIST_ENTRY BcbList; int BcbSpinLock, PinAccess; File *FileObject;
-    BOOLEAN RetainDirtyBcbs; ULONGLONG BcbDirtyGeneration; LARGE_INTEGER SectionSize;
+    BOOLEAN RetainDirtyBcbs,BcbWriteBehindDisabled,PurgeOnClose; ULONG Flags,ActiveBcbFlushes; ULONGLONG BcbDirtyGeneration; LARGE_INTEGER SectionSize;
 } Map;
 typedef struct { USHORT NodeTypeCode, NodeByteSize; ULONG MappedLength; LARGE_INTEGER MappedFileOffset; } Public;
 typedef struct {
-    Public PFCB; Vacb *Vacb; ULONG PinCount, RefCount; Resource Lock; LIST_ENTRY BcbEntry; BOOLEAN Dirty;
-    BOOLEAN Pinned, DirtyPending; ULONG DirtyPublishers; ULONGLONG DirtyGeneration;
+    Public PFCB; Map *SharedCacheMap; Vacb *Vacb; ULONG PinCount, RefCount; Resource Lock; LIST_ENTRY BcbEntry; BOOLEAN Dirty;
+    BOOLEAN Pinned, DirtyPending; ULONG DirtyPublishers; ULONGLONG DirtyGeneration, PendingPages;
 } INTERNAL_BCB, *PINTERNAL_BCB;
 static Map map;
 static Vacb view;
@@ -46,6 +48,8 @@ static int allocs, frees, deletes, lockedDelete, missingUnlock, mmDirty, writes;
 static Resource *lastLock;
 static int exclusive, waited;
 static NTSTATUS flushStatus;
+static int getFail, gets;
+static void (*duringGet)(void);
 static void KeAcquireSpinLock(int *v,KIRQL *k) { ASSERT(!*v); *v=1; *k=0; }
 static void KeReleaseSpinLock(int *v,KIRQL k) { ASSERT(*v); *v=0; }
 static void *ExAllocateFromNPagedLookasideList(int *p)
@@ -92,29 +96,64 @@ static void seed(void)
     winner.PFCB.MappedLength=PAGE_SIZE; winner.PinCount=toPin;
     winner.Pinned=!!toPin;
     winner.RefCount=1; winner.Vacb=&view; winner.Lock.deny=busy;
+    winner.SharedCacheMap=&map;
     /* Track only acquisitions by the caller under test. */
     ++refs; InsertTailList(&map.BcbList,&winner.BcbEntry);
 }
 static NTSTATUS CcRosGetVacb(Map *m, LONGLONG pos, Vacb **v)
 {
-    ASSERT(m == &map && !pos); *v=&view; ++refs;
+    ASSERT(m == &map && pos==view.FileOffset.QuadPart && !map.BcbSpinLock);
+    ++gets;
+    if (duringGet) duringGet();
+    if (getFail) return STATUS_INSUFFICIENT_RESOURCES;
+    *v=&view; ++refs;
     if (race) seed(); /* Publish after initial lookup, before the duplicate check. */
     return STATUS_SUCCESS;
 }
 static void CcRosReleaseVacb(Map *m, Vacb *v, BOOLEAN dirty, BOOLEAN mapped) { ASSERT(m==&map && v==&view && !map.BcbSpinLock); --refs; }
-static BOOLEAN CcRosEnsureVacbResident(Vacb *v, BOOLEAN wait, BOOLEAN noRead, ULONG off, ULONG len) { return resident; }
-static void MmMakeSegmentDirty(Section *s, LONGLONG pos, ULONG size)
+static BOOLEAN CcRosEnsureVacbResident(Vacb *v, BOOLEAN wait, BOOLEAN noRead, ULONG off, ULONG len) { ASSERT(v==&view && refs>0 && !map.BcbSpinLock); return resident; }
+static NTSTATUS MmMakeSegmentDirty(Section *s, LONGLONG pos, ULONG size)
 {
     ASSERT(!map.BcbSpinLock); mmDirty=1;
 #ifdef KW_CC_OWNERSHIP
     if (duringMark) duringMark();
 #endif
+    return STATUS_SUCCESS;
 }
 static void CcRosMarkDirtyVacb(Vacb *v) { ASSERT(!map.BcbSpinLock); v->Dirty=TRUE; }
+#ifdef KW_CC_HANDOFF
+#define WRITEBEHIND_DISABLED 2
+#define ExIsResourceAcquiredSharedLite(r) ((r)->depth)
+#define STATUS_CANT_WAIT ((NTSTATUS)0xc00000d8)
+#define KeEnterCriticalRegion() ((void)0)
+#define KeLeaveCriticalRegion() ((void)0)
+#define ExAllocatePoolWithTag(p,n,t) malloc(n)
+#define ExFreePoolWithTag(p,t) free(p)
+#define IoGetTopLevelIrp() NULL
+#define FSRTL_CACHE_TOP_LEVEL_IRP 4
+typedef void *PIRP;
+#define FsRtlAcquireFileForCcFlushEx(f) STATUS_SUCCESS
+#define FsRtlReleaseFileForCcFlush(f) ((void)0)
+static NTSTATUS gate(int *v) { ASSERT(!map.BcbSpinLock && !*v); *v=1; return 0; }
+#define KeWaitForSingleObject(r,a,b,c,t) gate(r)
+#define KeReleaseMutex(r,b) (*(r)=0)
+static BOOLEAN CcRosUnmarkDirtyVacb(Vacb *v,BOOLEAN l) { BOOLEAN d=v->Dirty; v->Dirty=FALSE; return d; }
+static NTSTATUS MmFlushSegment(Section *s, LARGE_INTEGER *pos, ULONG n, IO_STATUS_BLOCK *io)
+{
+    ASSERT(!map.BcbSpinLock); io->Information=0;
+    if (!NT_SUCCESS(flushStatus)) return flushStatus;
+    if (mmDirty) { ++writes; mmDirty=0; io->Information=PAGE_SIZE; }
+    return STATUS_SUCCESS;
+}
+NTSTATUS CcpFlushMetadata(Vacb *, LONGLONG, ULONG, BOOLEAN, PINTERNAL_BCB, PIO_STATUS_BLOCK);
+#endif
 static void CcFlushCache(Section *s, PLARGE_INTEGER off, ULONG size, PIO_STATUS_BLOCK io)
 {
     ASSERT(s==&section);
-#ifdef KW_CC_OWNERSHIP
+#ifdef KW_CC_HANDOFF
+    if (map.RetainDirtyBcbs) { CcpFlushMetadata(&view,off->QuadPart,size,FALSE,NULL,io); return; }
+    if (!NT_SUCCESS(flushStatus)) { io->Status=flushStatus; io->Information=0; return; }
+#elif defined(KW_CC_OWNERSHIP)
     ULONGLONG epoch;
     if (!CcpBeginBcbFlush(&view,&epoch)) { io->Status=STATUS_DEVICE_BUSY; io->Information=0; return; }
     if (!NT_SUCCESS(flushStatus)) {
@@ -126,7 +165,7 @@ static void CcFlushCache(Section *s, PLARGE_INTEGER off, ULONG size, PIO_STATUS_
 #endif
     if (mmDirty) ++writes;
     view.Dirty=FALSE; mmDirty=0; io->Status=STATUS_SUCCESS; io->Information=size;
-#ifdef KW_CC_OWNERSHIP
+#if defined(KW_CC_OWNERSHIP) && !defined(KW_CC_HANDOFF)
     if (duringWrite) duringWrite();
     CcpCompleteBcbFlush(&view,epoch,STATUS_SUCCESS);
 #endif
@@ -164,9 +203,11 @@ static void reset(void)
     memset(&view,0,sizeof(view)); memset(&map,0,sizeof(map));
     map.PinAccess=TRUE; InitializeListHead(&map.BcbList); map.FileObject=&file;
     file.SectionObjectPointer=&section; section.SharedCacheMap=&map; view.SharedCacheMap=&map;
+    file.FsContext=&header;
     view.BaseAddress=&view; lastLock=NULL;
     refs=allocFail=race=toPin=busy=allocs=frees=deletes=lockedDelete=missingUnlock=mmDirty=writes=0;
     resident=TRUE; flushStatus=STATUS_SUCCESS;
+    gets=getFail=0; duringGet=NULL;
 #ifdef KW_CC_OWNERSHIP
     memset(extraBcbs,0,sizeof(extraBcbs)); usedBcbs=0; duringMark=duringWrite=NULL;
     map.SectionSize.QuadPart=VACB_MAPPING_GRANULARITY;
@@ -175,8 +216,8 @@ static void reset(void)
 static BOOLEAN request(int pin, ULONG flags, void **b)
 {
     void *buf; LARGE_INTEGER o={0};
-    if (pin) return CcPinRead(&file,&o,PAGE_SIZE,flags,b,&buf);
     if (setjmp(raised)) return FALSE;
+    if (pin) return CcPinRead(&file,&o,PAGE_SIZE,flags,b,&buf);
     return CcMapData(&file,&o,PAGE_SIZE,flags,b,&buf);
 }
 static void run(const char *name, int pin, int when, ULONG flags, int deny, int oom, int present)
@@ -265,7 +306,9 @@ static void lifetimeStudy(void)
     lifetime("held-sector-query-sector",Held,TRUE,512,512,512,512);
     lifetime("held-sector-query-page",Held,TRUE,512,512,0,PAGE_SIZE);
 }
-#ifdef KW_CC_OWNERSHIP
+#ifdef KW_CC_HANDOFF
+#include "handoff-owner.inc"
+#elif defined(KW_CC_OWNERSHIP)
 #include "bcb-owner.inc"
 #endif
 #ifdef KW_CC_VOLUME

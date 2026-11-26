@@ -1,0 +1,54 @@
+{
+  "tree": "4b3340bfd8043055ea9a18c7b07f9ba1dc3d2604",
+  "runtimeAcceptance": "pending",
+  "builds": [
+    {
+      "arch": "amd64",
+      "configuration": "Debug",
+      "binary": "ntoskrnl.exe",
+      "bytes": 3111936,
+      "sha256": "c1bd3f439ef7c48820c9a1e4084c5300c7c1019bc403ce05857a49b47b4fa52c",
+      "exportsChecked": [
+        "CcSetFileSizes",
+        "CcSetFileSizesEx"
+      ],
+      "dumpbinSha256": "01827d6303905b5b33d88c5c695ae4a3c2cc7bb02a31b98ed9e985c5263ca799"
+    },
+    {
+      "arch": "amd64",
+      "configuration": "Debug",
+      "binary": "ntkrnlmp.exe",
+      "bytes": 3119616,
+      "sha256": "dc86e70a15e77f51d87a1a35da06da829a31c4438f7b4fe8f0398e8392068a59",
+      "exportsChecked": [
+        "CcSetFileSizes",
+        "CcSetFileSizesEx"
+      ],
+      "dumpbinSha256": "8118be2723d97cda8fea3c4c64e1321efcf69065aa1ac86085d51557d05428d6"
+    },
+    {
+      "arch": "i386",
+      "configuration": "Release",
+      "binary": "ntoskrnl.exe",
+      "bytes": 1198080,
+      "sha256": "cccf74a0682488113e34d67fb368635aa16accd72244a42f7cf9c990d7355e5b",
+      "exportsChecked": [
+        "CcSetFileSizes",
+        "CcSetFileSizesEx"
+      ],
+      "dumpbinSha256": "9d98a37dc7bf32a8086f1d6497ac356ab630aefb0fd2e0bad8255e77be3e3000"
+    },
+    {
+      "arch": "i386",
+      "configuration": "Release",
+      "binary": "ntkrnlmp.exe",
+      "bytes": 1218560,
+      "sha256": "36b47ca31ecfb6b43022a3bc213f72287ede879a04d12f6dfc190a0cfccb6644",
+      "exportsChecked": [
+        "CcSetFileSizes",
+        "CcSetFileSizesEx"
+      ],
+      "dumpbinSha256": "e960230bf3809a9a446779949015ce3b1491e31c3d073c89f9cf1acab381a032"
+    }
+  ]
+}

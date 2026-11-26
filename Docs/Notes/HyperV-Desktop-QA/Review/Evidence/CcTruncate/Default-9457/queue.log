@@ -1,0 +1,5 @@
+17 patches, ARM64=False, image-fixes=False: apply / recognize / reverse OK
+18 patches, ARM64=False, image-fixes=True: apply / recognize / reverse OK
+19 patches, ARM64=True, image-fixes=False: apply / recognize / reverse OK
+20 patches, ARM64=True, image-fixes=True: apply / recognize / reverse OK
+Cache ownership / write-error fixes: either order, standalone recognition and complete reverse OK

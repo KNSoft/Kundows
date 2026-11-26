@@ -65,7 +65,7 @@ diff --git a/ntoskrnl/mm/section.c b/ntoskrnl/mm/section.c
 index d429b6ac123..b6d9ad03bac 100644
 --- a/ntoskrnl/mm/section.c
 +++ b/ntoskrnl/mm/section.c
-@@ -5115,4 +5115,13 @@ MmMakeSegmentDirty(
+@@ -5115,5 +5115,14 @@ MmMakeSegmentDirty(
  }
  
 +static
@@ -79,6 +79,7 @@ index d429b6ac123..b6d9ad03bac 100644
 +
  NTSTATUS
  NTAPI
+ MmFlushSegment(
 @@ -5124,5 +5133,8 @@ MmFlushSegment(
  {
      LARGE_INTEGER FlushStart, FlushEnd;

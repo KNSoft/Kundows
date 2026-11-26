@@ -1,0 +1,141 @@
+{
+  "installed": {
+    "vm": "ccdfe661-8349-4975-a4dc-9481b0d8a826",
+    "installed": "2026-11-26T14:47:44.0146596+08:00",
+    "iso": "2bffbc71fc69e84ccd1fc0c38e0150c44f2aa4709848de3bf6fb26f839508bc8",
+    "kernel": "6a2b8021f9f20f594478bd9b5acb0841c464470d51b848af7f228a5f5368b309",
+    "fastfat": "fdad70928a7447d3f29e4d4140520613fb583b1c738f280153aac769aeb50fc7",
+    "defaultLoader": "DefaultOS=ReactOS_Debug",
+    "kernelOverride": false,
+    "tools": {
+      "SDKTEST.EXE": "4e4338e8de45a714723c621915ebb294e2f36661091da3516cb708f24b7c16bf",
+      "FATFLUSH.EXE": "09c2ab157c56173fe0ad36dba023a44d051dac25a7a932ff7f29c459f407e986",
+      "FATCYCLE.EXE": "a23813874929a716c49b6d43f18cb8f5e38342335469fe1ece3eabbb270a2c27",
+      "DDI08.SYS": "b82ba4cff008ff183c9ac85a06af3e4c5f95ff6540f1861ab6a12d3b7b1505a6",
+      "DDI10.SYS": "89be0809de48eaddb6eff779349e4c5b0aa82e71277bbd85ed0d30b66930bec3"
+    },
+    "fixtureSha": "6a8e892125b3bfb4ac26041ff063e0b131a702e2b9760429ded8c3787efdf6e7"
+  },
+  "testBoot": "Fresh default x64 BootCD text setup on a blank system disk; first shutdown; DVD and floppy removed; cold HDD boot with a separate fresh FAT32 fixture; logs read back after shutdown from a read-only host mount.",
+  "programs": {
+    "sizes": {
+      "exitCode": 0,
+      "receiptSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "stdoutSha256": "29a7df6b9e79f3937d034f5956245654b20c1a40217ef3b98c5bf22c51ada29d",
+      "stdout": [
+        "volume=FAT32",
+        "cluster=4096",
+        "cut=4219",
+        "initial.alloc=8192",
+        "initial.eof=6144",
+        "shorten.ntstatus=00000000",
+        "peer_after_shorten.alloc=8192",
+        "peer_after_shorten.eof=4219",
+        "allocation_unchanged=1",
+        "prefix_after_shorten=1",
+        "shorten_mapped.ntstatus=c0000243",
+        "after_mapped_request.alloc=8192",
+        "after_mapped_request.eof=4219",
+        "direct_growth_after_unmap.ntstatus=00000000",
+        "after_growth.alloc=16384",
+        "after_growth.eof=14336",
+        "growth_suffix_all_zero=1",
+        "peer_usable_after_first_close=1",
+        "repeat_shorten.ntstatus=00000000",
+        "reopened.alloc=8192",
+        "reopened.eof=4219",
+        "reopened_prefix_exact=1",
+        "exit=0"
+      ]
+    },
+    "flush": {
+      "exitCode": 0,
+      "receiptSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "stdoutSha256": "c686453ba1529a0e216dd67e36fd9347b72a8bbeda8eee97c702be63e5db1b00",
+      "stdout": [
+        "extent=7..73734 entry=69632 offsets=4484096,5002752 flush=success",
+        "initial FAT1 bytes=512 matching=0/128 zero=128",
+        "initial FAT2 bytes=512 matching=0/128 zero=128",
+        "before FAT1 bytes=512 matching=0/128 zero=128",
+        "before FAT2 bytes=512 matching=0/128 zero=128",
+        "after FAT1 bytes=512 matching=128/128 zero=0",
+        "after FAT2 bytes=512 matching=128/128 zero=0",
+        "PASS both FAT sectors contain the allocated chain"
+      ]
+    },
+    "cycle": {
+      "exitCode": 0,
+      "receiptSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "stdoutSha256": "2ea2d20afde23e2426f66ee18e839ff041cf1c8a1027d272b4d887cf2e3b726d",
+      "stdout": [
+        "cycle=1 open-file-lock=rejected win32=5",
+        "cycle=1 lock=success dismount=success mounted-after=0 win32=21",
+        "cycle=1 remount=success verified-bytes=8388608 eof=match identity=match",
+        "cycle=2 open-file-lock=rejected win32=5",
+        "cycle=2 lock=success dismount=success mounted-after=0 win32=21",
+        "cycle=2 remount=success verified-bytes=8388608 eof=match identity=match",
+        "cycle=3 open-file-lock=rejected win32=5",
+        "cycle=3 lock=success dismount=success mounted-after=0 win32=21",
+        "cycle=3 remount=success verified-bytes=8388608 eof=match identity=match",
+        "PASS three real lock/dismount/remount cycles, 24 MiB byte-for-byte verified"
+      ]
+    }
+  },
+  "ddi": {
+    "main": {
+      "PeerPresent": "00000001",
+      "FirstReturn": "00000000",
+      "FirstEventAtReturn": "00000001",
+      "PeerStillCached": "00000001",
+      "LastReturn": "00000001",
+      "LastEventAtReturn": "00000001",
+      "CloseStatus": "00000000",
+      "OpenFileStatus": "00000000",
+      "CreateSectionStatus": "00000000",
+      "MapStatus": "00000000",
+      "DataSectionPresent": "00000001",
+      "SharedCachePresent": "00000000",
+      "MappedPrefixByte": "00000000",
+      "UnchangedStatus": "00000000",
+      "PrefixViewBytes": "00001000",
+      "PrefixMayTruncate": "00000000",
+      "MappedTailStatus": "c0000435",
+      "NextGrowthStatus": "00000000",
+      "SectionStatus": "00000000",
+      "SharedDataSectionPresent": "00000001",
+      "SharedCaseCachePresent": "00000001",
+      "SharedUnchangedStatus": "00000000",
+      "SharedTailStatus": "c0000435",
+      "SharedEofAfterRequest": "00002000",
+      "SharedNextGrowthStatus": "00000000",
+      "SharedEofAfterGrowth": "00011f85",
+      "SharedSectionStatus": "00000000",
+      "Finished": "00000000"
+    },
+    "lastPage": {
+      "PeerPresent": "00000001",
+      "FirstReturn": "00000000",
+      "FirstEventAtReturn": "00000001",
+      "PeerStillCached": "00000001",
+      "LastReturn": "00000001",
+      "LastEventAtReturn": "00000001",
+      "CloseStatus": "00000000",
+      "OpenFileStatus": "00000000",
+      "CreateSectionStatus": "00000000",
+      "MapStatus": "00000000",
+      "DataSectionPresent": "00000001",
+      "SharedCachePresent": "00000000",
+      "MappedLastByte": "00000000",
+      "UnchangedStatus": "00000000",
+      "NextGrowthStatus": "00000000",
+      "SectionStatus": "00000000",
+      "Finished": "00000000"
+    }
+  },
+  "ddiGuestReceiptSha256": {
+    "DDI08.LOG": "304e08eeed962a03216add126b533fbaa010140d5b6d35fc6cc05d4c6528c973",
+    "DDI10.LOG": "ff327bd60afb752c5baf6bfe7ee79a438edf52b1b307a6eb67c61f53c1de6ce9",
+    "START08.LOG": "24d409870d372e25a2d2e9ab8b11de75bbb5f395316434073e09477ea9c090f0",
+    "START10.LOG": "b8a1dcbb69843ca31b4d2da6befd13543d06127a5f8d404f411730cf4fe35795"
+  }
+}

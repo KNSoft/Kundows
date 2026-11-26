@@ -1,0 +1,88 @@
+{
+  "cleanSourceTree": "2eef1040dba89e2e5899023abf5fec664a2f92d9",
+  "isoSha256": "d854b07ea83ce5aea3bc49e02eb8625d174971924c22c36002997c6151789579",
+  "vmId": "ccdfe661-8349-4975-a4dc-9481b0d8a826",
+  "boot": "fresh installation, cold HDD boot, DVD and floppy empty",
+  "installedKernel": {
+    "name": "system32/ntoskrnl.exe",
+    "flavour": "MP",
+    "sha256": "c484983adf16203b95d4bea8d4197870a87a84d591454dfacaccb994c80d2e5b"
+  },
+  "fastfatSha256": "c2245222c4a0e073aa3830adb12877a67747835183b11dd8e6fe6dcf78bafa4d",
+  "volume": "D:",
+  "fixtureInitialSha256": "6a8e892125b3bfb4ac26041ff063e0b131a702e2b9760429ded8c3787efdf6e7",
+  "completedCheck": "2026-11-26T12:21:45.7294246+08:00",
+  "programs": {
+    "sizes": {
+      "image": "SDKTEST.EXE",
+      "sha256": "4e4338e8de45a714723c621915ebb294e2f36661091da3516cb708f24b7c16bf",
+      "exit": 0,
+      "exitReceiptSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "stdoutSha256": "29a7df6b9e79f3937d034f5956245654b20c1a40217ef3b98c5bf22c51ada29d",
+      "windowsStdoutExactMatch": true,
+      "stdout": [
+        "volume=FAT32",
+        "cluster=4096",
+        "cut=4219",
+        "initial.alloc=8192",
+        "initial.eof=6144",
+        "shorten.ntstatus=00000000",
+        "peer_after_shorten.alloc=8192",
+        "peer_after_shorten.eof=4219",
+        "allocation_unchanged=1",
+        "prefix_after_shorten=1",
+        "shorten_mapped.ntstatus=c0000243",
+        "after_mapped_request.alloc=8192",
+        "after_mapped_request.eof=4219",
+        "direct_growth_after_unmap.ntstatus=00000000",
+        "after_growth.alloc=16384",
+        "after_growth.eof=14336",
+        "growth_suffix_all_zero=1",
+        "peer_usable_after_first_close=1",
+        "repeat_shorten.ntstatus=00000000",
+        "reopened.alloc=8192",
+        "reopened.eof=4219",
+        "reopened_prefix_exact=1",
+        "exit=0"
+      ]
+    },
+    "flush": {
+      "image": "FATFLUSH.EXE",
+      "sha256": "09c2ab157c56173fe0ad36dba023a44d051dac25a7a932ff7f29c459f407e986",
+      "exit": 0,
+      "exitReceiptSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "stdoutSha256": "c686453ba1529a0e216dd67e36fd9347b72a8bbeda8eee97c702be63e5db1b00",
+      "windowsStdoutExactMatch": true,
+      "stdout": [
+        "extent=7..73734 entry=69632 offsets=4484096,5002752 flush=success",
+        "initial FAT1 bytes=512 matching=0/128 zero=128",
+        "initial FAT2 bytes=512 matching=0/128 zero=128",
+        "before FAT1 bytes=512 matching=0/128 zero=128",
+        "before FAT2 bytes=512 matching=0/128 zero=128",
+        "after FAT1 bytes=512 matching=128/128 zero=0",
+        "after FAT2 bytes=512 matching=128/128 zero=0",
+        "PASS both FAT sectors contain the allocated chain"
+      ]
+    },
+    "cycle": {
+      "image": "FATCYCLE.EXE",
+      "sha256": "a23813874929a716c49b6d43f18cb8f5e38342335469fe1ece3eabbb270a2c27",
+      "exit": 0,
+      "exitReceiptSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "stdoutSha256": "2ea2d20afde23e2426f66ee18e839ff041cf1c8a1027d272b4d887cf2e3b726d",
+      "windowsStdoutExactMatch": true,
+      "stdout": [
+        "cycle=1 open-file-lock=rejected win32=5",
+        "cycle=1 lock=success dismount=success mounted-after=0 win32=21",
+        "cycle=1 remount=success verified-bytes=8388608 eof=match identity=match",
+        "cycle=2 open-file-lock=rejected win32=5",
+        "cycle=2 lock=success dismount=success mounted-after=0 win32=21",
+        "cycle=2 remount=success verified-bytes=8388608 eof=match identity=match",
+        "cycle=3 open-file-lock=rejected win32=5",
+        "cycle=3 lock=success dismount=success mounted-after=0 win32=21",
+        "cycle=3 remount=success verified-bytes=8388608 eof=match identity=match",
+        "PASS three real lock/dismount/remount cycles, 24 MiB byte-for-byte verified"
+      ]
+    }
+  }
+}

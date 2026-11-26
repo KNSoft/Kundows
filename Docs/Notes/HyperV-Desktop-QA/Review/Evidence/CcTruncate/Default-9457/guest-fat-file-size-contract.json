@@ -1,0 +1,33 @@
+{
+  "fs": "FAT32",
+  "kernel": "10.0.26100.9457 (WinBuild.160101.0800)",
+  "tool": "file-size-contract",
+  "sha": "4E4338E8DE45A714723C621915EBB294E2F36661091DA3516CB708F24B7C16BF",
+  "time": "2026-11-26T11:20:13.2895865+08:00",
+  "rc": 0,
+  "stdout": [
+    "volume=FAT32",
+    "cluster=4096",
+    "cut=4219",
+    "initial.alloc=8192",
+    "initial.eof=6144",
+    "shorten.ntstatus=00000000",
+    "peer_after_shorten.alloc=8192",
+    "peer_after_shorten.eof=4219",
+    "allocation_unchanged=1",
+    "prefix_after_shorten=1",
+    "shorten_mapped.ntstatus=c0000243",
+    "after_mapped_request.alloc=8192",
+    "after_mapped_request.eof=4219",
+    "direct_growth_after_unmap.ntstatus=00000000",
+    "after_growth.alloc=16384",
+    "after_growth.eof=14336",
+    "growth_suffix_all_zero=1",
+    "peer_usable_after_first_close=1",
+    "repeat_shorten.ntstatus=00000000",
+    "reopened.alloc=8192",
+    "reopened.eof=4219",
+    "reopened_prefix_exact=1",
+    "exit=0"
+  ]
+}

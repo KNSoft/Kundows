@@ -1,0 +1,90 @@
+{
+  "recorded": "2026-11-26T10:16:01+08:00",
+  "windowsVmId": "1f425993-13e3-4e87-b221-812f7e93d873",
+  "guestDebugger": {
+    "targetType": "LiveKernel",
+    "runningState": "Stopped",
+    "effectiveArchitecture": "AMD64"
+  },
+  "idaImageVersion": "10.0.26100.9974",
+  "guestImageVersion": "10.0.26100.9457",
+  "retainedFiles": [
+    {
+      "label": "IDA health",
+      "source": "OutDir/CcTruncate-be9f26ff-01/compat/ida-health.json",
+      "sha256": "b7d4e450e2d7aa2fc79d6a9ff369700068f3f7590b6d2733d2848acf41eb458c",
+      "bytes": 896
+    },
+    {
+      "label": "IDA public void wrapper",
+      "source": "OutDir/CcTruncate-be9f26ff-01/compat/ida-size-wrapper-asm.json",
+      "sha256": "70cca2f7e207fff9a8433699fdd837289628b512e41d25bd80b5531647b313e1",
+      "bytes": 2462
+    },
+    {
+      "label": "IDA Ex contract",
+      "source": "OutDir/CcTruncate-be9f26ff-01/compat/ida-size-public-ex.json",
+      "sha256": "6cf12457202c00c45280089854c46161990948c16c7c0260bdc03d9cb83b0683",
+      "bytes": 12097
+    },
+    {
+      "label": "archived IDA uninitialize",
+      "source": "OutDir/WindowsCc-Reference-20261126/CcUninitializeCacheMap.json",
+      "sha256": "f2ce593a3cb0cc2d35f48f932eb7a1123171e10d4e4cdfa71a28f1008aba8e0a",
+      "bytes": 23350
+    },
+    {
+      "label": "WinDbg MCP state",
+      "source": "OutDir/WindowsCc-Reference-20261126/truncate-reference-target-state.json",
+      "sha256": "9cca0542481f2b94565c9e670cde55b3c57dcb6006db57d135246e75844da684",
+      "bytes": 407
+    },
+    {
+      "label": "WinDbg native result, public wrapper",
+      "source": "OutDir/WindowsCc-Reference-20261126/truncate-public-wrapper-live-guest-result.json",
+      "sha256": "dacd093d26a0971922c96d0373e6ff8abdca8c2c181193c92786e263717afe99",
+      "bytes": 671
+    },
+    {
+      "label": "WinDbg native result, public Ex call list",
+      "source": "OutDir/WindowsCc-Reference-20261126/truncate-size-ex-live-calls-result.json",
+      "sha256": "f16e671212c448cadc22ec7af081ab5852bd19d7ebe005796dbcdda579ea89be",
+      "bytes": 6042
+    },
+    {
+      "label": "guest case 1",
+      "source": "OutDir/WindowsCc-Reference-20261126/win-case1-v4b-guest.txt",
+      "sha256": "3393c6ee8f9f308f2af65e47e72db0470d2f8158a77f22ae367ee667e0eb35fe",
+      "bytes": 300
+    },
+    {
+      "label": "guest case 4",
+      "source": "OutDir/WindowsCc-Reference-20261126/win-case4-v4b-recovered-guest.txt",
+      "sha256": "5b5b635bd95a30799838f071d3932eb65fdcc2f4edb72b3f6cfdd8f27ca36604",
+      "bytes": 429
+    },
+    {
+      "label": "guest observation input",
+      "source": "OutDir/WindowsCc-Reference-20261126/Probe2/ccobserve.c",
+      "sha256": "f1a7d686acf2b01f332efb139494589844daaadbf2cbec2ed726e15eaa7b8d81",
+      "bytes": 19007
+    },
+    {
+      "label": "archive module comparison",
+      "source": "OutDir/CcTruncate-be9f26ff-01/compat/resize-abi-by-build.json",
+      "sha256": "bea143fb54d5a8c287059a6f575cb05b7145f5241d61da51eb126d548257b930",
+      "bytes": 914
+    },
+    {
+      "label": "WinDbg native result, loaded module and PDB identity",
+      "source": "OutDir/WindowsCc-Reference-20261126/truncate-reference-nt-identity-result.json",
+      "sha256": "f6f6c6990d628bfeb9b536330f344285373f1448589309bbeefd1c78bcd68244",
+      "bytes": 1552
+    }
+  ],
+  "notes": [
+    "A WinDbg native result on a stopped target establishes the code in that loaded guest, not an execution of an EOF change.",
+    "No guest truncation failure or multi-handle close workload was run in this check."
+  ],
+  "guestPdb": "ntkrnlmp.pdb/C29EBFB06B78B3C020DCA66D99713F9E1"
+}

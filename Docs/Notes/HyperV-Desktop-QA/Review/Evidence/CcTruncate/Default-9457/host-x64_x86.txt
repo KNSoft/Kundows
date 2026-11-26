@@ -1,0 +1,7 @@
+CC allocation shrink: 25/25 passed
+M1: 21/21 passed
+CC handoff ownership: 7/7 passed
+C1: 12/12 passed
+CC/FastFAT volume: 18/18 passed
+pin: 1/1 passed
+retry: 1/1 passed
