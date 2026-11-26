@@ -6,6 +6,8 @@
 
 **按用户要求整理补丁并仅作本地提交，不表示已发布新介质。** 默认队列改为完整的 [`cc-bcb-ownership.patch`](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-bcb-ownership.patch)；旧两份 CC 补丁与 C2 已移到 `Retired`，F1 保留。原增量候选只供历史证据对照，不能再叠加到新队列。整理说明见文末。
 
+The 54/54 result below belongs to the earlier ReactOS candidate. The [consolidated investigation](CcSizeCompatibility.md) explains which assumptions the Windows tests overturned and which fix went into the validated BootCD.
+
 ## 原先的七个失败具体是什么
 
 [Keep+Find 实验](../KernelTests/Results.md)让最后一个 pin / repin 释放后仍保留脏 BCB，避免 `FatFlushFat` 漏掉它。但每个 BCB 也持有一个 VACB 引用。之后发生下面的正常过程：

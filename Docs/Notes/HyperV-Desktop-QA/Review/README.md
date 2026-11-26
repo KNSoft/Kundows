@@ -2,7 +2,7 @@
 
 ## 当前默认候选：`bd620b9b`
 
-[Windows 与 ReactOS 的文件尺寸、关闭事件和来宾对照](CcSizeCompatibility.md)。全新安装的 x64 ReactOS 与 Windows 对照驱动的 28 个字段一致；FAT32 普通文件、刷卷和三轮卸载重挂均通过。
+[Cache manager investigation: from a missed FAT32 flush to file truncation and close](CcSizeCompatibility.md) follows each proposed fix, the observation that changed it, the final Windows comparison, and the remaining differences.
 
 本页保留初次走查及单页用例。**后续结论**见[正式补丁、Windows 对照与修后复测](Verified.md)：G1、M1、C1、F1、G3 已接入；后续遇到的私有显示器列表查询 [G4 也已修复](MonitorList.md)。G2、C2 保留调查。
 

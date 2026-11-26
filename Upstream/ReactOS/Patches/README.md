@@ -32,5 +32,5 @@ rollback without editing the source checkout:
 python Docs/Notes/HyperV-Desktop-QA/Review/Checks/patch-sets.py
 ```
 
-For the Windows reference runs, candidate identity and guest checks, see
-[the CC size and close comparison](../../../Docs/Notes/HyperV-Desktop-QA/Review/CcSizeCompatibility.md).
+For the original FAT32 failure, the repair history, and the final Windows and
+ReactOS guest results, see the [cache manager investigation](../../../Docs/Notes/HyperV-Desktop-QA/Review/CcSizeCompatibility.md).
