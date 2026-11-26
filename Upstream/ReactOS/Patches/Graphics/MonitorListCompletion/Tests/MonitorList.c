@@ -77,7 +77,8 @@ static NTSTATUS IoCallDriver(Device *d,PIRP i)
 }
 static void wait(KEVENT *e,int alertable) { ASSERT(!alertable); ++waits; if(!completed)finish(); ASSERT(*e); }
 #define KeWaitForSingleObject(e,r,m,a,t) wait(e,a)
-#include "monitor-list.inc"
+#include "dispatch.inc"
+#include "device.inc"
 static void run(const char *name,int when,int failure,NTSTATUS result,int children,NTSTATUS expect)
 {
     memset(&packet,0,sizeof(packet)); timing=when;fail=failure;driver=result;

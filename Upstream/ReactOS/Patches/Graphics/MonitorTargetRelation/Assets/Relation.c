@@ -59,7 +59,7 @@ static NTSTATUS IoCallDriver(Device *d,PIRP i)
 static void waitFor(KEVENT *e) { ++waits; if(!done) complete(); ASSERT(e->set); }
 #define KeWaitForSingleObject(e,a,b,c,d) waitFor(e)
 static void IoFreeIrp(PIRP i) { ASSERT(i==&pkt && done && !freed); ++freed; }
-#include "relation.inc"
+#include "device.inc"
 static void run(const char *name,int timing,NTSTATUS s,int defer,int noMem)
 {
     memset(&pkt,0,sizeof(pkt)); allocated=done=freed=waits=0;

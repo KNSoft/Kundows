@@ -27,7 +27,6 @@ typedef void *PDEVICE_OBJECT,*PVOID;
 #define FatNormalizeAndRaiseStatus(c,s) return (s)
 #define FatRemoveMcbEntry(v,m,o,n) (*removed=(n))
 #define FatCompleteRequest(c,i,s) ((void)0)
-static NTSTATUS
 #include "MirrorCompletion.inc"
 
 static NTSTATUS run(NTSTATUS st, unsigned received, int first, unsigned *removed, PIRP Irp) {

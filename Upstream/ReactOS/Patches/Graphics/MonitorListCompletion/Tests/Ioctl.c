@@ -43,7 +43,8 @@ static NTSTATUS IoCallDriver(Device *d,PIRP i)
     return timing==2 ? STATUS_PENDING : i->status.Status;
 }
 #define KeWaitForSingleObject(e,reason,mode,alert,timeout) (deliver(),STATUS_SUCCESS)
-#include "ioctl.inc"
+#include "dispatch.inc"
+#include "device.inc"
 
 int main(void)
 {

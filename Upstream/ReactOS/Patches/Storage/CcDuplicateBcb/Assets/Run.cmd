@@ -1,4 +1,6 @@
 @echo off
 setlocal
-call "%~dp0..\..\..\Shared\Host\Run.cmd" bcb %* || exit /b 1
-exit /b 0
+set "KW_CASE_ARG="
+set "bcb=%~dp0..\..\FAT32VolumeFlush\Tests\Host"
+call "%~dp0..\..\..\Shared\Host\Run.cmd" "%bcb%\Bcb.c" "%bcb%\Bcb.ps1" %*
+exit /b %errorlevel%

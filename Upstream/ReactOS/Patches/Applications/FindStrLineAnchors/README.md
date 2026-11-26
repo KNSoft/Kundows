@@ -6,4 +6,4 @@ The [boundary check](Assets/FindstrBoundaries.py) disproved that apparent fix. F
 
 The next candidate must retain the logical line boundary across chunks and repeat both controls as well as the short-line suite. Regex and multiword parsing have separate limitations. The short-run score is not release acceptance.
 
-The [shared input generator](../../Shared/Desktop/MakeInputs.py) recreates the byte-exact desktop fixtures.
+The [short-input fixture](../../Shared/Desktop/Inputs/colors.txt) contains the original four CRLF-terminated lines.

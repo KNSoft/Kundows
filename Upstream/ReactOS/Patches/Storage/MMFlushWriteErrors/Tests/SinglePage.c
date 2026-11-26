@@ -1,7 +1,7 @@
 /* Host-side check. The fixture supplies mock I/O and includes the two
  * unmodified MM functions extracted from the pinned ReactOS source. */
 #define main HistoricalCollisionTests
-#include "CacheFlushCollisionTests.c"
+#include "../../MMFlushCollision/Assets/CacheFlushCollisionTests.c"
 #undef main
 
 static int

@@ -68,7 +68,7 @@ static NTSTATUS MiWritePage(Segment *s,LONGLONG off,PFN_NUMBER p)
     disk[i]=100+i; return STATUS_SUCCESS;
 }
 #define MmReleasePageMemoryConsumer(c,p) (++releases)
-#include "cache-flush-functions.inc"
+#include "section.inc"
 
 typedef struct { BOOLEAN (*AcquireForLazyWrite)(void*,BOOLEAN); void (*ReleaseFromLazyWrite)(void*); } Callbacks;
 typedef struct Map {
@@ -117,7 +117,7 @@ static Vacb *CcRosLookupVacb(Map *m,LONGLONG pos) { if(!lookup) return NULL; Vac
 static BOOLEAN CcpBeginBcbFlush(Vacb *v,PULONGLONG g) { ASSERT(!v->SharedCacheMap->RetainDirtyBcbs); *g=0; return TRUE; }
 static BOOLEAN CcpCompleteBcbFlush(Vacb *v,ULONGLONG g,NTSTATUS s) { ASSERT(!v->SharedCacheMap->RetainDirtyBcbs); return FALSE; }
 #define CcpFlushMetadata(...) (abort(), STATUS_UNSUCCESSFUL)
-#include "writeback.inc"
+#include "view.inc"
 
 static void reset(void)
 {

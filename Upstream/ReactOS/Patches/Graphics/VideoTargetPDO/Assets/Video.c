@@ -21,7 +21,7 @@ static int fail,completions;
 #define IntVideoPortQueryBusRelations(...) (abort(),0)
 #define IoSkipCurrentIrpStackLocation(i) ((void)0)
 #define IoCallDriver(...) (abort(),0)
-#include "video.inc"
+#include "dispatch.inc"
 static void run(int attached,int oom)
 {
     Device pdo={0},fdo={0}; Extension ext={0}; IrpType irp={0};

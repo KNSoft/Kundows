@@ -1,6 +1,6 @@
 /* Historical FastFATVolumeDirtyRuns.patch checks. These model missing BCBs.
  * The active CC-only volume checks use real pin.c functions in CcVolume.inc.
- * Real flush and large-MCB traversal functions come from PrepareCase.py. */
+ * Real flush and large-MCB traversal functions come from the selected source tree. */
 #include "Checks.h"
 typedef ULONG VBO, *PVBO;
 typedef LONGLONG LBO, *PLBO;

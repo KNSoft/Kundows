@@ -152,7 +152,7 @@ static void *FixtureTableElement(int *table, ULONG index)
     (void)table; ASSERT(index == 0); return &FixturePageTable;
 }
 
-#include "cache-flush-functions.inc"
+#include "section.inc"
 
 static void Reset(BOOLEAN dirty, ULONG shares)
 {

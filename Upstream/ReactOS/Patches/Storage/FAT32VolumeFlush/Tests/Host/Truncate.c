@@ -172,7 +172,10 @@ static LARGE_INTEGER MmGetPhysicalAddress(PVOID p)
     addr.QuadPart=(ULONG_PTR)p-(ULONG_PTR)bytes+PAGE_SIZE+(foreignPage ? PAGE_SIZE : 0);
     return addr;
 }
-#include "truncate.inc"
+#include "pin.inc"
+#include "section.inc"
+#include "view.inc"
+#include "fs.inc"
 
 static void reset(void)
 {

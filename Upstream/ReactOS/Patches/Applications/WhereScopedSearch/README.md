@@ -4,4 +4,4 @@ With `review.qa` in both `C:\HVQA\Work` and `C:\HVQA\Scope`, running `where C:\H
 
 [`WhereScoped.patch`](WhereScoped.patch) adds the current directory only for the unscoped search. The explicit directory, named variable, explicit `$PATH:`, quiet negative and ordinary search cases went **1/5 → 5/5**. [Exact path lists and exit codes](../../Shared/Desktop/Results.tsv#L14-L18). The quiet negative now returns 1.
 
-The [shared input generator](../../Shared/Desktop/MakeInputs.py) recreates the byte-exact desktop fixtures.
+Use the original [working directory](../../Shared/Desktop/Inputs/Work/) and [explicit search scope](../../Shared/Desktop/Inputs/Scope/) for the comparison.

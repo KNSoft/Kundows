@@ -1,32 +1,31 @@
 @echo off
 setlocal EnableExtensions DisableDelayedExpansion
-if "%~1"=="" goto help
-if /i "%~1"=="--help" goto help
-set "shared=%~dp0"
-set "case_dir=%TEMP%\Kundows-Case-%RANDOM%-%RANDOM%"
-mkdir "%case_dir%" || exit /b 1
-python -B "%~dp0PrepareCase.py" "%case_dir%" %* || goto failed
-pushd "%case_dir%" || goto failed
-call "%shared%Compile.cmd" @Case.rsp /Fe:Case.exe
+if "%~2"=="" goto usage
+set "host_tools=%~dp0"
+:newdir
+set "KW_CASE_DIR=%TEMP%\Kundows-%~n1-%RANDOM%-%RANDOM%"
+mkdir "%KW_CASE_DIR%" 2>nul || (
+    if exist "%KW_CASE_DIR%\" goto newdir
+    exit /b 2
+)
+powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%host_tools%Extract.ps1" %* || goto failed
+pushd "%KW_CASE_DIR%" || goto failed
+cl /nologo /TC /W3 /Od /Z7 /MTd /D_DEBUG %CASE_CFLAGS% @Case.rsp /Fe:Case.exe /link /DEBUG
 if errorlevel 1 (popd & goto failed)
-set "args="
-if "%~1"=="bcb-life" set "args=--lifetime"
-if "%~1"=="bcb-owner" set "args=--ownership"
-if "%~1"=="fat-volume" set "args=--volume"
-rem Handoff/wait regressions can deadlock. Preserve the original execution deadline.
-python -c "import subprocess,sys; sys.exit(subprocess.run(sys.argv[1:],timeout=20).returncode)" .\Case.exe %args%
+rem Bound the run: an unpatched writeback path can spin or wait indefinitely.
+powershell.exe -NoProfile -NonInteractive -Command ^
+ "$ErrorActionPreference='Stop'; $i=[Diagnostics.ProcessStartInfo]::new((Resolve-Path .\Case.exe).Path,[string]$env:KW_CASE_ARG); $i.UseShellExecute=$false;" ^
+ "$p=[Diagnostics.Process]::Start($i); if(!$p.WaitForExit(20000)){$p.Kill(); $p.WaitForExit(); exit 124}; exit $p.ExitCode"
 set "rc=%errorlevel%"
 popd
 if not "%rc%"=="0" goto retain
-rmdir /s /q "%case_dir%"
+rmdir /s /q "%KW_CASE_DIR%"
 exit /b 0
 :failed
-set "rc=1"
+set "rc=2"
 :retain
-echo Case files: "%case_dir%" 1>&2
+echo Case files: "%KW_CASE_DIR%" 1>&2
 exit /b %rc%
-:help
-echo Usage: Run.cmd suite [--stock] [--source tree] [--overlay tree] [--mm-only]
-echo Use a native VS developer prompt. Set CASE_CFLAGS to override compiler defaults.
-python -B "%~dp0PrepareCase.py" --help
-exit /b %errorlevel%
+:usage
+echo Run the issue's Run.cmd from a native VS developer prompt. 1>&2
+exit /b 2

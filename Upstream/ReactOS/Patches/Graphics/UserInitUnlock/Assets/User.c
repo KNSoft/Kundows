@@ -11,7 +11,7 @@ static void InitCsrProcess(void) { ASSERT(lockDepth); ++gpepCSRSS; }
 static NTSTATUS IntInitWin32PowerManagement(HANDLE e) { ASSERT(lockDepth); ++powerCalls; return powerStatus; }
 static BOOLEAN InitializeGreCSRSS(void) { ASSERT(lockDepth); ++greCalls; return greOK; }
 static NTSTATUS UserInitialize(void) { ASSERT(lockDepth); ++userCalls; return userStatus; }
-#include "user.inc"
+#include "ntuser.inc"
 
 static void run(const char *name, int already, NTSTATUS power, int gre, NTSTATUS user,
                 NTSTATUS expected, int p, int g, int u)
