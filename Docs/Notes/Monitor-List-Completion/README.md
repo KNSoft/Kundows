@@ -1,0 +1,7 @@
+# Monitor enumeration reported success before its output buffer was delivered
+
+After the [PnP target-relation repair](../Monitor-Target-Relation/README.md), the same installation disk reached `IOCTL_VIDEO_ENUM_MONITOR_PDO` and [stopped at the output-length assertion](Images/first-disk-after-g1-stop.png). The port had supplied a non-null list and reported eight bytes. The caller still had the Debug fill values for both its pointer and length; the buffered result had not been copied to it.
+
+[`monitor-list-completion.patch`](../../../Upstream/ReactOS/Patches/Runtime/monitor-list-completion.patch) makes this private pointer-sized query own the IRP and system buffer until completion. It checks the final status, exact size and non-null list before transferring the references. It does not change generic `EngDeviceIoControl`, whose other clients can have different buffer contracts.
+
+The [generic IOCTL control](../../../Tests/ReactOS/Host/ioctl.c) distinguishes a successful inline return from delivery of the buffered output. The [private-query test](../../../Tests/ReactOS/Host/monitor-list.c) covers inline/pending completion, invalid lengths, empty output and failed allocations: **14/14** on x86 and x64. With both monitor repairs, the ordinary boot entry reached [graphical Setup](Images/first-disk-after-g4-gui.png) with the same 29 FAT differences still present. The [Debug boot failure](../FAT32-Install-Mirror-Divergence/README.md) had a different cause.

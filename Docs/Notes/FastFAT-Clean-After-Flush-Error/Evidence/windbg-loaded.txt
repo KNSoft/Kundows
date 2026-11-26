@@ -1,0 +1,85 @@
+WinDbg MCP | isolated x64 Windows reference guest (kernel 10.0.26100.9457)
+Loaded fastfat.SYS, fastfat.pdb/1A39B2959A3640F0FAFF75249C9ED9241; image size 0x6b000.
+Inspection of loaded code, not an executed failing write.
+Source receipts under OutDir/WindowsCc-Reference-20261126/:
+fat-origin-recheck-ident-result.json  fbcc770ce04ff37f06b3e3f89550e104aa86449444e7819411d656da3f6cdf86
+fat-origin-recheck-branches-result.json  fea0463905a07e779285cdd1d224797c5438a5de6a91a25374e6aff67018f924
+
+Command: u fastfat!FatCommonFlushBuffers+0x1c4 fastfat!FatCommonFlushBuffers+0x229; u fastfat!FatCommonShutdown+0x116 fastfat!FatCommonShutdown+0x150; u fastfat!FatFlushVolume L24
+
+fastfat!FatCommonFlushBuffers+0x1c4:
+fffff803`8661ff6c e81b0c0000      call    fastfat!FatFlushVolume (fffff803`86620b8c)
+fffff803`8661ff71 89442434        mov     dword ptr [rsp+34h],eax
+fffff803`8661ff75 8b83c8000000    mov     eax,dword ptr [rbx+0C8h]
+fffff803`8661ff7b a804            test    al,4
+fffff803`8661ff7d 0f84db010000    je      fastfat!FatCommonFlushBuffers+0x3b6 (fffff803`8662015e)
+fffff803`8661ff83 488b9c24c0000000 mov     rbx,qword ptr [rsp+0C0h]
+fffff803`8661ff8b 488d8bb8030000  lea     rcx,[rbx+3B8h]
+fffff803`8661ff92 4c8b151fe2fdff  mov     r10,qword ptr [fastfat!_imp_KeCancelTimer (fffff803`865fe1b8)]
+fffff803`8661ff99 e8a2b80c6b      call    nt!KeCancelTimer (fffff803`f16eb840)
+fffff803`8661ff9e 488d8b78030000  lea     rcx,[rbx+378h]
+fffff803`8661ffa5 4c8b1514e2fdff  mov     r10,qword ptr [fastfat!_imp_KeRemoveQueueDpc (fffff803`865fe1c0)]
+fffff803`8661ffac e8cfdb246b      call    nt!KeRemoveQueueDpc (fffff803`f186db80)
+fffff803`8661ffb1 8b83c8000000    mov     eax,dword ptr [rbx+0C8h]
+fffff803`8661ffb7 a810            test    al,10h
+fffff803`8661ffb9 751e            jne     fastfat!FatCommonFlushBuffers+0x231 (fffff803`8661ffd9)
+fffff803`8661ffbb 4533c0          xor     r8d,r8d
+fffff803`8661ffbe 488b9c24c0000000 mov     rbx,qword ptr [rsp+0C0h]
+fffff803`8661ffc6 488bd3          mov     rdx,rbx
+fffff803`8661ffc9 488bce          mov     rcx,rsi
+fffff803`8661ffcc e8ab78fcff      call    fastfat!FatMarkVolume (fffff803`865e787c)
+fffff803`8661ffd1 f083a3c8000000fb lock and dword ptr [rbx+0C8h],0FFFFFFFBh
+fastfat!FatCommonShutdown+0x116:
+fffff803`8662903a e84d7bffff      call    fastfat!FatFlushVolume (fffff803`86620b8c)
+fffff803`8662903f 418b06          mov     eax,dword ptr [r14]
+fffff803`86629042 a810            test    al,10h
+fffff803`86629044 752e            jne     fastfat!FatCommonShutdown+0x150 (fffff803`86629074)
+fffff803`86629046 488b5c2440      mov     rbx,qword ptr [rsp+40h]
+fffff803`8662904b 488d8be0020000  lea     rcx,[rbx+2E0h]
+fffff803`86629052 4533c9          xor     r9d,r9d
+fffff803`86629055 4533c0          xor     r8d,r8d
+fffff803`86629058 33d2            xor     edx,edx
+fffff803`8662905a 4c8b152f51fdff  mov     r10,qword ptr [fastfat!_imp_CcPurgeCacheSection (fffff803`865fe190)]
+fffff803`86629061 e82ab5166b      call    nt!CcPurgeCacheSection (fffff803`f1794590)
+fffff803`86629066 4533c0          xor     r8d,r8d
+fffff803`86629069 488bd3          mov     rdx,rbx
+fffff803`8662906c 488bcf          mov     rcx,rdi
+fffff803`8662906f e808e8fbff      call    fastfat!FatMarkVolume (fffff803`865e787c)
+fffff803`86629074 eb0f            jmp     fastfat!FatCommonShutdown+0x161 (fffff803`86629085)
+fastfat!FatFlushVolume:
+fffff803`86620b8c 48895c2408      mov     qword ptr [rsp+8],rbx
+fffff803`86620b91 4889742410      mov     qword ptr [rsp+10h],rsi
+fffff803`86620b96 57              push    rdi
+fffff803`86620b97 4883ec20        sub     rsp,20h
+fffff803`86620b9b 8b82c8000000    mov     eax,dword ptr [rdx+0C8h]
+fffff803`86620ba1 488bda          mov     rbx,rdx
+fffff803`86620ba4 488bf1          mov     rsi,rcx
+fffff803`86620ba7 0fbae00e        bt      eax,0Eh
+fffff803`86620bab 7304            jae     fastfat!FatFlushVolume+0x25 (fffff803`86620bb1)
+fffff803`86620bad 33c0            xor     eax,eax
+fffff803`86620baf eb47            jmp     fastfat!FatFlushVolume+0x6c (fffff803`86620bf8)
+fffff803`86620bb1 488b92d0000000  mov     rdx,qword ptr [rdx+0D0h]
+fffff803`86620bb8 e8abf6ffff      call    fastfat!FatFlushDirectory (fffff803`86620268)
+fffff803`86620bbd 33ff            xor     edi,edi
+fffff803`86620bbf 488bd3          mov     rdx,rbx
+fffff803`86620bc2 85c0            test    eax,eax
+fffff803`86620bc4 488bce          mov     rcx,rsi
+fffff803`86620bc7 0f48f8          cmovs   edi,eax
+fffff803`86620bca e805fbffff      call    fastfat!FatFlushFat (fffff803`866206d4)
+fffff803`86620bcf 8b8bc8000000    mov     ecx,dword ptr [rbx+0C8h]
+fffff803`86620bd5 85c0            test    eax,eax
+fffff803`86620bd7 0f48f8          cmovs   edi,eax
+fffff803`86620bda f6c102          test    cl,2
+fffff803`86620bdd 7417            je      fastfat!FatFlushVolume+0x6a (fffff803`86620bf6)
+fffff803`86620bdf 8b8bc8000000    mov     ecx,dword ptr [rbx+0C8h]
+fffff803`86620be5 0fbae10b        bt      ecx,0Bh
+fffff803`86620be9 720b            jb      fastfat!FatFlushVolume+0x6a (fffff803`86620bf6)
+fffff803`86620beb 4533c0          xor     r8d,r8d
+fffff803`86620bee 488bd3          mov     rdx,rbx
+fffff803`86620bf1 e8da27fcff      call    fastfat!FatToggleMediaEjectDisable (fffff803`865e33d0)
+fffff803`86620bf6 8bc7            mov     eax,edi
+fffff803`86620bf8 488b5c2430      mov     rbx,qword ptr [rsp+30h]
+fffff803`86620bfd 488b742438      mov     rsi,qword ptr [rsp+38h]
+fffff803`86620c02 4883c420        add     rsp,20h
+fffff803`86620c06 5f              pop     rdi
+fffff803`86620c07 c3              ret

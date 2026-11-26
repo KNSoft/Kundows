@@ -1,0 +1,53 @@
+FastFAT clean state on returned errors | controlled host checks, no disk attached
+ReactOS base: 4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6
+Overlay: only fastfat-clean-after-flush.patch, SHA-256 b53a81c434b15e3dd59d2da1ab996146127c7ff4fba0ed06b8861786b78c26d2
+The filesystem caller and FatFlushVolume are production functions. mark/purge are call counts; dirty is the in-memory volume-dirty flag, not disk readback.
+Selected stdout: all OBS lines and each suite summary.
+
+x64 MSVC, stock, runner exit=1
+fastfat-clean-after-flush.patch: 6/10 passed
+OBS volume/directory-error: caller=c0000185 mark=1 purge=0 dirty=0 lower-requests=1
+OBS shutdown/directory-error: caller=00000000 mark=1 purge=1 dirty=1 lower-requests=1
+OBS volume/FAT-error: caller=c0000185 mark=1 purge=0 dirty=0 lower-requests=1
+OBS shutdown/FAT-error: caller=00000000 mark=1 purge=1 dirty=1 lower-requests=1
+OBS volume/lower-only-error: caller=c0000185 mark=1 purge=0 dirty=0 lower-requests=1
+OBS volume/success: caller=00000000 mark=1 purge=0 dirty=0 lower-requests=1
+OBS volume/mounted-dirty: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+OBS shutdown/raised-error: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+fastfat-clean-after-flush.patch (child error propagation): 4/8 passed
+
+x64 MSVC, patch-only, runner exit=0
+fastfat-clean-after-flush.patch: 10/10 passed
+OBS volume/directory-error: caller=c0000185 mark=0 purge=0 dirty=1 lower-requests=1
+OBS shutdown/directory-error: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+OBS volume/FAT-error: caller=c0000185 mark=0 purge=0 dirty=1 lower-requests=1
+OBS shutdown/FAT-error: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+OBS volume/lower-only-error: caller=c0000185 mark=1 purge=0 dirty=0 lower-requests=1
+OBS volume/success: caller=00000000 mark=1 purge=0 dirty=0 lower-requests=1
+OBS volume/mounted-dirty: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+OBS shutdown/raised-error: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+fastfat-clean-after-flush.patch (child error propagation): 8/8 passed
+
+x64_x86 MSVC, stock, runner exit=1
+fastfat-clean-after-flush.patch: 6/10 passed
+OBS volume/directory-error: caller=c0000185 mark=1 purge=0 dirty=0 lower-requests=1
+OBS shutdown/directory-error: caller=00000000 mark=1 purge=1 dirty=1 lower-requests=1
+OBS volume/FAT-error: caller=c0000185 mark=1 purge=0 dirty=0 lower-requests=1
+OBS shutdown/FAT-error: caller=00000000 mark=1 purge=1 dirty=1 lower-requests=1
+OBS volume/lower-only-error: caller=c0000185 mark=1 purge=0 dirty=0 lower-requests=1
+OBS volume/success: caller=00000000 mark=1 purge=0 dirty=0 lower-requests=1
+OBS volume/mounted-dirty: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+OBS shutdown/raised-error: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+fastfat-clean-after-flush.patch (child error propagation): 4/8 passed
+
+x64_x86 MSVC, patch-only, runner exit=0
+fastfat-clean-after-flush.patch: 10/10 passed
+OBS volume/directory-error: caller=c0000185 mark=0 purge=0 dirty=1 lower-requests=1
+OBS shutdown/directory-error: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+OBS volume/FAT-error: caller=c0000185 mark=0 purge=0 dirty=1 lower-requests=1
+OBS shutdown/FAT-error: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+OBS volume/lower-only-error: caller=c0000185 mark=1 purge=0 dirty=0 lower-requests=1
+OBS volume/success: caller=00000000 mark=1 purge=0 dirty=0 lower-requests=1
+OBS volume/mounted-dirty: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+OBS shutdown/raised-error: caller=00000000 mark=0 purge=0 dirty=1 lower-requests=1
+fastfat-clean-after-flush.patch (child error propagation): 8/8 passed

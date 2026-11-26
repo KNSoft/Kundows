@@ -1,14 +1,14 @@
 Pinned metadata: retain BCB identity, release idle mappings and hand pages to MM under selected resources.
-Case1 and handoff evidence: Docs/Notes/HyperV-Desktop-QA/Review/{CcIdleMapping,CcMetadataHandoff}.md.
+Case definitions and debugger output: Docs/Notes/FAT32-Volume-Flush/Assets/.
 Apply to ReactOS 4fbbefd614b with the independent mm-flush-status repair.
-Tail invalidation and retry: Docs/Notes/HyperV-Desktop-QA/Review/CcTruncate.md.
+Tail invalidation and retry: Docs/Notes/FAT32-Volume-Flush/Evidence/CcTruncate/.
 
 Match Windows at the caller boundary: status or exception, visible EOF and data,
 and whether the close event is signalled when the call returns. The .9457 guest
 tests cover specific resize and close cases; they do not establish full CC/MM parity.
 Fix isolated discrepancies locally. Rework shared ownership or writeback ordering
 when the same underlying rule prevents multiple paths from matching Windows.
-Evidence, retained differences and their impact: Docs/Notes/HyperV-Desktop-QA/Review/CcSizeCompatibility.md.
+Evidence, retained differences and their impact: Docs/Notes/FAT32-Volume-Flush/README.md.
 
 diff --git a/ntoskrnl/cc/cacheman.c b/ntoskrnl/cc/cacheman.c
 --- a/ntoskrnl/cc/cacheman.c

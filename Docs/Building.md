@@ -65,21 +65,25 @@ drivers; `ARM64` contains fixes selected only for that target.
 | [`rtc-periodic.patch`](../Upstream/ReactOS/Patches/Runtime/rtc-periodic.patch) | Start the APIC HAL's periodic clock after the interrupt route is ready. |
 | [`mm-flush-status.patch`](../Upstream/ReactOS/Patches/Runtime/mm-flush-status.patch) | Report section write errors to CC; retain failed pages for retry without starving other views. |
 | [`cc-bcb-ownership.patch`](../Upstream/ReactOS/Patches/Runtime/cc-bcb-ownership.patch) | Preserve dirty intent, lock the winning BCB on a duplicate pin, and keep a dirty range discoverable until writeback. FastFAT can use its original scan. |
-| [`fastfat-clean-after-flush.patch`](../Upstream/ReactOS/Patches/Runtime/fastfat-clean-after-flush.patch) | Mark a volume clean only after a successful filesystem flush. |
+| [`fastfat-clean-after-flush.patch`](../Upstream/ReactOS/Patches/Runtime/fastfat-clean-after-flush.patch) | Suppress the clean mark on a returned filesystem flush error. [Evidence and open Windows comparison](Notes/FastFAT-Clean-After-Flush-Error/README.md). |
 | [`user-init-unlock.patch`](../Upstream/ReactOS/Patches/Runtime/user-init-unlock.patch) | Release the exclusive USER lock if GDI initialization fails. |
 | [`monitor-relation-completion.patch`](../Upstream/ReactOS/Patches/Runtime/monitor-relation-completion.patch) | Read the completed, caller-owned PnP request. In the saved crash win32k used the pointer before the VGA result was delivered. |
-| [`monitor-list-completion.patch`](../Upstream/ReactOS/Patches/Runtime/monitor-list-completion.patch) | Keep the private enumeration request and output until the port finishes. The failing disk reached [graphical setup without FAT repair](Notes/HyperV-Desktop-QA/Review/MonitorList.md). |
+| [`monitor-list-completion.patch`](../Upstream/ReactOS/Patches/Runtime/monitor-list-completion.patch) | Keep the private enumeration request and output until the port finishes. The failing disk reached [graphical setup without FAT repair](Notes/Monitor-List-Completion/README.md). |
 | [`sort-eof.patch`](../Upstream/ReactOS/Patches/Runtime/sort-eof.patch) | Preserve the last character of an unterminated final line. |
 | [`where-scoped.patch`](../Upstream/ReactOS/Patches/Runtime/where-scoped.patch) | Restrict an explicitly scoped search to the requested directories. |
-| [`notepad-majority-eol.patch`](../Upstream/ReactOS/Patches/Runtime/notepad-majority-eol.patch) | Honor a strict LF plurality in mixed files. See the [application regression results](Notes/HyperV-Desktop-QA/Review/Verified.md). |
+| [`notepad-majority-eol.patch`](../Upstream/ReactOS/Patches/Runtime/notepad-majority-eol.patch) | Honor a strict LF plurality in mixed files. See the [saved-file byte comparison](Notes/Notepad-Mixed-Line-Endings/README.md). |
 
 `ARM64` requires the ARM64 MSVC tools. It adds [`arm64-ntdll.patch`](../Upstream/ReactOS/Patches/ARM64/arm64-ntdll.patch) for the experimental NTDLL port and [`arm64-vs-host-tools.patch`](../Upstream/ReactOS/Patches/ARM64/arm64-vs-host-tools.patch) to build Win32 tools that run on the x64 host. Passing `--image-fixes` to Configure adds [`mm-flush-collision.patch`](../Upstream/ReactOS/Patches/Runtime/mm-flush-collision.patch).
 The evidence and its limits are recorded before the first diff
 in each patch. The old parser-snapshot adapter is unnecessary with RosBE.
 
-The cache changes are grouped by [repair point](../Upstream/ReactOS/Patches/README.md).
-The FAT32 investigation preserves the [three superseded patches and the migration order for older checkouts](Notes/FAT32-Volume-Flush/README.md#superseded-patch-files).
-[`fastfat-clean-after-flush.patch`](../Upstream/ReactOS/Patches/Runtime/fastfat-clean-after-flush.patch) still guards the volume clean-state transition.
+[`Build/ReactOS.cmd`](../Build/ReactOS.cmd) is the source of patch selection and order.
+Use lowercase hyphenated filenames in the queue and notes. `cc-bcb-ownership.patch`
+and `mm-flush-status.patch` apply independently, but safe retirement of dirty
+ranges depends on receiving the true MM write status. Run
+`python Tests/ReactOS/patch-sets.py` to check all four queues, both cache orders
+and full rollback in disposable Git indices. The FAT32 note holds the
+[superseded files and migration order](Notes/FAT32-Volume-Flush/README.md#superseded-patch-files).
 
 Patches apply to the shared submodule working tree. `Configure.cmd`
 recognizes already-applied patches and stops on conflicts. Use a clean
