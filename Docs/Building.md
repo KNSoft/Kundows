@@ -65,7 +65,6 @@ drivers; `ARM64` contains fixes selected only for that target.
 | [`rtc-periodic.patch`](../Upstream/ReactOS/Patches/Runtime/rtc-periodic.patch) | Start the APIC HAL's periodic clock after the interrupt route is ready. |
 | [`mm-flush-status.patch`](../Upstream/ReactOS/Patches/Runtime/mm-flush-status.patch) | Report section write errors to CC; retain failed pages for retry without starving other views. |
 | [`cc-bcb-ownership.patch`](../Upstream/ReactOS/Patches/Runtime/cc-bcb-ownership.patch) | Preserve dirty intent, lock the winning BCB on a duplicate pin, and keep a dirty range discoverable until writeback. FastFAT can use its original scan. |
-| [`fastfat-clean-after-flush.patch`](../Upstream/ReactOS/Patches/Runtime/fastfat-clean-after-flush.patch) | Suppress the clean mark on a returned filesystem flush error. [Evidence and open Windows comparison](Notes/FastFAT-Clean-After-Flush-Error/README.md). |
 | [`user-init-unlock.patch`](../Upstream/ReactOS/Patches/Runtime/user-init-unlock.patch) | Release the exclusive USER lock if GDI initialization fails. |
 | [`monitor-relation-completion.patch`](../Upstream/ReactOS/Patches/Runtime/monitor-relation-completion.patch) | Read the completed, caller-owned PnP request. In the saved crash win32k used the pointer before the VGA result was delivered. |
 | [`monitor-list-completion.patch`](../Upstream/ReactOS/Patches/Runtime/monitor-list-completion.patch) | Keep the private enumeration request and output until the port finishes. The failing disk reached [graphical setup without FAT repair](Notes/Monitor-List-Completion/README.md). |
@@ -84,6 +83,8 @@ ranges depends on receiving the true MM write status. Run
 `python Tests/ReactOS/patch-sets.py` to check all four queues, both cache orders
 and full rollback in disposable Git indices. The FAT32 note holds the
 [superseded files and migration order](Notes/FAT32-Volume-Flush/README.md#superseded-patch-files).
+The default also uses the upstream FastFAT clean-state callers. For a checkout
+prepared with the former guard, see [why it was removed and how to reverse it](Notes/FastFAT-Clean-After-Flush-Error/README.md#updating-an-existing-checkout).
 
 Patches apply to the shared submodule working tree. `Configure.cmd`
 recognizes already-applied patches and stops on conflicts. Use a clean

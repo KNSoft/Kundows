@@ -94,7 +94,7 @@ The ordinary-file reference ran on Windows [NTFS](Evidence/CcTruncate/Default-94
 
 ## 5. Final acceptance
 
-Commit `c369b1c` contains the validated repair on upstream ReactOS `4fbbefd614b`. The default x64 queue produced source tree `bd620b9b5a8c386e1bc981726bed3943425e4b74`. The [build record](Evidence/CcTruncate/Native-9457/checks.json) identifies the patch **including its preamble at that commit**. The clean x64 Debug solution built **1419 projects, 0 failed**; the BootCD was built separately.
+Commit `c369b1c` contains the validated repair on upstream ReactOS `4fbbefd614b`. The default x64 queue **at that commit** produced source tree `bd620b9b5a8c386e1bc981726bed3943425e4b74`. The [build record](Evidence/CcTruncate/Native-9457/checks.json) identifies the patch **including its preamble at that commit**. The clean x64 Debug solution built **1419 projects, 0 failed**; the BootCD was built separately. The later [clean-state caller change](../FastFAT-Clean-After-Flush-Error/README.md) has its own checks; the image below identifies this earlier acceptance run.
 
 The x64 Hyper-V guest was installed from that CD onto a blank 6 GiB disk. After shutdown, the installed MP kernel and `fastfat.sys` were matched to the linked binaries by content. The guest then cold-booted from disk with the installation media removed and a fresh 512 MiB FAT32 test disk attached. [Installed identities, DDI results and program output](Evidence/CcTruncate/Native-9457/reactos-guest.json)
 
@@ -118,7 +118,7 @@ python Docs/Notes/FAT32-Volume-Flush/Tests/compare-size-runs.py
 | A close worker cannot be allocated. | ReactOS falls back to synchronous cleanup. The closer can wait longer and find its event already signalled on return. A host test exercised this fallback; the corresponding Windows low-memory timing has **not** been measured. |
 | A lazy write overlaps an explicit flush, or storage fails during concurrent cleanup. | The Windows observer did not establish the intended lazy-write overlap. Static evidence distinguishes waiting from `STATUS_ENCOUNTERED_WRITE_IN_PROGRESS` on a nonwaiting MM path; it does not justify a blanket `STATUS_DEVICE_BUSY` or an unconditional wait while the filesystem holds a resource. Failure/retry host checks do not settle every Windows scheduling case. |
 
-**Decision rule:** compare status versus exception, visible EOF and data, and event state at return and at completion. These cases did not require a wholesale rewrite. Fix a discrepancy locally when one return path or notification condition explains it. If truncation, writeback and close repeatedly disagree because they cannot tell who owns a page or when I/O has finished, change that shared CC/MM rule and retest all three paths together. Record the reason and caller impact for any retained difference.
+**Decision rule:** follow the reference source and verified Windows branches as closely as the port permits. Check the result at the caller: status versus exception, visible EOF and data, and event state at return and at completion. Fix a discrepancy locally when one return path or notification condition explains it. If truncation, writeback and close repeatedly disagree because they cannot tell who owns a page or when I/O has finished, change that shared CC/MM rule and retest all three paths together. For a retained implementation difference, state the constraint, its caller impact and what remains unverified.
 
 ## Evidence trail
 
@@ -138,7 +138,7 @@ Several side investigations stayed outside the default repair. The MM pre-wait e
 
 ## Superseded patch files
 
-These three files are the historical inputs, including their original preambles. `Configure.cmd` does not select them.
+These three files are the historical inputs for the missed-flush investigation, including their original preambles. `Configure.cmd` does not select them. The later [clean-state investigation](../FastFAT-Clean-After-Flush-Error/README.md) records the separate decision to retire the returned-error guard.
 
 | Historical patch | Where the repair ended up |
 |---|---|

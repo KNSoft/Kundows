@@ -1,0 +1,14 @@
+ReactOS clean-state caller comparison; controlled MSVC host fixtures
+Reference oracle: clean-state branches observed in Windows FastFAT. Historical oracle: --expect-clean-guard.
+Source inputs: pinned ReactOS 4fbbefd614b, active checkout with original FastFAT callers, or isolated overlay of only the archived patch.
+Arch       Input       Oracle          Direct   Child-errors   Exit
+x64        stock       Windows         10/10    8/8            0
+x64        default     Windows         10/10    8/8            0
+x64        guard-only  Windows         6/10     4/8            1
+x64        stock       archived        6/10     4/8            1
+x64        guard-only  archived        10/10    8/8            0
+x64_x86    stock       Windows         10/10    8/8            0
+x64_x86    default     Windows         10/10    8/8            0
+x64_x86    guard-only  Windows         6/10     4/8            1
+x64_x86    stock       archived        6/10     4/8            1
+x64_x86    guard-only  archived        10/10    8/8            0
