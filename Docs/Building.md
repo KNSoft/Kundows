@@ -83,8 +83,6 @@ ranges depends on receiving the true MM write status. Run
 `python Tests/ReactOS/patch-sets.py` to check all four queues, both cache orders
 and full rollback in disposable Git indices. The FAT32 note holds the
 [superseded files and migration order](Notes/FAT32-Volume-Flush/README.md#superseded-patch-files).
-The default also uses the upstream FastFAT clean-state callers. For a checkout
-prepared with the former guard, see [why it was removed and how to reverse it](Notes/FastFAT-Clean-After-Flush-Error/README.md#updating-an-existing-checkout).
 
 Patches apply to the shared submodule working tree. `Configure.cmd`
 recognizes already-applied patches and stops on conflicts. Use a clean

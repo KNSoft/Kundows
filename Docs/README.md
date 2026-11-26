@@ -15,7 +15,6 @@
 | Problem | Status |
 |---|---|
 | [FAT32 volume flush returned success with both allocation tables still stale](Notes/FAT32-Volume-Flush/README.md) | Fixed in CC; verified at flush return and after remount. |
-| [FastFAT clean-state decision after a returned flush error](Notes/FastFAT-Clean-After-Flush-Error/README.md) | Windows caller branches restored; first failing I/O and disk state still open. |
 | [One FAT copy on the original installation disk lost 29 entries](Notes/FAT32-Install-Mirror-Divergence/README.md) | Disk and boot symptoms confirmed; first divergent write not captured. |
 | [A failed paging write was counted as successful](Notes/MM-Flush-Write-Errors/README.md) | Fixed on the tested writeback and retry paths. |
 | [A duplicate pin could lock the wrong buffer record](Notes/CC-Duplicate-BCB/README.md) | Fixed; covered by the ownership regression. |

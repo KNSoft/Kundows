@@ -12,12 +12,8 @@ p.add_argument("source", type=Path)
 p.add_argument("--stock", action="store_true", help="read the pinned Git blobs")
 p.add_argument("--mm-only", action="store_true", help="pair patched MM with stock CC; negative control for writeback")
 p.add_argument("--overlay", type=Path, help="read matching private candidate files before the source checkout")
-p.add_argument("--expect-clean-guard", action="store_true",
-               help="score the retired FastFAT policy instead of the observed Windows caller branches")
 p.add_argument("--suite", choices=("writeback", "bcb", "bcb-life", "bcb-owner", "truncate", "fat", "fat-clean-chain", "fat-volume", "fat-volume-legacy", "user", "relation", "ioctl", "monitor-list", "video", "collision"), action="append")
 args = p.parse_args()
-if args.expect_clean_guard and (not args.suite or set(args.suite) - {"fat", "fat-clean-chain"}):
-    p.error("--expect-clean-guard applies only to explicit fat or fat-clean-chain suites")
 if args.mm_only:
     if args.stock or args.suite not in (None, ["writeback"]):
         p.error("--mm-only is a writeback negative control on a patched source tree")
@@ -163,8 +159,6 @@ if __name__ == "__main__":
             options = []
             if suite == "fat-clean-chain":
                 options.append("/DKW_FAT_FLUSH_CHAIN")
-            if args.expect_clean_guard:
-                options.append("/DKW_EXPECT_CLEAN_GUARD")
             handoff = "CcpWriteMetadataPage(" in read("ntoskrnl/cc/pin.c")
             if source.stem == "bcb" and (handoff or "CcpBeginBcbFlush(" in read("ntoskrnl/cc/pin.c")):
                 options.append("/DKW_CC_OWNERSHIP")

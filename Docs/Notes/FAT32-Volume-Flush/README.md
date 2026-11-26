@@ -27,7 +27,7 @@ The [ReactOS trace](Evidence/CcLifetime.tsv) followed the same page from `CcUnpi
 | Keep only: retain the dirty record | The record covered the page, but lookup still excluded it. | 0/128 | 0/128 |
 | Keep + Find | The original FastFAT scan found and flushed the page. | **128/128** | **128/128** |
 
-[All four flush calls returned success](Evidence/CcLifetimeCausal.tsv); only the last returned with the new entries on disk. That is why the accepted fix changes CC's record lifetime and lookup instead of keeping a FastFAT-only workaround. A flush that **already returned an error** is a separate [FastFAT clean-state investigation](../FastFAT-Clean-After-Flush-Error/README.md). Neither result explains the [original disk's one-sided loss of 29 entries](../FAT32-Install-Mirror-Divergence/README.md).
+[All four flush calls returned success](Evidence/CcLifetimeCausal.tsv); only the last returned with the new entries on disk. That is why the accepted fix changes CC's record lifetime and lookup instead of keeping a FastFAT-only workaround. This result does not explain the [original disk's one-sided loss of 29 entries](../FAT32-Install-Mirror-Divergence/README.md).
 
 ## 2. Why keeping the dirty record was not enough
 
@@ -35,7 +35,7 @@ The [ReactOS trace](Evidence/CcLifetime.tsv) followed the same page from `CcUnpi
 |---|---|---|
 | Keep the dirty BCB and let `PIN_IF_BCB` find it after the last unpin. | Dirty lookups went from **0/5 to 5/5**, but successful-write reclamation went from **7/7 to 0/7**. The idle BCB still held the cache view (VACB), so even a clean view could not be purged. [Paired guest results](Evidence/CcCycle.tsv) | Separate the lifetime of the dirty record from the lifetime of its active mapping. |
 | Retire idle records on writeback; discard them before an ordinary purge. | The first 39 checks passed. A new case kept a second page pinned: the purge failed, but had already forgotten the first page's pending record. The candidate scored **43/44**. | Retire on successful writeback, preserve pending records on failure, and reserve final discard for a quiescent cache map. The same test then passed **44/44**. [Candidate comparison](Evidence/CcOwnership.tsv) |
-| Track generations and reserve a whole view during writeback. | The V3 ReactOS guest passed **54/54**, and the original FAT tests passed without the FastFAT fallback. One check expected `STATUS_DEVICE_BUSY` on a writeback collision. That demonstrated the candidate's behavior, not what Windows promises. [Per-case results](Evidence/CcOwnership.tsv) | Commit `79db84f` retired the FastFAT fallback. Keep the independent MM write-error and FAT clean-state fixes; measure Windows before accepting the synchronization rules. |
+| Track generations and reserve a whole view during writeback. | The V3 ReactOS guest passed **54/54**, and the original FAT tests passed without the FastFAT fallback. One check expected `STATUS_DEVICE_BUSY` on a writeback collision. That demonstrated the candidate's behavior, not what Windows promises. [Per-case results](Evidence/CcOwnership.tsv) | Commit `79db84f` retired the FastFAT fallback. Measure Windows before accepting the synchronization rules. |
 
 ### Windows lifecycle cases
 
@@ -94,7 +94,7 @@ The ordinary-file reference ran on Windows [NTFS](Evidence/CcTruncate/Default-94
 
 ## 5. Final acceptance
 
-Commit `c369b1c` contains the validated repair on upstream ReactOS `4fbbefd614b`. The default x64 queue **at that commit** produced source tree `bd620b9b5a8c386e1bc981726bed3943425e4b74`. The [build record](Evidence/CcTruncate/Native-9457/checks.json) identifies the patch **including its preamble at that commit**. The clean x64 Debug solution built **1419 projects, 0 failed**; the BootCD was built separately. The later [clean-state caller change](../FastFAT-Clean-After-Flush-Error/README.md) has its own checks; the image below identifies this earlier acceptance run.
+Commit `c369b1c` contains the validated repair on upstream ReactOS `4fbbefd614b`. The default x64 queue **at that commit** produced source tree `bd620b9b5a8c386e1bc981726bed3943425e4b74`. The [build record](Evidence/CcTruncate/Native-9457/checks.json) identifies the patch **including its preamble at that commit**. The clean x64 Debug solution built **1419 projects, 0 failed**; the BootCD was built separately.
 
 The x64 Hyper-V guest was installed from that CD onto a blank 6 GiB disk. After shutdown, the installed MP kernel and `fastfat.sys` were matched to the linked binaries by content. The guest then cold-booted from disk with the installation media removed and a fresh 512 MiB FAT32 test disk attached. [Installed identities, DDI results and program output](Evidence/CcTruncate/Native-9457/reactos-guest.json)
 
@@ -138,7 +138,7 @@ Several side investigations stayed outside the default repair. The MM pre-wait e
 
 ## Superseded patch files
 
-These three files are the historical inputs for the missed-flush investigation, including their original preambles. `Configure.cmd` does not select them. The later [clean-state investigation](../FastFAT-Clean-After-Flush-Error/README.md) records the separate decision to retire the returned-error guard.
+These three files are the historical inputs for the missed-flush investigation, including their original preambles. `Configure.cmd` does not select them.
 
 | Historical patch | Where the repair ended up |
 |---|---|

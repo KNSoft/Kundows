@@ -83,9 +83,6 @@ static NTSTATUS IoCallDriver(PDEVICE_OBJECT d,PIRP irp)
 }
 #include "fat.inc"
 
-/* Only the returned filesystem-error cases distinguish the two caller policies.
- * The oracle is selected by the test invocation, never by inspecting the source. */
-enum { MarkOnReferenceOnly = 2 };
 static void run(const char *name,int shutdown,ULONG flags,NTSTATUS fs,NTSTATUS lower,
                 int exception,int shouldMark,int dirty)
 {
@@ -99,14 +96,6 @@ static void run(const char *name,int shutdown,ULONG flags,NTSTATUS fs,NTSTATUS l
 #endif
     NTSTATUS s=shutdown ? FatCommonShutdown(&c,&i) : FatCommonFlushBuffers(&c,&i);
     NTSTATUS expect=shutdown ? 0 : (!NT_SUCCESS(lower) && lower!=STATUS_INVALID_DEVICE_REQUEST ? lower : fs);
-    if (shouldMark==MarkOnReferenceOnly) {
-#ifdef KW_EXPECT_CLEAN_GUARD
-        shouldMark=0;
-#else
-        shouldMark=1;
-        if (!shutdown) dirty=0;
-#endif
-    }
 #ifdef KW_FAT_FLUSH_CHAIN
     ASSERT(fatCalls==!exception);
     printf("OBS %s: caller=%08lx mark=%d purge=%d dirty=%d lower-requests=%d\n",
@@ -119,33 +108,27 @@ static void run(const char *name,int shutdown,ULONG flags,NTSTATUS fs,NTSTATUS l
 }
 int main(void)
 {
-#ifdef KW_EXPECT_CLEAN_GUARD
-    const char *policy="retired fastfat-clean-after-flush.patch";
-#else
-    const char *policy="Windows FastFAT clean-state branches";
-#endif
 #ifdef KW_FAT_FLUSH_CHAIN
-    run("volume/directory-error",0,1,STATUS_IO_DEVICE_ERROR,0,0,MarkOnReferenceOnly,1);
-    run("shutdown/directory-error",1,1,STATUS_IO_DEVICE_ERROR,0,0,MarkOnReferenceOnly,1);
+    run("volume/directory-error",0,1,STATUS_IO_DEVICE_ERROR,0,0,1,0);
+    run("shutdown/directory-error",1,1,STATUS_IO_DEVICE_ERROR,0,0,1,1);
     failAtFat=1;
-    run("volume/FAT-error",0,1,STATUS_IO_DEVICE_ERROR,0,0,MarkOnReferenceOnly,1);
-    run("shutdown/FAT-error",1,1,STATUS_IO_DEVICE_ERROR,0,0,MarkOnReferenceOnly,1);
+    run("volume/FAT-error",0,1,STATUS_IO_DEVICE_ERROR,0,0,1,0);
+    run("shutdown/FAT-error",1,1,STATUS_IO_DEVICE_ERROR,0,0,1,1);
     run("volume/lower-only-error",0,1,0,STATUS_IO_DEVICE_ERROR,0,1,0);
     run("volume/success",0,1,0,0,0,1,0);
     run("volume/mounted-dirty",0,3,0,0,0,0,1);
     run("shutdown/raised-error",1,1,0,0,1,0,1);
-    return summary(policy);
 #else
     run("volume: success",0,1,0,0,0,1,0);
-    run("volume: failure despite lower success",0,1,STATUS_IO_DEVICE_ERROR,0,0,MarkOnReferenceOnly,1);
-    run("volume: unsupported lower flush preserves FS error",0,1,STATUS_IO_DEVICE_ERROR,STATUS_INVALID_DEVICE_REQUEST,0,MarkOnReferenceOnly,1);
+    run("volume: failure despite lower success",0,1,STATUS_IO_DEVICE_ERROR,0,0,1,0);
+    run("volume: unsupported lower flush preserves FS error",0,1,STATUS_IO_DEVICE_ERROR,STATUS_INVALID_DEVICE_REQUEST,0,1,0);
     run("volume: mounted dirty",0,3,0,0,0,0,1);
     run("volume: already clean",0,0,0,0,0,0,0);
-    run("volume: removable on failure",0,5,STATUS_IO_DEVICE_ERROR,0,0,MarkOnReferenceOnly,1);
+    run("volume: removable on failure",0,5,STATUS_IO_DEVICE_ERROR,0,0,1,0);
     run("shutdown: success",1,1,0,0,0,1,1);
-    run("shutdown: returned error",1,1,STATUS_IO_DEVICE_ERROR,0,0,MarkOnReferenceOnly,1);
+    run("shutdown: returned error",1,1,STATUS_IO_DEVICE_ERROR,0,0,1,1);
     run("shutdown: raised error",1,1,0,0,1,0,1);
     run("shutdown: mounted dirty",1,3,0,0,0,0,1);
-    return summary(policy);
 #endif
+    return summary("Windows FastFAT clean-state branches");
 }

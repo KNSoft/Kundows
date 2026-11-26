@@ -6,4 +6,4 @@ The [first single-page test](Assets/mm-flush-status.c) made the distinction visi
 
 Changing MM alone exposed a second problem: the CC lazy writer could immediately pick the same failing view off the dirty list over and over. The patch bounds the work in that pass while allowing another view and a later retry. The [host cases](../../../Tests/ReactOS/Host/writeback.c) went from **8/21 to 21/21**. Run `python Tests/ReactOS/Host/run.py Upstream/ReactOS/Source --suite writeback` from an MSVC prompt (`--stock` selects the negative control).
 
-This establishes error propagation, not that the old installation disk suffered a device error. Two downstream questions have their own evidence: [how CC counts a partial write](../FAT32-Volume-Flush/README.md#what-the-debugger-showed) and [what FastFAT does once it already has a flush error](../FastFAT-Clean-After-Flush-Error/README.md).
+This establishes error propagation, not that the old installation disk suffered a device error. The [CC writeback investigation](../FAT32-Volume-Flush/README.md#what-the-debugger-showed) shows how the caller receives the completed byte count on a partial write.
