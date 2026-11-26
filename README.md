@@ -15,4 +15,4 @@ MakeISO.cmd
 
 The default is **x64 Debug**. Open `OutDir\amd64\Debug\REACTOS.slnx` to build in Visual Studio. The ISO is `OutDir\bootcd-x64-Debug.iso`.
 
-[Build guide](Docs/Building.md) · [Documentation](Docs/README.md)
+[Build guide](Docs/Building.md) · [ReactOS issues and patches](Upstream/ReactOS/Patches/) · [Documentation](Docs/README.md)

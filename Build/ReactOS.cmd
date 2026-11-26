@@ -92,20 +92,7 @@ if /i not "%kw_pin%"=="%kw_head%" (
     exit /b 1
 )
 
-set "kw_pending="
-for %%P in (spec2def-cpp-exports freeldr-target-file generated-header-deps vs-media-deps) do call :queuePatch BuildSystem %%P || exit /b 1
-for %%P in (blue-vbox-vbe io-sync-status kd-auto-probe rtc-periodic) do call :queuePatch Runtime %%P || exit /b 1
-rem Cache fixes are grouped by ownership and write-error policy, not layered pin rewrites.
-for %%P in (mm-flush-status cc-bcb-ownership user-init-unlock monitor-relation-completion monitor-list-completion sort-eof where-scoped notepad-majority-eol) do call :queuePatch Runtime %%P || exit /b 1
-if "%kw_arch%"=="arm64" (
-    for %%P in (arm64-ntdll arm64-vs-host-tools) do call :queuePatch ARM64 %%P || exit /b 1
-)
-if /i "%~3"=="--image-fixes" (
-    call :queuePatch Runtime mm-flush-collision || exit /b 1
-)
-if defined kw_pending (
-    git -C "%kw_src%" apply --whitespace=nowarn %kw_pending% || exit /b 1
-)
+call "%~dp0ReactOSSeries.cmd" Apply %kw_arch% %~3 || exit /b 1
 
 echo ReactOS %kw_head%   %kw_generator%   %kw_platform% %kw_config%
 echo RosBE: "%kw_be%"   CMake: "%kw_cmake%"
@@ -143,16 +130,6 @@ for /f "tokens=1,2,*" %%A in ('reg query "%~1\SOFTWARE\Microsoft\Windows\Current
 if not defined kw_uninstall exit /b 0
 set "kw_uninstall=%kw_uninstall:"=%"
 for %%U in ("%kw_uninstall%") do if exist "%%~dpURosBE.cmd" set "kw_be=%%~dpU."
-exit /b 0
-
-:queuePatch
-set "kw_patch=%kw_root%Upstream\ReactOS\Patches\%~1\%~2.patch"
-if not exist "%kw_patch%" (
-    echo Missing patch "%kw_patch%". 1>&2
-    exit /b 1
-)
-git -C "%kw_src%" apply --quiet --reverse --check --whitespace=nowarn "%kw_patch%" && exit /b 0
-set "kw_pending=%kw_pending% "%kw_patch%""
 exit /b 0
 
 :wrongcache

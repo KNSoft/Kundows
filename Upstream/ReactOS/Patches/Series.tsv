@@ -1,0 +1,20 @@
+# Condition	Patch
+All	BuildSystem/Spec2DefCppExports/Spec2DefCppExports.patch
+All	BuildSystem/FreeLdrTargetFile/FreeLdrTargetFile.patch
+All	BuildSystem/GeneratedHeaderDeps/GeneratedHeaderDeps.patch
+All	BuildSystem/VSMediaDeps/VSMediaDeps.patch
+All	Graphics/VBoxVGATextMode/BlueVBoxVBE.patch
+All	Kernel/IoSyncStatus/IoSyncStatus.patch
+All	Kernel/KdAutoProbe/KdAutoProbe.patch
+All	Kernel/RtcPeriodic/RtcPeriodic.patch
+All	Storage/MMFlushWriteErrors/MmFlushStatus.patch
+All	Storage/FAT32VolumeFlush/CcBcbOwnership.patch
+All	Graphics/UserInitUnlock/UserInitUnlock.patch
+All	Graphics/MonitorTargetRelation/MonitorRelationCompletion.patch
+All	Graphics/MonitorListCompletion/MonitorListCompletion.patch
+All	Applications/SortEof/SortEof.patch
+All	Applications/WhereScopedSearch/WhereScoped.patch
+All	Applications/NotepadMixedLineEndings/NotepadMajorityEol.patch
+ARM64	ARM64/ARM64Ntdll/ARM64Ntdll.patch
+ARM64	ARM64/ARM64VSHostTools/ARM64VSHostTools.patch
+ImageFixes	Storage/MMFlushCollision/MmFlushCollision.patch

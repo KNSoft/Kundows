@@ -1,0 +1,9 @@
+# First disk boot stopped while win32k read the monitor relationship
+
+On the ordinary boot entry of the original x64 installation, Setup [stopped with `0x1E`](Assets/FirstDiskStop.png). The saved trap pointed to `EngpUpdateMonitorDevices` reading `Count`. The VGA driver had returned success and its request contained a valid, referenced one-object relationship. The caller's pointer was still the Debug stack-fill pattern. Matching both the event and status-block addresses identified the same IRP; its completion APC was still queued on the waiting thread.
+
+[`MonitorRelationCompletion.patch`](MonitorRelationCompletion.patch) gives the issuer ownership of the request. It waits for the completion routine if necessary, reads the final status and relationship directly from the completed request, then releases the IRP. Initializing the pointer or dropping the assertion would not deliver the result.
+
+The [host test](Assets/Relation.c) separates inline return from delivery to the caller and also covers pending, failure and cancellation: **7/8 → 8/8**. On independent copies of the *same faulty disk*, changing win32k let the ordinary boot entry pass this `Count` read. It then stopped on [a different monitor-list request](../MonitorListCompletion/README.md). Neither result establishes why the FAT copies on that disk diverged.
+
+Run the [host case](Assets/Run.cmd) from a native VS developer prompt. Pass `--stock` to exercise the pinned source.

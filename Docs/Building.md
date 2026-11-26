@@ -31,7 +31,7 @@ configuring VS in the same directory.
 
 Configure sets `DLL_EXPORT_VERSION=0x600` for the target system. Re-run
 `Configure.cmd` on existing `0x502` trees before using Build or MakeISO.
-See the [export-level comparison](Notes/DLL-Export-Version/README.md) for
+See the [export-level comparison](../Upstream/ReactOS/Patches/BuildSystem/DLLExportVersion/README.md) for
 what this enables and why a larger value is not necessarily more compatible.
 
 - `Configure.cmd` initializes/checks the pinned submodule, applies the
@@ -48,41 +48,9 @@ what this enables and why a larger value is not necessarily more compatible.
 
 ### Patch selection
 
-Kundows keeps its [selectable ReactOS patches](../Upstream/ReactOS/Patches/) next to
-the pinned `Source` submodule. `BuildSystem` covers the toolchain, generated
-projects and media assembly; `Runtime` covers the running system and its
-drivers; `ARM64` contains fixes selected only for that target.
+[`Series.tsv`](../Upstream/ReactOS/Patches/Series.tsv) lists one issue patch per line, in apply order. `All` selects every target, `ARM64` the ARM64 target only, and `ImageFixes` adds the optional `--image-fixes` patch. ARM64 requires the ARM64 MSVC tools. To print a selection, run `Build\ReactOSSeries.cmd List amd64` (or `i386` / `arm64`, optionally followed by `--image-fixes`).
 
-| Default patch | Why it is selected |
-|---|---|
-| [`spec2def-cpp-exports.patch`](../Upstream/ReactOS/Patches/BuildSystem/spec2def-cpp-exports.patch) | Preserve decorated C++ export names and ordinals when linking with x86 MSVC. |
-| [`freeldr-target-file.patch`](../Upstream/ReactOS/Patches/BuildSystem/freeldr-target-file.patch) | Use the linked PC BIOS FreeLdr PE for the selected configuration. |
-| [`generated-header-deps.patch`](../Upstream/ReactOS/Patches/BuildSystem/generated-header-deps.patch) | Make lwIP wait for `wdm.h` and the static PathCch library for `wtypes.h`. |
-| [`vs-media-deps.patch`](../Upstream/ReactOS/Patches/BuildSystem/vs-media-deps.patch) | Leave image assembly to explicit targets; make the hive projects wait for the shared registry INF. |
-| [`blue-vbox-vbe.patch`](../Upstream/ReactOS/Patches/Runtime/blue-vbox-vbe.patch) | Switch VBoxVGA Setup from the firmware framebuffer to text mode with the correct row width. |
-| [`io-sync-status.patch`](../Upstream/ReactOS/Patches/Runtime/io-sync-status.patch) | Complete inline file-information requests before returning their stack-based status blocks. Debug Setup exercises this when copying files. |
-| [`kd-auto-probe.patch`](../Upstream/ReactOS/Patches/Runtime/kd-auto-probe.patch) | Bound the initial wait for an unattached serial debugger. |
-| [`rtc-periodic.patch`](../Upstream/ReactOS/Patches/Runtime/rtc-periodic.patch) | Start the APIC HAL's periodic clock after the interrupt route is ready. |
-| [`mm-flush-status.patch`](../Upstream/ReactOS/Patches/Runtime/mm-flush-status.patch) | Report section write errors to CC; retain failed pages for retry without starving other views. |
-| [`cc-bcb-ownership.patch`](../Upstream/ReactOS/Patches/Runtime/cc-bcb-ownership.patch) | Preserve dirty intent, lock the winning BCB on a duplicate pin, and keep a dirty range discoverable until writeback. FastFAT can use its original scan. |
-| [`user-init-unlock.patch`](../Upstream/ReactOS/Patches/Runtime/user-init-unlock.patch) | Release the exclusive USER lock if GDI initialization fails. |
-| [`monitor-relation-completion.patch`](../Upstream/ReactOS/Patches/Runtime/monitor-relation-completion.patch) | Read the completed, caller-owned PnP request. In the saved crash win32k used the pointer before the VGA result was delivered. |
-| [`monitor-list-completion.patch`](../Upstream/ReactOS/Patches/Runtime/monitor-list-completion.patch) | Keep the private enumeration request and output until the port finishes. The failing disk reached [graphical setup without FAT repair](Notes/Monitor-List-Completion/README.md). |
-| [`sort-eof.patch`](../Upstream/ReactOS/Patches/Runtime/sort-eof.patch) | Preserve the last character of an unterminated final line. |
-| [`where-scoped.patch`](../Upstream/ReactOS/Patches/Runtime/where-scoped.patch) | Restrict an explicitly scoped search to the requested directories. |
-| [`notepad-majority-eol.patch`](../Upstream/ReactOS/Patches/Runtime/notepad-majority-eol.patch) | Honor a strict LF plurality in mixed files. See the [saved-file byte comparison](Notes/Notepad-Mixed-Line-Endings/README.md). |
-
-`ARM64` requires the ARM64 MSVC tools. It adds [`arm64-ntdll.patch`](../Upstream/ReactOS/Patches/ARM64/arm64-ntdll.patch) for the experimental NTDLL port and [`arm64-vs-host-tools.patch`](../Upstream/ReactOS/Patches/ARM64/arm64-vs-host-tools.patch) to build Win32 tools that run on the x64 host. Passing `--image-fixes` to Configure adds [`mm-flush-collision.patch`](../Upstream/ReactOS/Patches/Runtime/mm-flush-collision.patch).
-The evidence and its limits are recorded before the first diff
-in each patch. The old parser-snapshot adapter is unnecessary with RosBE.
-
-[`Build/ReactOS.cmd`](../Build/ReactOS.cmd) is the source of patch selection and order.
-Use lowercase hyphenated filenames in the queue and notes. `cc-bcb-ownership.patch`
-and `mm-flush-status.patch` apply independently, but safe retirement of dirty
-ranges depends on receiving the true MM write status. Run
-`python Tests/ReactOS/patch-sets.py` to check all four queues, both cache orders
-and full rollback in disposable Git indices. The FAT32 note holds the
-[superseded files and migration order](Notes/FAT32-Volume-Flush/README.md#superseded-patch-files).
+Open `Patches/<category>/<issue>/` for the [issue README](README.md#notes) and, when a fix is selected, one main `.patch`. The category groups related problems; it does not determine patch order or platform. Attachments and simple cases go in `Assets/`; multi-file test programs go in `Tests/`. Only paths named in the series enter the build. The [shared checks](../Upstream/ReactOS/Patches/Shared/README.md) exercise queue application, recognition and rollback without changing the source checkout.
 
 Patches apply to the shared submodule working tree. `Configure.cmd`
 recognizes already-applied patches and stops on conflicts. Use a clean
@@ -104,26 +72,12 @@ own graft list, and ran `mkisofs` and `isohybrid`. Its successful boot test
 exercised that packaging path. It was not a test of `REACTOS.sln /t:bootcd`.
 The old packager and its validation record are available in commit `26617bf`.
 
-A concrete x64 **BIOS** difference is visible on the same ReactOS commit
-(`1103f43a0c0`), configuration (Release) and compiler: the upstream
-[FreeLdr rule](../Upstream/ReactOS/Source/boot/freeldr/freeldr/pcat.cmake)
-concatenates `frldr16.bin` with `${CMAKE_CURRENT_BINARY_DIR}/$<TARGET_FILE_NAME:freeldr_pe>`.
-That expression supplies a filename, but the VS generator puts the PE in
-`Release/freeldr_pe.exe`. In a Windows `copy /B` check with a present first
-file and a missing second file, the command returned success and wrote only
-the first file. In the retained upstream build, `freeldr.sys` was
-byte-identical to the 2,048-byte prefix alone. In the old Kundows build it
-was byte-identical to the prefix plus the 173,568-byte PE (175,616 bytes).
-The unmodified rule is unchanged at `4fbbefd614b`. The
-[FreeLdr patch](../Upstream/ReactOS/Patches/BuildSystem/freeldr-target-file.patch) uses
-`$<TARGET_FILE:freeldr_pe>` to get the linked PE for the active configuration.
-The generated x64 Debug and Win32 Release projects both reference that PE
-as an input to the concatenation rule. The UEFI loader uses a separate rule.
+See the [FreeLdr inputs and byte counts](../Upstream/ReactOS/Patches/BuildSystem/FreeLdrTargetFile/README.md) for the multi-configuration loader failure.
 
 The earlier `0x502` x64 Debug BootCD completed a fresh FAT installation
 on Hyper-V Gen 1 and booted from the installed disk to an interactive
 desktop. See the [tested ISO hash, first disk boot and Ctrl+Alt+Del
-screenshots](Notes/BootCD-x64-Setup/README.md#hyper-v-gen-1).
+screenshots](../Upstream/ReactOS/Patches/Shared/BootCD/README.md#hyper-v-gen-1).
 
 With Visual Studio 2026, the initial clean x64 Debug **Build Solution** completed
 with 1,366 projects built and no failures. `MakeISO.cmd` then produced a
@@ -133,7 +87,7 @@ EFI loader matched `uefildr.efi` (488,448 bytes). In the earlier VirtualBox BIOS
 the COM1 banner appears before kernel entry; the same build subsequently
 started copying files with no serial port. On VirtualBox EFI64, the text-mode
 fix restored a readable Setup language page. See the [comparison with the
-pre-rework ISO and screenshots](Notes/BootCD-x64-Setup/README.md#historical-vboxvga-comparison). Win32 Release was checked through
+pre-rework ISO and screenshots](../Upstream/ReactOS/Patches/Graphics/VBoxVGATextMode/README.md). Win32 Release was checked through
 FreeLdr (2,048 + 143,360 bytes), and ARM64 Debug through solution generation
 and the native host-tools build.
 
