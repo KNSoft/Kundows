@@ -33,6 +33,6 @@ static void run(int attached,int oom)
     ASSERT(s==irp.IoStatus.Status && completions==1);
     if(oom) ASSERT(s==STATUS_INSUFFICIENT_RESOURCES && !r && !pdo.references && !fdo.references);
     else { ASSERT(s==0 && r && r->Count==1 && r->Objects[0]==&fdo && fdo.references==1 && !pdo.references); free(r); }
-    printf("G2 %s%s: %s\n",attached?"PnP":"legacy",oom?" / no pool":"",oom?"allocation error":"Count=1, referenced FDO");
+    printf("Video target relation %s%s: %s\n",attached?"PnP":"legacy",oom?" / no pool":"",oom?"allocation error":"Count=1, referenced FDO");
 }
 int main(void) { run(1,0); run(0,0); run(1,1); return 0; }

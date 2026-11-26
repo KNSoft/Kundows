@@ -29,5 +29,5 @@ int main(void)
     run("GDI failure",0,0,0,0,STATUS_UNSUCCESSFUL,1,1,0);
     run("USER failure",0,0,1,STATUS_INSUFFICIENT_RESOURCES,STATUS_INSUFFICIENT_RESOURCES,1,1,1);
     run("initialized",0,0,1,0,0,1,1,1);
-    return summary("G3");
+    return summary("user-init-unlock.patch");
 }

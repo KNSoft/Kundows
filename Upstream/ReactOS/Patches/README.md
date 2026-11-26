@@ -1,22 +1,22 @@
 # ReactOS patch organization
 
-`Build/ReactOS.cmd` lists the selected patches explicitly. A directory listing
-is not the application order. `BuildSystem`, `Runtime` and target-specific
-`ARM64` patches remain separate; `Retired` is historical evidence only.
+[`Build/ReactOS.cmd`](../../../Build/ReactOS.cmd) lists the patches in application order.
+`BuildSystem`, `Runtime` and `ARM64` contain selectable patches. Name each file
+for the change it makes, in lowercase with hyphens, and use that filename in
+the documentation. Retired patches belong beside the investigation that used them.
 
 ## Cache and FAT repair points
 
 | Repair point | Active patch | Scope |
 | --- | --- | --- |
-| BCB ownership and lifetime | [cc-bcb-ownership](Runtime/ReactOS-cc-bcb-ownership.patch) | Premark publication, metadata writeback, [file-size notifications, tail invalidation and cache-close events](../../../Docs/Notes/HyperV-Desktop-QA/Review/CcSizeCompatibility.md) |
-| Write errors and retry policy | [mm-flush-status](Runtime/ReactOS-mm-flush-status.patch) | Report MM write errors without losing dirty data; bound the CC dirty-view pass after an error |
-| FAT volume clean state | [fastfat-clean-after-flush](Runtime/ReactOS-fastfat-clean-after-flush.patch) | F1: an unsuccessful filesystem flush must not mark the volume clean |
-| Independent MM write collisions | [mm-flush-collision](Runtime/ReactOS-mm-flush-collision.patch) | Still optional, selected only by `--image-fixes`; not implied by the CC reservation |
+| BCB ownership and lifetime | [`cc-bcb-ownership.patch`](Runtime/cc-bcb-ownership.patch) | Premark publication, metadata writeback, [file-size notifications, tail invalidation and cache-close events](../../../Docs/Notes/FAT32-Volume-Flush/README.md) |
+| Write errors and retry policy | [`mm-flush-status.patch`](Runtime/mm-flush-status.patch) | Report MM write errors without losing dirty data; bound the CC dirty-view pass after an error |
+| FAT volume clean state | [`fastfat-clean-after-flush.patch`](Runtime/fastfat-clean-after-flush.patch) | An unsuccessful filesystem flush must not mark the volume clean |
+| Independent MM write collisions | [`mm-flush-collision.patch`](Runtime/mm-flush-collision.patch) | Optional; selected only by `--image-fixes` |
 
-The ownership patch replaces the old `cc-pinned-dirty` and `cc-duplicate-bcb`
-patches and the FastFAT C2 `fastfat-volume-dirty-runs` workaround. Those three
-are in [Retired](Retired/README.md), outside the default queue. FastFAT retains
-its original FAT scan; no C2 fallback remains in the reorganized default source.
+`cc-bcb-ownership.patch` incorporates the two earlier CC repairs and replaces the
+FastFAT workaround. The [three historical files and migration instructions](../../../Docs/Notes/FAT32-Volume-Flush/README.md#superseded-patch-files)
+are in the FAT32 note. FastFAT retains its original scan.
 
 The two active cache patches do not overwrite each other's hunks. They can
 apply in either order and remain individually reverse-recognizable. There is
@@ -33,4 +33,4 @@ python Docs/Notes/HyperV-Desktop-QA/Review/Checks/patch-sets.py
 ```
 
 For the original FAT32 failure, the repair history, and the final Windows and
-ReactOS guest results, see the [cache manager investigation](../../../Docs/Notes/HyperV-Desktop-QA/Review/CcSizeCompatibility.md).
+ReactOS guest results, see the [cache manager investigation](../../../Docs/Notes/FAT32-Volume-Flush/README.md).

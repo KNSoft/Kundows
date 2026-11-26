@@ -91,5 +91,5 @@ int main(void)
     run("shutdown: returned error",1,1,STATUS_IO_DEVICE_ERROR,0,0,0,1);
     run("shutdown: raised error",1,1,0,0,1,0,1);
     run("shutdown: mounted dirty",1,3,0,0,0,0,1);
-    return summary("F1");
+    return summary("fastfat-clean-after-flush.patch");
 }

@@ -48,68 +48,38 @@ what this enables and why a larger value is not necessarily more compatible.
 
 ### Patch selection
 
-Kundows keeps its [ReactOS patches](../Upstream/ReactOS/Patches/) next to
+Kundows keeps its [selectable ReactOS patches](../Upstream/ReactOS/Patches/) next to
 the pinned `Source` submodule. `BuildSystem` covers the toolchain, generated
 projects and media assembly; `Runtime` covers the running system and its
 drivers; `ARM64` contains fixes selected only for that target.
 
-The default set includes the [`spec2def` export fix](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-spec2def-cpp-exports.patch),
-the [PC BIOS FreeLdr PE path fix](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-freeldr-target-file.patch),
-and the following:
+| Default patch | Why it is selected |
+|---|---|
+| [`spec2def-cpp-exports.patch`](../Upstream/ReactOS/Patches/BuildSystem/spec2def-cpp-exports.patch) | Preserve decorated C++ export names and ordinals when linking with x86 MSVC. |
+| [`freeldr-target-file.patch`](../Upstream/ReactOS/Patches/BuildSystem/freeldr-target-file.patch) | Use the linked PC BIOS FreeLdr PE for the selected configuration. |
+| [`generated-header-deps.patch`](../Upstream/ReactOS/Patches/BuildSystem/generated-header-deps.patch) | Make lwIP wait for `wdm.h` and the static PathCch library for `wtypes.h`. |
+| [`vs-media-deps.patch`](../Upstream/ReactOS/Patches/BuildSystem/vs-media-deps.patch) | Leave image assembly to explicit targets; make the hive projects wait for the shared registry INF. |
+| [`blue-vbox-vbe.patch`](../Upstream/ReactOS/Patches/Runtime/blue-vbox-vbe.patch) | Switch VBoxVGA Setup from the firmware framebuffer to text mode with the correct row width. |
+| [`io-sync-status.patch`](../Upstream/ReactOS/Patches/Runtime/io-sync-status.patch) | Complete inline file-information requests before returning their stack-based status blocks. Debug Setup exercises this when copying files. |
+| [`kd-auto-probe.patch`](../Upstream/ReactOS/Patches/Runtime/kd-auto-probe.patch) | Bound the initial wait for an unattached serial debugger. |
+| [`rtc-periodic.patch`](../Upstream/ReactOS/Patches/Runtime/rtc-periodic.patch) | Start the APIC HAL's periodic clock after the interrupt route is ready. |
+| [`mm-flush-status.patch`](../Upstream/ReactOS/Patches/Runtime/mm-flush-status.patch) | Report section write errors to CC; retain failed pages for retry without starving other views. |
+| [`cc-bcb-ownership.patch`](../Upstream/ReactOS/Patches/Runtime/cc-bcb-ownership.patch) | Preserve dirty intent, lock the winning BCB on a duplicate pin, and keep a dirty range discoverable until writeback. FastFAT can use its original scan. |
+| [`fastfat-clean-after-flush.patch`](../Upstream/ReactOS/Patches/Runtime/fastfat-clean-after-flush.patch) | Mark a volume clean only after a successful filesystem flush. |
+| [`user-init-unlock.patch`](../Upstream/ReactOS/Patches/Runtime/user-init-unlock.patch) | Release the exclusive USER lock if GDI initialization fails. |
+| [`monitor-relation-completion.patch`](../Upstream/ReactOS/Patches/Runtime/monitor-relation-completion.patch) | Read the completed, caller-owned PnP request. In the saved crash win32k used the pointer before the VGA result was delivered. |
+| [`monitor-list-completion.patch`](../Upstream/ReactOS/Patches/Runtime/monitor-list-completion.patch) | Keep the private enumeration request and output until the port finishes. The failing disk reached [graphical setup without FAT repair](Notes/HyperV-Desktop-QA/Review/MonitorList.md). |
+| [`sort-eof.patch`](../Upstream/ReactOS/Patches/Runtime/sort-eof.patch) | Preserve the last character of an unterminated final line. |
+| [`where-scoped.patch`](../Upstream/ReactOS/Patches/Runtime/where-scoped.patch) | Restrict an explicitly scoped search to the requested directories. |
+| [`notepad-majority-eol.patch`](../Upstream/ReactOS/Patches/Runtime/notepad-majority-eol.patch) | Honor a strict LF plurality in mixed files. See the [application regression results](Notes/HyperV-Desktop-QA/Review/Verified.md). |
 
-- [Generated headers](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-generated-header-deps.patch):
-  lwIP must wait for `wdm.h` and the static PathCch library for `wtypes.h`.
-- [Media targets](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-vs-media-deps.patch): **Build
-  Solution** leaves image assembly to explicit targets. When building the
-  BootCD, the hive projects wait for the shared registry INF producer.
-- [VBoxVGA text mode](../Upstream/ReactOS/Patches/Runtime/ReactOS-blue-vbox-vbe.patch): on the
-  VirtualBox VGA adapter, Setup switches from the firmware framebuffer to
-  VGA text mode with the correct row width.
-- [File information I/O](../Upstream/ReactOS/Patches/Runtime/ReactOS-io-sync-status.patch):
-  complete inline query/set requests before returning their stack-based
-  status blocks. Debug Setup exercises this path while copying files.
-- [Serial debugger discovery](../Upstream/ReactOS/Patches/Runtime/ReactOS-kd-auto-probe.patch) and
-  [RTC initialization](../Upstream/ReactOS/Patches/Runtime/ReactOS-rtc-periodic.patch): bound the
-  initial wait for an unattached debugger, and start the APIC HAL's periodic
-  clock after the interrupt route is ready. Both waits were observed in
-  saved Hyper-V x64 Debug guest CPU states.
-- [BCB ownership](../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-bcb-ownership.patch):
-  combine dirty-intent publication and duplicate-pin cleanup with dirty BCB
-  retention, zero-pin lookup and retirement after stable successful writeback.
-  The original FastFAT scan can find pending metadata without a volume fallback.
-- [Section flush errors](../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-status.patch)
-  reach the cache manager; a failed page remains dirty for retry. The global
-  cache flush gives other views a turn without retrying a persistent error indefinitely.
-- [FAT clean state](../Upstream/ReactOS/Patches/Runtime/ReactOS-fastfat-clean-after-flush.patch):
-  an unsuccessful filesystem flush does not authorize marking the volume clean.
-- [USER initialization](../Upstream/ReactOS/Patches/Runtime/ReactOS-user-init-unlock.patch)
-  releases the exclusive USER lock on the GDI failure exit.
-- [Monitor target query](../Upstream/ReactOS/Patches/Runtime/ReactOS-monitor-relation-completion.patch):
-  read the result from a completed, caller-owned PnP request. In the saved
-  Hyper-V crash the VGA request already had a valid result but its completion
-  APC had not delivered it when win32k used the pointer.
-- [Monitor list query](../Upstream/ReactOS/Patches/Runtime/ReactOS-monitor-list-completion.patch):
-  keep the private buffered enumeration request and its output slot until the
-  port finishes. On the old failing disk this gets the ordinary boot entry to
-  [graphical setup without repairing the FAT](Notes/HyperV-Desktop-QA/Review/MonitorList.md).
-- [SORT](../Upstream/ReactOS/Patches/Runtime/ReactOS-sort-eof.patch) preserves an
-  unterminated last record; [WHERE](../Upstream/ReactOS/Patches/Runtime/ReactOS-where-scoped.patch)
-  respects explicitly scoped searches; [Notepad](../Upstream/ReactOS/Patches/Runtime/ReactOS-notepad-majority-eol.patch)
-  honors a strict LF plurality in mixed files. See the [regression results](Notes/HyperV-Desktop-QA/Review/Verified.md).
-
-`ARM64` requires the ARM64 MSVC tools. It applies the [experimental NTDLL port](../Upstream/ReactOS/Patches/ARM64/ReactOS-arm64-ntdll.patch)
-and [builds the host tools for Win32](../Upstream/ReactOS/Patches/ARM64/ReactOS-arm64-vs-host-tools.patch)
-so they run on the x64 build machine. `Configure.cmd x64 Debug --image-fixes`
-also applies the [memory-manager flush-collision fix](../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-collision.patch).
+`ARM64` requires the ARM64 MSVC tools. It adds [`arm64-ntdll.patch`](../Upstream/ReactOS/Patches/ARM64/arm64-ntdll.patch) for the experimental NTDLL port and [`arm64-vs-host-tools.patch`](../Upstream/ReactOS/Patches/ARM64/arm64-vs-host-tools.patch) to build Win32 tools that run on the x64 host. Passing `--image-fixes` to Configure adds [`mm-flush-collision.patch`](../Upstream/ReactOS/Patches/Runtime/mm-flush-collision.patch).
 The evidence and its limits are recorded before the first diff
 in each patch. The old parser-snapshot adapter is unnecessary with RosBE.
 
-The cache changes are grouped by [repair point](../Upstream/ReactOS/Patches/README.md),
-not as successive rewrites of `pin.c`. The old two CC patches and FastFAT C2
-fallback are [retired](../Upstream/ReactOS/Patches/Retired/README.md); F1 remains.
-The queue reorganization is saved locally, not a newly released image. Prior
-CC-only guest tests are documented separately from validation of a newly
-packaged default image.
+The cache changes are grouped by [repair point](../Upstream/ReactOS/Patches/README.md).
+The FAT32 investigation preserves the [three superseded patches and the migration order for older checkouts](Notes/FAT32-Volume-Flush/README.md#superseded-patch-files).
+[`fastfat-clean-after-flush.patch`](../Upstream/ReactOS/Patches/Runtime/fastfat-clean-after-flush.patch) still guards the volume clean-state transition.
 
 Patches apply to the shared submodule working tree. `Configure.cmd`
 recognizes already-applied patches and stops on conflicts. Use a clean
@@ -142,7 +112,7 @@ the first file. In the retained upstream build, `freeldr.sys` was
 byte-identical to the 2,048-byte prefix alone. In the old Kundows build it
 was byte-identical to the prefix plus the 173,568-byte PE (175,616 bytes).
 The unmodified rule is unchanged at `4fbbefd614b`. The
-[FreeLdr patch](../Upstream/ReactOS/Patches/BuildSystem/ReactOS-freeldr-target-file.patch) uses
+[FreeLdr patch](../Upstream/ReactOS/Patches/BuildSystem/freeldr-target-file.patch) uses
 `$<TARGET_FILE:freeldr_pe>` to get the linked PE for the active configuration.
 The generated x64 Debug and Win32 Release projects both reference that PE
 as an input to the concatenation rule. The UEFI loader uses a separate rule.

@@ -34,7 +34,7 @@ registers, but the emulated display still fetched rows using the graphics
 pitch. This explains why the language list was present in guest memory
 and nevertheless unreadable on screen.
 
-The [driver patch](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-blue-vbox-vbe.patch) detects
+The [driver patch](../../../Upstream/ReactOS/Patches/Runtime/blue-vbox-vbe.patch) detects
 the VBoxVGA PCI adapter (`80ee:beef`, VGA class, I/O decoding enabled) and
 disables the extended mode while `blue.sys` owns the text console. In the
 published x64 Debug test image (`209008C7335C311DB636E128418DE58A240506D5E5B61AAE452E54EB35B7C57C`),
@@ -55,7 +55,7 @@ the initial Setup process had exited with `STATUS_BREAKPOINT`. With the
 four historical `--image-fixes`, another installation stopped in a kernel
 runtime check. In that dump, the file-information IRP's completion status
 block overlapped the stack guard reported by `KiDeliverApc`. The
-[I/O fix](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-io-sync-status.patch) uses the I/O
+[I/O fix](../../../Upstream/ReactOS/Patches/Runtime/io-sync-status.patch) uses the I/O
 manager's deferred-completion path to finish inline requests before the
 status block goes out of scope. Pending requests retain their event waits.
 MSVC Debug runtime checks remained enabled.

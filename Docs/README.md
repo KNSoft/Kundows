@@ -8,6 +8,7 @@
 
 - [x64 BootCD: Setup display and hard-disk installation](Notes/BootCD-x64-Setup/README.md)
 - [Choosing the Windows DLL export level](Notes/DLL-Export-Version/README.md)
+- [FAT32 volume flush returned success with both allocation tables still stale](Notes/FAT32-Volume-Flush/README.md)
 - [Hyper-V desktop QA: installation evidence and application regressions](Notes/HyperV-Desktop-QA/README.md)
 - [Writeback, locking and FAT clean-state fixes: decisions and regression checks](Notes/HyperV-Desktop-QA/Review/Verified.md)
 - [FAT32 mirror writes: guest submissions, completions and Hyper-V readback](Notes/HyperV-Desktop-QA/FatTrace/README.md)

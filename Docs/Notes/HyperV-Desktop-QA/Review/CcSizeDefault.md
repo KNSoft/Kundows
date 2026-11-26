@@ -1,8 +1,8 @@
 # 默认尺寸更新与关闭通知：Windows 参考及集成
 
-本页记录 `2eef1040`。**当前实现及内核实测见[下一轮对照](CcSizeCompatibility.md)**；下文的关闭事件结论只代表旧候选。
+本页记录 `2eef1040`。**当前实现及内核实测见[下一轮对照](../../FAT32-Volume-Flush/README.md)**；下文的关闭事件结论只代表旧候选。
 
-`CcSetFileSizesEx`、旧入口转交、基于 EOF 的截断和关闭完成通知现已合并进[默认补丁](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-bcb-ownership.patch)。不再需要单独叠加上一轮的 DDI 草稿。[源码树及增量](Evidence/CcTruncate/Default-9457/source.json)；[相对 `722a5747` 的补丁](Evidence/CcTruncate/Default-9457/default-ddi.delta.patch)。
+`CcSetFileSizesEx`、旧入口转交、基于 EOF 的截断和关闭完成通知现已合并进[默认补丁](../../../../Upstream/ReactOS/Patches/Runtime/cc-bcb-ownership.patch)。不再需要单独叠加上一轮的 DDI 草稿。[源码树及增量](Evidence/CcTruncate/Default-9457/source.json)；[相对 `722a5747` 的补丁](Evidence/CcTruncate/Default-9457/default-ddi.delta.patch)。
 
 ## 可见行为与证据
 

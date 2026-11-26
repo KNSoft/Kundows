@@ -113,7 +113,7 @@ static Callbacks callbacks={lazyAcquire,lazyRelease};
 static Vacb *CcRosLookupVacb(Map *m,LONGLONG pos) { if(!lookup) return NULL; Vacb *v=&views[pos/VACB_MAPPING_GRANULARITY]; ++v->refs; return v; }
 #define CcRosReleaseVacb(m,v,d,mp) (--(v)->refs)
 /* This suite has no BCBs. The separate ownership suite executes these helpers
- * in full; here retain the normal-stream boundary used by the M1 checks. */
+ * in full; here retain the normal-stream boundary used to test mm-flush-status.patch. */
 static BOOLEAN CcpBeginBcbFlush(Vacb *v,PULONGLONG g) { ASSERT(!v->SharedCacheMap->RetainDirtyBcbs); *g=0; return TRUE; }
 static BOOLEAN CcpCompleteBcbFlush(Vacb *v,ULONGLONG g,NTSTATUS s) { ASSERT(!v->SharedCacheMap->RetainDirtyBcbs); return FALSE; }
 #define CcpFlushMetadata(...) (abort(), STATUS_UNSUCCESSFUL)
@@ -192,5 +192,5 @@ int main(void)
     reset(); dirty(0); CcRosMarkDirtyVacb(&views[0]); fsFailure=8; ULONG count;
     NTSTATUS s=CcRosFlushDirtyPages(MAXULONG,&count,TRUE,FALSE);
     verdict("failure before MM: bounded, no bytes counted",s==STATUS_IO_DEVICE_ERROR && !count && !attempts[0] && views[0].Dirty && balanced());
-    return summary("M1");
+    return summary("mm-flush-status.patch");
 }

@@ -146,7 +146,7 @@ for %%U in ("%kw_uninstall%") do if exist "%%~dpURosBE.cmd" set "kw_be=%%~dpU."
 exit /b 0
 
 :queuePatch
-set "kw_patch=%kw_root%Upstream\ReactOS\Patches\%~1\ReactOS-%~2.patch"
+set "kw_patch=%kw_root%Upstream\ReactOS\Patches\%~1\%~2.patch"
 if not exist "%kw_patch%" (
     echo Missing patch "%kw_patch%". 1>&2
     exit /b 1

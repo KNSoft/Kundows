@@ -1,4 +1,4 @@
-/* Historical C2 workaround checks. These intentionally model missing BCBs.
+/* Historical fastfat-volume-dirty-runs.patch checks. These model missing BCBs.
  * The active CC-only volume checks use real pin.c functions in cc-volume.inc.
  * Real flush and large-MCB traversal functions come from run.py. */
 #include "checks.h"
@@ -138,5 +138,5 @@ int main(void)
     verdict("write-protected volume",volume()==0 && !calls && mapping.Table.n==1);
     reset(32,8<<20); dirty(4096,512); v.VcbCondition=0;
     verdict("invalid volume",volume()==STATUS_FILE_INVALID && !calls && mapping.Table.n==1);
-    return summary("C2 volume");
+    return summary("fastfat-volume-dirty-runs.patch");
 }

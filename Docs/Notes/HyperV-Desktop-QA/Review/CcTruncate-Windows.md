@@ -1,6 +1,6 @@
 # 截断修复的 Windows 接口复核
 
-**后续集成：** [当前实现和 Windows 内核 DDI 实测](CcSizeCompatibility.md)；[较早候选、Windows NTFS/FAT32 的普通文件回归](CcSizeDefault.md)。下文保留第一轮草稿的身份。
+**后续集成：** [当前实现和 Windows 内核 DDI 实测](../../FAT32-Volume-Flush/README.md)；[较早候选、Windows NTFS/FAT32 的普通文件回归](CcSizeDefault.md)。下文保留第一轮草稿的身份。
 
 **`722a5747` 的截断宿主回归通过，但公开接口与参考 Windows 有可见差异，不作为最终候选。** [修订增量](Evidence/CcTruncate/public-ddi-review.delta.patch)单独保存；它不在现有 BootCD 中。
 

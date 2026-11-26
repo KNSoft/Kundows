@@ -1,4 +1,4 @@
-/* Characterization of the subsequent buffered monitor IOCTL, not a G1 test.
+/* Characterization of the buffered monitor-list IOCTL on the original path.
  * The copy-back boundary is controlled without touching an expired stack. */
 #include "checks.h"
 #define TRACE(...) ((void)0)
@@ -53,7 +53,7 @@ int main(void)
         DWORD bytes=~0u; PVIDEO_MONITOR_DEVICE got=&empty;
         DWORD code=EngDeviceIoControl(&fdo,0x230018,NULL,0,&got,sizeof(got),&bytes);
         int received=(got==request.systemBuffer);
-        printf("G4 %s: result=%lu driver-bytes=%zu caller-bytes=%lu buffer-delivered=%d\n",
+        printf("Buffered monitor-list IOCTL %s: result=%lu driver-bytes=%zu caller-bytes=%lu buffer-delivered=%d\n",
                timing==0?"inline/delivered":timing==1?"inline/deferred":"pending",
                code,(size_t)request.status.Information,bytes,received);
         ASSERT(code==0 && received==(timing!=1) && bytes==(received ? sizeof(got) : 0));

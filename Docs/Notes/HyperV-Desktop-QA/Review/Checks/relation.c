@@ -78,5 +78,5 @@ int main(void)
     run("pending driver error",2,STATUS_IO_DEVICE_ERROR,0,0);
     run("cancel completion",1,STATUS_CANCELLED,0,0);
     run("no IRP",0,0,0,1);
-    return summary("G1");
+    return summary("monitor-relation-completion.patch");
 }

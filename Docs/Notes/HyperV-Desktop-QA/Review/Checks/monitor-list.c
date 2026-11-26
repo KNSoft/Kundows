@@ -102,5 +102,5 @@ int main(void)
     run("short empty reply",0,4,0,1,STATUS_DEVICE_DATA_ERROR); run("missing result",0,5,0,1,STATUS_DEVICE_DATA_ERROR);
     run("short non-null slot",0,6,0,0,STATUS_DEVICE_DATA_ERROR);
     run("oversized non-null slot",2,7,0,0,STATUS_DEVICE_DATA_ERROR);
-    return summary("G4 private monitor query");
+    return summary("monitor-list-completion.patch");
 }

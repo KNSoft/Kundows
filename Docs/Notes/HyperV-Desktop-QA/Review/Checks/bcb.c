@@ -248,7 +248,7 @@ static void fatCase(int keepPin)
     CcSetDirtyPinnedData(b,NULL);
     if (!keepPin) CcUnpinData(b);
     NTSTATUS s=FatFlushFat(&ctx,&v);
-    printf("C2 %s: status=%08lx resident-dirty=%d writes=%d\n",
+    printf("FatFlushFat baseline %s: status=%08lx resident-dirty=%d writes=%d\n",
            keepPin ? "held pin" : "last pin released",(ULONG)s,mmDirty,writes);
     ASSERT(s==0 && (keepPin ? (writes==1 && !mmDirty) : (!writes && mmDirty)));
     if (keepPin) CcUnpinData(b);
@@ -338,5 +338,5 @@ int main(int argc, char **argv)
     run("pin residency failure",1,0,PIN_WAIT,0,0,0);
     run("duplicate pin residency failure",1,2,PIN_WAIT,0,0,0);
     fatCase(1); fatCase(0);
-    return summary("C1");
+    return summary("cc-duplicate-bcb.patch");
 }

@@ -1,4 +1,4 @@
-# C2 根因下钻：脏 BCB 在最后一个 repin 释放时被摘链
+# FAT32 整卷漏刷的根因：脏 BCB 在最后一个 repin 释放时被摘链
 
 **本次漏刷已经定位到 ReactOS CC 的 BCB 生命周期，而不是移植的 FastFAT 扫描本身。** 观察版内核在同一个独立 [`fatflush.exe`](../ApiTests/README.md) 上记录到：普通 pin 释放后，目标仍有一个 repin 引用；`CcUnpinRepinnedBcb(FALSE)` 释放最后引用时，BCB 和缓存视图仍脏，但记录被摘链。随后 `FatFlushFat` 以 `PIN_IF_BCB` 查询同一整页，没有找到任何重叠 BCB，返回成功而没有刷这一页。
 
@@ -6,11 +6,11 @@
 
 这是对[整卷漏刷](FlushBoundary.md)的内部定位，不是一个新的通用 CC 修复。本页探针和因果干预不进入正式补丁队列；当时保留的 FastFAT 整卷兜底，已在后续补丁整理中改由完整 CC 方案替代，用户要求仅作本地提交、未发布新介质。
 
-**后续进展：** [完整 CC 所有权候选](../Review/CcOwnership.md)已补齐成功写回后的退休，在原 FastFAT 上通过 54 项内核检查、原 EXE 两份 FAT 各 128/128，以及三次真实卷卸载 / 重挂、24 MiB 逐字节读回。随后已按修复点整理为工作区的 `cc-bcb-ownership`，不再叠加旧两份 CC 补丁；新默认介质尚未验证，不要把它与本页的 Keep+Find 因果干预混为同一补丁。
+**后续进展：** [完整 CC 所有权候选](../Review/CcOwnership.md)已补齐成功写回后的退休，在原 FastFAT 上通过 54 项内核检查、原 EXE 两份 FAT 各 128/128，以及三次真实卷卸载 / 重挂、24 MiB 逐字节读回。随后已按修复点整理为工作区的 `cc-bcb-ownership.patch`，不再叠加旧两份 CC 补丁；新默认介质尚未验证，不要把它与本页的 Keep+Find 因果干预混为同一补丁。
 
 ## 同一次来宾运行的证据
 
-ReactOS 固定版本 `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，原 Hyper-V Gen 1 / 1 vCPU / 1 GiB 夹具。与无探针的修前对照使用同一份桌面安装副本、同一份 512 MiB FAT32 空盘模板、同一个 7168 字节 EXE。保留不含 C2 的 `fastfat.sys`，只换一个独立链接的观察版内核。
+ReactOS 固定版本 `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，原 Hyper-V Gen 1 / 1 vCPU / 1 GiB 夹具。与无探针的修前对照使用同一份桌面安装副本、同一份 512 MiB FAT32 空盘模板、同一个 7168 字节 EXE。保留不含 `fastfat-volume-dirty-runs.patch` 的 `fastfat.sys`，只换一个独立链接的观察版内核。
 
 - 实际安装名为 `ntoskrnl.exe` 的内核是 SMP 构建 `ntkrnlmp`；原 SHA-256 `CCAB9C71469DDD631BAA456E0DF1D7C686BBA157A38B6735AFB12ECE4886CF9F`，观察版 `CD5E7315CF09F8E9E40C0861DB7CAEB5B8D3BDC2B090111D1730A560AA8A44F0`。
 - FastFAT 保持 `C31CCEC07F365CCE759B6DC3550C689A0BFA6D4B8FD2B3E99481D822450713F5`；EXE 保持 `09C2AB157C56173FE0AD36DBA023A44D051DAC25A7A932FF7F29C459F407E986`。
@@ -34,7 +34,7 @@ ReactOS 固定版本 `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`，原 Hyper-V Ge
 
 ## 2×2 因果实验：只换 CC，不换 FastFAT
 
-在观察版之外再独立编译三个内核。仍从同一桌面基盘和空测试盘模板复制，四轮 EXE、FastFAT、数据盘参数及分配区间全部相同，均未启用 C2 整卷兜底。两处干预只对观察器选定的范围生效：
+在观察版之外再独立编译三个内核。仍从同一桌面基盘和空测试盘模板复制，四轮 EXE、FastFAT、数据盘参数及分配区间全部相同，均未启用 `fastfat-volume-dirty-runs.patch` 整卷兜底。两处干预只对观察器选定的范围生效：
 
 - **Keep：** `RefCount` 减到零且目标 BCB / VACB 仍标脏时，暂不摘链和释放；覆盖普通 unpin 与 unpin-repinned 两条出口。
 - **Find：** pin 查找允许上述目标脏 BCB 的 `PinCount == 0`。
@@ -88,9 +88,9 @@ Windows write-through 的内部顺序还不同：`CcUnpinRepinnedBcb` 可先以 
 | 持有整页 pin，只查询其中一扇区 | 是 | 是 | 命中 |
 | 只持有子页 pin，查询整个页 | 是，但不覆盖 | 是 | 未命中 |
 
-这些是实现现状的观察，**不计成“13 个兼容性用例通过”**，也不把错误的 miss 固化为未来 CC 必须遵守的断言。既有 C1 引用/锁回归仍为 x86、x64 各 12/12。
+这些是实现现状的观察，**不计成“13 个兼容性用例通过”**，也不把错误的 miss 固化为未来 CC 必须遵守的断言。既有 `cc-duplicate-bcb.patch` 引用/锁回归仍为 x86、x64 各 12/12。
 
-本轮新增观察模式后，既有整套宿主回归在 x86、x64 均通过，包括 M1 21/21、C1 12/12、F1 10/10、C2 整卷 16/16、G3 5/5、G1 8/8 和 G4 私有查询 14/14；默认产物与正式 ISO 未加入探针或因果干预。
+本轮新增观察模式后，既有整套宿主回归在 x86、x64 均通过，包括 `mm-flush-status.patch` 21/21、`cc-duplicate-bcb.patch` 12/12、`fastfat-clean-after-flush.patch` 10/10、`fastfat-volume-dirty-runs.patch` 整卷 16/16、`user-init-unlock.patch` 5/5、`monitor-relation-completion.patch` 8/8 和 `monitor-list-completion.patch` 私有查询 14/14；默认产物与正式 ISO 未加入探针或因果干预。
 
 正式修复至少要一起解决：
 
@@ -104,9 +104,9 @@ Windows write-through 的内部顺序还不同：`CcUnpinRepinnedBcb` 可先以 
 
 ### 后续正式方案：只修 CC，保留 FastFAT
 
-用户指定的目标是 **CC-only**，不是把整卷补刷永久放在 FastFAT。2×2 实验已证明这条方向可行。正式版本需在不含 C2 整卷兜底的相同 FastFAT 上，通过 BCB 写回/失败重试/回收的受控回归和同一个 EXE 的来宾前后对照；之后才从默认队列撤下 `fastfat-volume-dirty-runs`。已有 F1 等无关修复不因这一目标而撤销。
+用户指定的目标是 **CC-only**，不是把整卷补刷永久放在 FastFAT。2×2 实验已证明这条方向可行。正式版本需在不含 `fastfat-volume-dirty-runs.patch` 整卷兜底的相同 FastFAT 上，通过 BCB 写回/失败重试/回收的受控回归和同一个 EXE 的来宾前后对照；之后才从默认队列撤下 `fastfat-volume-dirty-runs.patch`。已有 `fastfat-clean-after-flush.patch` 等无关修复不因这一目标而撤销。
 
-本页第一阶段交付的是根因证据与定点干预，**不能直接当作可替代 C2 的通用 CC 生命周期补丁**。尤其不能将实验的 `BCB.Dirty && VACB.Dirty` 判定直接推广到后台并发写、purge 或卸载。后续候选及各出口的所有权、重试验证另见上面的进展链接，而不是只以单个正常刷卷 EXE 通过作结论。
+本页第一阶段交付的是根因证据与定点干预，**不能直接当作可替代 `fastfat-volume-dirty-runs.patch` 的通用 CC 生命周期补丁**。尤其不能将实验的 `BCB.Dirty && VACB.Dirty` 判定直接推广到后台并发写、purge 或卸载。后续候选及各出口的所有权、重试验证另见上面的进展链接，而不是只以单个正常刷卷 EXE 通过作结论。
 
 随后已用[独立内核诊断驱动在 Hyper-V 验证](../KernelTests/Results.md)：相同的两个内核各执行 8 个条件 / 39 个检查。Keep+Find 补回了全部 5 个脏记录命中，但在显式/后台写回、失败后重试、受控两线程修改和截断之后，7 个回收检查全部失败；对照的这 7 个均通过。两轮均无测试执行错误。因此“还缺回收”已是来宾实测，不再只是代码审查的风险推断。
 
@@ -120,7 +120,7 @@ python Docs/Notes/HyperV-Desktop-QA/FatTrace/read-cc-lifetime.py <observed.vmrs>
 
 前两条在对应架构的 MSVC 开发者环境运行；第三条在 x64 Windows 上只读访问保存的来宾内存。读取器核对活动表自指针、容量、事件完整性和目标范围；序号与 QPC 只用于该次来宾内的顺序，不与宿主时钟相减。
 
-观察器源码在 [`cc-lifetime-probe.patch`](cc-lifetime-probe.patch)，只适用于本夹具和已有正式 CC 补丁；不依赖 C2 整卷补丁。实际实验从已有 MSBuild 编译/链接记录生成独立 `pin.obj` 和内核，未覆盖默认产物、未改源码树。修正后的观察单元以 `/WX` 编译。第一份观察器因未声明的取进程名函数导致指针截断、启动蓝屏；该失败介质没有执行 EXE，不作为 CC 故障证据。后来改为读取已声明的进程结构字段，重新编译并从全新安装副本运行，才得到本页数据。
+观察器源码在 [`cc-lifetime-probe.patch`](cc-lifetime-probe.patch)，只适用于本夹具和已有正式 CC 补丁；不依赖 `fastfat-volume-dirty-runs.patch` 整卷补丁。实际实验从已有 MSBuild 编译/链接记录生成独立 `pin.obj` 和内核，未覆盖默认产物、未改源码树。修正后的观察单元以 `/WX` 编译。第一份观察器因未声明的取进程名函数导致指针截断、启动蓝屏；该失败介质没有执行 EXE，不作为 CC 故障证据。后来改为读取已声明的进程结构字段，重新编译并从全新安装副本运行，才得到本页数据。
 
 `OutDir/CcContract-4fbb/` 保存 `observed.vmrs`、`events.tsv`、`Life-result.txt`、`BeforeLifeObs.log`、桌面/关机回执、独立内核/PDB、编译链接响应文件，以及 `windows-{pin,unpin,init,fat,...}.txt` 的原始 CDB 输出。`find/keep/both` 各有对应独立构建目录、`*-result.txt`、`*-observed.vmrs` 和 `*-events.tsv`。所有运行后均已正常关机并还原夹具；默认 ISO SHA-256 仍为 `FE13B2AC52AF5AE6BD121EF39032744F77FBB33894C3BFC423E4FAC51111BC09`。
 

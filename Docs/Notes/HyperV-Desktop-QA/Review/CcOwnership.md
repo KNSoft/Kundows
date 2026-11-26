@@ -2,11 +2,11 @@
 
 本轮按用户要求，不把 ReactOS 多 CPU 来宾能否稳定启动作为门槛；新增代码的共享状态、锁顺序和交错在代码层面审查，并以 1 vCPU 来宾中的事件屏障验证。**真实卷卸载已经在 Hyper-V 的独立 FAT32 测试盘上执行，不是尚待模拟的条件。**
 
-原始增量候选为 [`cc-ownership-candidate.patch`](cc-ownership-candidate.patch)，仅改 `ntoskrnl/cc/pin.c`、`ntoskrnl/cc/view.c` 和内部 `cc.h`。下面的来宾记录来自该独立候选：FastFAT 保持不含 C2 整卷兜底的原测试驱动，F1 等无关修复不变。
+原始增量候选为 [`cc-ownership-candidate.patch`](cc-ownership-candidate.patch)，仅改 `ntoskrnl/cc/pin.c`、`ntoskrnl/cc/view.c` 和内部 `cc.h`。下面的来宾记录来自该独立候选：FastFAT 保持不含 `fastfat-volume-dirty-runs.patch` 整卷兜底的原测试驱动，`fastfat-clean-after-flush.patch` 等无关修复不变。
 
-**按用户要求整理补丁并仅作本地提交，不表示已发布新介质。** 默认队列改为完整的 [`cc-bcb-ownership.patch`](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-bcb-ownership.patch)；旧两份 CC 补丁与 C2 已移到 `Retired`，F1 保留。原增量候选只供历史证据对照，不能再叠加到新队列。整理说明见文末。
+这一轮默认队列改用 [`cc-bcb-ownership.patch`](../../../../Upstream/ReactOS/Patches/Runtime/cc-bcb-ownership.patch)，保留 `fastfat-clean-after-flush.patch`。被替代的三个补丁现作为 [FAT32 调查附件](../../FAT32-Volume-Flush/README.md#superseded-patch-files)留存。原增量候选只用于核对本次实测，不能叠加到新队列。
 
-The 54/54 result below belongs to the earlier ReactOS candidate. The [consolidated investigation](CcSizeCompatibility.md) explains which assumptions the Windows tests overturned and which fix went into the validated BootCD.
+The 54/54 result below belongs to the earlier ReactOS candidate. The [consolidated investigation](../../FAT32-Volume-Flush/README.md) explains which assumptions the Windows tests overturned and which fix went into the validated BootCD.
 
 ## 原先的七个失败具体是什么
 
@@ -84,7 +84,7 @@ purge 全视图 → 必须因 B 的活动 pin 返回 FALSE
 
 在这些条件下，未发现本候选新增状态的无锁更新、等待前缺引用或新增锁反转。结论依赖正常的 CC 调用方契约：caller 持有有效 BCB 引用才使用它，文件系统在 cache map 最终删除之前停止活动 pin，MM 的成功刷新代表相应写入完成。没有以“多 CPU VM 启动成功”代替上述审查，也不声称穷尽所有并发交错。
 
-**独立边界：** 旧 MM 从非 CC 路径进入的重叠写回仍是已有 `mm-flush-collision` 调查项；本候选只为元数据 stream 的 CC 入口加 reservation，不声称修复整个 MM 的 page-out/shutdown 并发或 `MmDisableModifiedWriteOfSection` 桩。这个区别也必须保留在 SMP 结论里。
+**独立边界：** 旧 MM 从非 CC 路径进入的重叠写回仍是已有 `mm-flush-collision.patch` 调查项；本候选只为元数据 stream 的 CC 入口加 reservation，不声称修复整个 MM 的 page-out/shutdown 并发或 `MmDisableModifiedWriteOfSection` 桩。这个区别也必须保留在 SMP 结论里。
 
 ## 真实 FAT32 卷卸载
 
@@ -115,10 +115,10 @@ purge 全视图 → 必须因 B 的活动 pin 返回 FALSE
 | --- | --- |
 | V3 诊断工具，十个条件 | **54/54**，执行错误 0、退出 0 |
 | 新增 case 10：lazy WRITE pending 时显式 flush | 在完成旧 IRP **之前**返回 `STATUS_DEVICE_BUSY`；旧写完成后重试成功，后端为 `0x3a`，可 purge |
-| 原 `fatflush.exe`，原 FastFAT 无 C2 | FAT1、FAT2 各 **128/128**，退出 0 |
+| 原 `fatflush.exe`，原 FastFAT 无 `fastfat-volume-dirty-runs.patch` | FAT1、FAT2 各 **128/128**，退出 0 |
 | 独立 `fatcycle.exe` | 三次真实锁定 / 卸载 / 重新挂载成功，**24 MiB** 逐字节一致，退出 0 |
 | x86 / x64 所有权受控检查 | 各 **16/16** |
-| 默认源码及最终候选 overlay 的既有宿主回归 | 两种源码、两架构均通过 M1 21/21、C1 12/12、F1 10/10、C2 16/16、G3 5/5、G1 8/8、G4 14/14 |
+| 默认源码及最终候选 overlay 的既有宿主回归 | 两种源码、两架构均通过 `mm-flush-status.patch` 21/21、`cc-duplicate-bcb.patch` 12/12、`fastfat-clean-after-flush.patch` 10/10、`fastfat-volume-dirty-runs.patch` 16/16、`user-init-unlock.patch` 5/5、`monitor-relation-completion.patch` 8/8、`monitor-list-completion.patch` 14/14 |
 | 默认补丁集应用 / 反向识别 / 回退 | 19、20、21、22 份四种组合全部通过；不含本候选 |
 
 V3 的 case 3 实际出现一次分页写错误、恢复重试后成功；case 5 仍有两次受事件控制的写入；case 6、10 各观察到一次实际 lazy 回调。诊断后端的内容检查仍仅为模式页首字节，不借此宣称它做了整页逐字节核对；逐字节检查由独立真实卷工具完成。
@@ -127,7 +127,7 @@ V3 的 case 3 实际出现一次分页写错误、恢复重试后成功；case 5
 
 | 产物 | SHA-256 |
 | --- | --- |
-| 原 FastFAT，无 C2 | `C31CCEC07F365CCE759B6DC3550C689A0BFA6D4B8FD2B3E99481D822450713F5` |
+| 原 FastFAT，无 `fastfat-volume-dirty-runs.patch` | `C31CCEC07F365CCE759B6DC3550C689A0BFA6D4B8FD2B3E99481D822450713F5` |
 | V3 `cccycle.sys` | `AF06DE9AB092DF9ED72FADE70511B97DE7949E7E2B8272493E9DDC71417F5E43` |
 | V3 `cccycle.exe` | `556784FB59D358C104C834E45D5B5BE148F9DCC44F1511C8E546828E5A5EBFC1` |
 | 原 `fatflush.exe` | `09C2AB157C56173FE0AD36DBA023A44D051DAC25A7A932FF7F29C459F407E986` |
@@ -144,7 +144,7 @@ python Docs/Notes/HyperV-Desktop-QA/Review/Checks/run.py Upstream/ReactOS/Source
 python Docs/Notes/HyperV-Desktop-QA/KernelTests/summarize.py <控制器日志>
 ```
 
-上述历史增量候选在原默认 CC 修复之上应用；它重写了若干旧补丁的目标函数，**不能不处理依赖和反向识别就直接塞进自动补丁队列**。候选验证时未撤默认 C2；随后的整理改为合并这些 BCB 修复，而不是叠加原增量文件。
+上述历史增量候选在原默认 CC 修复之上应用；它重写了若干旧补丁的目标函数，**不能不处理依赖和反向识别就直接塞进自动补丁队列**。候选验证时未撤默认 `fastfat-volume-dirty-runs.patch`；随后的整理改为合并这些 BCB 修复，而不是叠加原增量文件。
 
 原始构建、响应文件、内核/PDB、来宾日志、保存内存和恢复回执分别在 `OutDir/CcOwnership-4fbb/`、`OutDir/CcOwnership2-4fbb/`、`OutDir/CcOwnership3-4fbb/`。最终原始输出为 `BeforeOwnership3-01.log`、`BeforeOwnership3Volume01.log`，只读核对为 `Verify-result.txt`；逐 case 汇总另保存到上述 TSV。保存的补丁 hunks 已与最终私有编译单元逐字节（规范化换行后）核对，并在隔离副本验证应用和回退。
 
@@ -156,19 +156,19 @@ python Docs/Notes/HyperV-Desktop-QA/KernelTests/summarize.py <控制器日志>
 
 | 修复点 | 整理结果 |
 | --- | --- |
-| BCB 保留、查找、引用及回收 | 新 `cc-bcb-ownership` 合并旧 `cc-pinned-dirty`、`cc-duplicate-bcb` 和已验证候选；字段、各出口和写回完成处理作为完整单元 |
-| MM 写错误传播、CC 有界重试 | `mm-flush-status` 保留，避免把不同责任揉成一个大补丁 |
-| FAT 卷失败后不能标清洁 | `fastfat-clean-after-flush`（F1）保留 |
-| FastFAT C2 整卷补刷 | 从默认队列撤下，原 hunks 移到 `Retired`，不作为可选修复重新启用 |
-| 独立 MM 写碰撞 | `mm-flush-collision` 仍仅由 `--image-fixes` 选择，未扩大本轮范围 |
+| BCB 保留、查找、引用及回收 | 新 `cc-bcb-ownership.patch` 合并旧 `cc-pinned-dirty.patch`、`cc-duplicate-bcb.patch` 和已验证候选；字段、各出口和写回完成处理作为完整单元 |
+| MM 写错误传播、CC 有界重试 | `mm-flush-status.patch` 保留，避免把不同责任揉成一个大补丁 |
+| FAT 卷失败后不能标清洁 | 保留 `fastfat-clean-after-flush.patch` |
+| FastFAT 整卷补刷 | [`fastfat-volume-dirty-runs.patch`](../../FAT32-Volume-Flush/Assets/fastfat-volume-dirty-runs.patch) 只在文档中归档 |
+| 独立 MM 写碰撞 | `mm-flush-collision.patch` 仍仅由 `--image-fixes` 选择，未扩大本轮范围 |
 
-新 ownership 补丁直接以固定上游为基准，不要求先叠加旧两份 CC 补丁。它与 `mm-flush-status` 的 hunks 不相互覆盖；二者仍有行为上的配套关系：MM 必须正确报告写失败，CC 才能判断是否允许成功退休。
+新 ownership 补丁直接以固定上游为基准，不要求先叠加旧两份 CC 补丁。它与 `mm-flush-status.patch` 的 hunks 不相互覆盖；二者仍有行为上的配套关系：MM 必须正确报告写失败，CC 才能判断是否允许成功退休。
 
 迁移当前源码前，已将四个相关文件与原补丁组合在独立索引中生成的内容核对一致，保存字节备份后，仅反向撤掉已识别的三份旧补丁，再应用新 ownership 补丁。迁移后的三个 CC 文件与此前实测候选逐字节（规范化换行后）一致；其他子模块修改未重置、未清理。
 
-轻量检查：新默认 / ARM64、带 / 不带可选修复的 **17 / 18 / 19 / 20** 份组合均通过应用、逐份反向识别、完整回退；CC ownership / MM status 交换顺序也通过，结果树一致。x86 / x64 宿主检查均通过：M1 21/21、C1 12/12、F1 10/10、所有权 16/16，以及新的生产 CC → 原 `FatFlushVolume` 联合检查 **18/18**；其他既有检查也通过。
+轻量检查：新默认 / ARM64、带 / 不带可选修复的 **17 / 18 / 19 / 20** 份组合均通过应用、逐份反向识别、完整回退；CC ownership / MM status 交换顺序也通过，结果树一致。x86 / x64 宿主检查均通过：`mm-flush-status.patch` 21/21、`cc-duplicate-bcb.patch` 12/12、`fastfat-clean-after-flush.patch` 10/10、所有权 16/16，以及新的生产 CC → 原 `FatFlushVolume` 联合检查 **18/18**；其他既有检查也通过。
 
-旧 C2 的 16 项保留在 `Checks/fat-volume-legacy.c`，只用于复核历史 workaround，不再冒充新 CC 路径的测试。当前 `--suite fat-volume` 在有 ownership 修复时执行 `cc-volume.inc` 的 18 项，调用真实生产 pin / unpin 与未修改的 FastFAT 扫描；MM/设备边界仍是宿主桩，不替代上面的真实来宾记录。
+旧 `fastfat-volume-dirty-runs.patch` 的 16 项保留在 `Checks/fat-volume-legacy.c`，只用于复核历史 workaround，不再冒充新 CC 路径的测试。当前 `--suite fat-volume` 在有 ownership 修复时执行 `cc-volume.inc` 的 18 项，调用真实生产 pin / unpin 与未修改的 FastFAT 扫描；MM/设备边界仍是宿主桩，不替代上面的真实来宾记录。
 
 用户随后明确要求本轮先整理、不做复杂构建和验证。已停止构建链：在收到该指示前，Configure 和 Build Solution 已完成（1296 成功、0 失败、123 无需更新、14 跳过）；当时正在进行的 MakeISO 已终止，未继续运行虚拟机。发布位置的 ISO 仍是原 `FE13B2AC…BC09`，不把未完成的介质步骤报告为成功。用户其后要求仅提交本地 commit、不 push；不得把此前私有候选的来宾结果写成新默认介质已经实测。
 

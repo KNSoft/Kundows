@@ -4,17 +4,17 @@
 
 ## 决策清单
 
-后续在同一配置的 Hyper-V 来宾确认并修复了 [FAT 整卷刷写提前返回](FatTrace/FlushBoundary.md)：同一扇区的两份镜像由返回后仍过期，变为返回前均已写好。旧盘首次分歧仍缺少当时的写入记录。
+后续在同一配置的 Hyper-V 来宾确认并修复了 [FAT32 整卷刷写提前返回](../FAT32-Volume-Flush/README.md)：同一扇区的两份镜像由返回后仍过期，变为返回前均已写好。旧盘首次分歧仍缺少当时的写入记录。
 
 同一镜像做了两次独立的 FAT 快速格式化安装。第一块盘在图形安装前卡住；第二块盘用默认启动项正常装到桌面。以下应用结果都来自**第二块盘已安装的系统**。四个候选 EXE 用相同的固定源码、MSVC、x64 Debug 和 `0x600` 在隔离树构建，通过只读测试光盘并排运行。没有替换来宾系统文件。
 
 | 项目 | 实际影响 | 原版 → 候选通过数 | 难度、本库建议 | 上游建议 |
 | --- | --- | ---: | --- | --- |
-| 安装后首次硬盘启动 | 同一故障盘的 Debug 入口灰屏，普通入口蓝屏；FAT32 两份分配表不一致 | 只修目标关系查询会在后续 IOCTL 断言；再修显示器列表查询后，不修 FAT 也能从普通入口到向导 | [G1](Review/Verified.md)、[G4](Review/MonitorList.md) 已修；原始 FAT 分歧仍待定位 | 建议分开反馈显示请求的完成缺陷与磁盘实证 |
-| SORT | 没有末尾换行时，最后一个字符被静默删除，退出码仍是 0 | 3/5 → 5/5 | **低**；默认启用[末行修复](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-sort-eof.patch) | 建议独立报修 |
-| WHERE | 显式限定目录却命中当前目录；`/Q` 可能返回假成功 | 1/5 → 5/5 | **低**；默认启用[范围修复](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-where-scoped.patch) | 建议独立报修 |
+| 安装后首次硬盘启动 | 同一故障盘的 Debug 入口灰屏，普通入口蓝屏；FAT32 两份分配表不一致 | 只修目标关系查询会在后续 IOCTL 断言；再修显示器列表查询后，[不修 FAT 也能从普通入口到向导](Review/MonitorList.md) | [`monitor-relation-completion.patch`](../../../Upstream/ReactOS/Patches/Runtime/monitor-relation-completion.patch)、[`monitor-list-completion.patch`](../../../Upstream/ReactOS/Patches/Runtime/monitor-list-completion.patch) 已接入；原始 FAT 分歧仍待定位 | 建议分开反馈显示请求的完成缺陷与磁盘实证 |
+| SORT | 没有末尾换行时，最后一个字符被静默删除，退出码仍是 0 | 3/5 → 5/5 | **低**；默认启用[末行修复](../../../Upstream/ReactOS/Patches/Runtime/sort-eof.patch) | 建议独立报修 |
+| WHERE | 显式限定目录却命中当前目录；`/Q` 可能返回假成功 | 1/5 → 5/5 | **低**；默认启用[范围修复](../../../Upstream/ReactOS/Patches/Runtime/where-scoped.patch) | 建议独立报修 |
 | FINDSTR | `/B`、`/E`、`/X` 对普通单词退化成子串匹配，`/V` 还可能给错退出码 | 1/7 → 7/7 | **保留候选**；[短行补丁](Candidates/findstr-anchors.patch)把缓冲区边界当行首/尾；见[新增反例](Review/Verified.md#findstr边界反例) | 先与已有 FINDSTR 工单协调范围 |
-| 记事本 | 文件以 LF 为主，编辑一个字符并保存，却把所有行改成 CR | 3/4 → 4/4 | **低**；默认启用[换行选择修复](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-notepad-majority-eol.patch) | 建议按行为回归反馈，附引入变更和输入字节 |
+| 记事本 | 文件以 LF 为主，编辑一个字符并保存，却把所有行改成 CR | 3/4 → 4/4 | **低**；默认启用[换行选择修复](../../../Upstream/ReactOS/Patches/Runtime/notepad-majority-eol.patch) | 建议按行为回归反馈，附引入变更和输入字节 |
 
 **合计 8/21 → 21/21**；13 个失败用例归于上表的四个应用问题。17 个命令行用例另用 Windows（build 26300）自带程序核对过输出字节和退出码。4 个记事本用例实际启动 GUI、读取编辑框、输入 `!`、执行“保存”并重读文件；依据是 ReactOS 的换行选择逻辑。每个原版应用的哈希都与安装介质相符。
 
@@ -78,6 +78,6 @@ Debug 入口的 CPU 快照位于 `kdcom.dll!Cp16550ReadLsr+0x52`；栈上的可�
 
 这是最初只修字体链的对照。后续的[默认 Debug 重放](FatTrace/DebugReplay.md)从异常消息和实参依次确认了分页文件、备用注册表文件和字体的坏链。处理三项后的故障盘副本已完成安装并冷启动到桌面；本页的 21 项应用成绩仍取自**另一块未经修盘的新装磁盘**。
 
-上游有症状相关的 [CORE-17172](https://jira.reactos.org/browse/CORE-17172)（真机第三阶段 FAT32 损坏）和已解决的 [CORE-17587](https://jira.reactos.org/browse/CORE-17587)（旧版 x86）。两份报告的环境和停止码不等同于本例，反馈前应先核对是否共因。交给上游时应注明使用的是 Kundows 镜像，列出本库已有的内核补丁；特别是当时的 [CC 缓存写回修复](../../../Upstream/ReactOS/Patches/Retired/ReactOS-cc-pinned-dirty.patch)已启用，[MM 可选修复](../../../Upstream/ReactOS/Patches/Runtime/ReactOS-mm-flush-collision.patch)未启用。后续补丁已[按修复点整理](Review/CcOwnership.md#按修复点整理)，不要用当前队列反推旧故障盘包含的修复。
+上游有症状相关的 [CORE-17172](https://jira.reactos.org/browse/CORE-17172)（真机第三阶段 FAT32 损坏）和已解决的 [CORE-17587](https://jira.reactos.org/browse/CORE-17587)（旧版 x86）。两份报告的环境和停止码不等同于本例，反馈前应先核对是否共因。交给上游时应注明使用的是 Kundows 镜像，列出本库已有的内核补丁；特别是当时的 [CC 缓存写回修复](../FAT32-Volume-Flush/Assets/cc-pinned-dirty.patch)已启用，[MM 可选修复](../../../Upstream/ReactOS/Patches/Runtime/mm-flush-collision.patch)未启用。后续补丁已[按修复点整理](Review/CcOwnership.md#按修复点整理)，不要用当前队列反推旧故障盘包含的修复。
 
 后续已在**文本安装完成、首次进入图形阶段前**保留只读样本，对照两份 FAT、目录要求的链长和 CAB 中的字体，见[修后验证](Review/Verified.md)。新一轮已取得[同批镜像写入的提交内容、完成状态及读回](FatTrace/README.md)，并将原盘差异收窄到第 311 扇区；受追踪的新安装没有重现历史分歧。

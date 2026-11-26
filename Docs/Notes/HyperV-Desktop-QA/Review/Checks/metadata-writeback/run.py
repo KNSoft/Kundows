@@ -46,6 +46,7 @@ def main():
                          blob(ROOT / "Upstream/ReactOS/Source", PIN, path))
     if not args.candidate:
         sp.run(["git", "init", "-q", out], check=True)
+        # QUEUE is a historical commit: git show needs the filenames at that revision.
         for patch in ["mm-flush-status", "cc-bcb-ownership"]:
             sp.run(["git", "apply", *["--include="+p for p in FILES], "-"], cwd=out, check=True,
                    input=blob(ROOT, QUEUE, f"Upstream/ReactOS/Patches/Runtime/ReactOS-{patch}.patch"))

@@ -1,6 +1,6 @@
 # 默认 Debug 灰屏时，fastfat 在报告哪个文件？
 
-封存故障盘用原 `win32k.sys`，以及换入[通过普通入口复测的 G1/G4 版](../Review/MonitorList.md)，从默认 Debug 入口启动都停在同一处。灰屏时的保存状态给出了文件名：**`\pagefile.sys`**。在不同的副本上逐项处理后，fastfat 又依次报告 **`SYSTEM.ALT`** 和 **`PALAI.TTF`**。三条坏链均由同一条代码路径检出。处理完三项的副本用默认 Debug 入口通过了[图形安装向导](../Images/first-disk-debug-recovered-gui.png)，另一份相同处理的副本完成安装、关机并[无介质冷启动到桌面](../Images/first-disk-debug-cold-desktop.png)。各次均未连接串口调试器。
+封存故障盘用原 `win32k.sys`，以及换入[通过普通入口复测的 `monitor-relation-completion.patch`/`monitor-list-completion.patch` 版](../Review/MonitorList.md)，从默认 Debug 入口启动都停在同一处。灰屏时的保存状态给出了文件名：**`\pagefile.sys`**。在不同的副本上逐项处理后，fastfat 又依次报告 **`SYSTEM.ALT`** 和 **`PALAI.TTF`**。三条坏链均由同一条代码路径检出。处理完三项的副本用默认 Debug 入口通过了[图形安装向导](../Images/first-disk-debug-recovered-gui.png)，另一份相同处理的副本完成安装、关机并[无介质冷启动到桌面](../Images/first-disk-debug-cold-desktop.png)。各次均未连接串口调试器。
 
 ## 从 CPU 取样到错误参数
 

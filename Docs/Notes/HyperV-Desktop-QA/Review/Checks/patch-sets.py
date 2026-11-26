@@ -16,7 +16,7 @@ pin = subprocess.check_output(["git", "-C", root, "rev-parse", ":Upstream/ReactO
 
 
 def path(group, name):
-    return base / group / ("ReactOS-" + name + ".patch")
+    return base / group / (name + ".patch")
 
 
 with tempfile.TemporaryDirectory(prefix="Kundows-index-") as tmp:

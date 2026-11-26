@@ -4,12 +4,12 @@
 
 **已在真实 ReactOS 来宾中验证，不是宿主模型。** 同一个诊断驱动和控制器，在观察版内核、原 Keep+Find 实验内核各跑完整的 8 个条件 / 39 个检查；两次无加载、协议、线程等待或用例执行错误，均正常关机并还原夹具。
 
-结果不是“CC-only 正式修复已经通过”：**Keep+Find 修好了 5 个脏 BCB 命中检查，但新增 7 个回收失败。** 它仍只能作为[漏刷的因果实验](../FatTrace/CcLifetime.md)，不能替换正式的 C2 整卷兜底。
+结果不是“CC-only 正式修复已经通过”：**Keep+Find 修好了 5 个脏 BCB 命中检查，但新增 7 个回收失败。** 它仍只能作为[漏刷的因果实验](../FatTrace/CcLifetime.md)，不能替换正式的 `fastfat-volume-dirty-runs.patch` 整卷兜底。
 
 ## 配对条件
 
 - ReactOS 固定 `4fbbefd614b218afd3f0cbf09aa32998ea3ad7a6`；Hyper-V Gen 1，1 vCPU，1 GiB，同一桌面安装基盘的独立副本，8 GiB IDE 系统盘，无网络/光盘。
-- 两轮系统的 FastFAT 都是**未含 C2 整卷兜底**的 `C31CCEC07F365CCE759B6DC3550C689A0BFA6D4B8FD2B3E99481D822450713F5`。已有 C1、M1、unpin 重新发布脏位等修复仍在；观察版不是完全未打补丁的上游系统。
+- 两轮系统的 FastFAT 都是**未含 `fastfat-volume-dirty-runs.patch` 整卷兜底**的 `C31CCEC07F365CCE759B6DC3550C689A0BFA6D4B8FD2B3E99481D822450713F5`。已有 `cc-duplicate-bcb.patch`、`mm-flush-status.patch`、unpin 重新发布脏位等修复仍在；观察版不是完全未打补丁的上游系统。
 - 对照内核为 `CD5E7315CF09F8E9E40C0861DB7CAEB5B8D3BDC2B090111D1730A560AA8A44F0`；Keep+Find 为 `7D6222618A4D395EAE0E4D4221089DC6A1B6247EA1D68F370340EBAF336FB99F`，即此前已测试的相同两个私有 SMP 内核。
 - 两轮 `cccycle.sys` 均为 `ADB64DDC29177C9FD3AD4983930742D42B48229F5954FFCCDB3B21AC7C280338`；`cccycle.exe` 均为 `2308F4744763B111A50BC6AFD6156AD87B8233F6BFB7EA05E4CAC3C5DAA9B6F9`。
 - 测试数据来自驱动自己的稀疏内存 stream，不通过 FastFAT；因此不能把测试错误解释成 FastFAT 镜像写错误或宿主 VHD 故障。系统盘只用于启动、加载工具和保存输出。
