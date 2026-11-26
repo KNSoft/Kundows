@@ -1,0 +1,69 @@
+CCOBSERVE controller stdout | Windows x64 10.0.26100.9457
+VALUE <case> <field> <hex value> corresponds to Value(R, field, ...) in probe-cases.inc.
+Each stdout block is complete; encoding and line endings normalized to UTF-8/LF.
+Original filenames and SHA-256 are relative to OutDir/WindowsCc-Reference-20261126/.
+
+V4, Case 1: first run; close timed out.
+win-case1-trace1-guest.txt  562103967952c58646e41e229c71a5a9ed3dac769e81883e7b393d48ddced748
+Host receipt: win-case1-trace1-result.txt (ExitCode=2).
+
+OBSERVATION ONLY: no Windows expectation is preset
+BEGIN 1 idle-dirty break=1
+VALUE 1 1 00000000
+VALUE 1 2 00000001
+VALUE 1 3 00000000
+VALUE 1 4 00000051
+VALUE 1 5 00000000
+VALUE 1 6 00001000
+VALUE 1 20 00000001
+END 1 status=c00000b5 reads=1 writes=1 errors=0 lazy=0
+EXECUTION_ERRORS=1
+
+V4b, Case 1: cleanup revision; same measurements.
+win-case1-v4b-guest.txt  3393c6ee8f9f308f2af65e47e72db0470d2f8158a77f22ae367ee667e0eb35fe
+Host receipt: win-case1-v4b-result.txt (ExitCode=0).
+
+OBSERVATION ONLY: no Windows expectation is preset
+BEGIN 1 idle-dirty break=0
+VALUE 1 1 00000000
+VALUE 1 2 00000001
+VALUE 1 3 00000000
+VALUE 1 4 00000051
+VALUE 1 5 00000000
+VALUE 1 6 00001000
+VALUE 1 20 00000001
+END 1 status=00000000 reads=1 writes=1 errors=0 lazy=0
+EXECUTION_ERRORS=0
+
+V4b, Case 3: the lazy write did not enter; phase 301 was not reached.
+win-case3-v4b-guest.txt  0f39564d3ad6f318d9009350b9fd8f11cc286c7bc682e2eb5da13287bda333dd
+Host receipt: win-case3-v4b-result.txt (ExitCode=2).
+
+OBSERVATION ONLY: no Windows expectation is preset
+BEGIN 3 lazy-explicit-overlap break=1
+VALUE 3 1 00000000
+VALUE 3 2 00000102
+END 3 status=00000102 reads=1 writes=0 errors=0 lazy=0
+EXECUTION_ERRORS=1
+
+V4b, Case 4: guest log recovered after the host wrapper timed out.
+win-case4-v4b-recovered-guest.txt  5b5b635bd95a30799838f071d3932eb65fdcc2f4edb72b3f6cfdd8f27ca36604
+Original controller process exit code: not recovered.
+
+OBSERVATION ONLY: no Windows expectation is preset
+BEGIN 4 pin-versus-flush break=1
+VALUE 4 1 00000000
+VALUE 4 2 00000000
+VALUE 4 3 00000000
+VALUE 4 4 00000102
+VALUE 4 5 00000103
+VALUE 4 6 00000000
+VALUE 4 7 00000000
+VALUE 4 8 00000000
+VALUE 4 9 00000064
+VALUE 4 10 00000000
+VALUE 4 11 00000000
+VALUE 4 12 00000064
+VALUE 4 20 00000001
+END 4 status=00000000 reads=1 writes=1 errors=0 lazy=0
+EXECUTION_ERRORS=0

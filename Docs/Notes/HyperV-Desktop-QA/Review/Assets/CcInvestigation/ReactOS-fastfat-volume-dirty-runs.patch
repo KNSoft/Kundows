@@ -1,0 +1,66 @@
+Historical C2 workaround, replaced by Runtime/ReactOS-cc-bcb-ownership.patch.
+Not selected by Configure.cmd. FastFAT keeps its original FAT scan.
+The independent fastfat-clean-after-flush (F1) patch remains active.
+
+Finish a whole-volume flush when the last FAT pin has been released.
+On 4fbbefd614b x64 Debug, a successful NtFlushBuffersFile left both copies
+of FAT32 sector 544 at their old contents. All four uncached whole-disk
+reads completed with 512 bytes. The allocation's pinned sample matched the
+eventual disk contents; the two writes did not complete until after return.
+With this change both writes completed inside the same volume flush and
+both immediate reads matched the pinned sample. On x86 and x64 MSVC the
+same 16 whole-volume regression cases went from 5/16 to 16/16.
+
+Keep the original FAT pin protocol. Flush only remaining DirtyFatMcb runs
+on the volume path; the paging write owns their removal. Propagate cache
+errors and refuse success if a previously flushed range is still pending.
+This is not a repair for damaged disks or a change to general CC/MM policy.
+
+diff --git a/drivers/filesystems/fastfat/flush.c b/drivers/filesystems/fastfat/flush.c
+--- a/drivers/filesystems/fastfat/flush.c
++++ b/drivers/filesystems/fastfat/flush.c
+@@ -1019,6 +1019,44 @@
+ 
+     Status = FatFlushFat( IrpContext, Vcb );
+ 
++    if (NT_SUCCESS(Status)) {
++
++        VBO Vbo;
++        LBO Lbo;
++        ULONG ByteCount;
++        LARGE_INTEGER Offset;
++        LONGLONG FlushedThrough = 0;
++        IO_STATUS_BLOCK Iosb;
++
++        //
++        //  In ReactOS the last unpin can discard the BCB while its data
++        //  is still dirty.  Finish the whole-volume flush using the FAT
++        //  sectors still owed to disk.  Entry 0 is the reserved-area hole;
++        //  entry 1 is the first dirty run until paging I/O removes it.
++        //
++
++        while (FatGetNextMcbEntry( Vcb, &Vcb->DirtyFatMcb, 1,
++                                   &Vbo, &Lbo, &ByteCount )) {
++
++            NT_ASSERT( Lbo == Vbo );
++            Offset.QuadPart = Vbo;
++            if (Offset.QuadPart < FlushedThrough || ByteCount == 0) {
++
++                // An overlapping write may still be in flight. Do not
++                // spin under the volume lock or declare the volume clean.
++                Status = STATUS_DEVICE_BUSY;
++                break;
++            }
++
++            FlushedThrough = Offset.QuadPart + ByteCount;
++            CcFlushCache( &Vcb->SectionObjectPointers, &Offset, ByteCount, &Iosb );
++            Status = Iosb.Status;
++            if (!NT_SUCCESS(Status)) {
++                break;
++            }
++        }
++    }
++
+     if (!NT_SUCCESS(Status)) {
+ 
+         ReturnStatus = Status;

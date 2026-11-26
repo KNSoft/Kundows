@@ -1,0 +1,39 @@
+WinDbg | Windows x64 ntoskrnl.exe 10.0.26100.9457 | CCOBSERVE V4, phase 101
+The caller had just released the pin. Both commands are from the original
+session; addresses identify this stop only. This was the run whose close timed out.
+
+Command (McpRelay/0032-client.json):
+k; .frame 1; dv /t
+Selected RunCase locals (relay-case1-phase-context-result.json):
+unsigned long Id = 1
+struct KW_STREAM * S = 0xffff9585`9d003000
+
+Command (McpRelay/0036-client.json):
+dt CCOBSERVE!KW_STREAM 0xffff95859d003000 WatchedBcb File; dt nt!_BCB poi(0xffff95859d003000+@@c++(#FIELD_OFFSET(CCOBSERVE!KW_STREAM,WatchedBcb))); dt nt!_SHARED_CACHE_MAP poi(poi(0xffff95859d003000+@@c++(#FIELD_OFFSET(CCOBSERVE!KW_STREAM,WatchedBcb)))+0xb0) Flags DirtyPages BcbList
+Output (relay-case1-bcb-result.json; one copy of the returned text):
+   +0x168 File       : 0xffff9585`a5263220 _FILE_OBJECT
+   +0x190 WatchedBcb : 0xffff9585`a4737690 Void
+   +0x000 Dummy            : _MBCB
+   +0x000 NodeTypeCode     : 0n765
+   +0x002 Dirty            : 0x1 ''
+   +0x003 Reserved         : 0 ''
+   +0x004 ByteLength       : 0x1000
+   +0x008 FileOffset       : _LARGE_INTEGER 0x346000
+   +0x010 BcbLinks         : _LIST_ENTRY [ 0xffff9585`a345afd8 - 0xffff9585`a345afe8 ]
+   +0x020 BeyondLastByte   : _LARGE_INTEGER 0x347000
+   +0x028 OldestLsn        : _LARGE_INTEGER 0x0
+   +0x030 NewestLsn        : _LARGE_INTEGER 0x0
+   +0x038 Vacb             : (null)
+   +0x040 PinCount         : 0
+   +0x048 Resource         : _ERESOURCE
+   +0x0b0 SharedCacheMap   : 0xffff9585`a1548010 _SHARED_CACHE_MAP
+   +0x0b8 BaseAddress      : (null)
+   +0x010 BcbList    : _LIST_ENTRY [ 0xffff9585`a345afe8 - 0xffff9585`a345af78 ]
+   +0x070 DirtyPages : 1
+   +0x098 Flags      : 0x200205
+
+Input files in OutDir/WindowsCc-Reference-20261126/ and original SHA-256:
+  McpRelay/0032-client.json  59f14e286fad1e38829c2ec9090115ff63c13b5cae09bb9fe5fe3945a5feb119
+  relay-case1-phase-context-result.json  f2ea87f992d75b7099a478f445596829c0fe909a11d73aa959650bd4daced914
+  McpRelay/0036-client.json  7415548a4c4796e413e32d7e7033eb2348693dbeadf4dec63ebb7467a7813621
+  relay-case1-bcb-result.json  1500d30c0f5c8929f3ff8ad7911027a0a1768e452cd8d1c8541ffcdf10c0b517

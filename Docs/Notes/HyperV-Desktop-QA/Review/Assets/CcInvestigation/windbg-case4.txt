@@ -1,0 +1,48 @@
+WinDbg | Windows x64 ntoskrnl.exe 10.0.26100.9457 | CCOBSERVE V4b, phase 401
+The caller still held the pin. The following stack was saved by the relay while
+sampling WinDbg output. The final reply to the same command is quoted separately.
+
+Command (McpRelay/0064-client.json):
+.reload /f CCOBSERVE.sys; k; .frame 1; dv /t; dt CCOBSERVE!KW_STREAM @@c++(S) WatchedBcb FlushThreadObject Writes; dt nt!_BCB @@c++(S->WatchedBcb); !thread @@c++(S->FlushThreadObject)
+
+Sample (relay-case4-wait-sample.json; [...] marks omitted lines):
+unsigned long Id = 4
+[...]
+long Early = 0n258
+   +0x174 Writes            : 0
+   +0x190 WatchedBcb        : 0xffffde07`fc055450 Void
+   +0x198 FlushThreadObject : 0xffffde07`f9885080 _ETHREAD
+[...]
+   +0x002 Dirty            : 0x1 ''
+[...]
+   +0x038 Vacb             : 0xffffde07`f5882460 _VACB
+   +0x040 PinCount         : 2
+   +0x048 Resource         : _ERESOURCE
+   +0x0b0 SharedCacheMap   : 0xffffde07`fa896010 _SHARED_CACHE_MAP
+   +0x0b8 BaseAddress      : 0xffff9a07`08bc6000 Void
+THREAD ffffde07f9885080  Cid 0004.1dd8  Teb: 0000000000000000 Win32Thread: 0000000000000000 WAIT: (WrResource) KernelMode Non-Alertable
+[...]
+Wait Start TickCount      5210           Ticks: 13 (0:00:00:00.203)
+[...]
+Child-SP          RetAddr               : Args to Child                                                           : Call Site
+[...]
+fffff288`0299a5b0 fffff806`b3a1ff62     : fffff288`0299a7a8 ffffde07`0000001b 00000000`00000000 0000ff00`00000000 : nt!KeWaitForSingleObject+0x846
+fffff288`0299a6a0 fffff806`b3a1ec29     : ffffde07`fc055498 fffff288`0299a790 ffffde07`00010224 00000000`00000006 : nt!ExpWaitForResource+0x72
+fffff288`0299a730 fffff806`b3c63dc3     : 00000000`00000000 ffffde07`fc055450 00000000`00000000 ffffde07`fa896010 : nt!ExAcquireResourceExclusiveLite+0x609
+fffff288`0299a840 fffff806`b3ad09ab     : ffffde07`fa896010 ffffde07`f75eb940 00000000`00001000 00000000`00000000 : nt!CcAcquireByteRangeForWrite+0x8bb
+fffff288`0299a9a0 fffff806`b3ad163b     : ffffde07`fc803118 ffffde07`f75eb920 00000000`00001000 00000000`00000000 : nt!CcFlushCacheAcquireRange+0xd3
+fffff288`0299aa20 fffff806`b3c86ccc     : ffffde07`f9885080 00000000`00000080 fffff806`4a061d00 fffff288`0299ab48 : nt!CcFlushCachePriv+0x12b
+fffff288`0299aaa0 fffff806`4a061cc4     : ffffde07`fac950c0 ffffde07`f9885080 000001a1`00000000 fffff288`0299ab98 : nt!CcFlushCache+0x1c
+fffff288`0299aaf0 fffff806`4a061d4e     : ffffde07`fc803000 fffff806`00000000 000001a1`00000000 ffffde07`f9885080 : CCOBSERVE!Flush+0x64 [E:\KNSoft\Kundows\OutDir\WindowsCc-Reference-20261126\Probe\ccobserve.c @ 187]
+fffff288`0299ab70 fffff806`b3c944ca     : ffffde07`fc803000 fffff806`4a061d00 ffffbd81`8d24b180 064fe47f`b19bbdff : CCOBSERVE!FlushThread+0x4e [E:\KNSoft\Kundows\OutDir\WindowsCc-Reference-20261126\Probe\ccobserve.c @ 197]
+
+Final MCP reply (relay-case4-wait-result.json):
+Error: Unable to get command output
+
+The host wrapper timed out. Completion after the pin was released is recorded
+in the recovered guest stdout (guest-values.txt), not in this debugger reply.
+
+Input files in OutDir/WindowsCc-Reference-20261126/ and original SHA-256:
+  McpRelay/0064-client.json  2b336f4f4c60cf134cd05ac7cbe7a5337b6477a89cee866c69ca33521f49dfa1
+  relay-case4-wait-sample.json  eec88a512e46329cbf6090e8ec80fa37ffd5dbfa9e6a544dd1543702ad00732b
+  relay-case4-wait-result.json  68391eea5f7a509ccc8e32a32d7adc91b218097a83a980d7cc604222ebb9b6fb

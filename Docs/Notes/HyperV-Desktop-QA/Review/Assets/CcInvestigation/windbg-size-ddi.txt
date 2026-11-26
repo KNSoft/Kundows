@@ -1,0 +1,44 @@
+WinDbg | Windows x64 ntoskrnl.exe 10.0.26100.9457 | later size/close driver
+The recorded breakpoint prints from the test driver's Record callback after the
+public DDI calls. These are separate from the numbered CCOBSERVE lifecycle cases.
+Source: OutDir/WindowsCc-Reference-20261126/native10-trace-full-history.json
+Original MCP get_output_history reply SHA-256: c5dd25e2b81bdafda742d75e6672a909edb89e7f943357c522fc18970b08abbb
+
+Recorded breakpoint command:
+bu200 KwDdiTrace!Record ".printf \"KW_CCDDI %mu=%08x\\n\", @rcx, @edx; gc"
+
+All 34 KW_CCDDI lines from that reply, in order (other history omitted):
+KW_CCDDI PeerPresent=00000001
+KW_CCDDI FirstReturn=00000000
+KW_CCDDI FirstEventAtReturn=00000001
+KW_CCDDI PeerStillCached=00000001
+KW_CCDDI LastReturn=00000001
+KW_CCDDI LastEventAtReturn=00000001
+KW_CCDDI CloseStatus=00000000
+KW_CCDDI OpenFileStatus=00000000
+KW_CCDDI CreateSectionStatus=00000000
+KW_CCDDI MapStatus=00000000
+KW_CCDDI DataSectionPresent=00000001
+KW_CCDDI SharedCachePresent=00000000
+KW_CCDDI MappedPrefixByte=00000000
+KW_CCDDI UnchangedStatus=00000000
+KW_CCDDI PrefixViewBytes=00001000
+KW_CCDDI PrefixMayTruncate=00000000
+KW_CCDDI MappedTailStatus=c0000435
+KW_CCDDI NextGrowthStatus=00000000
+KW_CCDDI SectionStatus=00000000
+KW_CCDDI OpenFileStatus=00000000
+KW_CCDDI CreateSectionStatus=00000000
+KW_CCDDI MapStatus=00000000
+KW_CCDDI SharedDataSectionPresent=00000001
+KW_CCDDI SharedCaseCachePresent=00000001
+KW_CCDDI MappedPrefixByte=00000000
+KW_CCDDI SharedUnchangedStatus=00000000
+KW_CCDDI PrefixViewBytes=00001000
+KW_CCDDI PrefixMayTruncate=00000000
+KW_CCDDI SharedTailStatus=c0000435
+KW_CCDDI SharedEofAfterRequest=00002000
+KW_CCDDI SharedNextGrowthStatus=00000000
+KW_CCDDI SharedEofAfterGrowth=00011f85
+KW_CCDDI SharedSectionStatus=00000000
+KW_CCDDI Finished=00000000

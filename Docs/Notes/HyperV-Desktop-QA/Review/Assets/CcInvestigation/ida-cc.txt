@@ -1,0 +1,78 @@
+IDA MCP | Windows x64 ntoskrnl.exe 10.0.26100.9974 | static image, not the .9457 guest
+Image SHA-256: f6f275f67c7ef44fc2df2d828658fb31eaffd41018ac5a0fd9440e08d9912c30
+Pseudocode is the decompiler's output. Assembly is printed as the address and
+instruction fields from the saved response. Addresses use the IDB's image base.
+
+CcUnpinFileDataEx | decompiler, lines 70-75 and 84-92 of CcUnpinFileDataEx.txt
+The fields at byte offsets 0x40 and 0x02 are PinCount and Dirty. On this path
+Windows clears BaseAddress (+0xb8) and Vacb (+0x38) and returns before unlinking.
+  if ( *((_DWORD *)P + 16) ) /*0x14031533d*/
+    goto LABEL_25; /*0x140315340*/
+  if ( P[2] ) /*0x140315342*/
+  {
+    if ( *((_QWORD *)P + 23) ) /*0x14031534c*/
+    {
+[...]
+      *((_QWORD *)P + 23) = 0; /*0x14031538b*/
+      *((_QWORD *)P + 7) = 0; /*0x140315392*/
+    }
+LABEL_25:
+    if ( !a2 ) /*0x140315399*/
+      ExReleaseResourceLite((PERESOURCE)(P + 72)); /*0x14031539f*/
+    KeReleaseGuardedMutex(v10); /*0x1403153a7*/
+    return; /*0x1403153ac*/
+  }
+
+CcAcquireByteRangeForWrite | disassembly, two basic-block excerpts
+The flag check selects the BCB-resource path. The Wait argument is computed,
+not unconditionally true. The .9457 wait is evidenced by windbg-case4.txt.
+1403d04f3  inc dword ptr [rsi+40h]
+1403d04f6  lea rcx, [r13+120h]; Mutex
+1403d04fd  call KeReleaseGuardedMutex
+1403d0502  mov eax, [r13+98h]
+1403d0509  and eax, 202h
+1403d050e  cmp eax, 200h
+1403d0513  jz loc_1403D0687
+[...]
+1403d0687  cmp [r12], edi
+1403d068b  setz dl; Wait
+1403d068e  lea rcx, [rsi+48h]; Resource
+1403d0692  call ExAcquireResourceExclusiveLite
+1403d0697  test al, al
+1403d0699  jz loc_1403D0751
+
+CcSetFileSizes | disassembly, complete public wrapper (four instructions)
+1403cf5b0  sub rsp, 28h
+1403cf5b4  call CcSetFileSizesEx
+1403cf5b9  add rsp, 28h
+1403cf5bd  retn
+
+CcSetFileSizesEx | decompiler, selected extension and purge branches
+    v16 = MmExtendSection(*(_QWORD *)(SharedCacheMap + 176), &v21, 1);
+    v17 = v16;
+    if ( v16 < 0 )
+    {
+      if ( !FsRtlIsNtstatusExpected(v16) )
+        v17 = -1073741588;
+    }
+[...]
+    if ( v17 < 0 )
+    {
+      KeReleaseInStackQueuedSpinLock(&v19);
+      RtlRaiseStatus((unsigned int)v17);
+    }
+[...]
+    if ( (FileSize.LowPart & 0xFFF) == 0 )
+      return CcPurgeCacheSection(SectionObjectPointer, &FileOffset, 0, 0) == 0 ? 0xC0000435 : 0;
+    MmFlushSection((int)SectionObjectPointer, (__int64 *)&FileOffset, 1, nullptr, &v18, 0);
+    result = v18;
+    if ( (int)v18 >= 0 )
+      return CcPurgeCacheSection(SectionObjectPointer, &FileOffset, 0, 0) == 0 ? 0xC0000435 : 0;
+
+Original files (SHA-256 applies to each complete input, not to these excerpts):
+OutDir/WindowsCc-Reference-20261126/
+  CcUnpinFileDataEx.txt  d5e3ddc99cddcbd779bbcd4306ca882602b8dccaeb3b7e480ab26a38347d8c1e
+  CcAcquireByteRangeForWrite-asm-full.json  433ce4b97ef6c48079ff45603459f998b6c7a5b717624512e3b4a70049087bec
+OutDir/CcTruncate-be9f26ff-01/compat/
+  ida-size-wrapper-asm.json  70cca2f7e207fff9a8433699fdd837289628b512e41d25bd80b5531647b313e1
+  ida-size-public-ex.json  6cf12457202c00c45280089854c46161990948c16c7c0260bdc03d9cb83b0683
