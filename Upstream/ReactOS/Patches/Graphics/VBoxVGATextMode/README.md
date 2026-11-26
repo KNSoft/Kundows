@@ -19,6 +19,19 @@ VirtualBox **7.2.22 r175245**, x64 Debug, one CPU, 1 GiB, IDE DVD, no hard disk,
 
 [Same EFI page after Down](Assets/SetupBootFramebufferAfterDown.png). These runs stop at language selection; they do not establish a full installation. The replacement was not run on 7.1.10. Test ISO SHA-256: stock `8c38cfaafea8fa0bb407dade444ad5810a7f28549a2f4bd28dc718d42055663e`; patched `a4e76624fddff801655ac00f0051fc5057a5127098a49be5d3ef26f6e69d848c`.
 
+## Hyper-V verification
+
+The same ISOs were booted on Windows build 26300.9974, Hyper-V VM configuration 12.0, with one vCPU, 1 GiB of fixed RAM, DVD only, no network and no serial connection. Frames and keyboard input came from the Hyper-V CIM provider.
+
+| Guest | Result |
+| --- | --- |
+| Gen 1 (BIOS, IDE DVD), patched | The full [640×400 language page](Assets/HyperVGen1Setup.png) was readable, including the bottom action bar. [After one Down key](Assets/HyperVGen1AfterDown.png), the selection moved from English (United States) to English (United Kingdom). The legacy text path passed. |
+| Gen 2 (UEFI, SCSI DVD, Secure Boot off), stock and patched | Restoring the same powered-off checkpoint before each boot produced [the same 1024×768 stop screen](Assets/HyperVGen2Io1Stop.png): `IO1_INITIALIZATION_FAILED` (`0x69`, all four arguments zero). The PNGs were byte-identical. Neither boot reached language selection. |
+
+A saved state from a repeat Gen 2 boot shows where the patched display path stopped. The loaded kernel and display drivers matched the DVD's CodeView IDs. `bootvid.dll` was `lfbbvid.dll`, with a mapped **1024×768×32** framebuffer and a **4,096-byte pitch**. `blue.sys` had selected the framebuffer (`BootText` present), but `Requested` and `Enabled` were both zero. **Resource discovery is verified on Gen 2; Setup drawing and input are not.**
+
+At the stop the loader named `multi(0)disk(0)cdrom(0)`, while the I/O manager reported zero CD-ROM devices and zero SCSI ports. The pin [raises `0x69` when `IoInitSystem` returns false](https://github.com/reactos/reactos/blob/4fbbefd614b/ntoskrnl/ex/init.c#L1856); the exact failing I/O operation was not captured.
+
 ## Historical reproduction and workaround (7.1.10)
 
 The pre-rework x64 Debug image used for comparison is the one that completed

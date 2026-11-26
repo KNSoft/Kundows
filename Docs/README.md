@@ -32,7 +32,7 @@ The [ReactOS patch directory](../Upstream/ReactOS/Patches/) is grouped by **Buil
 
 ### Display and startup
 
-- [EFI text Setup lost the boot framebuffer on VBoxVGA](../Upstream/ReactOS/Patches/Graphics/VBoxVGATextMode/README.md) — framebuffer handoff verified; device workaround retired
+- [EFI text Setup lost the boot framebuffer on VBoxVGA](../Upstream/ReactOS/Patches/Graphics/VBoxVGATextMode/README.md) — VirtualBox EFI and Hyper-V BIOS verified; Hyper-V UEFI stops before Setup
 - [Late file-information completion during Setup](../Upstream/ReactOS/Patches/Kernel/IoSyncStatus/README.md)
 - [Debugger discovery waited on a disconnected port](../Upstream/ReactOS/Patches/Kernel/KdAutoProbe/README.md)
 - [TSC calibration stopped waiting for RTC samples](../Upstream/ReactOS/Patches/Kernel/RtcPeriodic/README.md)
