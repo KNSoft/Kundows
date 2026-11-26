@@ -82,9 +82,11 @@ with 1,366 projects built and no failures. `MakeISO.cmd` then produced a
 matched `frldr16.bin` (2,048 bytes) plus the linked PE (372,224 bytes); its
 EFI loader matched `uefildr.efi` (488,448 bytes). In the earlier VirtualBox BIOS test,
 the COM1 banner appears before kernel entry; the same build subsequently
-started copying files with no serial port. On VirtualBox EFI64, the text-mode
-fix restored a readable Setup language page. See the [comparison with the
-pre-rework ISO and screenshots](../Upstream/ReactOS/Patches/Graphics/VBoxVGATextMode/README.md). Win32 Release was checked through
+started copying files with no serial port. On VirtualBox EFI64 the [historical
+VBoxVGA workaround](../Upstream/ReactOS/Patches/Graphics/VBoxVGATextMode/README.md#historical-reproduction-and-workaround-7110)
+restored a readable Setup language page. The current build instead [keeps the
+boot framebuffer during text Setup](../Upstream/ReactOS/Patches/Graphics/VBoxVGATextMode/README.md#same-media-different-display-drivers).
+Win32 Release was checked through
 FreeLdr (2,048 + 143,360 bytes), and ARM64 Debug through solution generation
 and the native host-tools build.
 

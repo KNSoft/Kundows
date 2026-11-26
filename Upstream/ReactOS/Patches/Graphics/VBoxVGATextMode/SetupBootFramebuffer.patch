@@ -1,0 +1,488 @@
+Keep text Setup on the firmware display when the loader advertises a boot
+framebuffer. Use the active BOOTVID mapping, the supplied scan-line pitch
+and pixel masks. BIOS text mode keeps its existing VGA implementation.
+
+diff --git a/drivers/base/bootvid/CMakeLists.txt b/drivers/base/bootvid/CMakeLists.txt
+index 35ecbcf1d2c..8eda5d33211 100644
+--- a/drivers/base/bootvid/CMakeLists.txt
++++ b/drivers/base/bootvid/CMakeLists.txt
+@@ -75,3 +75,8 @@ elseif(ARCH STREQUAL "arm")
+     add_bootvid(bootvid arm/armbvid.cmake)
+ endif()
+ add_bootvid(lfbbvid framebuf/lfbbvid.cmake)
++if(NOT TARGET libbootvid)
++    # FreeLdr loads the selected module as bootvid.dll on framebuffer-only targets too.
++    add_library(bootvid INTERFACE)
++    spec2def(bootvid.dll bootvid.spec ADD_IMPORTLIB)
++endif()
+diff --git a/drivers/base/bootvid/framebuf/bootvid.c b/drivers/base/bootvid/framebuf/bootvid.c
+index f09e80b9605..4937c4991ff 100644
+--- a/drivers/base/bootvid/framebuf/bootvid.c
++++ b/drivers/base/bootvid/framebuf/bootvid.c
+@@ -35,6 +35,7 @@ static ULONG_PTR FrameBufferStart = 0;
+ static ULONG FrameBufferSize;
+ static ULONG ScreenWidth, ScreenHeight, BytesPerScanLine;
+ static UCHAR BytesPerPixel;
++static ULONG RedMask, GreenMask, BlueMask, ReservedMask;
+ static PUCHAR BackBuffer = NULL;
+ static SIZE_T BackBufferSize;
+
+@@ -129,7 +130,7 @@ VidInitialize(
+     PHYSICAL_ADDRESS FrameBuffer;
+     PHYSICAL_ADDRESS VramAddress;
+     ULONG VramSize;
+-    CM_FRAMEBUF_DEVICE_DATA VideoConfigData; /* Configuration data from hardware tree */
++    CM_FRAMEBUF_DEVICE_DATA VideoConfigData = {0}; /* Configuration data from hardware tree */
+     INTERFACE_TYPE Interface;
+     ULONG BusNumber;
+     NTSTATUS Status;
+@@ -174,23 +175,33 @@ VidInitialize(
+         return FALSE;
+     }
+
+-    ASSERT(ScreenWidth <= VideoConfigData.PixelsPerScanLine);
+-    BytesPerScanLine = VideoConfigData.PixelsPerScanLine * BytesPerPixel;
+-    if (BytesPerScanLine < 1)
++    if (VideoConfigData.PixelsPerScanLine < ScreenWidth ||
++        VideoConfigData.PixelsPerScanLine > MAXULONG / BytesPerPixel)
+     {
+-        DPRINT1("Invalid BytesPerScanLine = %lu\n", BytesPerScanLine);
++        DPRINT1("Invalid framebuffer pitch\n");
+         return FALSE;
+     }
++    BytesPerScanLine = VideoConfigData.PixelsPerScanLine * BytesPerPixel;
+
+-    /* Compute the visible framebuffer size */
+-    FrameBufferSize = ScreenHeight * BytesPerScanLine;
+-
+-    /* Verify that the framebuffer actually fits inside the video RAM */
+-    if (FrameBuffer.QuadPart + FrameBufferSize > VramAddress.QuadPart + VramSize)
++    if (VideoConfigData.FrameBufferOffset > VramSize ||
++        ScreenHeight > (VramSize - VideoConfigData.FrameBufferOffset) / BytesPerScanLine)
+     {
+         DPRINT1("The framebuffer exceeds video memory bounds!\n");
+         return FALSE;
+     }
++    FrameBufferSize = ScreenHeight * BytesPerScanLine;
++    RedMask = VideoConfigData.PixelMasks.RedMask;
++    GreenMask = VideoConfigData.PixelMasks.GreenMask;
++    BlueMask = VideoConfigData.PixelMasks.BlueMask;
++    ReservedMask = VideoConfigData.PixelMasks.ReservedMask;
++    if (!(RedMask | GreenMask | BlueMask))
++    {
++        /* Legacy 32bpp resource without color masks: preserve X8R8G8B8. */
++        RedMask = 0xff0000;
++        GreenMask = 0xff00;
++        BlueMask = 0xff;
++        ReservedMask = 0xff000000;
++    }
+
+     /* Translate the framebuffer from bus-relative to physical address */
+     PHYSICAL_ADDRESS TranslatedAddress;
+@@ -206,15 +217,17 @@ VidInitialize(
+     }
+
+     /* Map it into system space if necessary */
+-    ULONG MappedSize = 0;
++    SIZE_T MappedSize = 0;
+     PVOID FrameBufferBase = NULL;
+     if (AddressSpace == 0)
+     {
+         /* Calculate page-aligned address and size for MmMapIoSpace() */
+         FrameBuffer.HighPart = TranslatedAddress.HighPart;
+         FrameBuffer.LowPart  = ALIGN_DOWN_BY(TranslatedAddress.LowPart, PAGE_SIZE);
+-        MappedSize = FrameBufferSize;
+-        MappedSize += (ULONG)(TranslatedAddress.QuadPart - FrameBuffer.QuadPart); // BYTE_OFFSET()
++        SIZE_T Offset = BYTE_OFFSET(TranslatedAddress.LowPart);
++        if (FrameBufferSize > MAXULONG_PTR - Offset - (PAGE_SIZE - 1))
++            return FALSE;
++        MappedSize = FrameBufferSize + Offset;
+         MappedSize = ROUND_TO_PAGES(MappedSize);
+         /* Essentially MmMapVideoDisplay() */
+         FrameBufferBase = MmMapIoSpace(FrameBuffer, MappedSize, MmFrameBufferCached);
+@@ -222,7 +235,7 @@ VidInitialize(
+             FrameBufferBase = MmMapIoSpace(FrameBuffer, MappedSize, MmNonCached);
+         if (!FrameBufferBase)
+         {
+-            DPRINT1("Could not map framebuffer 0x%I64X (%lu bytes)\n",
++            DPRINT1("Could not map framebuffer 0x%I64X (%Iu bytes)\n",
+                     FrameBuffer.QuadPart, MappedSize);
+             goto Failure;
+         }
+@@ -245,8 +258,8 @@ VidInitialize(
+     /* If there is enough video memory in the physical framebuffer,
+      * place the backbuffer in the hidden part of the framebuffer,
+      * otherwise allocate a zone for the backbuffer. */
+-    if (VideoConfigData.FrameBufferOffset + FrameBufferSize + BackBufferSize
+-            <= ((AddressSpace == 0) ? MappedSize : VramSize))
++    if (AddressSpace != 0 &&
++        BackBufferSize <= VramSize - VideoConfigData.FrameBufferOffset - FrameBufferSize)
+     {
+         /* Backbuffer placed following the framebuffer in the hidden part */
+         BackBuffer = (PUCHAR)(FrameBufferStart + FrameBufferSize);
+@@ -320,6 +333,15 @@ ResetDisplay(
+     VidSolidColorFill(0, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1, BV_COLOR_BLACK);
+ }
+
++static ULONG
++PackChannel(ULONG Component, ULONG Mask)
++{
++    if (!Mask)
++        return 0;
++    ULONG LowBit = Mask & (0UL - Mask);
++    return (ULONG)(((ULONGLONG)Component * (Mask / LowBit) + 127) / 255) * LowBit;
++}
++
+ VOID
+ InitPaletteWithTable(
+     _In_reads_(Count) const ULONG* Table,
+@@ -331,8 +353,12 @@ InitPaletteWithTable(
+
+     for (i = 0; i < Count; i++, Entry++)
+     {
+-        HasChanged |= !!((CachedPalette[i] ^ *Entry) & 0x00FFFFFF);
+-        CachedPalette[i] = *Entry | 0xFF000000;
++        /* A DIB palette is BGR; the firmware surface need not be. */
++        ULONG Pixel = ReservedMask | PackChannel(GetRValue(*Entry), RedMask) |
++                      PackChannel(GetGValue(*Entry), GreenMask) |
++                      PackChannel(GetBValue(*Entry), BlueMask);
++        HasChanged |= (CachedPalette[i] != Pixel);
++        CachedPalette[i] = Pixel;
+     }
+
+     /* Re-apply the palette if it has changed */
+diff --git a/drivers/setup/blue/CMakeLists.txt b/drivers/setup/blue/CMakeLists.txt
+index 8fde5d80256..a52d82b3153 100644
+--- a/drivers/setup/blue/CMakeLists.txt
++++ b/drivers/setup/blue/CMakeLists.txt
+@@ -4,10 +4,16 @@ include_directories(${REACTOS_SOURCE_DIR}/sdk/include/reactos/drivers)
+ list(APPEND SOURCE
+     blue.c
+     font.c
++    setupfb.c
+     blue.h)
+
+-add_library(blue MODULE ${SOURCE} blue.rc)
++set(default_font ${REACTOS_SOURCE_DIR}/media/vgafonts/437-8x8.bin)
++add_custom_command(
++    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/font437.c ${CMAKE_CURRENT_BINARY_DIR}/font437.h
++    COMMAND native-bin2c ${default_font} font437.c font437.h BIN BlueFont437
++    DEPENDS native-bin2c ${default_font})
++add_library(blue MODULE ${SOURCE} ${CMAKE_CURRENT_BINARY_DIR}/font437.c blue.rc)
+ set_module_type(blue kernelmodedriver)
+-add_importlibs(blue ntoskrnl hal)
++add_importlibs(blue ntoskrnl hal bootvid)
+ add_pch(blue blue.h SOURCE)
+ add_cd_file(TARGET blue DESTINATION reactos/system32/drivers NO_CAB FOR all)
+diff --git a/drivers/setup/blue/blue.c b/drivers/setup/blue/blue.c
+index 06e498d8208..af6e25c0f2b 100644
+--- a/drivers/setup/blue/blue.c
++++ b/drivers/setup/blue/blue.c
+@@ -11,7 +11,9 @@
+ /* INCLUDES ******************************************************************/
+
+ #include "blue.h"
++#include "setupfb.h"
+ #include <ndk/inbvfuncs.h>
++#include <drivers/bootvid/bootvid.h>
+
+ #define NDEBUG
+ #include <debug.h>
+@@ -39,6 +41,7 @@ typedef struct _DEVICE_EXTENSION
+     USHORT  Columns;    /* Number of columns     */
+     USHORT  CursorX, CursorY; /* Cursor position */
+     PUCHAR  FontBitfield; /* Specifies the font  */
++    PSETUP_FB BootText; /* Nonpaged Setup cell grid; BOOTVID owns the pixel mapping */
+ } DEVICE_EXTENSION, *PDEVICE_EXTENSION;
+
+ typedef struct _VGA_REGISTERS
+@@ -98,6 +101,17 @@ static PDEVICE_EXTENSION ResetDisplayParametersDeviceExtension = NULL;
+ static HANDLE InbvThreadHandle = NULL;
+ static BOOLEAN InbvMonitoring = FALSE;
+
++static VOID
++ScrPresent(PDEVICE_EXTENSION Dev, BOOLEAN Repaint)
++{
++    if (Dev->BootText && Dev->Enabled)
++    {
++        ULONG Lines = max(1UL, min(Dev->CursorSize, 100UL) * 8 / 100);
++        ScrFbPresent(Dev->BootText, &Dev->Enabled, Dev->CursorY * SETUP_COLUMNS + Dev->CursorX,
++                     Dev->CursorVisible ? Lines : 0, Repaint);
++    }
++}
++
+ /*
+  * Reinitialize the display to base VGA mode.
+  *
+@@ -228,6 +242,10 @@ InbvMonitorThread(
+
+         /* Reset the monitoring */
+         InbvMonitoring = FALSE;
++        if (ResetDisplayParametersDeviceExtension &&
++            ResetDisplayParametersDeviceExtension->BootText &&
++            !ResetDisplayParametersDeviceExtension->BootText->Requested)
++            continue;
+
+         /*
+          * Somebody released INBV display ownership, usually by invoking
+@@ -364,7 +382,7 @@ ScrSetCursor(
+ {
+     ULONG Offset;
+
+-    if (!DeviceExtension->VideoMemory)
++    if (DeviceExtension->BootText || !DeviceExtension->VideoMemory)
+         return;
+
+     Offset = (DeviceExtension->CursorY * DeviceExtension->Columns) + DeviceExtension->CursorX;
+@@ -385,7 +403,7 @@ ScrSetCursorShape(
+     ULONG size, height;
+     UCHAR data, value;
+
+-    if (!DeviceExtension->VideoMemory)
++    if (DeviceExtension->BootText || !DeviceExtension->VideoMemory)
+         return;
+
+     height = DeviceExtension->ScanLines;
+@@ -524,6 +542,42 @@ ScrResetScreen(
+                                 ENABLE_WRAP_AT_EOL_OUTPUT;
+     }
+
++    if (DeviceExtension->BootText)
++    {
++        if (FullReset)
++            DeviceExtension->BootText->Requested = Enable;
++        if (!Enable)
++        {
++            /* Also the HIGH_LEVEL callback: no drawing, freeing or mapping here. */
++            DeviceExtension->Enabled = FALSE;
++            if (FullReset && ResetDisplayParametersDeviceExtension)
++                ScrInbvCleanup();
++            return TRUE;
++        }
++        if (!DeviceExtension->BootText->Requested || !InbvIsBootDriverInstalled())
++            return FALSE;
++
++        if (FullReset)
++        {
++            DeviceExtension->Columns = SETUP_COLUMNS;
++            DeviceExtension->Rows = SETUP_ROWS;
++            DeviceExtension->ScanLines = 8;
++            DeviceExtension->CursorX = DeviceExtension->CursorY = 0;
++            DeviceExtension->VideoMemory = (PUCHAR)DeviceExtension->BootText->Cells;
++            DeviceExtension->VideoMemorySize = sizeof(DeviceExtension->BootText->Cells);
++            RtlFillMemoryUlong(DeviceExtension->VideoMemory, DeviceExtension->VideoMemorySize,
++                               0x00200020 | (DeviceExtension->CharAttribute * 0x01000100UL));
++            ScrFbDefaultFont(DeviceExtension->BootText);
++        }
++        DeviceExtension->Enabled = TRUE;
++        if (FullReset)
++            ScrInbvInitialize(); /* Let INBV finish VidCleanUp before presenting. */
++        if (DeviceExtension->Enabled)
++            VidResetDisplay(FALSE);
++        ScrPresent(DeviceExtension, TRUE);
++        return TRUE;
++    }
++
+     if (Enable)
+     {
+         ScrAcquireOwnership(DeviceExtension);
+@@ -727,9 +781,9 @@ ScrWrite(
+         offset = cursorx + cursory * columns;
+
+         // FIXME: Does the buffer only contains chars? or chars + attributes?
+-        // FIXME2: Fix buffer overflow.
+-        RtlCopyMemory(&vidmem[offset * 2], pch, stk->Parameters.Write.Length);
+-        offset += (stk->Parameters.Write.Length / 2);
++        ULONG Bytes = min(stk->Parameters.Write.Length, (rows * (ULONG)columns - offset) * 2);
++        RtlCopyMemory(&vidmem[offset * 2], pch, Bytes);
++        offset += Bytes / 2;
+
+         /* Set the cursor position, clipping it to the screen */
+         cursorx = (USHORT)(offset % columns);
+@@ -833,6 +887,7 @@ ScrWrite(
+     DeviceExtension->CursorX = cursorx;
+     DeviceExtension->CursorY = cursory;
+     ScrSetCursor(DeviceExtension);
++    ScrPresent(DeviceExtension, FALSE);
+
+     Status = STATUS_SUCCESS;
+
+@@ -1511,6 +1566,15 @@ ScrIoControl(
+             }
+             ASSERT(Irp->AssociatedIrp.SystemBuffer);
+
++            if (DeviceExtension->BootText)
++            {
++                RtlCopyMemory(DeviceExtension->BootText->Font, Irp->AssociatedIrp.SystemBuffer,
++                              sizeof(DeviceExtension->BootText->Font));
++                ScrPresent(DeviceExtension, TRUE);
++                Irp->IoStatus.Information = 0;
++                Status = STATUS_SUCCESS;
++                break;
++            }
+             if (DeviceExtension->FontBitfield)
+                 ExFreePoolWithTag(DeviceExtension->FontBitfield, TAG_BLUE);
+             DeviceExtension->FontBitfield = ExAllocatePoolWithTag(NonPagedPool, 256 * 8, TAG_BLUE);
+@@ -1534,6 +1598,10 @@ ScrIoControl(
+             Status = STATUS_NOT_IMPLEMENTED;
+     }
+
++    if (DeviceExtension->BootText && NT_SUCCESS(Status) &&
++        (stk->Parameters.DeviceIoControl.IoControlCode & (FILE_WRITE_ACCESS << 14)))
++        ScrPresent(DeviceExtension, FALSE);
++
+     Irp->IoStatus.Status = Status;
+     IoCompleteRequest(Irp, IO_VIDEO_INCREMENT);
+
+@@ -1572,6 +1640,7 @@ DriverEntry(
+     PDEVICE_OBJECT DeviceObject;
+     UNICODE_STRING DeviceName = RTL_CONSTANT_STRING(L"\\Device\\BlueScreen");
+     UNICODE_STRING SymlinkName = RTL_CONSTANT_STRING(L"\\??\\BlueScreen");
++    BOOLEAN BootFramebuffer = ScrUsesBootFramebuffer();
+
+     DPRINT("Screen Driver 0.0.6\n");
+
+@@ -1582,7 +1651,7 @@ DriverEntry(
+     DriverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL] = ScrIoControl;
+
+     Status = IoCreateDevice(DriverObject,
+-                            sizeof(DEVICE_EXTENSION),
++                            sizeof(DEVICE_EXTENSION) + (BootFramebuffer ? sizeof(SETUP_FB) : 0),
+                             &DeviceName,
+                             FILE_DEVICE_SCREEN,
+                             FILE_DEVICE_SECURE_OPEN,
+@@ -1596,6 +1665,9 @@ DriverEntry(
+     Status = IoCreateSymbolicLink(&SymlinkName, &DeviceName);
+     if (NT_SUCCESS(Status))
+     {
++        PDEVICE_EXTENSION Extension = DeviceObject->DeviceExtension;
++        if (BootFramebuffer)
++            Extension->BootText = (PSETUP_FB)(Extension + 1);
+         /* By default disable the screen (but don't touch INBV: ResetDisplayParametersDeviceExtension is still NULL) */
+         ScrResetScreen(DeviceObject->DeviceExtension, TRUE, FALSE);
+         /* Now set ResetDisplayParametersDeviceExtension to enable synchronizing with INBV */
+diff --git a/drivers/setup/blue/setupfb.c b/drivers/setup/blue/setupfb.c
+new file mode 100644
+index 00000000000..24d193074f4
+--- /dev/null
++++ b/drivers/setup/blue/setupfb.c
+@@ -0,0 +1,89 @@
++/*
++ * PROJECT:     ReactOS Console Text-Mode Device Driver
++ * LICENSE:     GPL-2.0-or-later
++ * PURPOSE:     Present the Setup text grid through the active boot video driver
++ */
++#include "blue.h"
++#include "setupfb.h"
++#include <arc/arc.h>
++#include <ndk/kefuncs.h>
++#include <drivers/bootvid/bootvid.h>
++#include <drivers/bootvid/framebuf.h>
++
++extern UCHAR BlueFont437[256 * 8];
++
++/* Called once by DriverEntry. Never keep a pointer into the loader block. */
++BOOLEAN
++ScrUsesBootFramebuffer(VOID)
++{
++    PCONFIGURATION_COMPONENT_DATA Entry = NULL;
++    if (!KeLoaderBlock || !KeLoaderBlock->SetupLdrBlock)
++        return FALSE;
++
++    while ((Entry = KeFindConfigurationNextEntry(KeLoaderBlock->ConfigurationRoot,
++                    ControllerClass, DisplayController, NULL, &Entry)) != NULL)
++    {
++        PCM_PARTIAL_RESOURCE_LIST List = Entry->ConfigurationData;
++        ULONG Length = Entry->ComponentEntry.ConfigurationDataLength;
++        ULONG Header = FIELD_OFFSET(CM_PARTIAL_RESOURCE_LIST, PartialDescriptors);
++        PCM_PARTIAL_RESOURCE_DESCRIPTOR Last;
++        if (!(Entry->ComponentEntry.Flags & ConsoleOut) || !List || Length < Header ||
++            List->Version < 1 || (List->Version == 1 && List->Revision < 2) ||
++            !List->Count || List->Count > (Length - Header) / sizeof(*Last))
++            continue;
++
++        /* Same boot display resource that selects lfbbvid in FreeLdr. */
++        Last = &List->PartialDescriptors[List->Count - 1];
++        if (Last->Type == CmResourceTypeDeviceSpecific &&
++            Last->u.DeviceSpecificData.DataSize >= sizeof(CM_FRAMEBUF_DEVICE_DATA) &&
++            Last->u.DeviceSpecificData.DataSize <= Length - Header - List->Count * sizeof(*Last))
++            return TRUE;
++    }
++    return FALSE;
++}
++
++VOID
++ScrFbDefaultFont(PSETUP_FB Fb)
++{
++    RtlCopyMemory(Fb->Font, BlueFont437, sizeof(Fb->Font));
++}
++
++/* BOOTVID's palette numbers are different from VGA character attributes. */
++static const UCHAR TextColor[16] =
++{
++    BV_COLOR_BLACK, BV_COLOR_BLUE, BV_COLOR_GREEN, BV_COLOR_CYAN,
++    BV_COLOR_RED, BV_COLOR_MAGENTA, BV_COLOR_BROWN, BV_COLOR_LIGHT_GRAY,
++    BV_COLOR_DARK_GRAY, BV_COLOR_LIGHT_BLUE, BV_COLOR_LIGHT_GREEN, BV_COLOR_LIGHT_CYAN,
++    BV_COLOR_LIGHT_RED, BV_COLOR_LIGHT_MAGENTA, BV_COLOR_YELLOW, BV_COLOR_WHITE
++};
++
++VOID
++ScrFbPresent(PSETUP_FB Fb, volatile BOOLEAN *Enabled, ULONG Cursor,
++             ULONG CursorLines, BOOLEAN Repaint)
++{
++    ULONG i, x, y;
++    UCHAR Pixels[8][4]; /* A top-down, packed 4bpp glyph for VidBufferToScreenBlt */
++
++    for (i = 0; i < SETUP_CELLS && *Enabled; ++i)
++    {
++        USHORT Cell = Fb->Cells[i];
++        ULONG Lines = (i == Cursor) ? CursorLines : 0;
++        ULONG Key = Cell | (Lines << 16);
++        UCHAR Fg, Bg;
++        if (!Repaint && Fb->Presented[i] == Key)
++            continue;
++        Fg = TextColor[(Cell >> 8) & 15];
++        Bg = TextColor[Cell >> 12];
++        for (y = 0; y < 8; ++y)
++        {
++            UCHAR Glyph = (y >= 8 - Lines) ? 0xff : Fb->Font[(Cell & 255) * 8 + y];
++            for (x = 0; x < 4; ++x, Glyph <<= 2)
++                Pixels[y][x] = ((Glyph & 0x80 ? Fg : Bg) << 4) | (Glyph & 0x40 ? Fg : Bg);
++        }
++        if (!*Enabled) break;
++        VidBufferToScreenBlt(&Pixels[0][0], (i % SETUP_COLUMNS) * 8,
++                             (SCREEN_HEIGHT - SETUP_ROWS * 8) / 2 + (i / SETUP_COLUMNS) * 8,
++                             8, 8, sizeof(Pixels[0]));
++        Fb->Presented[i] = Key;
++    }
++}
+diff --git a/drivers/setup/blue/setupfb.h b/drivers/setup/blue/setupfb.h
+new file mode 100644
+index 00000000000..8d48b22a146
+--- /dev/null
++++ b/drivers/setup/blue/setupfb.h
+@@ -0,0 +1,24 @@
++/*
++ * PROJECT:     ReactOS Console Text-Mode Device Driver
++ * LICENSE:     GPL-2.0-or-later
++ * PURPOSE:     Text Setup on the boot video driver's linear framebuffer
++ */
++#pragma once
++
++#define SETUP_COLUMNS 80
++#define SETUP_ROWS    50
++#define SETUP_CELLS   (SETUP_COLUMNS * SETUP_ROWS)
++
++typedef struct _SETUP_FB
++{
++    BOOLEAN Requested; /* Cleared by an explicit console disable, not by INBV */
++    /* Keep Cells DWORD-aligned for RtlFillMemoryUlong. */
++    ULONG Presented[SETUP_CELLS];
++    USHORT Cells[SETUP_CELLS];
++    UCHAR Font[256 * 8];
++} SETUP_FB, *PSETUP_FB;
++
++BOOLEAN ScrUsesBootFramebuffer(VOID);
++VOID ScrFbDefaultFont(PSETUP_FB Fb);
++VOID ScrFbPresent(PSETUP_FB Fb, volatile BOOLEAN *Enabled, ULONG Cursor,
++                  ULONG CursorLines, BOOLEAN Repaint);

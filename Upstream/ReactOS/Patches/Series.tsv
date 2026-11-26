@@ -3,12 +3,12 @@ All	BuildSystem/Spec2DefCppExports/Spec2DefCppExports.patch
 All	BuildSystem/FreeLdrTargetFile/FreeLdrTargetFile.patch
 All	BuildSystem/GeneratedHeaderDeps/GeneratedHeaderDeps.patch
 All	BuildSystem/VSMediaDeps/VSMediaDeps.patch
-All	Graphics/VBoxVGATextMode/BlueVBoxVBE.patch
 All	Kernel/IoSyncStatus/IoSyncStatus.patch
 All	Kernel/KdAutoProbe/KdAutoProbe.patch
 All	Kernel/RtcPeriodic/RtcPeriodic.patch
 All	Storage/MMFlushWriteErrors/MmFlushStatus.patch
 All	Storage/FAT32VolumeFlush/CcBcbOwnership.patch
+All	Graphics/VBoxVGATextMode/SetupBootFramebuffer.patch
 All	Graphics/UserInitUnlock/UserInitUnlock.patch
 All	Graphics/MonitorTargetRelation/MonitorRelationCompletion.patch
 All	Graphics/MonitorListCompletion/MonitorListCompletion.patch

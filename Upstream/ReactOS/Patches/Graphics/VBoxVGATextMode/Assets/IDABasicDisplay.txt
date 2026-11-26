@@ -1,0 +1,48 @@
+Microsoft BasicDisplay.sys, x64 10.0.26100.8521
+SHA-256: 75ab8fd5c899616e70b6252b6c7291463f7750de5866fbb5b6f8b0d21daf3eea
+PE RSDS / Microsoft public symbols: BasicDisplay.pdb/C746EA55075E1B93098BFD4B82B7113C1
+IDA image base: 0x140000000. Addresses below are RVAs.
+
+BASIC_DISPLAY_DRIVER::StartDevice (D49C)
+  D81A  mov edx,4                ; DxgkServicesBDD in WDK dispmprt.h
+  D81F  mov word ptr [rsi],28h   ; interface at this+380h, size 40
+  D824  mov [rbx+382h],r13w      ; version 1
+  D82C  call _guard_dispatch_icall
+  D893  mov rax,[rbx+3A0h]       ; returned interface, slot +20h
+  D89A  lea rdx,[rsp+160h+var_100]
+  D89F  mov rcx,[rbx+10h]        ; device handle
+  D8A3  call _guard_dispatch_icall
+  D8AB  test eax,eax
+  D8AD  jns  loc_14000D8DD
+
+  In the branch that keeps the supplied display information, 32 bytes are
+  copied into the driver object. Their layout matches DXGK_DISPLAY_INFORMATION
+  (d3dkmdt.h): Width +0, Height +4, Pitch +8, ColorFormat +C, PhysicAddress +10.
+  The callback takes a larger output buffer. Its private name is not needed
+  to identify the fields consumed below.
+
+  DA70  mov edx,[rbx+2F8h]       ; Pitch, in bytes
+  DA76  imul edx,[rbx+2F4h]      ; Height
+  DA7D  mov rcx,[rbx+300h]       ; PhysicAddress
+  DA84  call MapFrameBuffer
+  DA89  test eax,eax
+  DA8B  js   loc_14000DABB
+
+  Condensed pseudocode of this branch:
+    status = MapFrameBuffer(info.PhysicAddress, info.Height * info.Pitch, &address);
+    if (status < 0) return status;
+
+MapFrameBuffer (101D8)
+  Rejects a zero physical address, byte count or output pointer (C000000D).
+  Calls MmMapIoSpaceEx with protection 404h (RW | WRITECOMBINE), then 204h
+  (RW | NOCACHE) on failure; returns C0000017 if neither mapping succeeds.
+
+BASIC_DISPLAY_DRIVER::SetSourceModeAndPath (F58C)
+  F5EA-F609: when other modes are unavailable, compares the requested width
+  and height with the saved dimensions and rejects a mismatch. A separate
+  mode-setting branch calls BiosSetDisplayMode (F6B9). The shared mapping
+  path (F90D) also uses the saved physical address and pitch times height.
+
+Scope: static evidence from this driver build. StartDevice also consults
+firmware data and contains a device-string comparison; this is not evidence
+that Windows never uses adapter quirks, or a trace of Windows text Setup.
