@@ -2,6 +2,14 @@
 
 默认 [CC 补丁](../../../../Upstream/ReactOS/Patches/Runtime/ReactOS-cc-bcb-ownership.patch)基于 ReactOS `4fbbefd614b`。纯 x64 默认队列的源码树为 `bd620b9b5a8c386e1bc981726bed3943425e4b74`。以下结果按调用方能看到的返回值、事件状态、文件长度和数据核对。
 
+## 兼容目标与重构条件
+
+**以文件系统和应用实际观察到的 Windows 行为为准。** 除了最终读回的字节，还要核对调用是返回错误还是抛出异常、失败后另一调用方能看到的 EOF，以及关闭事件在函数返回时是否已置位。ReactOS 可以使用不同的私有结构；保留实现差异时，应说明原因、对调用方的影响和验证依据。
+
+本次在现有架构上修正了截断、尺寸更新和关闭通知。同一驱动在两个系统上的 28 个观测字段一致，说明这些场景不需要整体重写缓存管理器。这些结果不能外推到整个缓存管理器（CC）和内存管理器（MM），尤其是写回与截断或关闭并发、内存不足及 I/O 失败后的重试。
+
+后续发现差异时，先在同一条件下取得 Windows 运行对照。若差异来自一个错误出口或通知条件，就修正该处并增加对应回归。若多条路径都因为同一问题而不兼容，例如截断和写回都无法可靠判断谁还持有页面，则一并重构 CC/MM 之间的引用管理或写回顺序，再用这些路径共同验收。
+
 ## Windows 内核实际返回了什么
 
 用 IDA MCP 核对 `ntoskrnl.exe` **10.0.26100.9974**，用 WinDbg 核对 Hyper-V 中已加载的 **10.0.26100.9457**（[两版入口](Evidence/CcTruncate/resize-abi-by-build.json)、[调试回执索引](Evidence/CcTruncate/Native-9457/reference.json)）。在后者上又用[内核对照程序](Checks/size-ddi.c)调用公开接口。它只操作自己提供的零填充文件；尺寸请求期间映射仍在使用的 4096 字节前缀不会被截掉。直接读取 DDI 返回值，关闭事件在调用返回后立即读取。[Windows 记录](Evidence/CcTruncate/Native-9457/windows-ddi.json)。另一次执行中，WinDbg 在该测试驱动的记录函数观察到 [34 次有序采样](Evidence/CcTruncate/Native-9457/windbg-trace.json)，28 个不同字段和驱动回执完全一致。
@@ -25,7 +33,7 @@
 ## 保留的实现差异及影响
 
 - ReactOS 自己持有待写的 BCB 页记录，MM 也可能只完成一部分尾部清理。因此记住未完成后缀，重试时跳过文件系统已经声明有效的新数据。pin-access 流还会清掉已失效的**空闲**元数据记录。这可能增加一次清理，但既不能销毁活动的 pin，也不能让旧失败否决本次合法增长。该记录不属于 Windows ABI。
-- 最终释放沿用 ReactOS 的 cache worker、VACB 脏页记账和内存分配器。若排队所需的工作项分配失败，转为同步完成，调用方可能在关闭中等得更久。测试区分“返回时是否完成”和“最终是否交付”，不承诺两种实现的调度延时相同。
+- 最终释放沿用 ReactOS 的 cache worker、VACB 脏页记账和内存分配器。若关闭时无法为写回分配工作项，ReactOS 改为同步清理：调用方可能等得更久，但返回时清理已完成，传入的事件也已置位。宿主用例覆盖了这个回退分支；Windows 在同等内存压力下的返回值和通知时序尚未实测。
 
 宿主用[实际 CC/MM 函数](Checks/truncate.c)测试两类清理拒绝、部分页、稀疏尾部、仍活动的写入、保留有效字节、关闭立即通知、延后通知和重开取消等待等。x64 和 x86 的尺寸/通知各 **34/34**，原写回、BCB 和 FAT 检查均通过。[宿主与队列记录](Evidence/CcTruncate/Native-9457/checks.json)。正式来宾的比较方法是离线核对安装的 MP 内核、FastFAT 和程序身份，然后从硬盘冷启动，对照同一程序的返回值和输出。
 
@@ -41,4 +49,4 @@
 
 [安装组件身份、关机后取回的字段与文件输出](Evidence/CcTruncate/Native-9457/reactos-guest.json)。可运行 `python Docs/Notes/HyperV-Desktop-QA/Review/Checks/compare-size-runs.py` 重做比较。x86 的覆盖为宿主用例与 UP/MP 内核链接；真实来宾覆盖为 x64。
 
-验收通过的同一份 BootCD 已更新到 `OutDir/bootcd-x64-Debug.iso`，SHA-256：`2bffbc71fc69e84ccd1fc0c38e0150c44f2aa4709848de3bf6fb26f839508bc8`。
+验收通过的同一份 BootCD 已更新到 `OutDir/bootcd-x64-Debug.iso`，SHA-256：`2bffbc71fc69e84ccd1fc0c38e0150c44f2aa4709848de3bf6fb26f839508bc8`。构建记录中的 `ownershipSha256` 对应验收提交 `c369b1c` 的补丁全文，包含当时的补丁前言。
