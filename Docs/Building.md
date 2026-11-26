@@ -52,6 +52,8 @@ what this enables and why a larger value is not necessarily more compatible.
 
 Open `Patches/<category>/<issue>/` for the [issue README](README.md#notes) and, when a fix is selected, one main `.patch`. The category groups related problems; it does not determine patch order or platform. Attachments and simple cases go in `Assets/`; multi-file test programs go in `Tests/`. Only paths named in the series enter the build.
 
+Put the Kundows copyright notice, `SPDX-License-Identifier: MIT` and the MIT license text in each new source file authored for a patch, including diagnostic patches. Preserve existing notices when modifying or adapting upstream or third-party code.
+
 Patches apply to the shared submodule working tree. `Configure.cmd`
 recognizes already-applied patches and stops on conflicts. Use a clean
 pinned source tree when switching back to a smaller patch set; configuring

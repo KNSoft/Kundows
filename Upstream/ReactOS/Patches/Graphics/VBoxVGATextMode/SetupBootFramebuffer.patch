@@ -363,15 +363,34 @@ index 06e498d8208..af6e25c0f2b 100644
          /* Now set ResetDisplayParametersDeviceExtension to enable synchronizing with INBV */
 diff --git a/drivers/setup/blue/setupfb.c b/drivers/setup/blue/setupfb.c
 new file mode 100644
-index 00000000000..24d193074f4
+index 00000000000..4971ecea113
 --- /dev/null
 +++ b/drivers/setup/blue/setupfb.c
-@@ -0,0 +1,89 @@
+@@ -0,0 +1,108 @@
 +/*
-+ * PROJECT:     ReactOS Console Text-Mode Device Driver
-+ * LICENSE:     GPL-2.0-or-later
-+ * PURPOSE:     Present the Setup text grid through the active boot video driver
++ * Copyright (c) 2026 Kundows contributors
++ * SPDX-License-Identifier: MIT
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in all
++ * copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++ * SOFTWARE.
 + */
++
++/* Present the Setup text grid through the active boot video driver. */
 +#include "blue.h"
 +#include "setupfb.h"
 +#include <arc/arc.h>
@@ -458,15 +477,34 @@ index 00000000000..24d193074f4
 +}
 diff --git a/drivers/setup/blue/setupfb.h b/drivers/setup/blue/setupfb.h
 new file mode 100644
-index 00000000000..8d48b22a146
+index 00000000000..8d03d4c21b6
 --- /dev/null
 +++ b/drivers/setup/blue/setupfb.h
-@@ -0,0 +1,24 @@
+@@ -0,0 +1,43 @@
 +/*
-+ * PROJECT:     ReactOS Console Text-Mode Device Driver
-+ * LICENSE:     GPL-2.0-or-later
-+ * PURPOSE:     Text Setup on the boot video driver's linear framebuffer
++ * Copyright (c) 2026 Kundows contributors
++ * SPDX-License-Identifier: MIT
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in all
++ * copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++ * SOFTWARE.
 + */
++
++/* Text Setup on the boot video driver's linear framebuffer. */
 +#pragma once
 +
 +#define SETUP_COLUMNS 80

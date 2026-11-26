@@ -4,15 +4,34 @@ stubs. Successful linking does not establish ARM64 runtime support.
 
 diff --git a/dll/ntdll/dispatch/arm64/stubs_asm.s b/dll/ntdll/dispatch/arm64/stubs_asm.s
 new file mode 100644
-index 00000000000..c10d5765347
+index 00000000000..b60e95b58d1
 --- /dev/null
 +++ b/dll/ntdll/dispatch/arm64/stubs_asm.s
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,39 @@
 +/*
-+ * PROJECT:     ReactOS NTDLL
-+ * PURPOSE:     ARM64 user-mode dispatcher entry stubs
++ * Copyright (c) 2026 Kundows contributors
++ * SPDX-License-Identifier: MIT
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in all
++ * copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++ * SOFTWARE.
 + */
 +
++/* ARM64 user-mode dispatcher entry stubs. */
 +#include <kxarm64.h>
 +
 +    TEXTAREA
@@ -154,15 +173,34 @@ index a59cee00e6b..80baaeb10d8 100644
  
 diff --git a/sdk/lib/rtl/arm64/debug_asm.S b/sdk/lib/rtl/arm64/debug_asm.S
 new file mode 100644
-index 00000000000..4ae1b4c5076
+index 00000000000..dfd89e72133
 --- /dev/null
 +++ b/sdk/lib/rtl/arm64/debug_asm.S
-@@ -0,0 +1,32 @@
+@@ -0,0 +1,51 @@
 +/*
-+ * PROJECT:     ReactOS Run-Time Library
-+ * PURPOSE:     ARM64 debug routines
++ * Copyright (c) 2026 Kundows contributors
++ * SPDX-License-Identifier: MIT
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in all
++ * copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++ * SOFTWARE.
 + */
 +
++/* ARM64 debug routines. */
 +#include <kxarm64.h>
 +
 +    TEXTAREA
@@ -192,16 +230,34 @@ index 00000000000..4ae1b4c5076
 +    END
 diff --git a/sdk/lib/rtl/arm64/except.c b/sdk/lib/rtl/arm64/except.c
 new file mode 100644
-index 00000000000..54396704d76
+index 00000000000..64e0b97b7c8
 --- /dev/null
 +++ b/sdk/lib/rtl/arm64/except.c
-@@ -0,0 +1,67 @@
+@@ -0,0 +1,85 @@
 +/*
-+ * PROJECT:     ReactOS Runtime Library
-+ * LICENSE:     GPL-2.0-or-later
-+ * PURPOSE:     ARM64 user-mode exception support stubs
++ * Copyright (c) 2026 Kundows contributors
++ * SPDX-License-Identifier: MIT
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in all
++ * copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++ * SOFTWARE.
 + */
 +
++/* ARM64 user-mode exception support stubs. */
 +#include <rtl.h>
 +
 +#define NDEBUG
@@ -265,15 +321,34 @@ index 00000000000..54396704d76
 +}
 diff --git a/sdk/lib/rtl/arm64/interlocked.S b/sdk/lib/rtl/arm64/interlocked.S
 new file mode 100644
-index 00000000000..d62c47c1410
+index 00000000000..0f633cda832
 --- /dev/null
 +++ b/sdk/lib/rtl/arm64/interlocked.S
-@@ -0,0 +1,47 @@
+@@ -0,0 +1,66 @@
 +/*
-+ * PROJECT:     ReactOS Runtime Library
-+ * PURPOSE:     ARM64 128-bit interlocked operation
++ * Copyright (c) 2026 Kundows contributors
++ * SPDX-License-Identifier: MIT
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in all
++ * copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++ * SOFTWARE.
 + */
 +
++/* ARM64 128-bit interlocked operation. */
 +#include <kxarm64.h>
 +
 +    TEXTAREA
