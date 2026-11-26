@@ -1,3 +1,4 @@
 *.cmd text eol=crlf
 *.patch text eol=lf
 Upstream/ReactOS/Patches/Shared/Desktop/Inputs/** -text whitespace=cr-at-eol
+Upstream/ReactOS/Patches/Applications/FindStrLineAnchors/Assets/Inputs/** -text whitespace=cr-at-eol

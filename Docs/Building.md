@@ -50,7 +50,7 @@ what this enables and why a larger value is not necessarily more compatible.
 
 [`Series.tsv`](../Upstream/ReactOS/Patches/Series.tsv) lists one issue patch per line, in apply order. `All` selects every target, `ARM64` the ARM64 target only, and `ImageFixes` adds the optional `--image-fixes` patch. ARM64 requires the ARM64 MSVC tools. To print a selection, run `Build\ReactOSSeries.cmd List amd64` (or `i386` / `arm64`, optionally followed by `--image-fixes`).
 
-Open `Patches/<category>/<issue>/` for the [issue README](README.md#notes) and, when a fix is selected, one main `.patch`. The category groups related problems; it does not determine patch order or platform. Attachments and simple cases go in `Assets/`; multi-file test programs go in `Tests/`. Only paths named in the series enter the build. The [shared checks](../Upstream/ReactOS/Patches/Shared/README.md) exercise queue application, recognition and rollback without changing the source checkout.
+Open `Patches/<category>/<issue>/` for the [issue README](README.md#notes) and, when a fix is selected, one main `.patch`. The category groups related problems; it does not determine patch order or platform. Attachments and simple cases go in `Assets/`; multi-file test programs go in `Tests/`. Only paths named in the series enter the build. [CheckSeries.cmd](../Upstream/ReactOS/Patches/Shared/CheckSeries.cmd) tests queue application, recognition and rollback without changing the source checkout.
 
 Patches apply to the shared submodule working tree. `Configure.cmd`
 recognizes already-applied patches and stops on conflicts. Use a clean

@@ -5,11 +5,17 @@ Run commands from the checkout root. These are shared test tools; [issue notes](
 | Entry | What it measures |
 |---|---|
 | Host C tests | Run the issue's `Run.cmd` in a native VS developer prompt. For example, [UserInitUnlock/Assets/Run.cmd](../Graphics/UserInitUnlock/Assets/Run.cmd) compiles and runs `User.c` against `NtUserInitialize` from the selected ReactOS source. |
-| [CheckSeries.py](CheckSeries.py) | Apply each selectable queue on a disposable Git index, recognize the already-applied patches, reverse them, and print the applied tree. |
-| [CheckMedia.py](CheckMedia.py) | Run `identity`, `links`, `media` or `baseline` from the repository root. For an optional x64 image pass `--image-fixes` to all candidate-identity checks. Re-record identities for the current inputs; a historical hash is valid only for its original bytes. |
-| [SavedGuest.py](SavedGuest.py) | Shared Windows SDK saved-state reader used by the [one-sided mirror investigation](../Storage/FAT32InstallMirrorDivergence/README.md) and [volume-flush tests](../Storage/FAT32VolumeFlush/README.md#running-the-tests). |
+| [CheckSeries.cmd](CheckSeries.cmd) | Check selection, application and rollback of each queue on a temporary Git index. Also check that the two cache repairs produce the same tree in either order. |
 
-The [host build command](Host/Run.cmd) uses the current `cl` with Debug defaults. For tests that exercise kernel code in user mode, the issue names the production functions to compile. The [source reader](Host/Extract.ps1) reads the checkout by default; `--stock` selects the upstream pin. Stock negative controls can intentionally return nonzero.
+From the checkout root, with the ReactOS submodule initialized and the patches applied, run:
+
+```bat
+Upstream\ReactOS\Patches\Graphics\UserInitUnlock\Assets\Run.cmd
+```
+
+The issue's command names `win32ss/user/ntuser/ntuser.c` and `NtUserInitialize`. The [source reader](Host/Extract.ps1) takes that function from the checkout and the [host build command](Host/Run.cmd) uses the current `cl` to compile and run the C test with Debug defaults. For this example the patched source passes 5/5; adding `--stock` tests the upstream pin and exposes the GDI failure (4/5).
+
+[BootCD/](BootCD/README.md) holds historical installation evidence. The [x64 image verifier and saved-state reader at `794f531`](https://github.com/KNSoft/Kundows/tree/794f531c7b80f726547845e7c1d19bd9d1c92e77/Upstream/ReactOS/Patches/Shared) remain available for reproducing those investigations.
 
 ## Desktop application fixtures
 
